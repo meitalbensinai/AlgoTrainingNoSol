@@ -1,11 +1,12 @@
 # Kernels
+
+Read about kernels 
+
 Some intuition about kernels:
 
 https://sebastianraschka.com/Articles/2014_kernel_pca.html 
 
 https://arxiv.org/pdf/1207.3538.pdf 
-
-http://scikit-learn.org/stable/modules/svm.html 
 
 For every dataset from list 1, for every algorithm from list 2 and for every kernel from list 3 perform the next steps:
 
