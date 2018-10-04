@@ -1,5 +1,9 @@
 # Linear Regression
 
+Read pages 59-104 in ISLR book.
+
+Then finish the next exercise:
+
 Use sklearn.datasets.load_boston to load the boston dataset. It contains a description of the data.
 
 Univariate regression
