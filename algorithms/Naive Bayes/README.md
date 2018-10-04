@@ -24,7 +24,7 @@ Finally to classify a new vector of features, we just have to choose the Surviva
 
 ## The Exercise
 
-You are given a data-set form the titanic disaster containing some information about the people who boarded the ship and whether they have survived or not.
+You are given a data-set from the titanic disaster containing some information about the people who boarded the ship and whether they have survived or not.
 
 To accomplish this task you are given two files in the data folder, one for training, `train.csv`, and one for testing, `test.csv`. Those files contain the classification (whether or not they have survived), under the `survived` column, and some features about each personnel, like their `Sec`, `Age`, `Fare` and more.
 
@@ -49,6 +49,3 @@ One possible solution can be found in the `solution.py` module, but it's obvious
 ## Hints
 
 You will need to implement several functions that will allow you to classify people in the `test.csv` file:
-
-- TODO
-- TODO
