@@ -1,6 +1,10 @@
 # Kernels
 
-Read about kernels 
+Read about kernels(up to page 8, not throughly, just to get the sense) 
+
+http://www.kernel-machines.org/publications/pdfs/0701907.pdf
+
+Read about KPCA in Bishop 586-590
 
 Some intuition about kernels:
 
