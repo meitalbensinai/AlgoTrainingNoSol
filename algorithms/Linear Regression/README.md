@@ -1,5 +1,7 @@
 # Linear Regression
 
+Use sklearn.datasets.load_boston to load the boston dataset. It contains a description of the data.
+
 Univariate regression
 
 1.	Fit a linear regression model with medv as the response and lstat as the predictor.
