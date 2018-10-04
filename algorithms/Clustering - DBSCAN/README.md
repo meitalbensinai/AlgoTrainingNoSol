@@ -1,14 +1,8 @@
 # Clustering - DBSCAN
 
-Read about the algorithm:
+Read about the DBSCAN algorithm from whichever source you prefer.
 
-http://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py
-
-https://towardsdatascience.com/a-brief-overview-of-outlier-detection-techniques-1e0b2c19e561 
-
-Specifically, about dbscan algorithm.
-
-You will implement a variation of this algorithm and understand better outlier detection.
+You will implement a variation of this algorithm to detect outliers.
 
 Data.csv contains x (first column), y (second column) and class (third column):
 
