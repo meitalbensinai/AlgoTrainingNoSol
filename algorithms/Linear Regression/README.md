@@ -1,6 +1,6 @@
 # Linear Regression
 
-Read pages 59-104 in ISLR book.
+Read pages 59-103 in ISLR book.
 
 Then finish the next exercise:
 
