@@ -1,6 +1,8 @@
 # Clustering - DBSCAN
 
-Read about the DBSCAN algorithm from whichever source you prefer.
+Read about the DBSCAN algorithm:
+
+https://www-users.cs.umn.edu/~kumar001/dmbook/ch8.pdf pages 526-555
 
 You will implement a variation of this algorithm to detect outliers.
 
