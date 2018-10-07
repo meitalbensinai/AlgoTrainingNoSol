@@ -1,5 +1,9 @@
 # Python
 
+Read the next textbook:
+
+https://python-textbok.readthedocs.io/en/1.0/
+
 Read the following notebook:
 
 https://github.com/gumption/Python_for_Data_Science/blob/master/3_Python_Basic_Concepts.ipynb
