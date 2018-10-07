@@ -10,12 +10,20 @@ https://github.com/gumption/Python_for_Data_Science/blob/master/3_Python_Basic_C
 
 # Numpy
 
-Finish the first 50 exercises:
+Complete the first 50 exercises:
 
 https://github.com/rougier/numpy-100
 
 # Pandas
 
-Finish exercises on two datasets from every chapter in:
+Complete exercises on two datasets from every chapter in:
 
 https://github.com/guipsamora/pandas_exercises
+
+# Git 
+
+Complete the next exercises:
+
+https://www.atlassian.com/git/tutorials
+
+https://learngitbranching.js.org/
