@@ -20,6 +20,12 @@ Complete exercises on two datasets from every chapter in:
 
 https://github.com/guipsamora/pandas_exercises
 
+# Linux
+
+Read the next book:
+
+https://drive.google.com/file/d/0B7JUyl32mthxRE8xc3d5d01BQWo4Y0JrY0RuWWJiNHhvZzdr/view
+
 # Git 
 
 Complete the next exercises:
