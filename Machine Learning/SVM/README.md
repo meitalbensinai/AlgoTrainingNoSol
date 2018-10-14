@@ -32,7 +32,7 @@ Extend the hypothesis for higher dimension while keeping the training and test s
 
 # Part 3
 
-Denote the number of train samples N, and the dimension P. Test samples number is fixed. For every region N<<P, N=P, N>>P show how a decrease by a factor of alpha in the error is achieved with changing N or P. Plot all results one graph. 
+Denote the number of train samples N, and the dimension P. Test samples number is fixed. For every region N<<P, N=P, N>>P show how a change by a factor of alpha in the error is achieved with changing N or P. Plot all results one informative graph. 
 
 # Part 4
 
