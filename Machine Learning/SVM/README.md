@@ -4,6 +4,7 @@ Read about SVM from ISLR pages 337-359
 
 Answer questions 3,6 in exercise section
 
+Then proceed with the next question:
 
 In the next exercises assume the data is 2 dimensional and distributes uniformly on [0,1] X [0,1] unless otherwise stated.
 
