@@ -18,3 +18,5 @@ Choose 3 problems in https://www.analyticsvidhya.com/blog/2018/05/24-ultimate-da
 
 Prepare a problem formalization document for each one, compare your assumptions with the given solution for each problem.
 
+Also explain why each problem should be solved with ML.
+
