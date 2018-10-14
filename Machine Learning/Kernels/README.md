@@ -1,8 +1,10 @@
 # Kernels
 
-Read about kernels(up to page 8, not throughly, just to get the sense) 
+Read about kernels in Bishop Chapter 6 up to 6.1 including
 
-http://www.kernel-machines.org/publications/pdfs/0701907.pdf
+Solve exercise 6.3 in the end of the chapter
+
+Now:
 
 Read about KPCA in Bishop 586-590
 
