@@ -12,7 +12,7 @@ In the next exercises assume the data is 2 dimensional and distributes uniformly
 
 In this exercise we assume the hypothesis we want to learn is classification by y=1-x:
 
-Class =1 if y>1-x, 0 otherwise
+Class = 1 if y>1-x, otherwise 0
 
 Create a train dataset by generating 1000 labeled points
 
