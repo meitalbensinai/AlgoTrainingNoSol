@@ -7,7 +7,9 @@ https://www.atlassian.com/git/tutorials
 https://learngitbranching.js.org/
 
 ########################################################
+
 FROM NOW ON PERFORM THE REST OF THE TRAINING ON GIT!!!
+
 ########################################################
 
 # Python
