@@ -1,3 +1,15 @@
+# Git 
+
+Complete the next exercises:
+
+https://www.atlassian.com/git/tutorials
+
+https://learngitbranching.js.org/
+
+########################################################
+FROM NOW ON PERFORM THE REST OF THE TRAINING ON GIT!!!
+########################################################
+
 # Python
 
 Read the next textbook:
@@ -26,10 +38,4 @@ Read the next book:
 
 https://drive.google.com/file/d/0B7JUyl32mthxRE8xc3d5d01BQWo4Y0JrY0RuWWJiNHhvZzdr/view
 
-# Git 
 
-Complete the next exercises:
-
-https://www.atlassian.com/git/tutorials
-
-https://learngitbranching.js.org/
