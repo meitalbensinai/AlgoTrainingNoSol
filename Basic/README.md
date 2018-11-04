@@ -8,15 +8,20 @@ https://learngitbranching.js.org/
 
 ########################################################
 
-FROM NOW ON PERFORM THE REST OF THE TRAINING ON GIT!!!
+OPEN A GIT!! FROM NOW ON PERFORM THE REST OF THE TRAINING ON YOUR PERSONAL GIT - YOU ARE NOT A CHILD ANYMORE.
 
 ########################################################
 
 # Python
 
-If not familar with python, ead the next textbook, answer one question from each section:
+If not familar with python, read the next textbook (make sure you understand the concepts):
 
 https://python-textbok.readthedocs.io/en/1.0/
+
+up to Object oriented programming chapter.
+
+Answer two questions from each of the next sections: Python basics,Variables and scope, Selection control statements, Collections,
+Loop control statements, Errors and exceptions, Functions, Classes, Object oriented programming.
 
 If familair with python, read the following notebook:
 
