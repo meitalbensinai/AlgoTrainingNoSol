@@ -1,6 +1,6 @@
 # Openintro statistics book
 
-Read the relevant chapters when needed to solve the material.
+Read the relevant chapters when needed to solve.
 
 Chapter 2 – basic probability, conditional probability, random variables:
 
