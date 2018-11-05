@@ -23,7 +23,7 @@ up to Object oriented programming chapter.
 Answer two questions from each of the next sections: Python basics,Variables and scope, Selection control statements, Collections,
 Loop control statements, Errors and exceptions, Functions, Classes, Object oriented programming.
 
-If familair with python, read the following notebook:
+If familiar with python, read the following notebook:
 
 https://github.com/gumption/Python_for_Data_Science/blob/master/3_Python_Basic_Concepts.ipynb
 
