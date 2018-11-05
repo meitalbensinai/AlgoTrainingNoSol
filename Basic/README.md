@@ -2,9 +2,9 @@
 
 Complete the next exercises:
 
-https://www.atlassian.com/git/tutorials
+https://www.atlassian.com/git/tutorials - Beginner, Getting started, Collaborating.
 
-https://learngitbranching.js.org/
+https://learngitbranching.js.org/ - Introduction Sequence,Ramping Up,Moving Work Around,Push & Pull -- Git Remotes!. More is welcomed :) but not necessary.
 
 ###########################################################################################
 
