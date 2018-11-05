@@ -4,7 +4,7 @@ Read the next summary when to apply machine learning:
 
 https://www.techemergence.com/how-to-apply-machine-learning-to-business-problems/
 
-ML is not the solution to all the problems!!!
+One thing to remeber: ML is not the solution to all the problems!!!
 
 # Exercise
 
