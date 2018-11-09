@@ -1,6 +1,6 @@
 ## Computational Geometry
 
-Read chapter 33
+Read chapter 33.
 
 Answer questions:
 
