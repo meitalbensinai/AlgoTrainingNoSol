@@ -1,5 +1,5 @@
-Insertion & Merge Sorts
+## Insertion & Merge Sorts
 
-Read chapter 2
+Read chapter 2.
 
-Answer question 2.1
+Answer question 2.1.
