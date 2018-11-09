@@ -1,4 +1,4 @@
-##Computational Geometry
+## Computational Geometry
 
 Read chapter 33
 
