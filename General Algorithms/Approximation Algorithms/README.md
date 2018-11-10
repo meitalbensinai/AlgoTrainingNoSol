@@ -10,4 +10,4 @@ cover in a given graph in time T(n). Explain how you could use this algorithm to
 
 35.2-3
 
-
+35.4-2
