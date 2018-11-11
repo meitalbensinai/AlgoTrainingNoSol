@@ -1,4 +1,4 @@
-# TRAINING EXERSICE – PCA
+# PCA
 
 Read pages 559-570 in Bishop book – first part on PCA, and more in the internet ofcourse :) 
 
