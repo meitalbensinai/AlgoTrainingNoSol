@@ -1,6 +1,6 @@
 # Greedy Algorithms
 
-Read chapter 16.
+Read chapter 16 up to 16.3 including.
 
 Answer questions:
 
@@ -8,3 +8,4 @@ Answer questions:
 
 16.2-6.
 
+16-1.
