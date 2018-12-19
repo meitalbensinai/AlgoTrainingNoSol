@@ -1,11 +1,9 @@
 # Greedy Algorithms
 
-Read chapter 16 up to 16.3 including.
+Read in IA p.423-427.
 
 Answer questions:
 
-16.1-4.
+IA p.446 - 16-1.
 
-16.2-6.
-
-16-1.
+IA p.447 - 16-2.
