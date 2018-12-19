@@ -1,4 +1,4 @@
-## Quicksort
+## Basic Sorting
 
 Read pages 170-179 in IA and 30-37 in IA.
 
