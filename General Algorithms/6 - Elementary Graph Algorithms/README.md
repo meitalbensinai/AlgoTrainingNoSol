@@ -1,8 +1,14 @@
 # Elementary Graph Algorithms
 
-Read about BFS p.162 and DFS p.169.
+Read the war-story in ADM p.158-160.
 
-Answer 5.17.
+Read about BFS and DFS in ADM p.161-170.
+
+Answer questions:
+
+ADM p.187 - 5.13.
+
+ADM p.188 - 5.17.
 
 Answer “Playing with Wheels” – Programming Challenges 110902, UVA Judge 10067
 https://uva.onlinejudge.org/external/100/p10067.pdf - question
