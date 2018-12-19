@@ -1,9 +1,9 @@
-## Sorting In Linear Time
+## Advanced 
 
-Read chapter 8.3 on Radix sort and 8.4 on Bucket sort.
+Read p.197-204 on Radix sort and Bucket sort in IA.
 
 Answer questions:
 
-8.4-4
+IA p.204 - 8.4-4.
 
-8-4
+IA p.206 - 8-4.
