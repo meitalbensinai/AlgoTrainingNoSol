@@ -1,11 +1,11 @@
 ## Quicksort
 
-Read chapter 7.
+Read pages 170-179 in IA and 30-37 in IA.
 
 Answer questions:
 
-7.1-2
+ADM p.139 - exe. 4-3.
 
-7.2-3
+IA p.189 - 7-6.
 
-7-6
+ADM p.144 - 4-41,4-43.
