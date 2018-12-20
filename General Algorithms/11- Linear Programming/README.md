@@ -10,8 +10,6 @@ IA p.864 - 29.2-5.
 
 IA p.864 - 29.2-6.
 
-IA p.864 - 29-5.
-
 Optional - if interested in how LP works read IA p.864-878.
 
 ## Programming Assignment
