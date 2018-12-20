@@ -1,11 +1,25 @@
 ## Computational Geometry
 
-Read chapter 33.
+Read in IA p.1014-1020
 
-Answer questions:
+Answer question:
 
-33.1-3
+IA p.1020 - 33.1-3.
 
-33.3-6
+Read in IA p.1022-1027
 
-33.4-3
+Answer question:
+
+IA p.1028 - 33.2-5.
+
+Read in IA p.1029-1038
+
+Answer question:
+
+IA p.1039 - 33.3-6.
+
+Read in IA p.1039-1043
+
+Answer question:
+
+IA p.1039 - 33.4-3.
