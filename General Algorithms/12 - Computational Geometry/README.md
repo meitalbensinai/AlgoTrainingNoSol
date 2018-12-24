@@ -23,3 +23,5 @@ Read in IA p.1039-1043
 Answer question:
 
 IA p.1039 - 33.4-3.
+
+https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1006
