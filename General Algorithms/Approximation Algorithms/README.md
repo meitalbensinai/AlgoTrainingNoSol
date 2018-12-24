@@ -1,17 +1,19 @@
 ## Approximation Algorithms
 
-Read chapter 35.
+Read in IA p.1106-1111.
 
-Answer the next questions:
+Answer:
 
-After 35.1: Read about clique in a graph and complementary graph. Suppose you had an algorithm for finding a minimum vertex
-cover in a given graph in time T(n). Explain how you could use this algorithm to find a maximum clique in a given graph 
-(over n vertices) in time O(T(n)+poly(n)). Hint: Complementary graph.
+IA p.1111 - 35.1-5.
 
-35.2-3
+Read in IA p.1111-1116.
 
-35.4-2
+Answer:
 
-35-1
+IA p.1116 35.2-2.
 
-35-7
+Read in IA p.1123-1127.
+
+Answer:
+
+IA p.1127 - 35.42.
