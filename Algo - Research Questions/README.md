@@ -16,6 +16,12 @@ For that problem, prepare a research report answering the next questions:
 
 * What is the input? what is the output? summarize the problem.
 
-* Research the topic and explain 3 different solutions to the problem, comparing the different models and solutions.
+* Research the topic and explain 3 different solutions to the problem:
+  
+  Compare memory, running time, accuracy...
+  
+  Compare different modellings.
 
 * Research different python libraries used in the civil world to solve those.
+
+** Include reference to articles and discuss
