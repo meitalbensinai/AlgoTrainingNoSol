@@ -14,7 +14,7 @@ Problem Formalization
 
 NN specialization
 
-Final Project
+Your team final project
 
 Thats it for basic training, congrats!!!
 
