@@ -1,14 +1,33 @@
 # Flow
 
-Basic - Git,Python,Numpy,Pandas,Linux,Google Crash Course,Cleaning and Visualization exercises.
+Basic
 
 Statistics
 
-Common Ground - Algo and DS
+Common Grounds - Algo and DS
 
-Team Topics - extra algo, 1 week from image processing course, 1 week reinforcement
+Your team topics
 
 Problem Formalization
 
-Andrew's deep learning course
+NN specialization
 
+Final Project
+
+Thats it for basic training, congrats!!!
+
+# Advanced
+
+# If in Algo team:
+
+Finish CV course
+
+Finish Reinforcement 
+
+# If in DS team:
+
+Finish NLP Introduction
+
+Finish SNA Introduction
+
+Finish Reinforcement introduction
