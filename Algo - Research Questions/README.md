@@ -10,7 +10,7 @@ Choose 3 types of problems from the following list:
 
 4. Graph Problems: Hard Problems
 
-for each type - look for a problem of your choosing in ADM algorithms catalog.
+For each type - look for a problem of your choosing in ADM algorithms catalog.
 
 For that problem, prepare a research report answering the next questions:
 
