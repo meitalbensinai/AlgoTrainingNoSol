@@ -50,3 +50,11 @@ Read the next book:
 https://drive.google.com/file/d/0B7JUyl32mthxRE8xc3d5d01BQWo4Y0JrY0RuWWJiNHhvZzdr/view
 
 Answer questions in pages 10,16,18 using the online terminal https://bellard.org/jslinux/vm.html?url=https://bellard.org/jslinux/buildroot-x86.cfg. 
+
+# Complete Google Crash Course
+
+https://developers.google.com/machine-learning/crash-course/ml-intro
+
+Go through all subjects, if a subject seems coherent enough no need to do coding exercise. 
+
+Make sure you understand the subjects qualitatively. We will encounter them again.
