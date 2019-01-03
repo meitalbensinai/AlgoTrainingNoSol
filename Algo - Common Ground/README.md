@@ -8,4 +8,7 @@ This training relies on two books:
 
 We refer to (1) as IA and (2) as ADM during all training.
 
-# Order
+
+For Algo guy - Parallel to doing this and team topics, perform the three research report.
+
+For DS guy - Parallel to doing this, perform one research report.
