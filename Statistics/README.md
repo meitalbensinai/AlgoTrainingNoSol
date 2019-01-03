@@ -1,6 +1,12 @@
 # Openintro statistics book
 
-Read the relevant chapters when needed to solve.
+Hover over chapter 3 quickly, if all concepts seem familiar - continue. Otherwise complete background. 
+
+Chapter 4 – point estimate, confidence intervals, hypothesis testing, p value:
+
+Questions: 1,4,5,7,9,11,13,17,19,20,21,23,26,29,30,31,32
+
+# If needs background:
 
 Chapter 2 – basic probability, conditional probability, random variables:
 
@@ -10,9 +16,7 @@ Chapter 3 – normal distribution:
 
 Questions: 1,3,5,7,9,11,14,16,17
 
-Chapter 4 – point estimate, confidence intervals, hypothesis testing, p value:
-
-Questions: 1,4,5,7,9,11,13,17,19,20,21,23,26,29,30,31,32
+# Bonus (only to deepen knowledge in statics, does not help in training):
 
 Chapter 6 – proportion, chi square distribution:
 
