@@ -1,6 +1,6 @@
-## Flow
+# Flow
 
-# Basic Training
+## Basic Training
 
 Basic
 
@@ -18,15 +18,15 @@ Final Project
 
 Thats it for basic training, congrats!!!
 
-# Advanced
+## Advanced
 
-# If in Algo team:
+### If in Algo team:
 
 Finish CV course
 
 Finish Reinforcement 
 
-# If in DS team:
+### If in DS team:
 
 Finish NLP Introduction
 
