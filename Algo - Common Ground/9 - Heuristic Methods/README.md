@@ -1,9 +1,17 @@
 # Heuristic Methods
 
-Read in ADM p.247 - p.260
+Read in Artificial Intelligence: A Modern Approach chapter 4 up to 4.2 (not including).
 
-Read about genetic algorthims from the two given sources.
+Watch the youtube video "Mona Lisa approximated with 150 circles through hill climbing genetic algorithm"
 
-For one of the problems in ADM p.271, implement a Simulated Annealing / Genetic Algorithm solution.
+You will now implement the solution yourself with some additions :)
 
-Submit two graphs showing how the accuracy and search time of the solution behaves as the problem size increases.
+Use 100 circles for approximations, and solve using three methods:
+
+1. Hill Climbing
+
+2. Simulated Annealing
+
+3. Genetic Algorithm
+
+Attach images of approximated images, and graphs you deem relevant, comparing the different solutions.
