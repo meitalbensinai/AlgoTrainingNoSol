@@ -23,6 +23,7 @@ dependency parsing
 n-grams tutorial
 
 Read (4h):
+
 The Unreasonable Effectiveness of Recurrent Neural Networks
 
 Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs
