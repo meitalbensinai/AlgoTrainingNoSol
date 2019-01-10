@@ -1,4 +1,4 @@
-Based on http://web.stanford.edu/class/cs224n/
+# NLP Training
 
 Read (3h):
 
@@ -23,3 +23,7 @@ The Unreasonable Effectiveness of Recurrent Neural Networks
 Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs
 rnn
 seq2seq learning
+
+Total time  - 14h approx.
+
+Based on http://web.stanford.edu/class/cs224n/
