@@ -1,8 +1,16 @@
 # Reinforcement learning
 
-Read in "Artificial Intelligence: A Modern Approach" chapters 17 (up to 17.4 not including) and chapter 21. 
+## Study theoretic material in full, or shortened way:
 
-Watch david silver's reinforcement learning course in youtube.
+### Watch Course (15h)
+
+Watch david silver's reinforcement learning course in youtube (10 lectures of 1.5 hours each).
+
+### Read (3h)
+
+Read in "Artificial Intelligence: A Modern Approach" chapters 17 (up to 17.4 not including) and chapter 21.
+
+## Solve (8h)
 
 Read about openai gym in the next link:
 
@@ -13,5 +21,7 @@ Now try to implement three different policies in the cartpole game, you may use 
 https://openai.com/requests-for-research/
 
 Now implement three different policies for a different game of your choice. Compare them with graphs showing relevant information.
+
+## Read
 
 Read alpha go and alpha zero papers - it is much easier to start from reading the blog.
