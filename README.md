@@ -22,7 +22,7 @@ Thats it for basic training, congrats!!!
 
 ### If in Algo team:
 
-Finish CV course
+Finish CV Introduction
 
 Finish Reinforcement 
 
@@ -32,4 +32,4 @@ Finish NLP Introduction
 
 Finish SNA Introduction
 
-Finish Reinforcement introduction
+Finish Reinforcement 
