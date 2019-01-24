@@ -1,20 +1,20 @@
 # Flow
 
-## Basic Training
+## Basic Training (54 days)
 
-Basic
+Basic - 8 days
 
-Statistics
+Statistics - 2 days
 
-Common Grounds - Algo and DS + Research Reports
+Common Grounds - Algo and DS + Research Reports  -  24 days
 
-Your team topics
+Your team topics - 4 days
 
-Problem Formalization
+Problem Formalization - 1 day
 
-NN specialization
+NN specialization - 10 days
 
-Your team final project
+Your team final project - 5 days
 
 Thats it for basic training, congrats!!!
 
