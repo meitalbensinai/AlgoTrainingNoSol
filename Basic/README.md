@@ -1,4 +1,4 @@
-# Git 
+# Git (1d)
 
 Complete the next exercises:
 
@@ -12,7 +12,7 @@ OPEN A GIT!! FROM NOW ON PERFORM THE REST OF THE TRAINING ON YOUR PERSONAL GIT -
 
 ###########################################################################################
 
-# Python
+# Python (Flexible - depends on your level. 0.5d-2d)
 
 If not familar with python, read the next textbook (make sure you understand the concepts):
 
@@ -27,13 +27,13 @@ If familiar with python, read the following notebook:
 
 https://github.com/gumption/Python_for_Data_Science/blob/master/3_Python_Basic_Concepts.ipynb
 
-# Numpy
+# Numpy (1d)
 
 Complete the first 50 exercises:
 
 https://github.com/rougier/numpy-100
 
-# Pandas
+# Pandas (2d)
 
 Complete exercises on two datasets from every chapter in:
 
@@ -43,7 +43,7 @@ Most of the material used can be found in https://pandas.pydata.org/pandas-docs/
 
 Now complete the visualization exercise in the attached .md file.
 
-# Linux
+# Linux (0.5d)
 
 Read the next book:
 
@@ -51,7 +51,7 @@ https://drive.google.com/file/d/0B7JUyl32mthxRE8xc3d5d01BQWo4Y0JrY0RuWWJiNHhvZzd
 
 Answer questions in pages 10,16,18 using the online terminal https://bellard.org/jslinux/vm.html?url=https://bellard.org/jslinux/buildroot-x86.cfg. 
 
-# Complete Google Crash Course
+# Complete Google Crash Course (1d)
 
 https://developers.google.com/machine-learning/crash-course/ml-intro
 
