@@ -20,7 +20,7 @@ For that problem, prepare a research report answering the next questions:
   
   Compare memory, running time, accuracy...
   
-  Compare different modellings.
+  Compare different modelings.
 
 * Research different python libraries used in the civil world to solve those.
 
