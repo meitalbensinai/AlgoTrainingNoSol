@@ -15,3 +15,7 @@ We refer to (1) as ISLR and to (2) as ESLI during the training.
 # Flow
 
 Read through introduction quickly.
+
+Parts 2,8,9 take 2 days each.
+
+Other parts take 1 day each.
