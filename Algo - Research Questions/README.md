@@ -24,4 +24,4 @@ For that problem, prepare a research report answering the next questions:
 
 * Research different python libraries used in the civil world to solve those.
 
-** Include reference to articles and discuss your findings
+* Include reference to articles and discuss your findings
