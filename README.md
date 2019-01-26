@@ -14,7 +14,7 @@ Your team topics - 5 days Algo OR 9 days DS
 
 Problem Formalization - 1 day
 
-NN specialization - 10 days
+Andrew NG's NN specialization - 10 days
 
 Your team final project - 5 days
 
