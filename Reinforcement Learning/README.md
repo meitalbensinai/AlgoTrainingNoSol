@@ -22,6 +22,8 @@ https://openai.com/requests-for-research/
 
 Now implement three different policies for a different game of your choice. Compare them with graphs showing relevant information.
 
-## Read
+## Read (6h)
 
 Read alpha go and alpha zero papers - it is much easier to start from reading the blog.
+
+Total 32 hours ~ 4-5 days.
