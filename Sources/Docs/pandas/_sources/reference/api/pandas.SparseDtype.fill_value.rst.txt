@@ -1,0 +1,6 @@
+pandas.SparseDtype.fill\_value
+==============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseDtype.fill_value

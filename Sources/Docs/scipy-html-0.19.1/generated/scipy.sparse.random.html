@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.sparse.random &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Sparse matrices (scipy.sparse)" href="../sparse.html" >
+    <link rel="next" title="scipy.sparse.save_npz" href="scipy.sparse.save_npz.html" >
+    <link rel="prev" title="scipy.sparse.rand" href="scipy.sparse.rand.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../sparse.html" accesskey="U">Sparse matrices (<code class="docutils literal"><span class="pre">scipy.sparse</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.sparse.save_npz.html" title="scipy.sparse.save_npz"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.sparse.rand.html" title="scipy.sparse.rand"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.sparse.rand.html"
+                        title="previous chapter">scipy.sparse.rand</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.sparse.save_npz.html"
+                        title="next chapter">scipy.sparse.save_npz</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-sparse-random">
+<h1>scipy.sparse.random<a class="headerlink" href="#scipy-sparse-random" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.sparse.random">
+<code class="descclassname">scipy.sparse.</code><code class="descname">random</code><span class="sig-paren">(</span><em>m</em>, <em>n</em>, <em>density=0.01</em>, <em>format='coo'</em>, <em>dtype=None</em>, <em>random_state=None</em>, <em>data_rvs=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/sparse/construct.py#L673-L768"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.sparse.random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a sparse matrix of the given shape and density with randomly
+distributed values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>m, n</strong> : int</p>
+<blockquote>
+<div><p>shape of the matrix</p>
+</div></blockquote>
+<p><strong>density</strong> : real, optional</p>
+<blockquote>
+<div><p>density of the generated matrix: density equal to one means a full
+matrix, density of 0 means a matrix with no non-zero items.</p>
+</div></blockquote>
+<p><strong>format</strong> : str, optional</p>
+<blockquote>
+<div><p>sparse matrix format.</p>
+</div></blockquote>
+<p><strong>dtype</strong> : dtype, optional</p>
+<blockquote>
+<div><p>type of the returned matrix values.</p>
+</div></blockquote>
+<p><strong>random_state</strong> : {numpy.random.RandomState, int}, optional</p>
+<blockquote>
+<div><p>Random number generator or random seed. If not given, the singleton
+numpy.random will be used.  This random state will be used
+for sampling the sparsity structure, but not necessarily for sampling
+the values of the structurally nonzero entries of the matrix.</p>
+</div></blockquote>
+<p><strong>data_rvs</strong> : callable, optional</p>
+<blockquote class="last">
+<div><p>Samples a requested number of random values.
+This function should take a single argument specifying the length
+of the ndarray that it will return.  The structurally nonzero entries
+of the sparse random matrix will be taken from the array sampled
+by this function.  By default, uniform [0, 1) random values will be
+sampled using the same random state as is used for sampling
+the sparsity structure.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Only float types are supported for now.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="k">import</span> <span class="n">random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">CustomRandomState</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">randint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rs</span> <span class="o">=</span> <span class="n">CustomRandomState</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rvs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rs</span><span class="p">,</span> <span class="n">data_rvs</span><span class="o">=</span><span class="n">rvs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S</span><span class="o">.</span><span class="n">A</span>
+<span class="go">array([[ 36.,   0.,  33.,   0.],   # random</span>
+<span class="go">       [  0.,   0.,   0.,   0.],</span>
+<span class="go">       [  0.,   0.,  36.,   0.]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

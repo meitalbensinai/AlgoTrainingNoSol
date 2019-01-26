@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.max
+=============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.max

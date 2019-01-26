@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Decision making process &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Decision making process</a><ul>
+<li><a class="reference internal" href="#code">Code</a></li>
+<li><a class="reference internal" href="#commit-rights">Commit rights</a></li>
+<li><a class="reference internal" href="#other-project-aspects">Other project aspects</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="decision-making-process">
+<h1>Decision making process<a class="headerlink" href="#decision-making-process" title="Permalink to this headline">¶</a></h1>
+<p>This section documents the way in which decisions about various aspects of the
+SciPy project are made.  Note that the below is only documenting the current
+way of working; a more formal governance model is expected to be adopted in the
+near future.</p>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>Any significant decisions on adding (or not adding) new features, breaking
+backwards compatibility or making other significant changes to the codebase
+should be made on the scipy-dev mailing list after a discussion (preferably
+with full consensus).</p>
+<p>Any non-trivial change (where trivial means a typo, or a one-liner maintenance
+commit) has to go in through a pull request (PR).  It has to be reviewed by
+another developer.  In case review doesn&#8217;t happen quickly enough and it is
+important that the PR is merged quickly, the submitter of the PR should send a
+message to mailing list saying he/she intends to merge that PR without review
+at time X for reason Y unless someone reviews it before then.</p>
+<p>Changes and new additions should be tested. Untested code is broken code.</p>
+</div>
+<div class="section" id="commit-rights">
+<h2>Commit rights<a class="headerlink" href="#commit-rights" title="Permalink to this headline">¶</a></h2>
+<p>Who gets commit rights is decided by the core development team; changes in
+commit rights will then be announced on the scipy-dev mailing list.</p>
+<p>Who the core development team is comprised of is a little fuzzy - there are
+quite a few people who do have commit rights and would like to keep them but
+are no longer active (so they&#8217;re not in the core team).
+To get an idea, look at the output of:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git shortlog --grep=&quot;Merge pull request&quot; -a -c -s &lt;current_release_minus_2&gt;..upstream/master|sort -n
+</pre></div>
+</div>
+<p>and apply some common sense to it (and don&#8217;t forget people who are still active
+but never merge PRs).</p>
+</div>
+<div class="section" id="other-project-aspects">
+<h2>Other project aspects<a class="headerlink" href="#other-project-aspects" title="Permalink to this headline">¶</a></h2>
+<p>All decisions are taken by the core development team on the scipy-dev mailing
+list.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

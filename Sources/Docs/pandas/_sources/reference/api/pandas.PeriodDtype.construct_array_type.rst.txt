@@ -1,0 +1,6 @@
+pandas.PeriodDtype.construct\_array\_type
+=========================================
+
+.. currentmodule:: pandas
+
+.. automethod:: PeriodDtype.construct_array_type

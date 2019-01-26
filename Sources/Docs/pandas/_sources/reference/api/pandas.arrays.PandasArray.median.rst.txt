@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.median
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.median

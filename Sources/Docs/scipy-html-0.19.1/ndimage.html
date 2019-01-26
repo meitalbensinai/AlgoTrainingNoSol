@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Multi-dimensional image processing (scipy.ndimage) &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="next" title="scipy.ndimage.convolve" href="generated/scipy.ndimage.convolve.html" >
+    <link rel="prev" title="scipy.misc.who" href="generated/scipy.misc.who.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.ndimage.convolve.html" title="scipy.ndimage.convolve"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.misc.who.html" title="scipy.misc.who"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Multi-dimensional image processing (<code class="docutils literal"><span class="pre">scipy.ndimage</span></code>)</a><ul>
+<li><a class="reference internal" href="#filters">Filters</a></li>
+<li><a class="reference internal" href="#fourier-filters">Fourier filters</a></li>
+<li><a class="reference internal" href="#interpolation">Interpolation</a></li>
+<li><a class="reference internal" href="#measurements">Measurements</a></li>
+<li><a class="reference internal" href="#morphology">Morphology</a></li>
+<li><a class="reference internal" href="#utility">Utility</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generated/scipy.misc.who.html"
+                        title="previous chapter">scipy.misc.who</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generated/scipy.ndimage.convolve.html"
+                        title="next chapter">scipy.ndimage.convolve</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <span class="target" id="module-scipy.ndimage"></span><div class="section" id="multi-dimensional-image-processing-scipy-ndimage">
+<h1>Multi-dimensional image processing (<a class="reference internal" href="#module-scipy.ndimage" title="scipy.ndimage"><code class="xref py py-mod docutils literal"><span class="pre">scipy.ndimage</span></code></a>)<a class="headerlink" href="#multi-dimensional-image-processing-scipy-ndimage" title="Permalink to this headline">¶</a></h1>
+<p>This package contains various functions for multi-dimensional image
+processing.</p>
+<div class="section" id="filters">
+<h2>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve" title="scipy.ndimage.convolve"><code class="xref py py-obj docutils literal"><span class="pre">convolve</span></code></a>(input,&nbsp;weights[,&nbsp;output,&nbsp;mode,&nbsp;...])</td>
+<td>Multidimensional convolution.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d" title="scipy.ndimage.convolve1d"><code class="xref py py-obj docutils literal"><span class="pre">convolve1d</span></code></a>(input,&nbsp;weights[,&nbsp;axis,&nbsp;output,&nbsp;...])</td>
+<td>Calculate a one-dimensional convolution along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.correlate.html#scipy.ndimage.correlate" title="scipy.ndimage.correlate"><code class="xref py py-obj docutils literal"><span class="pre">correlate</span></code></a>(input,&nbsp;weights[,&nbsp;output,&nbsp;mode,&nbsp;...])</td>
+<td>Multi-dimensional correlation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.correlate1d.html#scipy.ndimage.correlate1d" title="scipy.ndimage.correlate1d"><code class="xref py py-obj docutils literal"><span class="pre">correlate1d</span></code></a>(input,&nbsp;weights[,&nbsp;axis,&nbsp;output,&nbsp;...])</td>
+<td>Calculate a one-dimensional correlation along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter" title="scipy.ndimage.gaussian_filter"><code class="xref py py-obj docutils literal"><span class="pre">gaussian_filter</span></code></a>(input,&nbsp;sigma[,&nbsp;order,&nbsp;...])</td>
+<td>Multidimensional Gaussian filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.gaussian_filter1d.html#scipy.ndimage.gaussian_filter1d" title="scipy.ndimage.gaussian_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">gaussian_filter1d</span></code></a>(input,&nbsp;sigma[,&nbsp;axis,&nbsp;...])</td>
+<td>One-dimensional Gaussian filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.gaussian_gradient_magnitude.html#scipy.ndimage.gaussian_gradient_magnitude" title="scipy.ndimage.gaussian_gradient_magnitude"><code class="xref py py-obj docutils literal"><span class="pre">gaussian_gradient_magnitude</span></code></a>(input,&nbsp;sigma[,&nbsp;...])</td>
+<td>Multidimensional gradient magnitude using Gaussian derivatives.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.gaussian_laplace.html#scipy.ndimage.gaussian_laplace" title="scipy.ndimage.gaussian_laplace"><code class="xref py py-obj docutils literal"><span class="pre">gaussian_laplace</span></code></a>(input,&nbsp;sigma[,&nbsp;output,&nbsp;...])</td>
+<td>Multidimensional Laplace filter using gaussian second derivatives.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.generic_filter.html#scipy.ndimage.generic_filter" title="scipy.ndimage.generic_filter"><code class="xref py py-obj docutils literal"><span class="pre">generic_filter</span></code></a>(input,&nbsp;function[,&nbsp;size,&nbsp;...])</td>
+<td>Calculates a multi-dimensional filter using the given function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d" title="scipy.ndimage.generic_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">generic_filter1d</span></code></a>(input,&nbsp;function,&nbsp;filter_size)</td>
+<td>Calculate a one-dimensional filter along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.generic_gradient_magnitude.html#scipy.ndimage.generic_gradient_magnitude" title="scipy.ndimage.generic_gradient_magnitude"><code class="xref py py-obj docutils literal"><span class="pre">generic_gradient_magnitude</span></code></a>(input,&nbsp;derivative)</td>
+<td>Gradient magnitude using a provided gradient function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.generic_laplace.html#scipy.ndimage.generic_laplace" title="scipy.ndimage.generic_laplace"><code class="xref py py-obj docutils literal"><span class="pre">generic_laplace</span></code></a>(input,&nbsp;derivative2[,&nbsp;...])</td>
+<td>N-dimensional Laplace filter using a provided second derivative function</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.laplace.html#scipy.ndimage.laplace" title="scipy.ndimage.laplace"><code class="xref py py-obj docutils literal"><span class="pre">laplace</span></code></a>(input[,&nbsp;output,&nbsp;mode,&nbsp;cval])</td>
+<td>N-dimensional Laplace filter based on approximate second derivatives.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter" title="scipy.ndimage.maximum_filter"><code class="xref py py-obj docutils literal"><span class="pre">maximum_filter</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Calculates a multi-dimensional maximum filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d" title="scipy.ndimage.maximum_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">maximum_filter1d</span></code></a>(input,&nbsp;size[,&nbsp;axis,&nbsp;...])</td>
+<td>Calculate a one-dimensional maximum filter along the given axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter" title="scipy.ndimage.median_filter"><code class="xref py py-obj docutils literal"><span class="pre">median_filter</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Calculates a multidimensional median filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter" title="scipy.ndimage.minimum_filter"><code class="xref py py-obj docutils literal"><span class="pre">minimum_filter</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Calculates a multi-dimensional minimum filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d" title="scipy.ndimage.minimum_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">minimum_filter1d</span></code></a>(input,&nbsp;size[,&nbsp;axis,&nbsp;...])</td>
+<td>Calculate a one-dimensional minimum filter along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter" title="scipy.ndimage.percentile_filter"><code class="xref py py-obj docutils literal"><span class="pre">percentile_filter</span></code></a>(input,&nbsp;percentile[,&nbsp;size,&nbsp;...])</td>
+<td>Calculates a multi-dimensional percentile filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.prewitt.html#scipy.ndimage.prewitt" title="scipy.ndimage.prewitt"><code class="xref py py-obj docutils literal"><span class="pre">prewitt</span></code></a>(input[,&nbsp;axis,&nbsp;output,&nbsp;mode,&nbsp;cval])</td>
+<td>Calculate a Prewitt filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter" title="scipy.ndimage.rank_filter"><code class="xref py py-obj docutils literal"><span class="pre">rank_filter</span></code></a>(input,&nbsp;rank[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Calculates a multi-dimensional rank filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.sobel.html#scipy.ndimage.sobel" title="scipy.ndimage.sobel"><code class="xref py py-obj docutils literal"><span class="pre">sobel</span></code></a>(input[,&nbsp;axis,&nbsp;output,&nbsp;mode,&nbsp;cval])</td>
+<td>Calculate a Sobel filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter" title="scipy.ndimage.uniform_filter"><code class="xref py py-obj docutils literal"><span class="pre">uniform_filter</span></code></a>(input[,&nbsp;size,&nbsp;output,&nbsp;mode,&nbsp;...])</td>
+<td>Multi-dimensional uniform filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d" title="scipy.ndimage.uniform_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">uniform_filter1d</span></code></a>(input,&nbsp;size[,&nbsp;axis,&nbsp;...])</td>
+<td>Calculate a one-dimensional uniform filter along the given axis.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="fourier-filters">
+<h2>Fourier filters<a class="headerlink" href="#fourier-filters" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.fourier_ellipsoid.html#scipy.ndimage.fourier_ellipsoid" title="scipy.ndimage.fourier_ellipsoid"><code class="xref py py-obj docutils literal"><span class="pre">fourier_ellipsoid</span></code></a>(input,&nbsp;size[,&nbsp;n,&nbsp;axis,&nbsp;output])</td>
+<td>Multi-dimensional ellipsoid fourier filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.fourier_gaussian.html#scipy.ndimage.fourier_gaussian" title="scipy.ndimage.fourier_gaussian"><code class="xref py py-obj docutils literal"><span class="pre">fourier_gaussian</span></code></a>(input,&nbsp;sigma[,&nbsp;n,&nbsp;axis,&nbsp;output])</td>
+<td>Multi-dimensional Gaussian fourier filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.fourier_shift.html#scipy.ndimage.fourier_shift" title="scipy.ndimage.fourier_shift"><code class="xref py py-obj docutils literal"><span class="pre">fourier_shift</span></code></a>(input,&nbsp;shift[,&nbsp;n,&nbsp;axis,&nbsp;output])</td>
+<td>Multi-dimensional fourier shift filter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.fourier_uniform.html#scipy.ndimage.fourier_uniform" title="scipy.ndimage.fourier_uniform"><code class="xref py py-obj docutils literal"><span class="pre">fourier_uniform</span></code></a>(input,&nbsp;size[,&nbsp;n,&nbsp;axis,&nbsp;output])</td>
+<td>Multi-dimensional uniform fourier filter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.affine_transform.html#scipy.ndimage.affine_transform" title="scipy.ndimage.affine_transform"><code class="xref py py-obj docutils literal"><span class="pre">affine_transform</span></code></a>(input,&nbsp;matrix[,&nbsp;offset,&nbsp;...])</td>
+<td>Apply an affine transformation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.geometric_transform.html#scipy.ndimage.geometric_transform" title="scipy.ndimage.geometric_transform"><code class="xref py py-obj docutils literal"><span class="pre">geometric_transform</span></code></a>(input,&nbsp;mapping[,&nbsp;...])</td>
+<td>Apply an arbitrary geometric transform.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.map_coordinates.html#scipy.ndimage.map_coordinates" title="scipy.ndimage.map_coordinates"><code class="xref py py-obj docutils literal"><span class="pre">map_coordinates</span></code></a>(input,&nbsp;coordinates[,&nbsp;...])</td>
+<td>Map the input array to new coordinates by interpolation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.rotate.html#scipy.ndimage.rotate" title="scipy.ndimage.rotate"><code class="xref py py-obj docutils literal"><span class="pre">rotate</span></code></a>(input,&nbsp;angle[,&nbsp;axes,&nbsp;reshape,&nbsp;...])</td>
+<td>Rotate an array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.shift.html#scipy.ndimage.shift" title="scipy.ndimage.shift"><code class="xref py py-obj docutils literal"><span class="pre">shift</span></code></a>(input,&nbsp;shift[,&nbsp;output,&nbsp;order,&nbsp;mode,&nbsp;...])</td>
+<td>Shift an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.spline_filter.html#scipy.ndimage.spline_filter" title="scipy.ndimage.spline_filter"><code class="xref py py-obj docutils literal"><span class="pre">spline_filter</span></code></a>(input[,&nbsp;order,&nbsp;output])</td>
+<td>Multi-dimensional spline filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.spline_filter1d.html#scipy.ndimage.spline_filter1d" title="scipy.ndimage.spline_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">spline_filter1d</span></code></a>(input[,&nbsp;order,&nbsp;axis,&nbsp;output])</td>
+<td>Calculates a one-dimensional spline filter along the given axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom" title="scipy.ndimage.zoom"><code class="xref py py-obj docutils literal"><span class="pre">zoom</span></code></a>(input,&nbsp;zoom[,&nbsp;output,&nbsp;order,&nbsp;mode,&nbsp;...])</td>
+<td>Zoom an array.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="measurements">
+<h2>Measurements<a class="headerlink" href="#measurements" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.center_of_mass.html#scipy.ndimage.center_of_mass" title="scipy.ndimage.center_of_mass"><code class="xref py py-obj docutils literal"><span class="pre">center_of_mass</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the center of mass of the values of an array at labels.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.extrema.html#scipy.ndimage.extrema" title="scipy.ndimage.extrema"><code class="xref py py-obj docutils literal"><span class="pre">extrema</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the minimums and maximums of the values of an array at labels, along with their positions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.find_objects.html#scipy.ndimage.find_objects" title="scipy.ndimage.find_objects"><code class="xref py py-obj docutils literal"><span class="pre">find_objects</span></code></a>(input[,&nbsp;max_label])</td>
+<td>Find objects in a labeled array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.histogram.html#scipy.ndimage.histogram" title="scipy.ndimage.histogram"><code class="xref py py-obj docutils literal"><span class="pre">histogram</span></code></a>(input,&nbsp;min,&nbsp;max,&nbsp;bins[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the histogram of the values of an array, optionally at labels.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.label.html#scipy.ndimage.label" title="scipy.ndimage.label"><code class="xref py py-obj docutils literal"><span class="pre">label</span></code></a>(input[,&nbsp;structure,&nbsp;output])</td>
+<td>Label features in an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.labeled_comprehension.html#scipy.ndimage.labeled_comprehension" title="scipy.ndimage.labeled_comprehension"><code class="xref py py-obj docutils literal"><span class="pre">labeled_comprehension</span></code></a>(input,&nbsp;labels,&nbsp;index,&nbsp;...)</td>
+<td>Roughly equivalent to [func(input[labels == i]) for i in index].</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.maximum.html#scipy.ndimage.maximum" title="scipy.ndimage.maximum"><code class="xref py py-obj docutils literal"><span class="pre">maximum</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the maximum of the values of an array over labeled regions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.maximum_position.html#scipy.ndimage.maximum_position" title="scipy.ndimage.maximum_position"><code class="xref py py-obj docutils literal"><span class="pre">maximum_position</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Find the positions of the maximums of the values of an array at labels.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.mean.html#scipy.ndimage.mean" title="scipy.ndimage.mean"><code class="xref py py-obj docutils literal"><span class="pre">mean</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the mean of the values of an array at labels.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.median.html#scipy.ndimage.median" title="scipy.ndimage.median"><code class="xref py py-obj docutils literal"><span class="pre">median</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the median of the values of an array over labeled regions.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.minimum.html#scipy.ndimage.minimum" title="scipy.ndimage.minimum"><code class="xref py py-obj docutils literal"><span class="pre">minimum</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the minimum of the values of an array over labeled regions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.minimum_position.html#scipy.ndimage.minimum_position" title="scipy.ndimage.minimum_position"><code class="xref py py-obj docutils literal"><span class="pre">minimum_position</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Find the positions of the minimums of the values of an array at labels.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.standard_deviation.html#scipy.ndimage.standard_deviation" title="scipy.ndimage.standard_deviation"><code class="xref py py-obj docutils literal"><span class="pre">standard_deviation</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the standard deviation of the values of an n-D image array, optionally at specified sub-regions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.sum.html#scipy.ndimage.sum" title="scipy.ndimage.sum"><code class="xref py py-obj docutils literal"><span class="pre">sum</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the sum of the values of the array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.variance.html#scipy.ndimage.variance" title="scipy.ndimage.variance"><code class="xref py py-obj docutils literal"><span class="pre">variance</span></code></a>(input[,&nbsp;labels,&nbsp;index])</td>
+<td>Calculate the variance of the values of an n-D image array, optionally at specified sub-regions.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.watershed_ift.html#scipy.ndimage.watershed_ift" title="scipy.ndimage.watershed_ift"><code class="xref py py-obj docutils literal"><span class="pre">watershed_ift</span></code></a>(input,&nbsp;markers[,&nbsp;structure,&nbsp;...])</td>
+<td>Apply watershed from markers using image foresting transform algorithm.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="morphology">
+<h2>Morphology<a class="headerlink" href="#morphology" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.binary_closing.html#scipy.ndimage.binary_closing" title="scipy.ndimage.binary_closing"><code class="xref py py-obj docutils literal"><span class="pre">binary_closing</span></code></a>(input[,&nbsp;structure,&nbsp;...])</td>
+<td>Multi-dimensional binary closing with the given structuring element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.binary_dilation.html#scipy.ndimage.binary_dilation" title="scipy.ndimage.binary_dilation"><code class="xref py py-obj docutils literal"><span class="pre">binary_dilation</span></code></a>(input[,&nbsp;structure,&nbsp;...])</td>
+<td>Multi-dimensional binary dilation with the given structuring element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.binary_erosion.html#scipy.ndimage.binary_erosion" title="scipy.ndimage.binary_erosion"><code class="xref py py-obj docutils literal"><span class="pre">binary_erosion</span></code></a>(input[,&nbsp;structure,&nbsp;...])</td>
+<td>Multi-dimensional binary erosion with a given structuring element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.binary_fill_holes.html#scipy.ndimage.binary_fill_holes" title="scipy.ndimage.binary_fill_holes"><code class="xref py py-obj docutils literal"><span class="pre">binary_fill_holes</span></code></a>(input[,&nbsp;structure,&nbsp;...])</td>
+<td>Fill the holes in binary objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.binary_hit_or_miss.html#scipy.ndimage.binary_hit_or_miss" title="scipy.ndimage.binary_hit_or_miss"><code class="xref py py-obj docutils literal"><span class="pre">binary_hit_or_miss</span></code></a>(input[,&nbsp;structure1,&nbsp;...])</td>
+<td>Multi-dimensional binary hit-or-miss transform.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.binary_opening.html#scipy.ndimage.binary_opening" title="scipy.ndimage.binary_opening"><code class="xref py py-obj docutils literal"><span class="pre">binary_opening</span></code></a>(input[,&nbsp;structure,&nbsp;...])</td>
+<td>Multi-dimensional binary opening with the given structuring element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.binary_propagation.html#scipy.ndimage.binary_propagation" title="scipy.ndimage.binary_propagation"><code class="xref py py-obj docutils literal"><span class="pre">binary_propagation</span></code></a>(input[,&nbsp;structure,&nbsp;mask,&nbsp;...])</td>
+<td>Multi-dimensional binary propagation with the given structuring element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.black_tophat.html#scipy.ndimage.black_tophat" title="scipy.ndimage.black_tophat"><code class="xref py py-obj docutils literal"><span class="pre">black_tophat</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Multi-dimensional black tophat filter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.distance_transform_bf.html#scipy.ndimage.distance_transform_bf" title="scipy.ndimage.distance_transform_bf"><code class="xref py py-obj docutils literal"><span class="pre">distance_transform_bf</span></code></a>(input[,&nbsp;metric,&nbsp;...])</td>
+<td>Distance transform function by a brute force algorithm.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.distance_transform_cdt.html#scipy.ndimage.distance_transform_cdt" title="scipy.ndimage.distance_transform_cdt"><code class="xref py py-obj docutils literal"><span class="pre">distance_transform_cdt</span></code></a>(input[,&nbsp;metric,&nbsp;...])</td>
+<td>Distance transform for chamfer type of transforms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.distance_transform_edt.html#scipy.ndimage.distance_transform_edt" title="scipy.ndimage.distance_transform_edt"><code class="xref py py-obj docutils literal"><span class="pre">distance_transform_edt</span></code></a>(input[,&nbsp;sampling,&nbsp;...])</td>
+<td>Exact euclidean distance transform.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.generate_binary_structure.html#scipy.ndimage.generate_binary_structure" title="scipy.ndimage.generate_binary_structure"><code class="xref py py-obj docutils literal"><span class="pre">generate_binary_structure</span></code></a>(rank,&nbsp;connectivity)</td>
+<td>Generate a binary structure for binary morphological operations.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.grey_closing.html#scipy.ndimage.grey_closing" title="scipy.ndimage.grey_closing"><code class="xref py py-obj docutils literal"><span class="pre">grey_closing</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Multi-dimensional greyscale closing.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.grey_dilation.html#scipy.ndimage.grey_dilation" title="scipy.ndimage.grey_dilation"><code class="xref py py-obj docutils literal"><span class="pre">grey_dilation</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Calculate a greyscale dilation, using either a structuring element, or a footprint corresponding to a flat structuring element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.grey_erosion.html#scipy.ndimage.grey_erosion" title="scipy.ndimage.grey_erosion"><code class="xref py py-obj docutils literal"><span class="pre">grey_erosion</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Calculate a greyscale erosion, using either a structuring element, or a footprint corresponding to a flat structuring element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.grey_opening.html#scipy.ndimage.grey_opening" title="scipy.ndimage.grey_opening"><code class="xref py py-obj docutils literal"><span class="pre">grey_opening</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Multi-dimensional greyscale opening.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.iterate_structure.html#scipy.ndimage.iterate_structure" title="scipy.ndimage.iterate_structure"><code class="xref py py-obj docutils literal"><span class="pre">iterate_structure</span></code></a>(structure,&nbsp;iterations[,&nbsp;...])</td>
+<td>Iterate a structure by dilating it with itself.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.morphological_gradient.html#scipy.ndimage.morphological_gradient" title="scipy.ndimage.morphological_gradient"><code class="xref py py-obj docutils literal"><span class="pre">morphological_gradient</span></code></a>(input[,&nbsp;size,&nbsp;...])</td>
+<td>Multi-dimensional morphological gradient.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.morphological_laplace.html#scipy.ndimage.morphological_laplace" title="scipy.ndimage.morphological_laplace"><code class="xref py py-obj docutils literal"><span class="pre">morphological_laplace</span></code></a>(input[,&nbsp;size,&nbsp;...])</td>
+<td>Multi-dimensional morphological laplace.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.ndimage.white_tophat.html#scipy.ndimage.white_tophat" title="scipy.ndimage.white_tophat"><code class="xref py py-obj docutils literal"><span class="pre">white_tophat</span></code></a>(input[,&nbsp;size,&nbsp;footprint,&nbsp;...])</td>
+<td>Multi-dimensional white tophat filter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="utility">
+<h2>Utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.ndimage.imread.html#scipy.ndimage.imread" title="scipy.ndimage.imread"><code class="xref py py-obj docutils literal"><span class="pre">imread</span></code></a>(fname[,&nbsp;flatten,&nbsp;mode])</td>
+<td>Read an image from a file as an array.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

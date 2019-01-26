@@ -1,0 +1,6 @@
+pandas.UInt16Dtype.kind
+=======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: UInt16Dtype.kind

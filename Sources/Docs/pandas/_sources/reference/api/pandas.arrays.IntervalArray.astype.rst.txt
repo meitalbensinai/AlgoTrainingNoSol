@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.astype
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntervalArray.astype

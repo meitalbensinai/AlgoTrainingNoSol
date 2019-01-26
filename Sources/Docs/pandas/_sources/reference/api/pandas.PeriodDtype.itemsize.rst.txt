@@ -1,0 +1,6 @@
+pandas.PeriodDtype.itemsize
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: PeriodDtype.itemsize

@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.min
+===============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.min

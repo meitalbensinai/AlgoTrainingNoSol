@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.shape
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.shape

@@ -1,0 +1,6 @@
+pandas.SparseDtype.construct\_from\_string
+==========================================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseDtype.construct_from_string

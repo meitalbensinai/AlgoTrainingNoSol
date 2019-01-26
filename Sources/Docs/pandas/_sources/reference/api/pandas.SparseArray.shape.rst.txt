@@ -1,0 +1,6 @@
+pandas.SparseArray.shape
+========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.shape

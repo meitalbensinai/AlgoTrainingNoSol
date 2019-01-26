@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.dropna
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.dropna

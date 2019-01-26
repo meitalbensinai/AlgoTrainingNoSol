@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.argsort
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.argsort

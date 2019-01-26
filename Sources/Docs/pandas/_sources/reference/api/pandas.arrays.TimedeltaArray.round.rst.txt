@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.round
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.round

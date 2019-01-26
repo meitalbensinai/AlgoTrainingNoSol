@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.stats.relfreq &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Statistical functions (scipy.stats)" href="../stats.html" >
+    <link rel="next" title="scipy.stats.binned_statistic" href="scipy.stats.binned_statistic.html" >
+    <link rel="prev" title="scipy.stats.scoreatpercentile" href="scipy.stats.scoreatpercentile.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../stats.html" accesskey="U">Statistical functions (<code class="docutils literal"><span class="pre">scipy.stats</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.binned_statistic.html" title="scipy.stats.binned_statistic"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.scoreatpercentile.html" title="scipy.stats.scoreatpercentile"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.stats.scoreatpercentile.html"
+                        title="previous chapter">scipy.stats.scoreatpercentile</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.stats.binned_statistic.html"
+                        title="next chapter">scipy.stats.binned_statistic</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-stats-relfreq">
+<h1>scipy.stats.relfreq<a class="headerlink" href="#scipy-stats-relfreq" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.stats.relfreq">
+<code class="descclassname">scipy.stats.</code><code class="descname">relfreq</code><span class="sig-paren">(</span><em>a</em>, <em>numbins=10</em>, <em>defaultreallimits=None</em>, <em>weights=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/stats/stats.py#L1940-L2013"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.stats.relfreq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a relative frequency histogram, using the histogram function.</p>
+<p>A relative frequency  histogram is a mapping of the number of
+observations in each of the bins relative to the total of observations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a</strong> : array_like</p>
+<blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
+<p><strong>numbins</strong> : int, optional</p>
+<blockquote>
+<div><p>The number of bins to use for the histogram. Default is 10.</p>
+</div></blockquote>
+<p><strong>defaultreallimits</strong> : tuple (lower, upper), optional</p>
+<blockquote>
+<div><p>The lower and upper values for the range of the histogram.
+If no value is given, a range slightly larger than the range of the
+values in a is used. Specifically <code class="docutils literal"><span class="pre">(a.min()</span> <span class="pre">-</span> <span class="pre">s,</span> <span class="pre">a.max()</span> <span class="pre">+</span> <span class="pre">s)</span></code>,
+where <code class="docutils literal"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">(1/2)(a.max()</span> <span class="pre">-</span> <span class="pre">a.min())</span> <span class="pre">/</span> <span class="pre">(numbins</span> <span class="pre">-</span> <span class="pre">1)</span></code>.</p>
+</div></blockquote>
+<p><strong>weights</strong> : array_like, optional</p>
+<blockquote>
+<div><p>The weights for each value in <em class="xref py py-obj">a</em>. Default is None, which gives each
+value a weight of 1.0</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>frequency</strong> : ndarray</p>
+<blockquote>
+<div><p>Binned values of relative frequency.</p>
+</div></blockquote>
+<p><strong>lowerlimit</strong> : float</p>
+<blockquote>
+<div><p>Lower real limit</p>
+</div></blockquote>
+<p><strong>binsize</strong> : float</p>
+<blockquote>
+<div><p>Width of each bin.</p>
+</div></blockquote>
+<p><strong>extrapoints</strong> : int</p>
+<blockquote class="last">
+<div><p>Extra points.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">relfreq</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">numbins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">.</span><span class="n">frequency</span>
+<span class="go">array([ 0.16666667, 0.5       , 0.16666667,  0.16666667])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span>  <span class="c1"># relative frequencies should add up to 1</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>Create a normal distribution with 1000 random values</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">samples</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Calculate relative frequencies</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">relfreq</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">numbins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Calculate space of values for x</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">lowerlimit</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">binsize</span><span class="o">*</span><span class="n">res</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+<span class="gp">... </span>                                 <span class="n">res</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot relative frequency histogram</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">frequency</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">binsize</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Relative frequency histogram&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../generated/scipy-stats-relfreq-1.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/scipy-stats-relfreq-1.png" src="../_images/scipy-stats-relfreq-1.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

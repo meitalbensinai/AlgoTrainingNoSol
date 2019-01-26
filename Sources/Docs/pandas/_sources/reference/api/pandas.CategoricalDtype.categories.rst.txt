@@ -1,0 +1,6 @@
+pandas.CategoricalDtype.categories
+==================================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: CategoricalDtype.categories

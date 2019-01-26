@@ -1,0 +1,41 @@
+pandas.UInt16Dtype
+==================
+
+.. currentmodule:: pandas
+
+.. autoclass:: UInt16Dtype
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      UInt16Dtype.construct_array_type
+      UInt16Dtype.construct_from_string
+      UInt16Dtype.is_dtype
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      UInt16Dtype.base
+      UInt16Dtype.is_signed_integer
+      UInt16Dtype.is_unsigned_integer
+      UInt16Dtype.itemsize
+      UInt16Dtype.kind
+      UInt16Dtype.na_value
+      UInt16Dtype.name
+      UInt16Dtype.names
+      UInt16Dtype.numpy_dtype
+
+

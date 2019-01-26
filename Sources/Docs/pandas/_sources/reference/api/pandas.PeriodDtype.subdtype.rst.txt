@@ -1,0 +1,6 @@
+pandas.PeriodDtype.subdtype
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: PeriodDtype.subdtype

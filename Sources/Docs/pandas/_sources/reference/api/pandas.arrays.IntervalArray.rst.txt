@@ -1,0 +1,64 @@
+pandas.arrays.IntervalArray
+===========================
+
+.. currentmodule:: pandas.arrays
+
+.. autoclass:: IntervalArray
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      IntervalArray.argsort
+      IntervalArray.astype
+      IntervalArray.copy
+      IntervalArray.dropna
+      IntervalArray.factorize
+      IntervalArray.fillna
+      IntervalArray.from_arrays
+      IntervalArray.from_breaks
+      IntervalArray.from_tuples
+      IntervalArray.isna
+      IntervalArray.overlaps
+      IntervalArray.repeat
+      IntervalArray.searchsorted
+      IntervalArray.set_closed
+      IntervalArray.shift
+      IntervalArray.take
+      IntervalArray.to_tuples
+      IntervalArray.unique
+      IntervalArray.value_counts
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      IntervalArray.can_hold_na
+      IntervalArray.closed
+      IntervalArray.closed_left
+      IntervalArray.closed_right
+      IntervalArray.dtype
+      IntervalArray.is_non_overlapping_monotonic
+      IntervalArray.left
+      IntervalArray.length
+      IntervalArray.mid
+      IntervalArray.nbytes
+      IntervalArray.ndim
+      IntervalArray.open_left
+      IntervalArray.open_right
+      IntervalArray.right
+      IntervalArray.shape
+      IntervalArray.size
+
+

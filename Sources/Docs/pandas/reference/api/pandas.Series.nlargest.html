@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.Series.nlargest &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.Series.nonzero" href="pandas.Series.nonzero.html" />
+    <link rel="prev" title="pandas.Series.ne" href="pandas.Series.ne.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.nonzero.html" title="pandas.Series.nonzero"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.ne.html" title="pandas.Series.ne"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../series.html" >Series</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.Series.html" accesskey="U">pandas.Series</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-series-nlargest">
+<h1>pandas.Series.nlargest<a class="headerlink" href="#pandas-series-nlargest" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="pandas.Series.nlargest">
+<code class="descclassname">Series.</code><code class="descname">nlargest</code><span class="sig-paren">(</span><em>n=5</em>, <em>keep='first'</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/series.py#L3026-L3120"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.Series.nlargest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the largest <cite>n</cite> elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>n</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default 5</span></dt>
+<dd><p class="first last">Return this many descending sorted values.</p>
+</dd>
+<dt><strong>keep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{‘first’, ‘last’, ‘all’}, default ‘first’</span></dt>
+<dd><p class="first">When there are duplicate values that cannot all fit in a
+Series of <cite>n</cite> elements:</p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">first</span></code> : take the first occurrences based on the index order</li>
+<li><code class="docutils literal notranslate"><span class="pre">last</span></code> : take the last occurrences based on the index order</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">all</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">keep all occurrences. This can result in a Series of</span></dt>
+<dd>size larger than <cite>n</cite>.</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Series</strong></dt>
+<dd><p class="first last">The <cite>n</cite> largest values in the Series, sorted in decreasing order.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="pandas.Series.nsmallest.html#pandas.Series.nsmallest" title="pandas.Series.nsmallest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series.nsmallest</span></code></a></dt>
+<dd>Get the <cite>n</cite> smallest elements.</dd>
+<dt><a class="reference internal" href="pandas.Series.sort_values.html#pandas.Series.sort_values" title="pandas.Series.sort_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series.sort_values</span></code></a></dt>
+<dd>Sort Series by values.</dd>
+<dt><a class="reference internal" href="pandas.Series.head.html#pandas.Series.head" title="pandas.Series.head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series.head</span></code></a></dt>
+<dd>Return the first <cite>n</cite> rows.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Faster than <code class="docutils literal notranslate"><span class="pre">.sort_values(ascending=False).head(n)</span></code> for small <cite>n</cite>
+relative to the size of the <code class="docutils literal notranslate"><span class="pre">Series</span></code> object.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">countries_population</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Italy&quot;</span><span class="p">:</span> <span class="mi">59000000</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">:</span> <span class="mi">65000000</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="s2">&quot;Malta&quot;</span><span class="p">:</span> <span class="mi">434000</span><span class="p">,</span> <span class="s2">&quot;Maldives&quot;</span><span class="p">:</span> <span class="mi">434000</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="s2">&quot;Brunei&quot;</span><span class="p">:</span> <span class="mi">434000</span><span class="p">,</span> <span class="s2">&quot;Iceland&quot;</span><span class="p">:</span> <span class="mi">337000</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="s2">&quot;Nauru&quot;</span><span class="p">:</span> <span class="mi">11300</span><span class="p">,</span> <span class="s2">&quot;Tuvalu&quot;</span><span class="p">:</span> <span class="mi">11300</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="s2">&quot;Anguilla&quot;</span><span class="p">:</span> <span class="mi">11300</span><span class="p">,</span> <span class="s2">&quot;Monserat&quot;</span><span class="p">:</span> <span class="mi">5200</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries_population</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">Italy       59000000</span>
+<span class="go">France      65000000</span>
+<span class="go">Malta         434000</span>
+<span class="go">Maldives      434000</span>
+<span class="go">Brunei        434000</span>
+<span class="go">Iceland       337000</span>
+<span class="go">Nauru          11300</span>
+<span class="go">Tuvalu         11300</span>
+<span class="go">Anguilla       11300</span>
+<span class="go">Monserat        5200</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>The <cite>n</cite> largest elements where <code class="docutils literal notranslate"><span class="pre">n=5</span></code> by default.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">nlargest</span><span class="p">()</span>
+<span class="go">France      65000000</span>
+<span class="go">Italy       59000000</span>
+<span class="go">Malta         434000</span>
+<span class="go">Maldives      434000</span>
+<span class="go">Brunei        434000</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>The <cite>n</cite> largest elements where <code class="docutils literal notranslate"><span class="pre">n=3</span></code>. Default <cite>keep</cite> value is ‘first’
+so Malta will be kept.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">France    65000000</span>
+<span class="go">Italy     59000000</span>
+<span class="go">Malta       434000</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>The <cite>n</cite> largest elements where <code class="docutils literal notranslate"><span class="pre">n=3</span></code> and keeping the last duplicates.
+Brunei will be kept since it is the last with value 434000 based on
+the index order.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="go">France      65000000</span>
+<span class="go">Italy       59000000</span>
+<span class="go">Brunei        434000</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>The <cite>n</cite> largest elements where <code class="docutils literal notranslate"><span class="pre">n=3</span></code> with all duplicates kept. Note
+that the returned Series has five elements due to the three duplicates.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="go">France      65000000</span>
+<span class="go">Italy       59000000</span>
+<span class="go">Malta         434000</span>
+<span class="go">Maldives      434000</span>
+<span class="go">Brunei        434000</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.nonzero.html" title="pandas.Series.nonzero"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.ne.html" title="pandas.Series.ne"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../series.html" >Series</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.Series.html" >pandas.Series</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

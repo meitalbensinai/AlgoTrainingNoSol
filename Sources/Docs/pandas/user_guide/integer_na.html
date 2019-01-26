@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nullable Integer Data Type &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualization" href="visualization.html" />
+    <link rel="prev" title="Categorical Data" href="categorical.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="visualization.html" title="Visualization"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="categorical.html" title="Categorical Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="io.html">IO Tools (Text, CSV, HDF5, …)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexing.html">Indexing and Selecting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html">MultiIndex / Advanced Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merging.html">Merge, join, and concatenate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reshaping.html">Reshaping and Pivot Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text.html">Working with Text Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="missing_data.html">Working with missing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="categorical.html">Categorical Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nullable Integer Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computation.html">Computational tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupby.html">Group By: split-apply-combine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">Time Series / Date functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timedeltas.html">Time Deltas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="options.html">Options and Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enhancingperf.html">Enhancing Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sparse.html">Sparse data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gotchas.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookbook.html">Cookbook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="nullable-integer-data-type">
+<span id="integer-na"></span><h1>Nullable Integer Data Type<a class="headerlink" href="#nullable-integer-data-type" title="Permalink to this headline">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.24.0.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">IntegerArray is currently experimental. Its API or implementation may
+change without warning.</p>
+</div>
+<p>In <a class="reference internal" href="missing_data.html#missing-data"><span class="std std-ref">Working with missing data</span></a>, we saw that pandas primarily uses <code class="docutils literal notranslate"><span class="pre">NaN</span></code> to represent
+missing data. Because <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is a float, this forces an array of integers with
+any missing values to become floating point. In some cases, this may not matter
+much. But if your integer column is, say, an identifier, casting to float can
+be problematic. Some integers cannot even be represented as floating point
+numbers.</p>
+<p>Pandas can represent integer data with possibly missing values using
+<a class="reference internal" href="../reference/api/pandas.arrays.IntegerArray.html#pandas.arrays.IntegerArray" title="pandas.arrays.IntegerArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">arrays.IntegerArray</span></code></a>. This is an <a class="reference internal" href="../development/extending.html#extending-extension-types"><span class="std std-ref">extension types</span></a>
+implemented within pandas. It is not the default dtype for integers, and will not be inferred;
+you must explicitly pass the dtype into <a class="reference internal" href="../reference/api/pandas.array.html#pandas.array" title="pandas.array"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array()</span></code></a> or <a class="reference internal" href="../reference/api/pandas.Series.html#pandas.Series" title="pandas.Series"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">arr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Int64Dtype</span><span class="p">())</span>
+
+<span class="gp">In [2]: </span><span class="n">arr</span>
+<span class="gh">Out[2]: </span><span class="go"></span>
+<span class="go">&lt;IntegerArray&gt;</span>
+<span class="go">[1, 2, NaN]</span>
+<span class="go">Length: 3, dtype: Int64</span>
+</pre></div>
+</div>
+<p>Or the string alias <code class="docutils literal notranslate"><span class="pre">&quot;Int64&quot;</span></code> (note the capital <code class="docutils literal notranslate"><span class="pre">&quot;I&quot;</span></code>, to differentiate from
+NumPy’s <code class="docutils literal notranslate"><span class="pre">'int64'</span></code> dtype:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go"></span>
+<span class="go">&lt;IntegerArray&gt;</span>
+<span class="go">[1, 2, NaN]</span>
+<span class="go">Length: 3, dtype: Int64</span>
+</pre></div>
+</div>
+<p>This array can be stored in a <a class="reference internal" href="../reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> or <a class="reference internal" href="../reference/api/pandas.Series.html#pandas.Series" title="pandas.Series"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a> like any
+NumPy array.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="gh">Out[4]: </span><span class="go"></span>
+<span class="go">0      1</span>
+<span class="go">1      2</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: Int64</span>
+</pre></div>
+</div>
+<p>You can also pass the list-like object to the <a class="reference internal" href="../reference/api/pandas.Series.html#pandas.Series" title="pandas.Series"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a> constructor
+with the dtype.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
+
+<span class="gp">In [6]: </span><span class="n">s</span>
+<span class="gh">Out[6]: </span><span class="go"></span>
+<span class="go">0      1</span>
+<span class="go">1      2</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: Int64</span>
+</pre></div>
+</div>
+<p>By default (if you don’t specify <code class="docutils literal notranslate"><span class="pre">dtype</span></code>), NumPy is used, and you’ll end
+up with a <code class="docutils literal notranslate"><span class="pre">float64</span></code> dtype Series:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="go">0    1.0</span>
+<span class="go">1    2.0</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p>Operations involving an integer array will behave similar to NumPy arrays.
+Missing values will be propagated, and and the data will be coerced to another
+dtype if needed.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># arithmetic</span>
+<span class="gp">In [8]: </span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="go">0      2</span>
+<span class="go">1      3</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: Int64</span>
+
+<span class="go"># comparison</span>
+<span class="gp">In [9]: </span><span class="n">s</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="go">                                                 Out[9]: </span>
+<span class="go">0     True</span>
+<span class="go">1    False</span>
+<span class="go">2    False</span>
+<span class="go">dtype: bool</span>
+
+<span class="go"># indexing</span>
+<span class="gp">In [10]: </span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">                                                                                                       Out[10]: </span>
+<span class="go">1      2</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: Int64</span>
+
+<span class="go"># operate with other dtypes</span>
+<span class="gp">In [11]: </span><span class="n">s</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;Int8&#39;</span><span class="p">)</span>
+<span class="go">                                                                                                                                                Out[11]: </span>
+<span class="go">0    NaN</span>
+<span class="go">1      4</span>
+<span class="go">2    NaN</span>
+<span class="go">dtype: Int64</span>
+
+<span class="go"># coerce when needed</span>
+<span class="gp">In [12]: </span><span class="n">s</span> <span class="o">+</span> <span class="mf">0.01</span>
+<span class="go">                                                                                                                                                                                                  Out[12]: </span>
+<span class="go">0    1.01</span>
+<span class="go">1    2.01</span>
+<span class="go">2     NaN</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p>These dtypes can operate as part of of <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aab&#39;</span><span class="p">)})</span>
+
+<span class="gp">In [14]: </span><span class="n">df</span>
+<span class="gh">Out[14]: </span><span class="go"></span>
+<span class="go">     A  B  C</span>
+<span class="go">0    1  1  a</span>
+<span class="go">1    2  1  a</span>
+<span class="go">2  NaN  3  b</span>
+
+<span class="gp">In [15]: </span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="go">                                                              Out[15]: </span>
+<span class="go">A     Int64</span>
+<span class="go">B     int64</span>
+<span class="go">C    object</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>These dtypes can be merged &amp; reshaped &amp; casted.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">]],</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">A     Int64</span>
+<span class="go">B     int64</span>
+<span class="go">C    object</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [17]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="go">                                                            Out[17]: </span>
+<span class="go">0    1.0</span>
+<span class="go">1    2.0</span>
+<span class="go">2    NaN</span>
+<span class="go">Name: A, dtype: float64</span>
+</pre></div>
+</div>
+<p>Reduction and groupby operations such as ‘sum’ work as well.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">A      3</span>
+<span class="go">B      5</span>
+<span class="go">C    aab</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [19]: </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">                                                   Out[19]: </span>
+<span class="go">B</span>
+<span class="go">1    3</span>
+<span class="go">3    0</span>
+<span class="go">Name: A, dtype: Int64</span>
+</pre></div>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="visualization.html" title="Visualization"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="categorical.html" title="Categorical Data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

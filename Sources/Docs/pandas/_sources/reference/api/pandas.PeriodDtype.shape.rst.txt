@@ -1,0 +1,6 @@
+pandas.PeriodDtype.shape
+========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: PeriodDtype.shape

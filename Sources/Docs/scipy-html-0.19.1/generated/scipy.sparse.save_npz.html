@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.sparse.save_npz &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Sparse matrices (scipy.sparse)" href="../sparse.html" >
+    <link rel="next" title="scipy.sparse.load_npz" href="scipy.sparse.load_npz.html" >
+    <link rel="prev" title="scipy.sparse.random" href="scipy.sparse.random.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../sparse.html" accesskey="U">Sparse matrices (<code class="docutils literal"><span class="pre">scipy.sparse</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.sparse.load_npz.html" title="scipy.sparse.load_npz"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.sparse.random.html" title="scipy.sparse.random"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.sparse.random.html"
+                        title="previous chapter">scipy.sparse.random</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.sparse.load_npz.html"
+                        title="next chapter">scipy.sparse.load_npz</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-sparse-save-npz">
+<h1>scipy.sparse.save_npz<a class="headerlink" href="#scipy-sparse-save-npz" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.sparse.save_npz">
+<code class="descclassname">scipy.sparse.</code><code class="descname">save_npz</code><span class="sig-paren">(</span><em>file</em>, <em>matrix</em>, <em>compressed=True</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/sparse/_matrix_io.py#L19-L79"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.sparse.save_npz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a sparse matrix to a file using <code class="docutils literal"><span class="pre">.npz</span></code> format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>file</strong> : str or file-like object</p>
+<blockquote>
+<div><p>Either the file name (string) or an open file (file-like object)
+where the data will be saved. If file is a string, the <code class="docutils literal"><span class="pre">.npz</span></code>
+extension will be appended to the file name if it is not already
+there.</p>
+</div></blockquote>
+<p><strong>matrix: spmatrix (format: ``csc``, ``csr``, ``bsr``, ``dia`` or coo``)</strong></p>
+<blockquote>
+<div><p>The sparse matrix to save.</p>
+</div></blockquote>
+<p><strong>compressed</strong> : bool, optional</p>
+<blockquote class="last">
+<div><p>Allow compressing the file. Default: True</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.sparse.load_npz.html#scipy.sparse.load_npz" title="scipy.sparse.load_npz"><code class="xref py py-obj docutils literal"><span class="pre">scipy.sparse.load_npz</span></code></a></dt>
+<dd>Load a sparse matrix from a file using <code class="docutils literal"><span class="pre">.npz</span></code> format.</dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez.html#numpy.savez" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.savez</span></code></a></dt>
+<dd>Save several arrays into a <code class="docutils literal"><span class="pre">.npz</span></code> archive.</dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.savez_compressed.html#numpy.savez_compressed" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.savez_compressed</span></code></a></dt>
+<dd>Save several arrays into a compressed <code class="docutils literal"><span class="pre">.npz</span></code> archive.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Store sparse matrix to disk, and load it again:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy.sparse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_matrix</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_matrix</span>
+<span class="go">&lt;2x3 sparse matrix of type &#39;&lt;type &#39;numpy.int64&#39;&gt;&#39;</span>
+<span class="go">   with 2 stored elements in Compressed Sparse Column format&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_matrix</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+<span class="go">matrix([[0, 0, 3],</span>
+<span class="go">        [4, 0, 0]], dtype=int64)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">save_npz</span><span class="p">(</span><span class="s1">&#39;/tmp/sparse_matrix.npz&#39;</span><span class="p">,</span> <span class="n">sparse_matrix</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_matrix</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">load_npz</span><span class="p">(</span><span class="s1">&#39;/tmp/sparse_matrix.npz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_matrix</span>
+<span class="go">&lt;2x3 sparse matrix of type &#39;&lt;type &#39;numpy.int64&#39;&gt;&#39;</span>
+<span class="go">   with 2 stored elements in Compressed Sparse Column format&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_matrix</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+<span class="go">matrix([[0, 0, 3],</span>
+<span class="go">        [4, 0, 0]], dtype=int64)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

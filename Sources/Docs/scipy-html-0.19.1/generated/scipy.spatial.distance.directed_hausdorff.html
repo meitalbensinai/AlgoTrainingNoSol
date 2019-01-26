@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.spatial.distance.directed_hausdorff &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Distance computations (scipy.spatial.distance)" href="../spatial.distance.html" >
+    <link rel="next" title="scipy.spatial.distance.is_valid_dm" href="scipy.spatial.distance.is_valid_dm.html" >
+    <link rel="prev" title="scipy.spatial.distance.squareform" href="scipy.spatial.distance.squareform.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../spatial.html" >Spatial algorithms and data structures (<code class="docutils literal"><span class="pre">scipy.spatial</span></code>)</a></li>
+          <li class="active"><a href="../spatial.distance.html" accesskey="U">Distance computations (<code class="docutils literal"><span class="pre">scipy.spatial.distance</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.distance.is_valid_dm.html" title="scipy.spatial.distance.is_valid_dm"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.distance.squareform.html" title="scipy.spatial.distance.squareform"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.spatial.distance.squareform.html"
+                        title="previous chapter">scipy.spatial.distance.squareform</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.spatial.distance.is_valid_dm.html"
+                        title="next chapter">scipy.spatial.distance.is_valid_dm</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-spatial-distance-directed-hausdorff">
+<h1>scipy.spatial.distance.directed_hausdorff<a class="headerlink" href="#scipy-spatial-distance-directed-hausdorff" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.spatial.distance.directed_hausdorff">
+<code class="descclassname">scipy.spatial.distance.</code><code class="descname">directed_hausdorff</code><span class="sig-paren">(</span><em>u</em>, <em>v</em>, <em>seed=0</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/spatial/distance.py#L247-L335"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.spatial.distance.directed_hausdorff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the directed Hausdorff distance between two N-D arrays.</p>
+<p>Distances between pairs are calculated using a Euclidean metric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>u</strong> : (M,N) ndarray</p>
+<blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
+<p><strong>v</strong> : (O,N) ndarray</p>
+<blockquote>
+<div><p>Input array.</p>
+</div></blockquote>
+<p><strong>seed</strong> : int or None</p>
+<blockquote>
+<div><p>Local <code class="xref py py-obj docutils literal"><span class="pre">np.random.RandomState</span></code> seed. Default is 0, a random shuffling of
+u and v that guarantees reproducibility.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>d</strong> : double</p>
+<blockquote>
+<div><p>The directed Hausdorff distance between arrays <em class="xref py py-obj">u</em> and <em class="xref py py-obj">v</em>,</p>
+</div></blockquote>
+<p><strong>index_1</strong> : int</p>
+<blockquote>
+<div><p>index of point contributing to Hausdorff pair in <em class="xref py py-obj">u</em></p>
+</div></blockquote>
+<p><strong>index_2</strong> : int</p>
+<blockquote class="last">
+<div><p>index of point contributing to Hausdorff pair in <em class="xref py py-obj">v</em></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.spatial.procrustes.html#scipy.spatial.procrustes" title="scipy.spatial.procrustes"><code class="xref py py-obj docutils literal"><span class="pre">scipy.spatial.procrustes</span></code></a></dt>
+<dd>Another similarity test for two data sets</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Uses the early break technique and the random sampling approach
+described by <a class="reference internal" href="#r364" id="id1">[R364]</a>. Although worst-case performance is <code class="docutils literal"><span class="pre">O(m</span> <span class="pre">*</span> <span class="pre">o)</span></code>
+(as with the brute force algorithm), this is unlikely in practice
+as the input data would have to require the algorithm to explore
+every single point interaction, and after the algorithm shuffles
+the input points at that. The best case performance is O(m), which
+is satisfied by selecting an inner loop distance that is less than
+cmax and leads to an early break as often as possible. The authors
+have formally shown that the average runtime is closer to O(m).</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r364" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R364]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> A. A. Taha and A. Hanbury, &#8220;An efficient algorithm for
+calculating the exact Hausdorff distance.&#8221; IEEE Transactions On
+Pattern Analysis And Machine Intelligence, vol. 37 pp. 2153-63,
+2015.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Find the directed Hausdorff distance between two 2-D arrays of
+coordinates:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="k">import</span> <span class="n">directed_hausdorff</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">)])</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">directed_hausdorff</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">2.23606797749979</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">directed_hausdorff</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">3.0</span>
+</pre></div>
+</div>
+<p>Find the general (symmetric) Hausdorff distance between two 2-D
+arrays of coordinates:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">directed_hausdorff</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">directed_hausdorff</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">3.0</span>
+</pre></div>
+</div>
+<p>Find the indices of the points that generate the Hausdorff distance
+(the Hausdorff pair):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">directed_hausdorff</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="go">(3, 3)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

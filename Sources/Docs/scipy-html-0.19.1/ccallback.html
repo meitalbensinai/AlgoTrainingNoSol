@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Low-level callback functions &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="next" title="scipy.LowLevelCallable" href="generated/scipy.LowLevelCallable.html" >
+    <link rel="prev" title="scipy.stats.gaussian_kde.covariance_factor" href="generated/scipy.stats.gaussian_kde.covariance_factor.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.LowLevelCallable.html" title="scipy.LowLevelCallable"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.stats.gaussian_kde.covariance_factor.html" title="scipy.stats.gaussian_kde.covariance_factor"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generated/scipy.stats.gaussian_kde.covariance_factor.html"
+                        title="previous chapter">scipy.stats.gaussian_kde.covariance_factor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generated/scipy.LowLevelCallable.html"
+                        title="next chapter">scipy.LowLevelCallable</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="low-level-callback-functions">
+<h1>Low-level callback functions<a class="headerlink" href="#low-level-callback-functions" title="Permalink to this headline">¶</a></h1>
+<p>Some functions in SciPy take as arguments callback functions, which
+can either be python callables or low-level compiled functions.  Using
+compiled callback functions can improve performance somewhat by
+avoiding wrapping data in Python objects.</p>
+<p>Such low-level functions in Scipy are wrapped in <a class="reference internal" href="generated/scipy.LowLevelCallable.html#scipy.LowLevelCallable" title="scipy.LowLevelCallable"><code class="xref py py-obj docutils literal"><span class="pre">LowLevelCallable</span></code></a>
+objects, which can be constructed from function pointers obtained from
+ctypes, cffi, Cython, or contained in Python <em class="xref py py-obj">PyCapsule</em> objects.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.LowLevelCallable.html#scipy.LowLevelCallable" title="scipy.LowLevelCallable"><code class="xref py py-obj docutils literal"><span class="pre">LowLevelCallable</span></code></a></td>
+<td>Low-level callback function.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p>Functions accepting low-level callables:</p>
+<p><a class="reference internal" href="generated/scipy.integrate.quad.html#scipy.integrate.quad" title="scipy.integrate.quad"><code class="xref py py-obj docutils literal"><span class="pre">scipy.integrate.quad</span></code></a>, <a class="reference internal" href="generated/scipy.ndimage.generic_filter.html#scipy.ndimage.generic_filter" title="scipy.ndimage.generic_filter"><code class="xref py py-obj docutils literal"><span class="pre">scipy.ndimage.generic_filter</span></code></a>, <a class="reference internal" href="generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d" title="scipy.ndimage.generic_filter1d"><code class="xref py py-obj docutils literal"><span class="pre">scipy.ndimage.generic_filter1d</span></code></a>,
+<a class="reference internal" href="generated/scipy.ndimage.geometric_transform.html#scipy.ndimage.geometric_transform" title="scipy.ndimage.geometric_transform"><code class="xref py py-obj docutils literal"><span class="pre">scipy.ndimage.geometric_transform</span></code></a></p>
+<p>Usage examples:</p>
+<p class="last"><a class="reference internal" href="tutorial/ndimage.html#ndimage-ccallbacks"><span class="std std-ref">Extending scipy.ndimage in C</span></a>, <a class="reference internal" href="tutorial/integrate.html#quad-callbacks"><span class="std std-ref">Faster integration using low-level callback functions</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

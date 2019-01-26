@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.read_excel &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.ExcelFile.parse" href="pandas.ExcelFile.parse.html" />
+    <link rel="prev" title="pandas.read_clipboard" href="pandas.read_clipboard.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.ExcelFile.parse.html" title="pandas.ExcelFile.parse"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.read_clipboard.html" title="pandas.read_clipboard"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../io.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-read-excel">
+<h1>pandas.read_excel<a class="headerlink" href="#pandas-read-excel" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.read_excel">
+<code class="descclassname">pandas.</code><code class="descname">read_excel</code><span class="sig-paren">(</span><em>io</em>, <em>sheet_name=0</em>, <em>header=0</em>, <em>names=None</em>, <em>index_col=None</em>, <em>parse_cols=None</em>, <em>usecols=None</em>, <em>squeeze=False</em>, <em>dtype=None</em>, <em>engine=None</em>, <em>converters=None</em>, <em>true_values=None</em>, <em>false_values=None</em>, <em>skiprows=None</em>, <em>nrows=None</em>, <em>na_values=None</em>, <em>keep_default_na=True</em>, <em>verbose=False</em>, <em>parse_dates=False</em>, <em>date_parser=None</em>, <em>thousands=None</em>, <em>comment=None</em>, <em>skip_footer=0</em>, <em>skipfooter=0</em>, <em>convert_float=True</em>, <em>mangle_dupe_cols=True</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/io/excel.py#L308-L375"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.read_excel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read an Excel file into a pandas DataFrame.</p>
+<p>Support both <cite>xls</cite> and <cite>xlsx</cite> file extensions from a local filesystem or URL.
+Support an option to read a single sheet or a list of sheets.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>io</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, file descriptor, pathlib.Path, ExcelFile or xlrd.Book</span></dt>
+<dd><p class="first last">The string could be a URL. Valid URL schemes include http, ftp, s3,
+gcs, and file. For file URLs, a host is expected. For instance, a local
+file could be /path/to/workbook.xlsx.</p>
+</dd>
+<dt><strong>sheet_name</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, int, list, or None, default 0</span></dt>
+<dd><p class="first">Strings are used for sheet names. Integers are used in zero-indexed
+sheet positions. Lists of strings/integers are used to request
+multiple sheets. Specify None to get all sheets.</p>
+<p>Available cases:</p>
+<ul class="last simple">
+<li>Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>: 1st sheet as a <cite>DataFrame</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">1</span></code>: 2nd sheet as a <cite>DataFrame</cite></li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;Sheet1&quot;</span></code>: Load sheet with name “Sheet1”</li>
+<li><code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">&quot;Sheet5&quot;]</span></code>: Load first, second and sheet named “Sheet5”
+as a dict of <cite>DataFrame</cite></li>
+<li>None: All sheets.</li>
+</ul>
+</dd>
+<dt><strong>header</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, list of int, default 0</span></dt>
+<dd><p class="first last">Row (0-indexed) to use for the column labels of the parsed
+DataFrame. If a list of integers is passed those row positions will
+be combined into a <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>. Use None if there is no header.</p>
+</dd>
+<dt><strong>names</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, default None</span></dt>
+<dd><p class="first last">List of column names to use. If file contains no header row,
+then you should explicitly pass header=None.</p>
+</dd>
+<dt><strong>index_col</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, list of int, default None</span></dt>
+<dd><p class="first last">Column (0-indexed) to use as the row labels of the DataFrame.
+Pass None if there is no such column.  If a list is passed,
+those columns will be combined into a <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>.  If a
+subset of data is selected with <code class="docutils literal notranslate"><span class="pre">usecols</span></code>, index_col
+is based on the subset.</p>
+</dd>
+<dt><strong>parse_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or list, default None</span></dt>
+<dd><p class="first">Alias of <cite>usecols</cite>.</p>
+<div class="last deprecated">
+<p><span class="versionmodified">Deprecated since version 0.21.0: </span>Use <cite>usecols</cite> instead.</p>
+</div>
+</dd>
+<dt><strong>usecols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, str, list-like, or callable default None</span></dt>
+<dd><p class="first">Return a subset of the columns.
+* If None, then parse all columns.
+* If int, then indicates last column to be parsed.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 0.24.0: </span>Pass in a list of int instead from 0 to <cite>usecols</cite> inclusive.</p>
+</div>
+<ul class="simple">
+<li>If str, then indicates comma separated list of Excel column letters
+and column ranges (e.g. “A:E” or “A,C,E:F”). Ranges are inclusive of
+both sides.</li>
+<li>If list of int, then indicates list of column numbers to be parsed.</li>
+<li>If list of string, then indicates list of column names to be parsed.</li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.24.0.</span></p>
+</div>
+<ul class="simple">
+<li>If callable, then evaluate each column name against it and parse the
+column if the callable returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</li>
+</ul>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.24.0.</span></p>
+</div>
+</dd>
+<dt><strong>squeeze</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">If the parsed data only contains one column then return a Series.</p>
+</dd>
+<dt><strong>dtype</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Type name or dict of column -&gt; type, default None</span></dt>
+<dd><p class="first">Data type for data or columns. E.g. {‘a’: np.float64, ‘b’: np.int32}
+Use <cite>object</cite> to preserve data as stored in Excel and not interpret dtype.
+If converters are specified, they will be applied INSTEAD
+of dtype conversion.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.20.0.</span></p>
+</div>
+</dd>
+<dt><strong>engine</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default None</span></dt>
+<dd><p class="first last">If io is not a buffer or path, this must be set to identify io.
+Acceptable values are None or xlrd.</p>
+</dd>
+<dt><strong>converters</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, default None</span></dt>
+<dd><p class="first last">Dict of functions for converting values in certain columns. Keys can
+either be integers or column labels, values are functions that take one
+input argument, the Excel cell content, and return the transformed
+content.</p>
+</dd>
+<dt><strong>true_values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, default None</span></dt>
+<dd><p class="first">Values to consider as True.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+</dd>
+<dt><strong>false_values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, default None</span></dt>
+<dd><p class="first">Values to consider as False.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+</dd>
+<dt><strong>skiprows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list-like</span></dt>
+<dd><p class="first last">Rows to skip at the beginning (0-indexed).</p>
+</dd>
+<dt><strong>nrows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default None</span></dt>
+<dd><p class="first">Number of rows to parse.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.23.0.</span></p>
+</div>
+</dd>
+<dt><strong>na_values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">scalar, str, list-like, or dict, default None</span></dt>
+<dd><p class="first last">Additional strings to recognize as NA/NaN. If dict passed, specific
+per-column NA values. By default the following values are interpreted
+as NaN: ‘’, ‘#N/A’, ‘#N/A N/A’, ‘#NA’, ‘-1.#IND’, ‘-1.#QNAN’, ‘-NaN’, ‘-nan’,
+‘1.#IND’, ‘1.#QNAN’, ‘N/A’, ‘NA’, ‘NULL’, ‘NaN’, ‘n/a’, ‘nan’,
+‘null’.</p>
+</dd>
+<dt><strong>keep_default_na</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">If na_values are specified and keep_default_na is False the default NaN
+values are overridden, otherwise they’re appended to.</p>
+</dd>
+<dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">Indicate number of NA values placed in non-numeric columns.</p>
+</dd>
+<dt><strong>parse_dates</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, list-like, or dict, default False</span></dt>
+<dd><p class="first">The behavior is as follows:</p>
+<ul class="simple">
+<li>bool. If True -&gt; try parsing the index.</li>
+<li>list of int or names. e.g. If [1, 2, 3] -&gt; try parsing columns 1, 2, 3
+each as a separate date column.</li>
+<li>list of lists. e.g.  If [[1, 3]] -&gt; combine columns 1 and 3 and parse as
+a single date column.</li>
+<li>dict, e.g. {{‘foo’ : [1, 3]}} -&gt; parse columns 1, 3 as date and call
+result ‘foo’</li>
+</ul>
+<p>If a column or index contains an unparseable date, the entire column or
+index will be returned unaltered as an object data type. For non-standard
+datetime parsing, use <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> after <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code></p>
+<p class="last">Note: A fast-path exists for iso8601-formatted dates.</p>
+</dd>
+<dt><strong>date_parser</strong> <span class="classifier-delimiter">:</span> <span class="classifier">function, optional</span></dt>
+<dd><p class="first last">Function to use for converting a sequence of string columns to an array of
+datetime instances. The default uses <code class="docutils literal notranslate"><span class="pre">dateutil.parser.parser</span></code> to do the
+conversion. Pandas will try to call <cite>date_parser</cite> in three different ways,
+advancing to the next if an exception occurs: 1) Pass one or more arrays
+(as defined by <cite>parse_dates</cite>) as arguments; 2) concatenate (row-wise) the
+string values from the columns defined by <cite>parse_dates</cite> into a single array
+and pass that; and 3) call <cite>date_parser</cite> once for each row using one or
+more strings (corresponding to the columns defined by <cite>parse_dates</cite>) as
+arguments.</p>
+</dd>
+<dt><strong>thousands</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default None</span></dt>
+<dd><p class="first last">Thousands separator for parsing string columns to numeric.  Note that
+this parameter is only necessary for columns stored as TEXT in Excel,
+any numeric columns will automatically be parsed, regardless of display
+format.</p>
+</dd>
+<dt><strong>comment</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default None</span></dt>
+<dd><p class="first last">Comments out remainder of line. Pass a character or characters to this
+argument to indicate comments in the input file. Any data between the
+comment string and the end of the current line is ignored.</p>
+</dd>
+<dt><strong>skip_footer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default 0</span></dt>
+<dd><p class="first">Alias of <cite>skipfooter</cite>.</p>
+<div class="last deprecated">
+<p><span class="versionmodified">Deprecated since version 0.23.0: </span>Use <cite>skipfooter</cite> instead.</p>
+</div>
+</dd>
+<dt><strong>skipfooter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default 0</span></dt>
+<dd><p class="first last">Rows at the end to skip (0-indexed).</p>
+</dd>
+<dt><strong>convert_float</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Convert integral floats to int (i.e., 1.0 –&gt; 1). If False, all numeric
+data will be read in as floats: Excel stores all numbers as floats
+internally.</p>
+</dd>
+<dt><strong>mangle_dupe_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Duplicate columns will be specified as ‘X’, ‘X.1’, …’X.N’, rather than
+‘X’…’X’. Passing in False will cause data to be overwritten if there
+are duplicate names in the columns.</p>
+</dd>
+<dt><strong>**kwds</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional</span></dt>
+<dd><p class="first last">Optional keyword arguments can be passed to <code class="docutils literal notranslate"><span class="pre">TextFileReader</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>DataFrame or dict of DataFrames</strong></dt>
+<dd><p class="first last">DataFrame from the passed in Excel file. See notes in sheet_name
+argument for more information on when a dict of DataFrames is returned.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_excel</span></code></dt>
+<dd>Write DataFrame to an Excel file.</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_csv</span></code></dt>
+<dd>Write DataFrame to a comma-separated values (csv) file.</dd>
+<dt><a class="reference internal" href="pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv</span></code></a></dt>
+<dd>Read a comma-separated values (csv) file into DataFrame.</dd>
+<dt><a class="reference internal" href="pandas.read_fwf.html#pandas.read_fwf" title="pandas.read_fwf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_fwf</span></code></a></dt>
+<dd>Read a table of fixed-width formatted lines into DataFrame.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>The file can be read using the file name as string or an open file object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;tmp.xlsx&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
+<span class="go">       Name  Value</span>
+<span class="go">0   string1      1</span>
+<span class="go">1   string2      2</span>
+<span class="go">2  #Comment      3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tmp.xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span>
+<span class="gp">... </span>              <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Sheet3&#39;</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
+<span class="go">   Unnamed: 0      Name  Value</span>
+<span class="go">0           0   string1      1</span>
+<span class="go">1           1   string2      2</span>
+<span class="go">2           2  #Comment      3</span>
+</pre></div>
+</div>
+<p>Index and header can be specified via the <cite>index_col</cite> and <cite>header</cite> arguments</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;tmp.xlsx&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
+<span class="go">     0         1      2</span>
+<span class="go">0  NaN      Name  Value</span>
+<span class="go">1  0.0   string1      1</span>
+<span class="go">2  1.0   string2      2</span>
+<span class="go">3  2.0  #Comment      3</span>
+</pre></div>
+</div>
+<p>Column types are inferred but can be explicitly specified</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;tmp.xlsx&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="gp">... </span>              <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">})</span>  <span class="c1"># doctest: +SKIP</span>
+<span class="go">       Name  Value</span>
+<span class="go">0   string1    1.0</span>
+<span class="go">1   string2    2.0</span>
+<span class="go">2  #Comment    3.0</span>
+</pre></div>
+</div>
+<p>True, False, and NA values, and thousands separators have defaults,
+but can be explicitly specified, too. Supply the values you would like
+as strings or lists of strings!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;tmp.xlsx&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="gp">... </span>              <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;string1&#39;</span><span class="p">,</span> <span class="s1">&#39;string2&#39;</span><span class="p">])</span>  <span class="c1"># doctest: +SKIP</span>
+<span class="go">       Name  Value</span>
+<span class="go">0       NaN      1</span>
+<span class="go">1       NaN      2</span>
+<span class="go">2  #Comment      3</span>
+</pre></div>
+</div>
+<p>Comment lines in the excel input file can be skipped using the <cite>comment</cite> kwarg</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;tmp.xlsx&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
+<span class="go">      Name  Value</span>
+<span class="go">0  string1    1.0</span>
+<span class="go">1  string2    2.0</span>
+<span class="go">2     None    NaN</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.ExcelFile.parse.html" title="pandas.ExcelFile.parse"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.read_clipboard.html" title="pandas.read_clipboard"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../io.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

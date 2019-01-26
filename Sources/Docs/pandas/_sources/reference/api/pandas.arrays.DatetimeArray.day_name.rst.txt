@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.day\_name
+=====================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.day_name

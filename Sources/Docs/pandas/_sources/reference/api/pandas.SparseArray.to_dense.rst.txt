@@ -1,0 +1,6 @@
+pandas.SparseArray.to\_dense
+============================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.to_dense

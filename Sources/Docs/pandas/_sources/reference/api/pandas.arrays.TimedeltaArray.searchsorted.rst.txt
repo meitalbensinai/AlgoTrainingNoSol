@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.searchsorted
+=========================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.searchsorted

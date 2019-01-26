@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v0.19.1 (November 3, 2016) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.19.0 (October 2, 2016)" href="v0.19.0.html" />
+    <link rel="prev" title="v0.19.2 (December 24, 2016)" href="v0.19.2.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.19.0.html" title="v0.19.0 (October 2, 2016)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.19.2.html" title="v0.19.2 (December 24, 2016)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v0-19-1-november-3-2016">
+<span id="whatsnew-0191"></span><h1>v0.19.1 (November 3, 2016)<a class="headerlink" href="#v0-19-1-november-3-2016" title="Permalink to this headline">¶</a></h1>
+<p>This is a minor bug-fix release from 0.19.0 and includes some small regression fixes,
+bug fixes and performance improvements.
+We recommend that all users upgrade to this version.</p>
+<div class="contents local topic" id="what-s-new-in-v0-19-1">
+<p class="topic-title first">What’s new in v0.19.1</p>
+<ul class="simple">
+<li><a class="reference internal" href="#performance-improvements" id="id1">Performance Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes" id="id2">Bug Fixes</a></li>
+<li><a class="reference internal" href="#contributors" id="id3">Contributors</a></li>
+</ul>
+</div>
+<div class="section" id="performance-improvements">
+<span id="whatsnew-0191-performance"></span><h2>Performance Improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed performance regression in factorization of <code class="docutils literal notranslate"><span class="pre">Period</span></code> data (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14338">GH14338</a>)</li>
+<li>Fixed performance regression in <code class="docutils literal notranslate"><span class="pre">Series.asof(where)</span></code> when <code class="docutils literal notranslate"><span class="pre">where</span></code> is a scalar (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14461">GH14461</a>)</li>
+<li>Improved performance in <code class="docutils literal notranslate"><span class="pre">DataFrame.asof(where)</span></code> when <code class="docutils literal notranslate"><span class="pre">where</span></code> is a scalar (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14461">GH14461</a>)</li>
+<li>Improved performance in <code class="docutils literal notranslate"><span class="pre">.to_json()</span></code> when <code class="docutils literal notranslate"><span class="pre">lines=True</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14408">GH14408</a>)</li>
+<li>Improved performance in certain types of <cite>loc</cite> indexing with a MultiIndex (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14551">GH14551</a>).</li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<span id="whatsnew-0191-bug-fixes"></span><h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Source installs from PyPI will now again work without <code class="docutils literal notranslate"><span class="pre">cython</span></code> installed, as in previous versions (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14204">GH14204</a>)</li>
+<li>Compat with Cython 0.25 for building (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14496">GH14496</a>)</li>
+<li>Fixed regression where user-provided file handles were closed in <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> (c engine) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14418">GH14418</a>).</li>
+<li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">DataFrame.quantile</span></code> when missing values where present in some columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14357">GH14357</a>).</li>
+<li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">Index.difference</span></code> where the <code class="docutils literal notranslate"><span class="pre">freq</span></code> of a <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> was incorrectly set (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14323">GH14323</a>)</li>
+<li>Added back <code class="docutils literal notranslate"><span class="pre">pandas.core.common.array_equivalent</span></code> with a deprecation warning (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14555">GH14555</a>).</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> for the C engine in which quotation marks were improperly parsed in skipped rows (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14459">GH14459</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> for Python 2.x in which Unicode quote characters were no longer being respected (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14477">GH14477</a>)</li>
+<li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">Index.append</span></code> when categorical indices were appended (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14545">GH14545</a>).</li>
+<li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> where constructor fails when given dict with <code class="docutils literal notranslate"><span class="pre">None</span></code> value (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14381">GH14381</a>)</li>
+<li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">DatetimeIndex._maybe_cast_slice_bound</span></code> when index is empty (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14354">GH14354</a>).</li>
+<li>Bug in localizing an ambiguous timezone when a boolean is passed (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14402">GH14402</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code> addition with a Datetime-like object where addition overflow in the negative direction was not being caught (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14068">GH14068</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14453">GH14453</a>)</li>
+<li>Bug in string indexing against data with <code class="docutils literal notranslate"><span class="pre">object</span></code> <code class="docutils literal notranslate"><span class="pre">Index</span></code> may raise <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14424">GH14424</a>)</li>
+<li>Correctly raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> on empty input to <code class="docutils literal notranslate"><span class="pre">pd.eval()</span></code> and <code class="docutils literal notranslate"><span class="pre">df.query()</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/13139">GH13139</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">RangeIndex.intersection</span></code> when result is a empty set (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14364">GH14364</a>).</li>
+<li>Bug in groupby-transform broadcasting that could cause incorrect dtype coercion (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14457">GH14457</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">Series.__setitem__</span></code> which allowed mutating read-only arrays (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14359">GH14359</a>).</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.insert</span></code> where multiple calls with duplicate columns can fail (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14291">GH14291</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> will raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with non-boolean parameters in passed boolean type arguments (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14434">GH14434</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> where dates very near the minimum (1677-09) could underflow on creation (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14415">GH14415</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> where names of the <code class="docutils literal notranslate"><span class="pre">keys</span></code> were not propagated to the resulting <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14252">GH14252</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> where <code class="docutils literal notranslate"><span class="pre">axis</span></code> cannot take string parameters <code class="docutils literal notranslate"><span class="pre">'rows'</span></code> or <code class="docutils literal notranslate"><span class="pre">'columns'</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14369">GH14369</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> with dataframes heterogeneous in length and tuple <code class="docutils literal notranslate"><span class="pre">keys</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14438">GH14438</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">MultiIndex.set_levels</span></code> where illegal level values were still set after raising an error (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/13754">GH13754</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.to_json</span></code> where <code class="docutils literal notranslate"><span class="pre">lines=True</span></code> and a value contained a <code class="docutils literal notranslate"><span class="pre">}</span></code> character (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14391">GH14391</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">df.groupby</span></code> causing an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> when grouping a single index frame by a column and the index level (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14327">GH14327</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">df.groupby</span></code> where <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> raised when <code class="docutils literal notranslate"><span class="pre">pd.Grouper(key=...)</span></code> is passed in a list (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14334">GH14334</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.pivot_table</span></code> may raise <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> or <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> when <code class="docutils literal notranslate"><span class="pre">index</span></code> or <code class="docutils literal notranslate"><span class="pre">columns</span></code>
+is not scalar and <code class="docutils literal notranslate"><span class="pre">values</span></code> is not specified (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/14380">GH14380</a>)</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<span id="whatsnew-0-19-1-contributors"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 30 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Adam Chainz +</li>
+<li>Anthonios Partheniou</li>
+<li>Arash Rouhani +</li>
+<li>Ben Kandel</li>
+<li>Brandon M. Burroughs +</li>
+<li>Chris</li>
+<li>Chris Warth</li>
+<li>David Krych +</li>
+<li>Iván Vallés Pérez +</li>
+<li>Jeff Reback</li>
+<li>Joe Jevnik</li>
+<li>Jon M. Mease +</li>
+<li>Jon Mease +</li>
+<li>Joris Van den Bossche</li>
+<li>Josh Owen +</li>
+<li>Keshav Ramaswamy +</li>
+<li>Larry Ren +</li>
+<li>Michael Felt +</li>
+<li>Piotr Chromiec +</li>
+<li>Robert Bradshaw +</li>
+<li>Sinhrks</li>
+<li>Thiago Serafim +</li>
+<li>Tom Bird</li>
+<li>bkandel +</li>
+<li>chris-b1</li>
+<li>dubourg +</li>
+<li>gfyoung</li>
+<li>mattrijk +</li>
+<li>paul-mannino +</li>
+<li>sinhrks</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.19.0.html" title="v0.19.0 (October 2, 2016)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.19.2.html" title="v0.19.2 (December 24, 2016)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

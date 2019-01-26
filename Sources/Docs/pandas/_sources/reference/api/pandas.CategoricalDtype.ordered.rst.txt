@@ -1,0 +1,6 @@
+pandas.CategoricalDtype.ordered
+===============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: CategoricalDtype.ordered

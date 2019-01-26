@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.fillna
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.fillna

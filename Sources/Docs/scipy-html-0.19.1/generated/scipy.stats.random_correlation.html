@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.stats.random_correlation &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Statistical functions (scipy.stats)" href="../stats.html" >
+    <link rel="next" title="scipy.stats.bernoulli" href="scipy.stats.bernoulli.html" >
+    <link rel="prev" title="scipy.stats.ortho_group" href="scipy.stats.ortho_group.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../stats.html" accesskey="U">Statistical functions (<code class="docutils literal"><span class="pre">scipy.stats</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.bernoulli.html" title="scipy.stats.bernoulli"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.ortho_group.html" title="scipy.stats.ortho_group"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.stats.ortho_group.html"
+                        title="previous chapter">scipy.stats.ortho_group</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.stats.bernoulli.html"
+                        title="next chapter">scipy.stats.bernoulli</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-stats-random-correlation">
+<h1>scipy.stats.random_correlation<a class="headerlink" href="#scipy-stats-random-correlation" title="Permalink to this headline">¶</a></h1>
+<dl class="data">
+<dt id="scipy.stats.random_correlation">
+<code class="descclassname">scipy.stats.</code><code class="descname">random_correlation</code><em class="property"> = &lt;scipy.stats._multivariate.random_correlation_gen object&gt;</em><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/stats/_multivariate.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.stats.random_correlation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A random correlation matrix.</p>
+<p>Return a random correlation matrix, given a vector of eigenvalues.</p>
+<p>The <em class="xref py py-obj">eigs</em> keyword specifies the eigenvalues of the correlation matrix,
+and implies the dimension.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eigs</strong> : 1d ndarray</p>
+<blockquote class="last">
+<div><p>Eigenvalues of correlation matrix.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Generates a random correlation matrix following a numerically stable
+algorithm spelled out by Davies &amp; Higham. This algorithm uses a single O(N)
+similarity transformation to construct a symmetric positive semi-definite
+matrix, and applies a series of Givens rotations to scale it to have ones
+on the diagonal.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r628" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R628]</a></td><td>Davies, Philip I; Higham, Nicholas J; &#8220;Numerically stable generation
+of correlation matrices and their factors&#8221;, BIT 2000, Vol. 40,
+No. 4, pp. 640 651</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">random_correlation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">514</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">random_correlation</span><span class="o">.</span><span class="n">rvs</span><span class="p">((</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[ 1.        , -0.20387311,  0.18366501, -0.04953711],</span>
+<span class="go">       [-0.20387311,  1.        , -0.24351129,  0.06703474],</span>
+<span class="go">       [ 0.18366501, -0.24351129,  1.        ,  0.38530195],</span>
+<span class="go">       [-0.04953711,  0.06703474,  0.38530195,  1.        ]])</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy.linalg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span>
+<span class="go">array([ 0.5,  0.8,  1.2,  1.5])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">rvs(eigs=None,</span> <span class="pre">random_state=None)</span></code></td>
+<td>Draw random correlation matrices, all with eigenvalues eigs.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

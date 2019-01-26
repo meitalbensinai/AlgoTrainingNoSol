@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.to\_perioddelta
+===========================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.to_perioddelta

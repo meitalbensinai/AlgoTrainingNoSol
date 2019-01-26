@@ -1,0 +1,6 @@
+pandas.SparseArray.nbytes
+=========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.nbytes

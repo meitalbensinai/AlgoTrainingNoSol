@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.fftpack.ifftn &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Discrete Fourier transforms (scipy.fftpack)" href="../fftpack.html" >
+    <link rel="next" title="scipy.fftpack.rfft" href="scipy.fftpack.rfft.html" >
+    <link rel="prev" title="scipy.fftpack.fftn" href="scipy.fftpack.fftn.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../fftpack.html" accesskey="U">Discrete Fourier transforms (<code class="docutils literal"><span class="pre">scipy.fftpack</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.fftpack.rfft.html" title="scipy.fftpack.rfft"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.fftpack.fftn.html" title="scipy.fftpack.fftn"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.fftpack.fftn.html"
+                        title="previous chapter">scipy.fftpack.fftn</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.fftpack.rfft.html"
+                        title="next chapter">scipy.fftpack.rfft</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-fftpack-ifftn">
+<h1>scipy.fftpack.ifftn<a class="headerlink" href="#scipy-fftpack-ifftn" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.fftpack.ifftn">
+<code class="descclassname">scipy.fftpack.</code><code class="descname">ifftn</code><span class="sig-paren">(</span><em>x</em>, <em>shape=None</em>, <em>axes=None</em>, <em>overwrite_x=False</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/fftpack/basic.py#L641-L660"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.fftpack.ifftn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return inverse multi-dimensional discrete Fourier transform of
+arbitrary type sequence x.</p>
+<p>The returned array contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="n">j_1</span><span class="p">,</span><span class="o">..</span><span class="p">,</span><span class="n">j_d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">p</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">[</span><span class="n">k_1</span><span class="o">=</span><span class="mf">0.</span><span class="o">.</span><span class="n">n_1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">k_d</span><span class="o">=</span><span class="mf">0.</span><span class="o">.</span><span class="n">n_d</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+   <span class="n">x</span><span class="p">[</span><span class="n">k_1</span><span class="p">,</span><span class="o">..</span><span class="p">,</span><span class="n">k_d</span><span class="p">]</span> <span class="o">*</span> <span class="n">prod</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mf">1.</span><span class="o">.</span><span class="n">d</span><span class="p">]</span> <span class="n">exp</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="n">n_i</span> <span class="o">*</span> <span class="n">j_i</span> <span class="o">*</span> <span class="n">k_i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">len(x.shape)</span></code>, <code class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">x.shape</span></code>, and <code class="docutils literal"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">prod[i=1..d]</span> <span class="pre">n_i</span></code>.</p>
+<p>For description of parameters see <a class="reference internal" href="scipy.fftpack.fftn.html#scipy.fftpack.fftn" title="scipy.fftpack.fftn"><code class="xref py py-obj docutils literal"><span class="pre">fftn</span></code></a>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.fftpack.fftn.html#scipy.fftpack.fftn" title="scipy.fftpack.fftn"><code class="xref py py-obj docutils literal"><span class="pre">fftn</span></code></a></dt>
+<dd>for detailed information.</dd>
+</dl>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

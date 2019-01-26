@@ -1,0 +1,66 @@
+pandas.arrays.TimedeltaArray
+============================
+
+.. currentmodule:: pandas.arrays
+
+.. autoclass:: TimedeltaArray
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      TimedeltaArray.argsort
+      TimedeltaArray.astype
+      TimedeltaArray.ceil
+      TimedeltaArray.copy
+      TimedeltaArray.dropna
+      TimedeltaArray.factorize
+      TimedeltaArray.fillna
+      TimedeltaArray.floor
+      TimedeltaArray.isna
+      TimedeltaArray.map
+      TimedeltaArray.max
+      TimedeltaArray.min
+      TimedeltaArray.repeat
+      TimedeltaArray.round
+      TimedeltaArray.searchsorted
+      TimedeltaArray.shift
+      TimedeltaArray.take
+      TimedeltaArray.to_pytimedelta
+      TimedeltaArray.total_seconds
+      TimedeltaArray.unique
+      TimedeltaArray.value_counts
+      TimedeltaArray.view
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      TimedeltaArray.asi8
+      TimedeltaArray.components
+      TimedeltaArray.days
+      TimedeltaArray.dtype
+      TimedeltaArray.freq
+      TimedeltaArray.freqstr
+      TimedeltaArray.inferred_freq
+      TimedeltaArray.microseconds
+      TimedeltaArray.nanoseconds
+      TimedeltaArray.nbytes
+      TimedeltaArray.ndim
+      TimedeltaArray.resolution
+      TimedeltaArray.seconds
+      TimedeltaArray.shape
+      TimedeltaArray.size
+
+

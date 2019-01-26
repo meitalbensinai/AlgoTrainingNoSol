@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.repeat
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.repeat

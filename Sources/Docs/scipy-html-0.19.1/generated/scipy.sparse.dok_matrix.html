@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.sparse.dok_matrix &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Sparse matrices (scipy.sparse)" href="../sparse.html" >
+    <link rel="next" title="scipy.sparse.dok_matrix.shape" href="scipy.sparse.dok_matrix.shape.html" >
+    <link rel="prev" title="scipy.sparse.dia_matrix.trunc" href="scipy.sparse.dia_matrix.trunc.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../sparse.html" accesskey="U">Sparse matrices (<code class="docutils literal"><span class="pre">scipy.sparse</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.sparse.dok_matrix.shape.html" title="scipy.sparse.dok_matrix.shape"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.sparse.dia_matrix.trunc.html" title="scipy.sparse.dia_matrix.trunc"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.sparse.dia_matrix.trunc.html"
+                        title="previous chapter">scipy.sparse.dia_matrix.trunc</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.sparse.dok_matrix.shape.html"
+                        title="next chapter">scipy.sparse.dok_matrix.shape</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-sparse-dok-matrix">
+<h1>scipy.sparse.dok_matrix<a class="headerlink" href="#scipy-sparse-dok-matrix" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="scipy.sparse.dok_matrix">
+<em class="property">class </em><code class="descclassname">scipy.sparse.</code><code class="descname">dok_matrix</code><span class="sig-paren">(</span><em>arg1</em>, <em>shape=None</em>, <em>dtype=None</em>, <em>copy=False</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/sparse/dok.py#L28-L514"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.sparse.dok_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary Of Keys based sparse matrix.</p>
+<p>This is an efficient structure for constructing sparse
+matrices incrementally.</p>
+<dl class="docutils">
+<dt>This can be instantiated in several ways:</dt>
+<dd><dl class="first last docutils">
+<dt>dok_matrix(D)</dt>
+<dd>with a dense matrix, D</dd>
+<dt>dok_matrix(S)</dt>
+<dd>with a sparse matrix, S</dd>
+<dt>dok_matrix((M,N), [dtype])</dt>
+<dd>create the matrix with initial shape (M,N)
+dtype is optional, defaulting to dtype=&#8217;d&#8217;</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Sparse matrices can be used in arithmetic operations: they support
+addition, subtraction, multiplication, division, and matrix power.</p>
+<p>Allows for efficient O(1) access of individual elements.
+Duplicates are not allowed.
+Can be efficiently converted to a coo_matrix once constructed.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="k">import</span> <span class="n">dok_matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">dok_matrix</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>    <span class="c1"># Update element</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.shape.html#scipy.sparse.dok_matrix.shape" title="scipy.sparse.dok_matrix.shape"><code class="xref py py-obj docutils literal"><span class="pre">shape</span></code></a></td>
+<td>Get shape of a matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.nnz.html#scipy.sparse.dok_matrix.nnz" title="scipy.sparse.dok_matrix.nnz"><code class="xref py py-obj docutils literal"><span class="pre">nnz</span></code></a></td>
+<td>Number of stored values, including explicit zeros.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dtype</td>
+<td>(dtype) Data type of the matrix</td>
+</tr>
+<tr class="row-even"><td>ndim</td>
+<td>(int) Number of dimensions (this is always 2)</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.asformat.html#scipy.sparse.dok_matrix.asformat" title="scipy.sparse.dok_matrix.asformat"><code class="xref py py-obj docutils literal"><span class="pre">asformat</span></code></a>(format)</td>
+<td>Return this matrix in a given sparse format</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.asfptype.html#scipy.sparse.dok_matrix.asfptype" title="scipy.sparse.dok_matrix.asfptype"><code class="xref py py-obj docutils literal"><span class="pre">asfptype</span></code></a>()</td>
+<td>Upcast matrix to a floating point format (if necessary)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.astype.html#scipy.sparse.dok_matrix.astype" title="scipy.sparse.dok_matrix.astype"><code class="xref py py-obj docutils literal"><span class="pre">astype</span></code></a>(t)</td>
+<td>Cast the matrix elements to a specified type.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.clear.html#scipy.sparse.dok_matrix.clear" title="scipy.sparse.dok_matrix.clear"><code class="xref py py-obj docutils literal"><span class="pre">clear</span></code></a>(()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;D.)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.conj.html#scipy.sparse.dok_matrix.conj" title="scipy.sparse.dok_matrix.conj"><code class="xref py py-obj docutils literal"><span class="pre">conj</span></code></a>()</td>
+<td>Element-wise complex conjugation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.conjtransp.html#scipy.sparse.dok_matrix.conjtransp" title="scipy.sparse.dok_matrix.conjtransp"><code class="xref py py-obj docutils literal"><span class="pre">conjtransp</span></code></a>()</td>
+<td>Return the conjugate transpose</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.conjugate.html#scipy.sparse.dok_matrix.conjugate" title="scipy.sparse.dok_matrix.conjugate"><code class="xref py py-obj docutils literal"><span class="pre">conjugate</span></code></a>()</td>
+<td>Element-wise complex conjugation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.copy.html#scipy.sparse.dok_matrix.copy" title="scipy.sparse.dok_matrix.copy"><code class="xref py py-obj docutils literal"><span class="pre">copy</span></code></a>()</td>
+<td>Returns a copy of this matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.count_nonzero.html#scipy.sparse.dok_matrix.count_nonzero" title="scipy.sparse.dok_matrix.count_nonzero"><code class="xref py py-obj docutils literal"><span class="pre">count_nonzero</span></code></a>()</td>
+<td>Number of non-zero entries, equivalent to</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.diagonal.html#scipy.sparse.dok_matrix.diagonal" title="scipy.sparse.dok_matrix.diagonal"><code class="xref py py-obj docutils literal"><span class="pre">diagonal</span></code></a>()</td>
+<td>Returns the main diagonal of the matrix</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.dot.html#scipy.sparse.dok_matrix.dot" title="scipy.sparse.dok_matrix.dot"><code class="xref py py-obj docutils literal"><span class="pre">dot</span></code></a>(other)</td>
+<td>Ordinary dot product</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.fromkeys.html#scipy.sparse.dok_matrix.fromkeys" title="scipy.sparse.dok_matrix.fromkeys"><code class="xref py py-obj docutils literal"><span class="pre">fromkeys</span></code></a>(...)</td>
+<td>v defaults to None.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.get.html#scipy.sparse.dok_matrix.get" title="scipy.sparse.dok_matrix.get"><code class="xref py py-obj docutils literal"><span class="pre">get</span></code></a>(key[,&nbsp;default])</td>
+<td>This overrides the dict.get method, providing type checking but otherwise equivalent functionality.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.getH.html#scipy.sparse.dok_matrix.getH" title="scipy.sparse.dok_matrix.getH"><code class="xref py py-obj docutils literal"><span class="pre">getH</span></code></a>()</td>
+<td>Return the Hermitian transpose of this matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.get_shape.html#scipy.sparse.dok_matrix.get_shape" title="scipy.sparse.dok_matrix.get_shape"><code class="xref py py-obj docutils literal"><span class="pre">get_shape</span></code></a>()</td>
+<td>Get shape of a matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.getcol.html#scipy.sparse.dok_matrix.getcol" title="scipy.sparse.dok_matrix.getcol"><code class="xref py py-obj docutils literal"><span class="pre">getcol</span></code></a>(j)</td>
+<td>Returns a copy of column j of the matrix as a (m x 1) DOK matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.getformat.html#scipy.sparse.dok_matrix.getformat" title="scipy.sparse.dok_matrix.getformat"><code class="xref py py-obj docutils literal"><span class="pre">getformat</span></code></a>()</td>
+<td>Format of a matrix representation as a string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.getmaxprint.html#scipy.sparse.dok_matrix.getmaxprint" title="scipy.sparse.dok_matrix.getmaxprint"><code class="xref py py-obj docutils literal"><span class="pre">getmaxprint</span></code></a>()</td>
+<td>Maximum number of elements to display when printed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.getnnz.html#scipy.sparse.dok_matrix.getnnz" title="scipy.sparse.dok_matrix.getnnz"><code class="xref py py-obj docutils literal"><span class="pre">getnnz</span></code></a>([axis])</td>
+<td>Number of stored values, including explicit zeros.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.getrow.html#scipy.sparse.dok_matrix.getrow" title="scipy.sparse.dok_matrix.getrow"><code class="xref py py-obj docutils literal"><span class="pre">getrow</span></code></a>(i)</td>
+<td>Returns a copy of row i of the matrix as a (1 x n) DOK matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.has_key.html#scipy.sparse.dok_matrix.has_key" title="scipy.sparse.dok_matrix.has_key"><code class="xref py py-obj docutils literal"><span class="pre">has_key</span></code></a>((k)&nbsp;-&gt;&nbsp;True&nbsp;if&nbsp;D&nbsp;has&nbsp;a&nbsp;key&nbsp;k,&nbsp;else&nbsp;False)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.items.html#scipy.sparse.dok_matrix.items" title="scipy.sparse.dok_matrix.items"><code class="xref py py-obj docutils literal"><span class="pre">items</span></code></a>(()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D&#8217;s&nbsp;(key,&nbsp;value)&nbsp;pairs,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.iteritems.html#scipy.sparse.dok_matrix.iteritems" title="scipy.sparse.dok_matrix.iteritems"><code class="xref py py-obj docutils literal"><span class="pre">iteritems</span></code></a>(()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;(key,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.iterkeys.html#scipy.sparse.dok_matrix.iterkeys" title="scipy.sparse.dok_matrix.iterkeys"><code class="xref py py-obj docutils literal"><span class="pre">iterkeys</span></code></a>(()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;keys&nbsp;of&nbsp;D)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.itervalues.html#scipy.sparse.dok_matrix.itervalues" title="scipy.sparse.dok_matrix.itervalues"><code class="xref py py-obj docutils literal"><span class="pre">itervalues</span></code></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.keys.html#scipy.sparse.dok_matrix.keys" title="scipy.sparse.dok_matrix.keys"><code class="xref py py-obj docutils literal"><span class="pre">keys</span></code></a>(()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D&#8217;s&nbsp;keys)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.maximum.html#scipy.sparse.dok_matrix.maximum" title="scipy.sparse.dok_matrix.maximum"><code class="xref py py-obj docutils literal"><span class="pre">maximum</span></code></a>(other)</td>
+<td>Element-wise maximum between this and another matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.mean.html#scipy.sparse.dok_matrix.mean" title="scipy.sparse.dok_matrix.mean"><code class="xref py py-obj docutils literal"><span class="pre">mean</span></code></a>([axis,&nbsp;dtype,&nbsp;out])</td>
+<td>Compute the arithmetic mean along the specified axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.minimum.html#scipy.sparse.dok_matrix.minimum" title="scipy.sparse.dok_matrix.minimum"><code class="xref py py-obj docutils literal"><span class="pre">minimum</span></code></a>(other)</td>
+<td>Element-wise minimum between this and another matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.multiply.html#scipy.sparse.dok_matrix.multiply" title="scipy.sparse.dok_matrix.multiply"><code class="xref py py-obj docutils literal"><span class="pre">multiply</span></code></a>(other)</td>
+<td>Point-wise multiplication by another matrix</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.nonzero.html#scipy.sparse.dok_matrix.nonzero" title="scipy.sparse.dok_matrix.nonzero"><code class="xref py py-obj docutils literal"><span class="pre">nonzero</span></code></a>()</td>
+<td>nonzero indices</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.pop.html#scipy.sparse.dok_matrix.pop" title="scipy.sparse.dok_matrix.pop"><code class="xref py py-obj docutils literal"><span class="pre">pop</span></code></a>((k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;...)</td>
+<td>If key is not found, d is returned if given, otherwise KeyError is raised</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.popitem.html#scipy.sparse.dok_matrix.popitem" title="scipy.sparse.dok_matrix.popitem"><code class="xref py py-obj docutils literal"><span class="pre">popitem</span></code></a>(()&nbsp;-&gt;&nbsp;(k,&nbsp;v),&nbsp;...)</td>
+<td>2-tuple; but raise KeyError if D is empty.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.power.html#scipy.sparse.dok_matrix.power" title="scipy.sparse.dok_matrix.power"><code class="xref py py-obj docutils literal"><span class="pre">power</span></code></a>(n[,&nbsp;dtype])</td>
+<td>Element-wise power.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.reshape.html#scipy.sparse.dok_matrix.reshape" title="scipy.sparse.dok_matrix.reshape"><code class="xref py py-obj docutils literal"><span class="pre">reshape</span></code></a>(shape[,&nbsp;order])</td>
+<td>Gives a new shape to a sparse matrix without changing its data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.resize.html#scipy.sparse.dok_matrix.resize" title="scipy.sparse.dok_matrix.resize"><code class="xref py py-obj docutils literal"><span class="pre">resize</span></code></a>(shape)</td>
+<td>Resize the matrix in-place to dimensions given by &#8216;shape&#8217;.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.set_shape.html#scipy.sparse.dok_matrix.set_shape" title="scipy.sparse.dok_matrix.set_shape"><code class="xref py py-obj docutils literal"><span class="pre">set_shape</span></code></a>(shape)</td>
+<td>See <a class="reference internal" href="scipy.sparse.dok_matrix.reshape.html#scipy.sparse.dok_matrix.reshape" title="scipy.sparse.dok_matrix.reshape"><code class="xref py py-obj docutils literal"><span class="pre">reshape</span></code></a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.setdefault.html#scipy.sparse.dok_matrix.setdefault" title="scipy.sparse.dok_matrix.setdefault"><code class="xref py py-obj docutils literal"><span class="pre">setdefault</span></code></a>((k[,d])&nbsp;-&gt;&nbsp;D.get(k,d),&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.setdiag.html#scipy.sparse.dok_matrix.setdiag" title="scipy.sparse.dok_matrix.setdiag"><code class="xref py py-obj docutils literal"><span class="pre">setdiag</span></code></a>(values[,&nbsp;k])</td>
+<td>Set diagonal or off-diagonal elements of the array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.sum.html#scipy.sparse.dok_matrix.sum" title="scipy.sparse.dok_matrix.sum"><code class="xref py py-obj docutils literal"><span class="pre">sum</span></code></a>([axis,&nbsp;dtype,&nbsp;out])</td>
+<td>Sum the matrix elements over a given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.toarray.html#scipy.sparse.dok_matrix.toarray" title="scipy.sparse.dok_matrix.toarray"><code class="xref py py-obj docutils literal"><span class="pre">toarray</span></code></a>([order,&nbsp;out])</td>
+<td>Return a dense ndarray representation of this matrix.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.tobsr.html#scipy.sparse.dok_matrix.tobsr" title="scipy.sparse.dok_matrix.tobsr"><code class="xref py py-obj docutils literal"><span class="pre">tobsr</span></code></a>([blocksize,&nbsp;copy])</td>
+<td>Convert this matrix to Block Sparse Row format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.tocoo.html#scipy.sparse.dok_matrix.tocoo" title="scipy.sparse.dok_matrix.tocoo"><code class="xref py py-obj docutils literal"><span class="pre">tocoo</span></code></a>([copy])</td>
+<td>Convert this matrix to COOrdinate format.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.tocsc.html#scipy.sparse.dok_matrix.tocsc" title="scipy.sparse.dok_matrix.tocsc"><code class="xref py py-obj docutils literal"><span class="pre">tocsc</span></code></a>([copy])</td>
+<td>Convert this matrix to Compressed Sparse Column format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.tocsr.html#scipy.sparse.dok_matrix.tocsr" title="scipy.sparse.dok_matrix.tocsr"><code class="xref py py-obj docutils literal"><span class="pre">tocsr</span></code></a>([copy])</td>
+<td>Convert this matrix to Compressed Sparse Row format.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.todense.html#scipy.sparse.dok_matrix.todense" title="scipy.sparse.dok_matrix.todense"><code class="xref py py-obj docutils literal"><span class="pre">todense</span></code></a>([order,&nbsp;out])</td>
+<td>Return a dense matrix representation of this matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.todia.html#scipy.sparse.dok_matrix.todia" title="scipy.sparse.dok_matrix.todia"><code class="xref py py-obj docutils literal"><span class="pre">todia</span></code></a>([copy])</td>
+<td>Convert this matrix to sparse DIAgonal format.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.todok.html#scipy.sparse.dok_matrix.todok" title="scipy.sparse.dok_matrix.todok"><code class="xref py py-obj docutils literal"><span class="pre">todok</span></code></a>([copy])</td>
+<td>Convert this matrix to Dictionary Of Keys format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.tolil.html#scipy.sparse.dok_matrix.tolil" title="scipy.sparse.dok_matrix.tolil"><code class="xref py py-obj docutils literal"><span class="pre">tolil</span></code></a>([copy])</td>
+<td>Convert this matrix to LInked List format.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.transpose.html#scipy.sparse.dok_matrix.transpose" title="scipy.sparse.dok_matrix.transpose"><code class="xref py py-obj docutils literal"><span class="pre">transpose</span></code></a>([axes,&nbsp;copy])</td>
+<td>Reverses the dimensions of the sparse matrix.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.update.html#scipy.sparse.dok_matrix.update" title="scipy.sparse.dok_matrix.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>(([E,&nbsp;...)</td>
+<td>If E present and has a .keys() method, does:     for k in E: D[k] = E[k]</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.values.html#scipy.sparse.dok_matrix.values" title="scipy.sparse.dok_matrix.values"><code class="xref py py-obj docutils literal"><span class="pre">values</span></code></a>(()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D&#8217;s&nbsp;values)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.viewitems.html#scipy.sparse.dok_matrix.viewitems" title="scipy.sparse.dok_matrix.viewitems"><code class="xref py py-obj docutils literal"><span class="pre">viewitems</span></code></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.sparse.dok_matrix.viewkeys.html#scipy.sparse.dok_matrix.viewkeys" title="scipy.sparse.dok_matrix.viewkeys"><code class="xref py py-obj docutils literal"><span class="pre">viewkeys</span></code></a>(...)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.sparse.dok_matrix.viewvalues.html#scipy.sparse.dok_matrix.viewvalues" title="scipy.sparse.dok_matrix.viewvalues"><code class="xref py py-obj docutils literal"><span class="pre">viewvalues</span></code></a>(...)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

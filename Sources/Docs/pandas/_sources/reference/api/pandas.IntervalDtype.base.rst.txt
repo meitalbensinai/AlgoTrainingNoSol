@@ -1,0 +1,6 @@
+pandas.IntervalDtype.base
+=========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: IntervalDtype.base

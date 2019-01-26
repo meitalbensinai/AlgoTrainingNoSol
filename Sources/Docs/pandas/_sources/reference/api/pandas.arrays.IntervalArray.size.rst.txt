@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.size
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: IntervalArray.size

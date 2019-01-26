@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.map
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.map

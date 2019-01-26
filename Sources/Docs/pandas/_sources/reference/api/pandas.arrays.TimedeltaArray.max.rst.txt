@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.max
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.max

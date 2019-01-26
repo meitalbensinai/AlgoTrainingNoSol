@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.repeat
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.repeat

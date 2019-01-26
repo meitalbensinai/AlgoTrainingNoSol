@@ -1,0 +1,6 @@
+pandas.UInt64Dtype.construct\_from\_string
+==========================================
+
+.. currentmodule:: pandas
+
+.. automethod:: UInt64Dtype.construct_from_string

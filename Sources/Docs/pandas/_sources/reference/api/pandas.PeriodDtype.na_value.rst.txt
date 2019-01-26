@@ -1,0 +1,6 @@
+pandas.PeriodDtype.na\_value
+============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: PeriodDtype.na_value

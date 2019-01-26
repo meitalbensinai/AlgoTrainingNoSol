@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.argsort
+====================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.argsort

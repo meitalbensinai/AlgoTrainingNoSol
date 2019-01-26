@@ -1,0 +1,6 @@
+pandas.SparseArray.take
+=======================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.take

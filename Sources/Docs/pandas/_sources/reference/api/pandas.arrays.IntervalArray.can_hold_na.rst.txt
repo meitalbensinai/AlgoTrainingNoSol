@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.can\_hold\_na
+=========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: IntervalArray.can_hold_na

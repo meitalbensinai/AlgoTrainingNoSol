@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.dtype
+===============================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: PandasArray.dtype

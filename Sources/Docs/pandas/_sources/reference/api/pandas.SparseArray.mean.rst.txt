@@ -1,0 +1,6 @@
+pandas.SparseArray.mean
+=======================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.mean

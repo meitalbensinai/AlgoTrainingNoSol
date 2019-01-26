@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.ndim
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.ndim

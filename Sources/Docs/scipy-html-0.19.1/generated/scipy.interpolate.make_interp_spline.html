@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.interpolate.make_interp_spline &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Interpolation (scipy.interpolate)" href="../interpolate.html" >
+    <link rel="next" title="scipy.interpolate.make_lsq_spline" href="scipy.interpolate.make_lsq_spline.html" >
+    <link rel="prev" title="scipy.interpolate.BSpline.construct_fast" href="scipy.interpolate.BSpline.construct_fast.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../interpolate.html" accesskey="U">Interpolation (<code class="docutils literal"><span class="pre">scipy.interpolate</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.interpolate.make_lsq_spline.html" title="scipy.interpolate.make_lsq_spline"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.interpolate.BSpline.construct_fast.html" title="scipy.interpolate.BSpline.construct_fast"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.interpolate.BSpline.construct_fast.html"
+                        title="previous chapter">scipy.interpolate.BSpline.construct_fast</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.interpolate.make_lsq_spline.html"
+                        title="next chapter">scipy.interpolate.make_lsq_spline</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-interpolate-make-interp-spline">
+<h1>scipy.interpolate.make_interp_spline<a class="headerlink" href="#scipy-interpolate-make-interp-spline" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.interpolate.make_interp_spline">
+<code class="descclassname">scipy.interpolate.</code><code class="descname">make_interp_spline</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>k=3</em>, <em>t=None</em>, <em>bc_type=None</em>, <em>axis=0</em>, <em>check_finite=True</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/interpolate/_bsplines.py#L513-L734"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.interpolate.make_interp_spline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the (coefficients of) interpolating B-spline.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like, shape (n,)</p>
+<blockquote>
+<div><p>Abscissas.</p>
+</div></blockquote>
+<p><strong>y</strong> : array_like, shape (n, ...)</p>
+<blockquote>
+<div><p>Ordinates.</p>
+</div></blockquote>
+<p><strong>k</strong> : int, optional</p>
+<blockquote>
+<div><p>B-spline degree. Default is cubic, k=3.</p>
+</div></blockquote>
+<p><strong>t</strong> : array_like, shape (nt + k + 1,), optional.</p>
+<blockquote>
+<div><p>Knots.
+The number of knots needs to agree with the number of datapoints and
+the number of derivatives at the edges. Specifically, <code class="docutils literal"><span class="pre">nt</span> <span class="pre">-</span> <span class="pre">n</span></code> must
+equal <code class="docutils literal"><span class="pre">len(deriv_l)</span> <span class="pre">+</span> <span class="pre">len(deriv_r)</span></code>.</p>
+</div></blockquote>
+<p><strong>bc_type</strong> : 2-tuple or None</p>
+<blockquote>
+<div><p>Boundary conditions.
+Default is None, which means choosing the boundary conditions
+automatically. Otherwise, it must be a length-two tuple where the first
+element sets the boundary conditions at <code class="docutils literal"><span class="pre">x[0]</span></code> and the second
+element sets the boundary conditions at <code class="docutils literal"><span class="pre">x[-1]</span></code>. Each of these must
+be an iterable of pairs <code class="docutils literal"><span class="pre">(order,</span> <span class="pre">value)</span></code> which gives the values of
+derivatives of specified orders at the given edge of the interpolation
+interval.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>Interpolation axis. Default is 0.</p>
+</div></blockquote>
+<p><strong>check_finite</strong> : bool, optional</p>
+<blockquote>
+<div><p>Whether to check that the input arrays contain only finite numbers.
+Disabling may give a performance gain, but may result in problems
+(crashes, non-termination) if the inputs do contain infinities or NaNs.
+Default is True.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>b</strong> : a BSpline object of the degree <code class="docutils literal"><span class="pre">k</span></code> and with knots <code class="docutils literal"><span class="pre">t</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.interpolate.BSpline.html#scipy.interpolate.BSpline" title="scipy.interpolate.BSpline"><code class="xref py py-obj docutils literal"><span class="pre">BSpline</span></code></a></dt>
+<dd>base class representing the B-spline objects</dd>
+<dt><a class="reference internal" href="scipy.interpolate.CubicSpline.html#scipy.interpolate.CubicSpline" title="scipy.interpolate.CubicSpline"><code class="xref py py-obj docutils literal"><span class="pre">CubicSpline</span></code></a></dt>
+<dd>a cubic spline in the polynomial basis</dd>
+<dt><a class="reference internal" href="scipy.interpolate.make_lsq_spline.html#scipy.interpolate.make_lsq_spline" title="scipy.interpolate.make_lsq_spline"><code class="xref py py-obj docutils literal"><span class="pre">make_lsq_spline</span></code></a></dt>
+<dd>a similar factory function for spline fitting</dd>
+<dt><a class="reference internal" href="scipy.interpolate.UnivariateSpline.html#scipy.interpolate.UnivariateSpline" title="scipy.interpolate.UnivariateSpline"><code class="xref py py-obj docutils literal"><span class="pre">UnivariateSpline</span></code></a></dt>
+<dd>a wrapper over FITPACK spline fitting routines</dd>
+<dt><a class="reference internal" href="scipy.interpolate.splrep.html#scipy.interpolate.splrep" title="scipy.interpolate.splrep"><code class="xref py py-obj docutils literal"><span class="pre">splrep</span></code></a></dt>
+<dd>a wrapper over FITPACK spline fitting routines</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Use cubic interpolation on Chebyshev nodes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">cheb_nodes</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">jj</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">jj</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">N</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">cheb_nodes</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">BSpline</span><span class="p">,</span> <span class="n">make_interp_spline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">b</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Note that the default is a cubic spline with a not-a-knot boundary condition</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">k</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Here we use a &#8216;natural&#8217; spline, with zero 2nd derivatives at edges:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b_n</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">bc_type</span><span class="o">=</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">b_n</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="n">b_n</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">b_n</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Interpolation of parametric curves is also supported. As an example, we
+compute a discretization of a snail curve in polar coordinates</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>  <span class="c1"># convert to Cartesian coordinates</span>
+</pre></div>
+</div>
+<p>Build an interpolating curve, parameterizing it by the angle</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">make_interp_spline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spl</span> <span class="o">=</span> <span class="n">make_interp_spline</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Evaluate the interpolant on a finer grid (note that we transpose the result
+to unpack it into a pair of x- and y-arrays)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">phi_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">spl</span><span class="p">(</span><span class="n">phi_new</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<p>Plot the result</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../generated/scipy-interpolate-make_interp_spline-1.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/scipy-interpolate-make_interp_spline-1.png" src="../_images/scipy-interpolate-make_interp_spline-1.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

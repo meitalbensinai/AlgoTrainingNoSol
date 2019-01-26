@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Making a SciPy release &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Making a SciPy release</a><ul>
+<li><a class="reference internal" href="#proposing-a-release-schedule">Proposing a release schedule</a></li>
+<li><a class="reference internal" href="#creating-the-maintenance-branch">Creating the maintenance branch</a></li>
+<li><a class="reference internal" href="#tagging-a-release">Tagging a release</a></li>
+<li><a class="reference internal" href="#building-release-artifacts">Building release artifacts</a></li>
+<li><a class="reference internal" href="#uploading-release-artifacts">Uploading release artifacts</a></li>
+<li><a class="reference internal" href="#wrapping-up">Wrapping up</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="making-a-scipy-release">
+<h1>Making a SciPy release<a class="headerlink" href="#making-a-scipy-release" title="Permalink to this headline">¶</a></h1>
+<p>At the highest level, this is what the release manager does to release a new
+Scipy version:</p>
+<ol class="arabic simple">
+<li>Propose a release schedule on the scipy-dev mailing list.</li>
+<li>Create the maintenance branch for the release.</li>
+<li>Tag the release.</li>
+<li>Build all release artifacts (sources, installers, docs).</li>
+<li>Upload the release artifacts.</li>
+<li>Announce the release.</li>
+<li>Port relevant changes to release notes and build scripts to master.</li>
+</ol>
+<p>In this guide we attempt to describe in detail how to perform each of the above
+steps.  In addition to those steps, which have to be performed by the release
+manager, here are descriptions of release-related activities and conventions of
+interest:</p>
+<ul class="simple">
+<li><a class="reference internal" href="index.html#backporting"><span class="std std-ref">Backporting</span></a></li>
+<li><a class="reference internal" href="index.html#labels-and-milestones"><span class="std std-ref">Labels and Milestones</span></a></li>
+<li><a class="reference internal" href="versioning.html"><span class="doc">Version numbering</span></a></li>
+<li><a class="reference internal" href="index.html#supported-py-numpy-versions"><span class="std std-ref">Supported Python and Numpy versions</span></a></li>
+<li><a class="reference internal" href="deprecations.html"><span class="doc">Deprecations</span></a></li>
+</ul>
+<div class="section" id="proposing-a-release-schedule">
+<h2>Proposing a release schedule<a class="headerlink" href="#proposing-a-release-schedule" title="Permalink to this headline">¶</a></h2>
+<p>A typical release cycle looks like:</p>
+<ul class="simple">
+<li>Create the maintenance branch</li>
+<li>Release a beta version</li>
+<li>Release a &#8220;release candidate&#8221; (RC)</li>
+<li>If needed, release one or more new RCs</li>
+<li>Release the final version once there are no issues with the last release
+candidate</li>
+</ul>
+<p>There&#8217;s usually at least one week between each of the above steps.  Experience
+shows that a cycle takes between 4 and 8 weeks for a new minor version.
+Bug-fix versions don&#8217;t need a beta or RC, and can be done much quicker.</p>
+<p>Ideally the final release is identical to the last RC, however there may be
+minor difference - it&#8217;s up to the release manager to judge the risk of that.
+Typically, if compiled code or complex pure Python code changes then a new RC
+is needed, while a simple bug-fix that&#8217;s backported from master doesn&#8217;t require
+a new RC.</p>
+<p>To propose a schedule, send a list with estimated dates for branching and
+beta/rc/final releases to scipy-dev. In the same email, ask everyone to check
+if there are important issues/PRs that need to be included and aren&#8217;t tagged
+with the Milestone for the release or the &#8220;backport-candidate&#8221; label.</p>
+</div>
+<div class="section" id="creating-the-maintenance-branch">
+<h2>Creating the maintenance branch<a class="headerlink" href="#creating-the-maintenance-branch" title="Permalink to this headline">¶</a></h2>
+<p>Before branching, ensure that the release notes are updated as far as possible.
+Include the output of <code class="docutils literal"><span class="pre">tools/gh_lists.py</span></code> and <code class="docutils literal"><span class="pre">tools/authors.py</span></code> in the
+release notes.</p>
+<p>Maintenance branches are named <code class="docutils literal"><span class="pre">maintenance/0.&lt;minor-version&gt;.x</span></code>.  To create
+one, simply push a branch with the correct name to the scipy repo.  Immediately
+after, push a commit where you increment the version number on the master
+branch and add release notes for that new version.
+Send an email to scipy-dev to let people know that you&#8217;ve done this.</p>
+</div>
+<div class="section" id="tagging-a-release">
+<h2>Tagging a release<a class="headerlink" href="#tagging-a-release" title="Permalink to this headline">¶</a></h2>
+<p>First ensure that you have set up GPG correctly.  See
+<a class="reference external" href="https://github.com/scipy/scipy/issues/4919">https://github.com/scipy/scipy/issues/4919</a> for a discussion of signing release
+tags, and <a class="reference external" href="http://keyring.debian.org/creating-key.html">http://keyring.debian.org/creating-key.html</a> for instructions on
+creating a GPG key if you do not have one.</p>
+<p>To make your key more readily identifiable as you, consider sending your key
+to public keyservers, with a command such as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gpg</span> <span class="o">--</span><span class="n">send</span><span class="o">-</span><span class="n">keys</span> <span class="o">&lt;</span><span class="n">yourkeyid</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Check that all relevant commits are in the branch.  In particular, check issues
+and PRs under the Milestone for the release
+(<a class="reference external" href="https://github.com/scipy/scipy/milestones">https://github.com/scipy/scipy/milestones</a>), PRs labeled &#8220;backport-candidate&#8221;,
+and that the release notes are up-to-date and included in the html docs.</p>
+<p>Then edit <code class="docutils literal"><span class="pre">setup.py</span></code> to get the correct version number (set
+<code class="docutils literal"><span class="pre">ISRELEASED</span> <span class="pre">=</span> <span class="pre">True</span></code>) and commit it with a message like <code class="docutils literal"><span class="pre">REL:</span> <span class="pre">set</span> <span class="pre">version</span> <span class="pre">to</span>
+<span class="pre">&lt;version-number&gt;</span></code>.  Don&#8217;t push this commit to the Scipy repo yet.</p>
+<p>Finally tag the release locally with <code class="docutils literal"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-s</span> <span class="pre">&lt;v0.x.y&gt;</span></code> (the <code class="docutils literal"><span class="pre">-s</span></code> ensures
+the tag is signed).  Continue with building release artifacts (next section).
+Only push the release commit and tag to the scipy repo once you have built the
+docs and Windows installers successfully.  After that push, also push a second
+commit which increment the version number and sets <code class="docutils literal"><span class="pre">ISRELEASED</span></code> to False
+again.</p>
+</div>
+<div class="section" id="building-release-artifacts">
+<h2>Building release artifacts<a class="headerlink" href="#building-release-artifacts" title="Permalink to this headline">¶</a></h2>
+<p>Here is a complete list of artifacts created for a release:</p>
+<ul class="simple">
+<li>source archives (<code class="docutils literal"><span class="pre">.tar.gz</span></code>, <code class="docutils literal"><span class="pre">.zip</span></code> and <code class="docutils literal"><span class="pre">.tar.xz</span></code>)</li>
+<li>Binary wheels, for OS X only at the moment</li>
+<li>Documentation (<code class="docutils literal"><span class="pre">html</span></code>, <code class="docutils literal"><span class="pre">pdf</span></code>)</li>
+<li>A <code class="docutils literal"><span class="pre">README</span></code> file</li>
+<li>A <code class="docutils literal"><span class="pre">Changelog</span></code> file</li>
+</ul>
+<p>All of these except the OS X wheel are built by running <code class="docutils literal"><span class="pre">paver</span> <span class="pre">release</span></code> in
+the repo root.  Do this after you&#8217;ve created the signed tag.  If this completes
+without issues, push the release tag to the scipy repo.  This is needed because
+the OS X wheel build automatically builds the last tag.</p>
+<p>To build wheels for OS X, push a commit to the master branch of
+<a class="reference external" href="https://github.com/MacPython/scipy-wheels">https://github.com/MacPython/scipy-wheels</a>.  This triggers builds for all needed
+Python versions on TravisCI.  Check in the <code class="docutils literal"><span class="pre">.travis.yml</span></code> config file what
+version of Python and Numpy are used for the builds (it needs to be the lowest
+supported Numpy version for each Python version).  See the README file in the
+scipy-wheels repo for more details.</p>
+<p>The TravisCI builds run the tests from the built wheels and if they pass upload
+the wheels to <a class="reference external" href="http://wheels.scipy.org/">http://wheels.scipy.org/</a>.  From there you can copy them for
+uploading to PyPI (see next section).</p>
+</div>
+<div class="section" id="uploading-release-artifacts">
+<h2>Uploading release artifacts<a class="headerlink" href="#uploading-release-artifacts" title="Permalink to this headline">¶</a></h2>
+<p>For a release there are currently five places on the web to upload things to:</p>
+<ul class="simple">
+<li>PyPI (tarballs, OS X wheels)</li>
+<li>Github releases (tarballs, release notes, Changelog)</li>
+<li>scipy.org (an announcement of the release)</li>
+<li>docs.scipy.org (html/pdf docs)</li>
+</ul>
+<p><strong>PyPI:</strong></p>
+<p><code class="docutils literal"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">-s</span> <span class="pre">&lt;tarballs</span> <span class="pre">or</span> <span class="pre">wheels</span> <span class="pre">to</span> <span class="pre">upload&gt;</span></code></p>
+<p><strong>Github Releases:</strong></p>
+<p>Use GUI on <a class="reference external" href="https://github.com/scipy/scipy/releases">https://github.com/scipy/scipy/releases</a> to create release and
+upload all release artifacts.</p>
+<p><strong>SourceForge:</strong></p>
+<p>The main download sites are PyPI and Github Releases.  Older releases are stored
+on SourceForce ( <a class="reference external" href="http://sourceforge.net/projects/scipy/files/scipy">http://sourceforge.net/projects/scipy/files/scipy</a>).  That
+download site has a &#8220;Latest&#8221; folder which redirects users to PyPI/GitHub, so
+it&#8217;s not needed to upload anything to SourceForge for new releases.</p>
+<p><strong>scipy.org:</strong></p>
+<p>Sources for the site are in <a class="reference external" href="https://github.com/scipy/scipy.org">https://github.com/scipy/scipy.org</a>.
+Update the News section in <code class="docutils literal"><span class="pre">www/index.rst</span></code> and then do
+<code class="docutils literal"><span class="pre">make</span> <span class="pre">upload</span> <span class="pre">USERNAME=yourusername</span></code>.</p>
+<p><strong>docs.scipy.org:</strong></p>
+<p>First build the scipy docs, by running <code class="docutils literal"><span class="pre">make</span> <span class="pre">dist</span></code> in <code class="docutils literal"><span class="pre">scipy/doc/</span></code>.  Verify
+that they look OK, then upload them to the doc server with
+<code class="docutils literal"><span class="pre">make</span> <span class="pre">upload</span> <span class="pre">USERNAME=rgommers</span> <span class="pre">RELEASE=0.17.0</span></code>.  Note that SSH access to the
+doc server is needed; ask &#64;pv (server admin) or &#64;rgommers (can upload) if you
+don&#8217;t have that.</p>
+<p>The sources for the website itself are maintained in
+<a class="reference external" href="https://github.com/scipy/docs.scipy.org/">https://github.com/scipy/docs.scipy.org/</a>.  Add the new Scipy version in the
+table of releases in <code class="docutils literal"><span class="pre">index.rst</span></code>.  Push that commit, then do <code class="docutils literal"><span class="pre">make</span> <span class="pre">upload</span>
+<span class="pre">USERNAME=yourusername</span></code>.</p>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<p>Send an email announcing the release to the following mailing lists:</p>
+<ul class="simple">
+<li>scipy-dev</li>
+<li>scipy-user</li>
+<li>numpy-discussion</li>
+<li>python-announce (not for beta/rc releases)</li>
+</ul>
+<p>For beta and rc versions, ask people in the email to test (run the scipy tests
+and test against their own code) and report issues on Github or scipy-dev.</p>
+<p>After the final release is done, port relevant changes to release notes, build
+scripts, author name mapping in <code class="docutils literal"><span class="pre">tools/authors.py</span></code> and any other changes that
+were only made on the maintenance branch to master.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+pandas.SparseArray.unique
+=========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.unique

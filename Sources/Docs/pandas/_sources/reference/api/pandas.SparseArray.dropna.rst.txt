@@ -1,0 +1,6 @@
+pandas.SparseArray.dropna
+=========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.dropna

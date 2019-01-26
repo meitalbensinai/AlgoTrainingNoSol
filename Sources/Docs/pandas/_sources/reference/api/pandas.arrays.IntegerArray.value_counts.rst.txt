@@ -1,0 +1,6 @@
+pandas.arrays.IntegerArray.value\_counts
+========================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntegerArray.value_counts

@@ -1,0 +1,6 @@
+pandas.SparseArray.all
+======================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.all

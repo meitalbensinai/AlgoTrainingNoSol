@@ -1,0 +1,6 @@
+pandas.SparseArray.argsort
+==========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.argsort

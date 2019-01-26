@@ -1,0 +1,6 @@
+pandas.SparseArray.sp\_values
+=============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.sp_values

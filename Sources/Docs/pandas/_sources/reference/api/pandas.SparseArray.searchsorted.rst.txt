@@ -1,0 +1,6 @@
+pandas.SparseArray.searchsorted
+===============================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.searchsorted

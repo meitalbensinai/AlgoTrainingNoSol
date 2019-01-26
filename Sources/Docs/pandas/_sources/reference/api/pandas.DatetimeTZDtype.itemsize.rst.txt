@@ -1,0 +1,6 @@
+pandas.DatetimeTZDtype.itemsize
+===============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: DatetimeTZDtype.itemsize

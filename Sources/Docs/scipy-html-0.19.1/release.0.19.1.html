@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>SciPy 0.19.1 Release Notes &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="up" title="Release Notes" href="release.html" >
+    <link rel="next" title="SciPy 0.19.0 Release Notes" href="release.0.19.0.html" >
+    <link rel="prev" title="Release Notes" href="release.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="release.html" accesskey="U">Release Notes</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="release.0.19.0.html" title="SciPy 0.19.0 Release Notes"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="release.html" title="Release Notes"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SciPy 0.19.1 Release Notes</a><ul>
+<li><a class="reference internal" href="#authors">Authors</a><ul>
+<li><a class="reference internal" href="#issues-closed-for-0-19-1">Issues closed for 0.19.1</a></li>
+<li><a class="reference internal" href="#pull-requests-for-0-19-1">Pull requests for 0.19.1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="release.html"
+                        title="previous chapter">Release Notes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="release.0.19.0.html"
+                        title="next chapter">SciPy 0.19.0 Release Notes</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-0-19-1-release-notes">
+<h1>SciPy 0.19.1 Release Notes<a class="headerlink" href="#scipy-0-19-1-release-notes" title="Permalink to this headline">¶</a></h1>
+<p>SciPy 0.19.1 is a bug-fix release with no new features compared to 0.19.0.
+The most important change is a fix for a severe memory leak in
+<code class="docutils literal"><span class="pre">integrate.quad</span></code>.</p>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Evgeni Burovski</li>
+<li>Patrick Callier +</li>
+<li>Yu Feng</li>
+<li>Ralf Gommers</li>
+<li>Ilhan Polat</li>
+<li>Eric Quintero</li>
+<li>Scott Sievert</li>
+<li>Pauli Virtanen</li>
+<li>Warren Weckesser</li>
+</ul>
+<p>A total of 9 people contributed to this release.
+People with a &#8220;+&#8221; by their names contributed a patch for the first time.
+This list of names is automatically generated, and may not be fully complete.</p>
+<div class="section" id="issues-closed-for-0-19-1">
+<h3>Issues closed for 0.19.1<a class="headerlink" href="#issues-closed-for-0-19-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/7214">#7214</a>: Memory use in integrate.quad in scipy-0.19.0</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/7258">#7258</a>: <code class="docutils literal"><span class="pre">linalg.matrix_balance</span></code> gives wrong transformation matrix</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/7262">#7262</a>: Segfault in daily testing</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/7273">#7273</a>: <code class="docutils literal"><span class="pre">scipy.interpolate._bspl.evaluate_spline</span></code> gets wrong type</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/7335">#7335</a>: scipy.signal.dlti(A,B,C,D).freqresp() fails</li>
+</ul>
+</div>
+<div class="section" id="pull-requests-for-0-19-1">
+<h3>Pull requests for 0.19.1<a class="headerlink" href="#pull-requests-for-0-19-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7211">#7211</a>: BUG: convolve may yield inconsistent dtypes with method changed</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7216">#7216</a>: BUG: integrate: fix refcounting bug in quad()</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7229">#7229</a>: MAINT: special: Rewrite a test of wrightomega</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7261">#7261</a>: FIX: Corrected the transformation matrix permutation</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7265">#7265</a>: BUG: Fix broken axis handling in spectral functions</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7266">#7266</a>: FIX 7262: ckdtree crashes in query_knn.</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7279">#7279</a>: Upcast half- and single-precision floats to doubles in BSpline...</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7336">#7336</a>: BUG: Fix signal.dfreqresp for StateSpace systems</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7419">#7419</a>: Fix several issues in <code class="docutils literal"><span class="pre">sparse.load_npz</span></code>, <code class="docutils literal"><span class="pre">save_npz</span></code></li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/7420">#7420</a>: BUG: stats: allow integers as kappa4 shape parameters</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

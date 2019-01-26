@@ -1,0 +1,6 @@
+pandas.SparseDtype.is\_dtype
+============================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseDtype.is_dtype

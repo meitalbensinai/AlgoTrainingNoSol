@@ -1,0 +1,6 @@
+pandas.Int32Dtype.base
+======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Int32Dtype.base

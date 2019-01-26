@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.timetuple
+=====================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.timetuple

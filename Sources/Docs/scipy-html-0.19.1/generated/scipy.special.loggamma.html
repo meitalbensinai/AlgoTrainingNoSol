@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.special.loggamma &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Special functions (scipy.special)" href="../special.html" >
+    <link rel="next" title="scipy.special.gammasgn" href="scipy.special.gammasgn.html" >
+    <link rel="prev" title="scipy.special.gammaln" href="scipy.special.gammaln.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../special.html" accesskey="U">Special functions (<code class="docutils literal"><span class="pre">scipy.special</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.special.gammasgn.html" title="scipy.special.gammasgn"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.special.gammaln.html" title="scipy.special.gammaln"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.special.gammaln.html"
+                        title="previous chapter">scipy.special.gammaln</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.special.gammasgn.html"
+                        title="next chapter">scipy.special.gammasgn</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-special-loggamma">
+<h1>scipy.special.loggamma<a class="headerlink" href="#scipy-special-loggamma" title="Permalink to this headline">¶</a></h1>
+<dl class="data">
+<dt id="scipy.special.loggamma">
+<code class="descclassname">scipy.special.</code><code class="descname">loggamma</code><span class="sig-paren">(</span><em>z</em>, <em>out=None</em><span class="sig-paren">)</span><em class="property"> = &lt;ufunc 'loggamma'&gt;</em><a class="headerlink" href="#scipy.special.loggamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Principal branch of the logarithm of the Gamma function.</p>
+<p>Defined to be <span class="math">\(\log(\Gamma(x))\)</span> for <span class="math">\(x &gt; 0\)</span> and
+extended to the complex plane by analytic continuation. The
+function has a single branch cut on the negative real axis.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.18.0.</span></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : array-like</p>
+<blockquote>
+<div><p>Values in the complex plain at which to compute <code class="docutils literal"><span class="pre">loggamma</span></code></p>
+</div></blockquote>
+<p><strong>out</strong> : ndarray, optional</p>
+<blockquote>
+<div><p>Output array for computed values of <code class="docutils literal"><span class="pre">loggamma</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>loggamma</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>Values of <code class="docutils literal"><span class="pre">loggamma</span></code> at z.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.special.gammaln.html#scipy.special.gammaln" title="scipy.special.gammaln"><code class="xref py py-obj docutils literal"><span class="pre">gammaln</span></code></a></dt>
+<dd>logarithm of the absolute value of the Gamma function</dd>
+<dt><a class="reference internal" href="scipy.special.gammasgn.html#scipy.special.gammasgn" title="scipy.special.gammasgn"><code class="xref py py-obj docutils literal"><span class="pre">gammasgn</span></code></a></dt>
+<dd>sign of the gamma function</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>It is not generally true that <span class="math">\(\log\Gamma(z) =
+\log(\Gamma(z))\)</span>, though the real parts of the functions do
+agree. The benefit of not defining <code class="docutils literal"><span class="pre">loggamma</span></code> as
+<span class="math">\(\log(\Gamma(z))\)</span> is that the latter function has a
+complicated branch cut structure whereas <code class="docutils literal"><span class="pre">loggamma</span></code> is analytic
+except for on the negative real axis.</p>
+<p>The identities</p>
+<div class="math">
+\[\begin{split}\exp(\log\Gamma(z)) &amp;= \Gamma(z) \\
+\log\Gamma(z + 1) &amp;= \log(z) + \log\Gamma(z)\end{split}\]</div>
+<p>make <code class="docutils literal"><span class="pre">loggama</span></code> useful for working in complex logspace. However,
+<code class="docutils literal"><span class="pre">loggamma</span></code> necessarily returns complex outputs for real inputs,
+so if you want to work only with real numbers use <a class="reference internal" href="scipy.special.gammaln.html#scipy.special.gammaln" title="scipy.special.gammaln"><code class="xref py py-obj docutils literal"><span class="pre">gammaln</span></code></a>. On
+the real line the two functions are related by <code class="docutils literal"><span class="pre">exp(loggamma(x))</span>
+<span class="pre">=</span> <span class="pre">gammasgn(x)*exp(gammaln(x))</span></code>, though in practice rounding
+errors will introduce small spurious imaginary components in
+<code class="docutils literal"><span class="pre">exp(loggamma(x))</span></code>.</p>
+<p>The implementation here is based on <a class="reference internal" href="#hare1997" id="id1">[hare1997]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="hare1997" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[hare1997]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>)</em> D.E.G. Hare,
+<em>Computing the Principal Branch of log-Gamma</em>,
+Journal of Algorithms, Volume 25, Issue 2, November 1997, pages 221-236.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

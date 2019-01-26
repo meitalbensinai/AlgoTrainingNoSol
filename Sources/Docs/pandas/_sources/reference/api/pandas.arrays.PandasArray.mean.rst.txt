@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.mean
+==============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.mean

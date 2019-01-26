@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.factorize &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.unique" href="pandas.unique.html" />
+    <link rel="prev" title="pandas.get_dummies" href="pandas.get_dummies.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.unique.html" title="pandas.unique"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.get_dummies.html" title="pandas.get_dummies"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../general_functions.html" accesskey="U">General functions</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-factorize">
+<h1>pandas.factorize<a class="headerlink" href="#pandas-factorize" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.factorize">
+<code class="descclassname">pandas.</code><code class="descname">factorize</code><span class="sig-paren">(</span><em>values</em>, <em>sort=False</em>, <em>order=None</em>, <em>na_sentinel=-1</em>, <em>size_hint=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/algorithms.py#L559-L637"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.factorize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the object as an enumerated type or categorical variable.</p>
+<p>This method is useful for obtaining a numeric representation of an
+array when all that matters is identifying distinct values. <cite>factorize</cite>
+is available as both a top-level function <a class="reference internal" href="#pandas.factorize" title="pandas.factorize"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.factorize()</span></code></a>,
+and as a method <a class="reference internal" href="pandas.Series.factorize.html#pandas.Series.factorize" title="pandas.Series.factorize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.factorize()</span></code></a> and <a class="reference internal" href="pandas.Index.factorize.html#pandas.Index.factorize" title="pandas.Index.factorize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Index.factorize()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
+<dd><p class="first last">A 1-D sequence. Sequences that aren’t pandas objects are
+coerced to ndarrays before factorization.</p>
+</dd>
+<dt><strong>sort</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">Sort <cite>uniques</cite> and shuffle <cite>labels</cite> to maintain the
+relationship.</p>
+</dd>
+<dt><strong>order</strong></dt>
+<dd><div class="first last deprecated">
+<p><span class="versionmodified">Deprecated since version 0.23.0: </span>This parameter has no effect and is deprecated.</p>
+</div>
+</dd>
+<dt><strong>na_sentinel</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default -1</span></dt>
+<dd><p class="first last">Value to mark “not found”.</p>
+</dd>
+<dt><strong>size_hint</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">Hint to the hashtable sizer.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>labels</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray</span></dt>
+<dd><p class="first last">An integer ndarray that’s an indexer into <cite>uniques</cite>.
+<code class="docutils literal notranslate"><span class="pre">uniques.take(labels)</span></code> will have the same values as <cite>values</cite>.</p>
+</dd>
+<dt><strong>uniques</strong> <span class="classifier-delimiter">:</span> <span class="classifier">ndarray, Index, or Categorical</span></dt>
+<dd><p class="first">The unique valid values. When <cite>values</cite> is Categorical, <cite>uniques</cite>
+is a Categorical. When <cite>values</cite> is some other pandas object, an
+<cite>Index</cite> is returned. Otherwise, a 1-D ndarray is returned.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Even if there’s a missing value in <cite>values</cite>, <cite>uniques</cite> will
+<em>not</em> contain an entry for it.</p>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="pandas.cut.html#pandas.cut" title="pandas.cut"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cut</span></code></a></dt>
+<dd>Discretize continuous-valued array.</dd>
+<dt><a class="reference internal" href="pandas.unique.html#pandas.unique" title="pandas.unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unique</span></code></a></dt>
+<dd>Find the unique value in an array.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>These examples all show factorize as a top-level method like
+<code class="docutils literal notranslate"><span class="pre">pd.factorize(values)</span></code>. The results are identical for methods like
+<a class="reference internal" href="pandas.Series.factorize.html#pandas.Series.factorize" title="pandas.Series.factorize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.factorize()</span></code></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span><span class="p">,</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span>
+<span class="go">array([0, 0, 1, 2, 0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniques</span>
+<span class="go">array([&#39;b&#39;, &#39;a&#39;, &#39;c&#39;], dtype=object)</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">sort=True</span></code>, the <cite>uniques</cite> will be sorted, and <cite>labels</cite> will be
+shuffled so that the relationship is the maintained.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span><span class="p">,</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span>
+<span class="go">array([1, 1, 0, 2, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniques</span>
+<span class="go">array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object)</span>
+</pre></div>
+</div>
+<p>Missing values are indicated in <cite>labels</cite> with <cite>na_sentinel</cite>
+(<code class="docutils literal notranslate"><span class="pre">-1</span></code> by default). Note that missing values are never
+included in <cite>uniques</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span><span class="p">,</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span>
+<span class="go">array([ 0, -1,  1,  2,  0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniques</span>
+<span class="go">array([&#39;b&#39;, &#39;a&#39;, &#39;c&#39;], dtype=object)</span>
+</pre></div>
+</div>
+<p>Thus far, we’ve only factorized lists (which are internally coerced to
+NumPy arrays). When factorizing pandas objects, the type of <cite>uniques</cite>
+will differ. For Categoricals, a <cite>Categorical</cite> is returned.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span><span class="p">,</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span>
+<span class="go">array([0, 0, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniques</span>
+<span class="go">[a, c]</span>
+<span class="go">Categories (3, object): [a, b, c]</span>
+</pre></div>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">'b'</span></code> is in <code class="docutils literal notranslate"><span class="pre">uniques.categories</span></code>, despite not being
+present in <code class="docutils literal notranslate"><span class="pre">cat.values</span></code>.</p>
+<p>For all other pandas objects, an Index of the appropriate type is
+returned.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span><span class="p">,</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span>
+<span class="go">array([0, 0, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uniques</span>
+<span class="go">Index([&#39;a&#39;, &#39;c&#39;], dtype=&#39;object&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.unique.html" title="pandas.unique"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.get_dummies.html" title="pandas.get_dummies"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../general_functions.html" >General functions</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.special.lmbda &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Special functions (scipy.special)" href="../special.html" >
+    <link rel="next" title="scipy.special.jnjnp_zeros" href="scipy.special.jnjnp_zeros.html" >
+    <link rel="prev" title="scipy.special.hankel2e" href="scipy.special.hankel2e.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../special.html" accesskey="U">Special functions (<code class="docutils literal"><span class="pre">scipy.special</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.special.jnjnp_zeros.html" title="scipy.special.jnjnp_zeros"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.special.hankel2e.html" title="scipy.special.hankel2e"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.special.hankel2e.html"
+                        title="previous chapter">scipy.special.hankel2e</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.special.jnjnp_zeros.html"
+                        title="next chapter">scipy.special.jnjnp_zeros</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-special-lmbda">
+<h1>scipy.special.lmbda<a class="headerlink" href="#scipy-special-lmbda" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.special.lmbda">
+<code class="descclassname">scipy.special.</code><code class="descname">lmbda</code><span class="sig-paren">(</span><em>v</em>, <em>x</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/special/basic.py#L1717-L1764"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.special.lmbda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jahnke-Emden Lambda function, Lambdav(x).</p>
+<p>This function is defined as <a class="reference internal" href="#r483" id="id1">[R483]</a>,</p>
+<div class="math">
+\[\Lambda_v(x) = \Gamma(v+1) \frac{J_v(x)}{(x/2)^v},\]</div>
+<p>where <span class="math">\(\Gamma\)</span> is the gamma function and <span class="math">\(J_v\)</span> is the
+Bessel function of the first kind.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>v</strong> : float</p>
+<blockquote>
+<div><p>Order of the Lambda function</p>
+</div></blockquote>
+<p><strong>x</strong> : float</p>
+<blockquote>
+<div><p>Value at which to evaluate the function and derivatives</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>vl</strong> : ndarray</p>
+<blockquote>
+<div><p>Values of Lambda_vi(x), for vi=v-int(v), vi=1+v-int(v), ..., vi=v.</p>
+</div></blockquote>
+<p><strong>dl</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>Derivatives Lambda_vi&#8217;(x), for vi=v-int(v), vi=1+v-int(v), ..., vi=v.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r482" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[R482]</a></td><td>Zhang, Shanjie and Jin, Jianming. &#8220;Computation of Special
+Functions&#8221;, John Wiley and Sons, 1996.
+<a class="reference external" href="http://jin.ece.illinois.edu/specfunc.html">http://jin.ece.illinois.edu/specfunc.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r483" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R483]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> Jahnke, E. and Emde, F. &#8220;Tables of Functions with Formulae and
+Curves&#8221; (4th ed.), Dover, 1945</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

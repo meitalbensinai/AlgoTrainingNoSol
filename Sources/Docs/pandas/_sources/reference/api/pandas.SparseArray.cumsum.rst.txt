@@ -1,0 +1,6 @@
+pandas.SparseArray.cumsum
+=========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.cumsum

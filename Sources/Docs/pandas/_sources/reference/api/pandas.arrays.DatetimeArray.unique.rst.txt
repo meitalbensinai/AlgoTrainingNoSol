@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.unique
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.unique

@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.read_json &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.io.json.json_normalize" href="pandas.io.json.json_normalize.html" />
+    <link rel="prev" title="pandas.ExcelWriter" href="pandas.ExcelWriter.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.io.json.json_normalize.html" title="pandas.io.json.json_normalize"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.ExcelWriter.html" title="pandas.ExcelWriter"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../io.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-read-json">
+<h1>pandas.read_json<a class="headerlink" href="#pandas-read-json" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.read_json">
+<code class="descclassname">pandas.</code><code class="descname">read_json</code><span class="sig-paren">(</span><em>path_or_buf=None</em>, <em>orient=None</em>, <em>typ='frame'</em>, <em>dtype=True</em>, <em>convert_axes=True</em>, <em>convert_dates=True</em>, <em>keep_default_dates=True</em>, <em>numpy=False</em>, <em>precise_float=False</em>, <em>date_unit=None</em>, <em>encoding=None</em>, <em>lines=False</em>, <em>chunksize=None</em>, <em>compression='infer'</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/io/json/json.py#L229-L433"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.read_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a JSON string to pandas object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>path_or_buf</strong> <span class="classifier-delimiter">:</span> <span class="classifier">a valid JSON string or file-like, default: None</span></dt>
+<dd><p class="first last">The string could be a URL. Valid URL schemes include http, ftp, s3,
+gcs, and file. For file URLs, a host is expected. For instance, a local
+file could be <code class="docutils literal notranslate"><span class="pre">file://localhost/path/to/table.json</span></code></p>
+</dd>
+<dt><strong>orient</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string,</span></dt>
+<dd><p class="first">Indication of expected JSON string format.
+Compatible JSON strings can be produced by <code class="docutils literal notranslate"><span class="pre">to_json()</span></code> with a
+corresponding orient value.
+The set of possible orients is:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">'split'</span></code> : dict like
+<code class="docutils literal notranslate"><span class="pre">{index</span> <span class="pre">-&gt;</span> <span class="pre">[index],</span> <span class="pre">columns</span> <span class="pre">-&gt;</span> <span class="pre">[columns],</span> <span class="pre">data</span> <span class="pre">-&gt;</span> <span class="pre">[values]}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">'records'</span></code> : list like
+<code class="docutils literal notranslate"><span class="pre">[{column</span> <span class="pre">-&gt;</span> <span class="pre">value},</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">{column</span> <span class="pre">-&gt;</span> <span class="pre">value}]</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">'index'</span></code> : dict like <code class="docutils literal notranslate"><span class="pre">{index</span> <span class="pre">-&gt;</span> <span class="pre">{column</span> <span class="pre">-&gt;</span> <span class="pre">value}}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">'columns'</span></code> : dict like <code class="docutils literal notranslate"><span class="pre">{column</span> <span class="pre">-&gt;</span> <span class="pre">{index</span> <span class="pre">-&gt;</span> <span class="pre">value}}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">'values'</span></code> : just the values array</li>
+</ul>
+<p>The allowed and default values depend on the value
+of the <cite>typ</cite> parameter.</p>
+<ul class="simple">
+<li>when <code class="docutils literal notranslate"><span class="pre">typ</span> <span class="pre">==</span> <span class="pre">'series'</span></code>,<ul>
+<li>allowed orients are <code class="docutils literal notranslate"><span class="pre">{'split','records','index'}</span></code></li>
+<li>default is <code class="docutils literal notranslate"><span class="pre">'index'</span></code></li>
+<li>The Series index must be unique for orient <code class="docutils literal notranslate"><span class="pre">'index'</span></code>.</li>
+</ul>
+</li>
+<li>when <code class="docutils literal notranslate"><span class="pre">typ</span> <span class="pre">==</span> <span class="pre">'frame'</span></code>,<ul>
+<li>allowed orients are <code class="docutils literal notranslate"><span class="pre">{'split','records','index',</span>
+<span class="pre">'columns','values',</span> <span class="pre">'table'}</span></code></li>
+<li>default is <code class="docutils literal notranslate"><span class="pre">'columns'</span></code></li>
+<li>The DataFrame index must be unique for orients <code class="docutils literal notranslate"><span class="pre">'index'</span></code> and
+<code class="docutils literal notranslate"><span class="pre">'columns'</span></code>.</li>
+<li>The DataFrame columns must be unique for orients <code class="docutils literal notranslate"><span class="pre">'index'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'columns'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'records'</span></code>.</li>
+</ul>
+</li>
+</ul>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.23.0: </span>‘table’ as an allowed value for the <code class="docutils literal notranslate"><span class="pre">orient</span></code> argument</p>
+</div>
+</dd>
+<dt><strong>typ</strong> <span class="classifier-delimiter">:</span> <span class="classifier">type of object to recover (series or frame), default ‘frame’</span></dt>
+<dd></dd>
+<dt><strong>dtype</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean or dict, default True</span></dt>
+<dd><p class="first last">If True, infer dtypes, if a dict of column to dtype, then use those,
+if False, then don’t infer dtypes at all, applies only to the data.</p>
+</dd>
+<dt><strong>convert_axes</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default True</span></dt>
+<dd><p class="first last">Try to convert the axes to the proper dtypes.</p>
+</dd>
+<dt><strong>convert_dates</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default True</span></dt>
+<dd><p class="first">List of columns to parse for dates; If True, then try to parse
+datelike columns default is True; a column label is datelike if</p>
+<ul class="last simple">
+<li>it ends with <code class="docutils literal notranslate"><span class="pre">'_at'</span></code>,</li>
+<li>it ends with <code class="docutils literal notranslate"><span class="pre">'_time'</span></code>,</li>
+<li>it begins with <code class="docutils literal notranslate"><span class="pre">'timestamp'</span></code>,</li>
+<li>it is <code class="docutils literal notranslate"><span class="pre">'modified'</span></code>, or</li>
+<li>it is <code class="docutils literal notranslate"><span class="pre">'date'</span></code></li>
+</ul>
+</dd>
+<dt><strong>keep_default_dates</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default True</span></dt>
+<dd><p class="first last">If parsing dates, then parse the default datelike columns</p>
+</dd>
+<dt><strong>numpy</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first last">Direct decoding to numpy arrays. Supports numeric data only, but
+non-numeric column and index labels are supported. Note also that the
+JSON ordering MUST be the same for each term if numpy=True.</p>
+</dd>
+<dt><strong>precise_float</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first last">Set to enable usage of higher precision (strtod) function when
+decoding string to double values. Default (False) is to use fast but
+less precise builtin functionality</p>
+</dd>
+<dt><strong>date_unit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, default None</span></dt>
+<dd><p class="first last">The timestamp unit to detect if converting dates. The default behaviour
+is to try and detect the correct precision, but if this is not desired
+then pass one of ‘s’, ‘ms’, ‘us’ or ‘ns’ to force parsing only seconds,
+milliseconds, microseconds or nanoseconds respectively.</p>
+</dd>
+<dt><strong>encoding</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default is ‘utf-8’</span></dt>
+<dd><p class="first">The encoding to use to decode py3 bytes.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+</dd>
+<dt><strong>lines</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first">Read the file as a json object per line.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+</dd>
+<dt><strong>chunksize</strong> <span class="classifier-delimiter">:</span> <span class="classifier">integer, default None</span></dt>
+<dd><p class="first">Return JsonReader object for iteration.
+See the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-jsonl">line-delimted json docs</a>
+for more information on <code class="docutils literal notranslate"><span class="pre">chunksize</span></code>.
+This can only be passed if <cite>lines=True</cite>.
+If this is None, the file will be read into memory all at once.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.21.0.</span></p>
+</div>
+</dd>
+<dt><strong>compression</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{‘infer’, ‘gzip’, ‘bz2’, ‘zip’, ‘xz’, None}, default ‘infer’</span></dt>
+<dd><p class="first">For on-the-fly decompression of on-disk data. If ‘infer’, then use
+gzip, bz2, zip or xz if path_or_buf is a string ending in
+‘.gz’, ‘.bz2’, ‘.zip’, or ‘xz’, respectively, and no decompression
+otherwise. If using ‘zip’, the ZIP file must contain only one data
+file to be read in. Set to None for no decompression.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.21.0.</span></p>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Series or DataFrame, depending on the value of <cite>typ</cite>.</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="pandas.DataFrame.to_json.html#pandas.DataFrame.to_json" title="pandas.DataFrame.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame.to_json</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>Specific to <code class="docutils literal notranslate"><span class="pre">orient='table'</span></code>, if a <a class="reference internal" href="pandas.DataFrame.html#pandas.DataFrame" title="pandas.DataFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> with a literal
+<a class="reference internal" href="pandas.Index.html#pandas.Index" title="pandas.Index"><code class="xref py py-class docutils literal notranslate"><span class="pre">Index</span></code></a> name of <cite>index</cite> gets written with <code class="xref py py-func docutils literal notranslate"><span class="pre">to_json()</span></code>, the
+subsequent read operation will incorrectly set the <a class="reference internal" href="pandas.Index.html#pandas.Index" title="pandas.Index"><code class="xref py py-class docutils literal notranslate"><span class="pre">Index</span></code></a> name to
+<code class="docutils literal notranslate"><span class="pre">None</span></code>. This is because <cite>index</cite> is also used by <a class="reference internal" href="pandas.DataFrame.to_json.html#pandas.DataFrame.to_json" title="pandas.DataFrame.to_json"><code class="xref py py-func docutils literal notranslate"><span class="pre">DataFrame.to_json()</span></code></a>
+to denote a missing <a class="reference internal" href="pandas.Index.html#pandas.Index" title="pandas.Index"><code class="xref py py-class docutils literal notranslate"><span class="pre">Index</span></code></a> name, and the subsequent
+<a class="reference internal" href="#pandas.read_json" title="pandas.read_json"><code class="xref py py-func docutils literal notranslate"><span class="pre">read_json()</span></code></a> operation cannot distinguish between the two. The same
+limitation is encountered with a <a class="reference internal" href="pandas.MultiIndex.html#pandas.MultiIndex" title="pandas.MultiIndex"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiIndex</span></code></a> and any names
+beginning with <code class="docutils literal notranslate"><span class="pre">'level_'</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]],</span>
+<span class="gp">... </span>                  <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;row 1&#39;</span><span class="p">,</span> <span class="s1">&#39;row 2&#39;</span><span class="p">],</span>
+<span class="gp">... </span>                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col 1&#39;</span><span class="p">,</span> <span class="s1">&#39;col 2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Encoding/decoding a Dataframe using <code class="docutils literal notranslate"><span class="pre">'split'</span></code> formatted JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;split&#39;</span><span class="p">)</span>
+<span class="go">&#39;{&quot;columns&quot;:[&quot;col 1&quot;,&quot;col 2&quot;],</span>
+<span class="go">  &quot;index&quot;:[&quot;row 1&quot;,&quot;row 2&quot;],</span>
+<span class="go">  &quot;data&quot;:[[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]]}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;split&#39;</span><span class="p">)</span>
+<span class="go">      col 1 col 2</span>
+<span class="go">row 1     a     b</span>
+<span class="go">row 2     c     d</span>
+</pre></div>
+</div>
+<p>Encoding/decoding a Dataframe using <code class="docutils literal notranslate"><span class="pre">'index'</span></code> formatted JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="go">&#39;{&quot;row 1&quot;:{&quot;col 1&quot;:&quot;a&quot;,&quot;col 2&quot;:&quot;b&quot;},&quot;row 2&quot;:{&quot;col 1&quot;:&quot;c&quot;,&quot;col 2&quot;:&quot;d&quot;}}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="go">      col 1 col 2</span>
+<span class="go">row 1     a     b</span>
+<span class="go">row 2     c     d</span>
+</pre></div>
+</div>
+<p>Encoding/decoding a Dataframe using <code class="docutils literal notranslate"><span class="pre">'records'</span></code> formatted JSON.
+Note that index labels are not preserved with this encoding.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+<span class="go">&#39;[{&quot;col 1&quot;:&quot;a&quot;,&quot;col 2&quot;:&quot;b&quot;},{&quot;col 1&quot;:&quot;c&quot;,&quot;col 2&quot;:&quot;d&quot;}]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+<span class="go">  col 1 col 2</span>
+<span class="go">0     a     b</span>
+<span class="go">1     c     d</span>
+</pre></div>
+</div>
+<p>Encoding with Table Schema</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<span class="go">&#39;{&quot;schema&quot;: {&quot;fields&quot;: [{&quot;name&quot;: &quot;index&quot;, &quot;type&quot;: &quot;string&quot;},</span>
+<span class="go">                        {&quot;name&quot;: &quot;col 1&quot;, &quot;type&quot;: &quot;string&quot;},</span>
+<span class="go">                        {&quot;name&quot;: &quot;col 2&quot;, &quot;type&quot;: &quot;string&quot;}],</span>
+<span class="go">                &quot;primaryKey&quot;: &quot;index&quot;,</span>
+<span class="go">                &quot;pandas_version&quot;: &quot;0.20.0&quot;},</span>
+<span class="go">    &quot;data&quot;: [{&quot;index&quot;: &quot;row 1&quot;, &quot;col 1&quot;: &quot;a&quot;, &quot;col 2&quot;: &quot;b&quot;},</span>
+<span class="go">            {&quot;index&quot;: &quot;row 2&quot;, &quot;col 1&quot;: &quot;c&quot;, &quot;col 2&quot;: &quot;d&quot;}]}&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.io.json.json_normalize.html" title="pandas.io.json.json_normalize"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.ExcelWriter.html" title="pandas.ExcelWriter"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../io.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

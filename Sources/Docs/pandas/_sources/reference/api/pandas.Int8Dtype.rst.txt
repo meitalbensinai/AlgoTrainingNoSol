@@ -1,0 +1,41 @@
+pandas.Int8Dtype
+================
+
+.. currentmodule:: pandas
+
+.. autoclass:: Int8Dtype
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      Int8Dtype.construct_array_type
+      Int8Dtype.construct_from_string
+      Int8Dtype.is_dtype
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      Int8Dtype.base
+      Int8Dtype.is_signed_integer
+      Int8Dtype.is_unsigned_integer
+      Int8Dtype.itemsize
+      Int8Dtype.kind
+      Int8Dtype.na_value
+      Int8Dtype.name
+      Int8Dtype.names
+      Int8Dtype.numpy_dtype
+
+

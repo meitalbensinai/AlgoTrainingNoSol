@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v0.10.1 (January 22, 2013) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.10.0 (December 17, 2012)" href="v0.10.0.html" />
+    <link rel="prev" title="v0.11.0 (April 22, 2013)" href="v0.11.0.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.10.0.html" title="v0.10.0 (December 17, 2012)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.11.0.html" title="v0.11.0 (April 22, 2013)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v0-10-1-january-22-2013">
+<span id="whatsnew-0101"></span><h1>v0.10.1 (January 22, 2013)<a class="headerlink" href="#v0-10-1-january-22-2013" title="Permalink to this headline">¶</a></h1>
+<p>This is a minor release from 0.10.0 and includes new features, enhancements,
+and bug fixes. In particular, there is substantial new HDFStore functionality
+contributed by Jeff Reback.</p>
+<p>An undesired API breakage with functions taking the <code class="docutils literal notranslate"><span class="pre">inplace</span></code> option has been
+reverted and deprecation warnings added.</p>
+<div class="section" id="api-changes">
+<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Functions taking an <code class="docutils literal notranslate"><span class="pre">inplace</span></code> option return the calling object as before. A
+deprecation message has been added</li>
+<li>Groupby aggregations Max/Min no longer exclude non-numeric data (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2700">GH2700</a>)</li>
+<li>Resampling an empty DataFrame now returns an empty DataFrame instead of
+raising an exception (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2640">GH2640</a>)</li>
+<li>The file reader will now raise an exception when NA values are found in an
+explicitly specified integer column instead of converting the column to float
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2631">GH2631</a>)</li>
+<li>DatetimeIndex.unique now returns a DatetimeIndex with the same name and</li>
+<li>timezone instead of an array (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2563">GH2563</a>)</li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>MySQL support for database (contribution from Dan Allan)</li>
+</ul>
+</div>
+<div class="section" id="hdfstore">
+<h2>HDFStore<a class="headerlink" href="#hdfstore" title="Permalink to this headline">¶</a></h2>
+<p>You may need to upgrade your existing data files. Please visit the
+<strong>compatibility</strong> section in the main docs.</p>
+<p>You can designate (and index) certain columns that you want to be able to
+perform queries on a table, by passing a list to <code class="docutils literal notranslate"><span class="pre">data_columns</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">store</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s1">&#39;store.h5&#39;</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span class="gp">   ...: </span>                  <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+<span class="gp">   ...: </span>                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [3]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+
+<span class="gp">In [4]: </span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="gp">In [5]: </span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+
+<span class="gp">In [6]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;string2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cool&#39;</span>
+
+<span class="gp">In [7]: </span><span class="n">df</span>
+<span class="gh">Out[7]: </span><span class="go"></span>
+<span class="go">                   A         B         C string string2</span>
+<span class="go">2000-01-01  0.469112 -0.282863 -1.509059    foo    cool</span>
+<span class="go">2000-01-02 -1.135632  1.212112 -0.173215    foo    cool</span>
+<span class="go">2000-01-03  0.119209 -1.044236 -0.861849    foo    cool</span>
+<span class="go">2000-01-04 -2.104569 -0.494929  1.071804    foo    cool</span>
+<span class="go">2000-01-05  0.721555 -0.706771 -1.039575    NaN    cool</span>
+<span class="go">2000-01-06  0.271860 -0.424972  0.567020    NaN    cool</span>
+<span class="go">2000-01-07  0.276232 -1.087401 -0.673690    foo    cool</span>
+<span class="go">2000-01-08  0.113648 -1.478427  0.524988    bar    cool</span>
+
+<span class="go"># on-disk operations</span>
+<span class="gp">In [8]: </span><span class="n">store</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">data_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;string2&#39;</span><span class="p">])</span>
+
+<span class="gp">In [9]: </span><span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="s2">&quot;B&gt;0 and string==&#39;foo&#39;&quot;</span><span class="p">)</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="go">                   A         B         C string string2</span>
+<span class="go">2000-01-02 -1.135632  1.212112 -0.173215    foo    cool</span>
+
+<span class="go"># this is in-memory version of this type of selection</span>
+<span class="gp">In [10]: </span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">B</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">string</span> <span class="o">==</span> <span class="s1">&#39;foo&#39;</span><span class="p">)]</span>
+<span class="go">                                                                                                                         Out[10]: </span>
+<span class="go">                   A         B         C string string2</span>
+<span class="go">2000-01-02 -1.135632  1.212112 -0.173215    foo    cool</span>
+</pre></div>
+</div>
+<p>Retrieving unique values in an indexable or data column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># note that this is deprecated as of 0.14.0</span>
+<span class="c1"># can be replicated by: store.select_column(&#39;df&#39;,&#39;index&#39;).unique()</span>
+<span class="n">store</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">store</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can now store <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> in data columns</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">df_mixed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="gp">In [12]: </span><span class="n">df_mixed</span><span class="p">[</span><span class="s1">&#39;datetime64&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20010102&#39;</span><span class="p">)</span>
+
+<span class="gp">In [13]: </span><span class="n">df_mixed</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_mixed</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="gp">In [14]: </span><span class="n">store</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;df_mixed&#39;</span><span class="p">,</span> <span class="n">df_mixed</span><span class="p">)</span>
+
+<span class="gp">In [15]: </span><span class="n">df_mixed1</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;df_mixed&#39;</span><span class="p">)</span>
+
+<span class="gp">In [16]: </span><span class="n">df_mixed1</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">                   A         B         C string string2 datetime64</span>
+<span class="go">2000-01-01  0.469112 -0.282863 -1.509059    foo    cool 2001-01-02</span>
+<span class="go">2000-01-02 -1.135632  1.212112 -0.173215    foo    cool 2001-01-02</span>
+<span class="go">2000-01-03  0.119209 -1.044236 -0.861849    foo    cool 2001-01-02</span>
+<span class="go">2000-01-04       NaN       NaN  1.071804    foo    cool 2001-01-02</span>
+<span class="go">2000-01-05  0.721555 -0.706771 -1.039575    NaN    cool 2001-01-02</span>
+<span class="go">2000-01-06  0.271860 -0.424972  0.567020    NaN    cool 2001-01-02</span>
+<span class="go">2000-01-07  0.276232 -1.087401 -0.673690    foo    cool 2001-01-02</span>
+<span class="go">2000-01-08  0.113648 -1.478427  0.524988    bar    cool 2001-01-02</span>
+
+<span class="gp">In [17]: </span><span class="n">df_mixed1</span><span class="o">.</span><span class="n">get_dtype_counts</span><span class="p">()</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Out[17]: </span>
+<span class="go">float64           3</span>
+<span class="go">object            2</span>
+<span class="go">datetime64[ns]    1</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>You can pass <code class="docutils literal notranslate"><span class="pre">columns</span></code> keyword to select to filter a list of the return
+columns, this is equivalent to passing a
+<code class="docutils literal notranslate"><span class="pre">Term('columns',list_of_columns_to_filter)</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">                   A         B</span>
+<span class="go">2000-01-01  0.469112 -0.282863</span>
+<span class="go">2000-01-02 -1.135632  1.212112</span>
+<span class="go">2000-01-03  0.119209 -1.044236</span>
+<span class="go">2000-01-04 -2.104569 -0.494929</span>
+<span class="go">2000-01-05  0.721555 -0.706771</span>
+<span class="go">2000-01-06  0.271860 -0.424972</span>
+<span class="go">2000-01-07  0.276232 -1.087401</span>
+<span class="go">2000-01-08  0.113648 -1.478427</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HDFStore</span></code> now serializes MultiIndex dataframes when appending tables.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                              <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]],</span>
+<span class="gp">   ....: </span>                      <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">   ....: </span>                              <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
+<span class="gp">   ....: </span>                      <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">])</span>
+<span class="gp">   ....:</span>
+
+<span class="gp">In [20]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
+<span class="gp">   ....: </span>                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="gp">   ....:</span>
+
+<span class="gp">In [21]: </span><span class="n">df</span>
+<span class="gh">Out[21]:</span>
+<span class="go">                  A         B         C</span>
+<span class="go">foo bar</span>
+<span class="go">foo one   -0.116619  0.295575 -1.047704</span>
+<span class="go">    two    1.640556  1.905836  2.772115</span>
+<span class="go">    three  0.088787 -1.144197 -0.633372</span>
+<span class="go">bar one    0.925372 -0.006438 -0.820408</span>
+<span class="go">    two   -0.600874 -1.039266  0.824758</span>
+<span class="go">baz two   -0.824095 -0.337730 -0.927764</span>
+<span class="go">    three -0.840123  0.248505 -0.109250</span>
+<span class="go">qux one    0.431977 -0.460710  0.336505</span>
+<span class="go">    two   -3.207595 -1.535854  0.409769</span>
+<span class="go">    three -0.673145 -0.741113 -0.110891</span>
+
+<span class="gp">In [22]: </span><span class="n">store</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;mi&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;mi&#39;</span><span class="p">)</span>
+<span class="gh">Out[23]:</span>
+<span class="go">                  A         B         C</span>
+<span class="go">foo bar</span>
+<span class="go">foo one   -0.116619  0.295575 -1.047704</span>
+<span class="go">    two    1.640556  1.905836  2.772115</span>
+<span class="go">    three  0.088787 -1.144197 -0.633372</span>
+<span class="go">bar one    0.925372 -0.006438 -0.820408</span>
+<span class="go">    two   -0.600874 -1.039266  0.824758</span>
+<span class="go">baz two   -0.824095 -0.337730 -0.927764</span>
+<span class="go">    three -0.840123  0.248505 -0.109250</span>
+<span class="go">qux one    0.431977 -0.460710  0.336505</span>
+<span class="go">    two   -3.207595 -1.535854  0.409769</span>
+<span class="go">    three -0.673145 -0.741113 -0.110891</span>
+
+<span class="go"># the levels are automatically included as data columns</span>
+<span class="gp">In [24]: </span><span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;mi&#39;</span><span class="p">,</span> <span class="s2">&quot;foo=&#39;bar&#39;&quot;</span><span class="p">)</span>
+<span class="gh">Out[24]:</span>
+<span class="go">                A         B         C</span>
+<span class="go">foo bar</span>
+<span class="go">bar one  0.925372 -0.006438 -0.820408</span>
+<span class="go">    two -0.600874 -1.039266  0.824758</span>
+</pre></div>
+</div>
+<p>Multi-table creation via <code class="docutils literal notranslate"><span class="pre">append_to_multiple</span></code> and selection via
+<code class="docutils literal notranslate"><span class="pre">select_as_multiple</span></code> can create/select from multiple tables and return a
+combined result, by using <code class="docutils literal notranslate"><span class="pre">where</span></code> on a selector table.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">df_mt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+<span class="gp">   ....: </span>                     <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+<span class="gp">   ....: </span>                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">])</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [20]: </span><span class="n">df_mt</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span>
+
+<span class="go"># you can also create the tables individually</span>
+<span class="gp">In [21]: </span><span class="n">store</span><span class="o">.</span><span class="n">append_to_multiple</span><span class="p">({</span><span class="s1">&#39;df1_mt&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="s1">&#39;df2_mt&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+<span class="gp">   ....: </span>                         <span class="n">df_mt</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="s1">&#39;df1_mt&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [22]: </span><span class="n">store</span>
+<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="go">&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;</span>
+<span class="go">File path: store.h5</span>
+
+<span class="go"># indiviual tables were created</span>
+<span class="gp">In [23]: </span><span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;df1_mt&#39;</span><span class="p">)</span>
+<span class="go">                                                                    Out[23]: </span>
+<span class="go">                   A         B</span>
+<span class="go">2000-01-01  0.404705  0.577046</span>
+<span class="go">2000-01-02 -1.344312  0.844885</span>
+<span class="go">2000-01-03  0.357021 -0.674600</span>
+<span class="go">2000-01-04  0.276662 -0.472035</span>
+<span class="go">2000-01-05  0.895717  0.805244</span>
+<span class="go">2000-01-06 -1.170299 -0.226169</span>
+<span class="go">2000-01-07 -0.076467 -1.187678</span>
+<span class="go">2000-01-08  1.024180  0.569605</span>
+
+<span class="gp">In [24]: </span><span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;df2_mt&#39;</span><span class="p">)</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                     Out[24]: </span>
+<span class="go">                   C         D         E         F  foo</span>
+<span class="go">2000-01-01 -1.715002 -1.039268 -0.370647 -1.157892  bar</span>
+<span class="go">2000-01-02  1.075770 -0.109050  1.643563 -1.469388  bar</span>
+<span class="go">2000-01-03 -1.776904 -0.968914 -1.294524  0.413738  bar</span>
+<span class="go">2000-01-04 -0.013960 -0.362543 -0.006154 -0.923061  bar</span>
+<span class="go">2000-01-05 -1.206412  2.565646  1.431256  1.340309  bar</span>
+<span class="go">2000-01-06  0.410835  0.813850  0.132003 -0.827317  bar</span>
+<span class="go">2000-01-07  1.130127 -1.436737 -1.413681  1.607920  bar</span>
+<span class="go">2000-01-08  0.875906 -2.211372  0.974466 -2.006747  bar</span>
+
+<span class="go"># as a multiple</span>
+<span class="gp">In [25]: </span><span class="n">store</span><span class="o">.</span><span class="n">select_as_multiple</span><span class="p">([</span><span class="s1">&#39;df1_mt&#39;</span><span class="p">,</span> <span class="s1">&#39;df2_mt&#39;</span><span class="p">],</span> <span class="n">where</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&gt;0&#39;</span><span class="p">,</span> <span class="s1">&#39;B&gt;0&#39;</span><span class="p">],</span>
+<span class="gp">   ....: </span>                         <span class="n">selector</span><span class="o">=</span><span class="s1">&#39;df1_mt&#39;</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Out[25]: </span>
+<span class="go">                   A         B         C         D         E         F  foo</span>
+<span class="go">2000-01-01  0.404705  0.577046 -1.715002 -1.039268 -0.370647 -1.157892  bar</span>
+<span class="go">2000-01-05  0.895717  0.805244 -1.206412  2.565646  1.431256  1.340309  bar</span>
+<span class="go">2000-01-08  1.024180  0.569605  0.875906 -2.211372  0.974466 -2.006747  bar</span>
+</pre></div>
+</div>
+<p><strong>Enhancements</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">HDFStore</span></code> now can read native PyTables table format tables</li>
+<li>You can pass <code class="docutils literal notranslate"><span class="pre">nan_rep</span> <span class="pre">=</span> <span class="pre">'my_nan_rep'</span></code> to append, to change the default nan
+representation on disk (which converts to/from <cite>np.nan</cite>), this defaults to
+<cite>nan</cite>.</li>
+<li>You can pass <code class="docutils literal notranslate"><span class="pre">index</span></code> to <code class="docutils literal notranslate"><span class="pre">append</span></code>. This defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>. This will
+automagically create indices on the <em>indexables</em> and <em>data columns</em> of the
+table</li>
+<li>You can pass <code class="docutils literal notranslate"><span class="pre">chunksize=an</span> <span class="pre">integer</span></code> to <code class="docutils literal notranslate"><span class="pre">append</span></code>, to change the writing
+chunksize (default is 50000). This will significantly lower your memory usage
+on writing.</li>
+<li>You can pass <code class="docutils literal notranslate"><span class="pre">expectedrows=an</span> <span class="pre">integer</span></code> to the first <code class="docutils literal notranslate"><span class="pre">append</span></code>, to set the
+TOTAL number of expected rows that <code class="docutils literal notranslate"><span class="pre">PyTables</span></code> will expected. This will
+optimize read/write performance.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Select</span></code> now supports passing <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> to provide selection
+space limiting in selection.</li>
+<li>Greatly improved ISO8601 (e.g., yyyy-mm-dd) date parsing for file parsers (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2698">GH2698</a>)</li>
+<li>Allow <code class="docutils literal notranslate"><span class="pre">DataFrame.merge</span></code> to handle combinatorial sizes too large for 64-bit
+integer (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2690">GH2690</a>)</li>
+<li>Series now has unary negation (-series) and inversion (~series) operators (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2686">GH2686</a>)</li>
+<li>DataFrame.plot now includes a <code class="docutils literal notranslate"><span class="pre">logx</span></code> parameter to change the x-axis to log scale (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2327">GH2327</a>)</li>
+<li>Series arithmetic operators can now handle constant and ndarray input (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2574">GH2574</a>)</li>
+<li>ExcelFile now takes a <code class="docutils literal notranslate"><span class="pre">kind</span></code> argument to specify the file type (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2613">GH2613</a>)</li>
+<li>A faster implementation for Series.str methods (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2602">GH2602</a>)</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">HDFStore</span></code> tables can now store <code class="docutils literal notranslate"><span class="pre">float32</span></code> types correctly (cannot be
+mixed with <code class="docutils literal notranslate"><span class="pre">float64</span></code> however)</li>
+<li>Fixed Google Analytics prefix when specifying request segment (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2713">GH2713</a>).</li>
+<li>Function to reset Google Analytics token store so users can recover from
+improperly setup client secrets (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2687">GH2687</a>).</li>
+<li>Fixed groupby bug resulting in segfault when passing in MultiIndex (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2706">GH2706</a>)</li>
+<li>Fixed bug where passing a Series with datetime64 values into <cite>to_datetime</cite>
+results in bogus output values (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2699">GH2699</a>)</li>
+<li>Fixed bug in <code class="docutils literal notranslate"><span class="pre">pattern</span> <span class="pre">in</span> <span class="pre">HDFStore</span></code> expressions when pattern is not a valid
+regex (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2694">GH2694</a>)</li>
+<li>Fixed performance issues while aggregating boolean data (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2692">GH2692</a>)</li>
+<li>When given a boolean mask key and a Series of new values, Series __setitem__
+will now align the incoming values with the original Series (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2686">GH2686</a>)</li>
+<li>Fixed MemoryError caused by performing counting sort on sorting MultiIndex
+levels with a very large number of combinatorial values (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2684">GH2684</a>)</li>
+<li>Fixed bug that causes plotting to fail when the index is a DatetimeIndex with
+a fixed-offset timezone (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2683">GH2683</a>)</li>
+<li>Corrected business day subtraction logic when the offset is more than 5 bdays
+and the starting date is on a weekend (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2680">GH2680</a>)</li>
+<li>Fixed C file parser behavior when the file has more columns than data
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2668">GH2668</a>)</li>
+<li>Fixed file reader bug that misaligned columns with data in the presence of an
+implicit column and a specified <cite>usecols</cite> value</li>
+<li>DataFrames with numerical or datetime indices are now sorted prior to
+plotting (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2609">GH2609</a>)</li>
+<li>Fixed DataFrame.from_records error when passed columns, index, but empty
+records (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2633">GH2633</a>)</li>
+<li>Several bug fixed for Series operations when dtype is datetime64 (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2689">GH2689</a>,
+<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2629">GH2629</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2626">GH2626</a>)</li>
+</ul>
+<p>See the <a class="reference internal" href="index.html#release"><span class="std std-ref">full release notes</span></a> or issue tracker
+on GitHub for a complete list.</p>
+</div>
+<div class="section" id="contributors">
+<span id="whatsnew-0-10-1-contributors"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 17 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Andy Hayden +</li>
+<li>Anton I. Sipos +</li>
+<li>Chang She</li>
+<li>Christopher Whelan</li>
+<li>Damien Garaud +</li>
+<li>Dan Allan +</li>
+<li>Dieter Vandenbussche</li>
+<li>Garrett Drapala +</li>
+<li>Jay Parlar +</li>
+<li>Thouis (Ray) Jones +</li>
+<li>Vincent Arel-Bundock +</li>
+<li>Wes McKinney</li>
+<li>elpres</li>
+<li>herrfz +</li>
+<li>jreback</li>
+<li>svaksha +</li>
+<li>y-p</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.10.0.html" title="v0.10.0 (December 17, 2012)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.11.0.html" title="v0.11.0 (April 22, 2013)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.asi8
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.asi8

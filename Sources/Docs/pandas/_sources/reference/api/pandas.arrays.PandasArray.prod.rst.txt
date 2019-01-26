@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.prod
+==============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.prod

@@ -1,0 +1,6 @@
+pandas.Int8Dtype.name
+=====================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Int8Dtype.name

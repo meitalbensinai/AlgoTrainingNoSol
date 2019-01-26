@@ -1,0 +1,6 @@
+pandas.UInt32Dtype.construct\_array\_type
+=========================================
+
+.. currentmodule:: pandas
+
+.. automethod:: UInt32Dtype.construct_array_type

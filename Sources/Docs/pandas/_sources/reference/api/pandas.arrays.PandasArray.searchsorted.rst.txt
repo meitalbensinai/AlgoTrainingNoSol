@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.searchsorted
+======================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.searchsorted

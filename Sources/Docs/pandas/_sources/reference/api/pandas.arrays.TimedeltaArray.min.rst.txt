@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.min
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.min

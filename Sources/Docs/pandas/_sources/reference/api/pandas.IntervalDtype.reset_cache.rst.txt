@@ -1,0 +1,6 @@
+pandas.IntervalDtype.reset\_cache
+=================================
+
+.. currentmodule:: pandas
+
+.. automethod:: IntervalDtype.reset_cache

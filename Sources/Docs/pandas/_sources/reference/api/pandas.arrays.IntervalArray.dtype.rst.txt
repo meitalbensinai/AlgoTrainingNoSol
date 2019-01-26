@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.dtype
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: IntervalArray.dtype

@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.floor
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.floor

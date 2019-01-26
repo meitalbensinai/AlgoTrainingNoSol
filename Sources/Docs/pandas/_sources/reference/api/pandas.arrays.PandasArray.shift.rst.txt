@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.shift
+===============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.shift

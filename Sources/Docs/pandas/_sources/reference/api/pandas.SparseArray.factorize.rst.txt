@@ -1,0 +1,6 @@
+pandas.SparseArray.factorize
+============================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.factorize

@@ -1,0 +1,6 @@
+pandas.DatetimeTZDtype.isbuiltin
+================================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: DatetimeTZDtype.isbuiltin

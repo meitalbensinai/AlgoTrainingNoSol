@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.any
+=============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.any

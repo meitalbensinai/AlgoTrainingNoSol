@@ -1,0 +1,6 @@
+pandas.SparseArray.fill\_value
+==============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.fill_value
