@@ -12,6 +12,14 @@ This training relies on two books:
 
 We refer to (1) as IA and (2) as ADM during all training.
 
-Parts 2,3,4,6 take 1 day each.
+# Flow
 
-Parts 5,7,8,9 takes 2 days each.
+Read introduction quickly.
+
+If needs some algorithmic reminder do part 2, otherwise skip it.
+
+Finish the rest of the chapters.
+
+Parts 4,6 take 1 day each.
+
+Parts 3,5,7,8,9 takes 2 days each.
