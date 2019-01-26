@@ -1,6 +1,6 @@
 # Flow
 
-## Basic Training (54 days)
+## Basic Training (55-59 days)
 
 Basic - 8 days
 
