@@ -20,6 +20,6 @@ Use the next methods to perform dimension reduction on one of the persons in the
 
 •	TSNE
 
-Show some of the faces on the plot to better visualize the dimension reduction. Choose the neighbors numbers wisely. 
+Show some of the faces on the plot to better visualize the dimension reduction. Choose the appropriate neighbors numbers. 
 
 
