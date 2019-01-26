@@ -6,7 +6,9 @@ Basic - 8 days
 
 Statistics - 2 days
 
-Common Grounds - Algo and DS + Research Reports  -  24 days
+Common Grounds Algo + Research Reports - 12 days
+
+Common Grounds DS + Research Reports - 12 days
 
 Your team topics - 4 days
 
