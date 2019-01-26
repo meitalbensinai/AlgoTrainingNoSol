@@ -58,3 +58,7 @@ https://developers.google.com/machine-learning/crash-course/ml-intro
 Go through all subjects, if a subject seems coherent enough no need to do coding exercise. 
 
 Make sure you understand the subjects qualitatively. We will encounter them again.
+
+# Visualization Exercise (1d)
+
+Finish the visualization exercise.
