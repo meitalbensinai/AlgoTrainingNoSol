@@ -6,7 +6,7 @@
 
 Watch david silver's reinforcement learning course in youtube (10 lectures of 1.5 hours each).
 
-### Read (3h)
+### Read (4h)
 
 Read in "Artificial Intelligence: A Modern Approach" chapters 17 (up to 17.4 not including) and chapter 21.
 
@@ -26,4 +26,4 @@ Now implement three different policies for a different game of your choice. Comp
 
 Read alpha go and alpha zero papers - it is much easier to start from reading the blog.
 
-Total 32 hours ~ 4-5 days.
+Total 18-29 hours ~ 3-4 days.
