@@ -35,3 +35,5 @@ c.	האם יש קשר בין גיל הנוסע לסיכוייו לשרוד? מה
 d.	מה היחס בין ניצולים למתים בכל מחלקה?
 
 e.	הציגו תחזיות נוספות לפי שיקול דעתכם.
+
+Read about matplotlib visualization in the libraries doc.
