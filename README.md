@@ -35,3 +35,23 @@ Finish NLP Introduction - 2 days
 Finish SNA Introduction - 2 days
 
 Finish Reinforcement - 4 days
+
+
+
+
+
+
+
+
+
+
+
+# To Add
+
+Azrieli and Sons
+
+Time series analysis
+
+Association rules
+
+Algo final exercise
