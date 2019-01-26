@@ -12,7 +12,7 @@ This training relies on two books:
 
 We refer to (1) as IA and (2) as ADM during all training.
 
-# Flow
+# Schedule
 
 Read introduction quickly.
 
