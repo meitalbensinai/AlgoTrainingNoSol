@@ -22,16 +22,16 @@ Thats it for basic training, congrats!!!
 
 ## Advanced 
 
-### If in Algo team: (10 days)
+### If in Algo team: (9 days)
 
 Finish CV Introduction - 5 days
 
-Finish Reinforcement - 5 days
+Finish Reinforcement - 4 days
 
-### If in DS team: (9 days)
+### If in DS team: (8 days)
 
 Finish NLP Introduction - 2 days
 
 Finish SNA Introduction - 2 days
 
-Finish Reinforcement - 5 days
+Finish Reinforcement - 4 days
