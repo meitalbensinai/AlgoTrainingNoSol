@@ -1,0 +1,6 @@
+pandas.SparseArray.astype
+=========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.astype

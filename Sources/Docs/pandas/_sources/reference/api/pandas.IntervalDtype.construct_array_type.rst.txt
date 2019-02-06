@@ -1,0 +1,6 @@
+pandas.IntervalDtype.construct\_array\_type
+===========================================
+
+.. currentmodule:: pandas
+
+.. automethod:: IntervalDtype.construct_array_type

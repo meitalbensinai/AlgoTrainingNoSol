@@ -1,0 +1,6 @@
+pandas.UInt8Dtype.na\_value
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: UInt8Dtype.na_value

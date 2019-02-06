@@ -11,3 +11,13 @@ This training relies on several books:
 (2) The Elements of Statistical Learning.
 
 We refer to (1) as ISLR and to (2) as ESLI during the training.
+
+# Schedule
+
+Read through introduction quickly.
+
+Parts 2,8,9 take 2 days each.
+
+Parts 4,10 take 0.5 day each.
+
+Other parts take 1 day each.

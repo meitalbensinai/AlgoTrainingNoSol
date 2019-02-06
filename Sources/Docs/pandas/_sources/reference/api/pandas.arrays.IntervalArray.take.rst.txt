@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.take
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntervalArray.take

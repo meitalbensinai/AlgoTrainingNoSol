@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v.0.4.1 through v0.4.3 (September 25 - October 9, 2011) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="v.0.5.0 (October 24, 2011)" href="v0.5.0.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.5.0.html" title="v.0.5.0 (October 24, 2011)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v-0-4-1-through-v0-4-3-september-25-october-9-2011">
+<span id="whatsnew-04x"></span><h1>v.0.4.1 through v0.4.3 (September 25 - October 9, 2011)<a class="headerlink" href="#v-0-4-1-through-v0-4-3-september-25-october-9-2011" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added Python 3 support using 2to3 (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/200">GH200</a>)</li>
+<li><a class="reference internal" href="../getting_started/dsintro.html#dsintro-name-attribute"><span class="std std-ref">Added</span></a> <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">Series</span></code>, now
+prints as part of <code class="docutils literal notranslate"><span class="pre">Series.__repr__</span></code></li>
+<li><a class="reference internal" href="../user_guide/missing_data.html#missing-isna"><span class="std std-ref">Added</span></a> instance methods <code class="docutils literal notranslate"><span class="pre">isnull</span></code> and <code class="docutils literal notranslate"><span class="pre">notnull</span></code> to
+Series (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/209">GH209</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/203">GH203</a>)</li>
+<li><a class="reference internal" href="../getting_started/basics.html#basics-align"><span class="std std-ref">Added</span></a> <code class="docutils literal notranslate"><span class="pre">Series.align</span></code> method for aligning two series
+with choice of join method (<a class="reference external" href="https://github.com/pandas-dev/pandas/commit/56e0c9ffafac79ce262b55a6a13e1b10a88fbe93">ENH56</a>)</li>
+<li><a class="reference internal" href="../user_guide/advanced.html#advanced-get-level-values"><span class="std std-ref">Added</span></a> method <code class="docutils literal notranslate"><span class="pre">get_level_values</span></code> to
+<code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/188">GH188</a>)</li>
+<li>Set values in mixed-type <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects via <code class="docutils literal notranslate"><span class="pre">.ix</span></code> indexing attribute (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/135">GH135</a>)</li>
+<li>Added new <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> <a class="reference internal" href="../getting_started/basics.html#basics-dtypes"><span class="std std-ref">methods</span></a>
+<code class="docutils literal notranslate"><span class="pre">get_dtype_counts</span></code> and property <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/commit/dca3c5c5a6a3769ee01465baca04cfdfa66a4f76">ENHdc</a>)</li>
+<li>Added <a class="reference internal" href="../user_guide/merging.html#merging-ignore-index"><span class="std std-ref">ignore_index</span></a> option to
+<code class="docutils literal notranslate"><span class="pre">DataFrame.append</span></code> to stack DataFrames (<a class="reference external" href="https://github.com/pandas-dev/pandas/commit/1ba56251f0013ff7cd8834e9486cef2b10098371">ENH1b</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">read_csv</span></code> tries to <a class="reference internal" href="../user_guide/io.html#io-sniff"><span class="std std-ref">sniff</span></a> delimiters using
+<code class="docutils literal notranslate"><span class="pre">csv.Sniffer</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/146">GH146</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">read_csv</span></code> can <a class="reference internal" href="../user_guide/io.html#io-csv-multiindex"><span class="std std-ref">read</span></a> multiple columns into a
+<code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>; DataFrame’s <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> method writes out a corresponding
+<code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/151">GH151</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">DataFrame.rename</span></code> has a new <code class="docutils literal notranslate"><span class="pre">copy</span></code> parameter to <a class="reference internal" href="../getting_started/basics.html#basics-rename"><span class="std std-ref">rename</span></a> a DataFrame in place (<a class="reference external" href="https://github.com/pandas-dev/pandas/commit/edd9f1945fc010a57fa0ae3b3444d1fffe592591">ENHed</a>)</li>
+<li><a class="reference internal" href="../user_guide/reshaping.html#reshaping-unstack-by-name"><span class="std std-ref">Enable</span></a> unstacking by name (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/142">GH142</a>)</li>
+<li><a class="reference internal" href="../user_guide/advanced.html#advanced-sortlevel-byname"><span class="std std-ref">Enable</span></a> <code class="docutils literal notranslate"><span class="pre">sortlevel</span></code> to work by level (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/141">GH141</a>)</li>
+</ul>
+</div>
+<div class="section" id="performance-enhancements">
+<h2>Performance Enhancements<a class="headerlink" href="#performance-enhancements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Altered binary operations on differently-indexed SparseSeries objects
+to use the integer-based (dense) alignment logic which is faster with a
+larger number of blocks (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/205">GH205</a>)</li>
+<li>Wrote faster Cython data alignment / merging routines resulting in
+substantial speed increases</li>
+<li>Improved performance of <code class="docutils literal notranslate"><span class="pre">isnull</span></code> and <code class="docutils literal notranslate"><span class="pre">notnull</span></code>, a regression from v0.3.0
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/187">GH187</a>)</li>
+<li>Refactored code related to <code class="docutils literal notranslate"><span class="pre">DataFrame.join</span></code> so that intermediate aligned
+copies of the data in each <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> argument do not need to be created.
+Substantial performance increases result (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/176">GH176</a>)</li>
+<li>Substantially improved performance of generic <code class="docutils literal notranslate"><span class="pre">Index.intersection</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Index.union</span></code></li>
+<li>Implemented <code class="docutils literal notranslate"><span class="pre">BlockManager.take</span></code> resulting in significantly faster <code class="docutils literal notranslate"><span class="pre">take</span></code>
+performance on mixed-type <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/104">GH104</a>)</li>
+<li>Improved performance of <code class="docutils literal notranslate"><span class="pre">Series.sort_index</span></code></li>
+<li>Significant groupby performance enhancement: removed unnecessary integrity
+checks in DataFrame internals that were slowing down slicing operations to
+retrieve groups</li>
+<li>Optimized <code class="docutils literal notranslate"><span class="pre">_ensure_index</span></code> function resulting in performance savings in
+type-checking Index objects</li>
+<li>Wrote fast time series merging / joining methods in Cython. Will be
+integrated later into DataFrame.join and related functions</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 2 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Thomas Kluyver +</li>
+<li>Wes McKinney</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.5.0.html" title="v.0.5.0 (October 24, 2011)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

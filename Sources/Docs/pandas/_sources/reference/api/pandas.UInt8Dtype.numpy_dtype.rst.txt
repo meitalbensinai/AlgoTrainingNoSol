@@ -1,0 +1,6 @@
+pandas.UInt8Dtype.numpy\_dtype
+==============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: UInt8Dtype.numpy_dtype

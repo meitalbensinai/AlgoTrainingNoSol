@@ -1,0 +1,6 @@
+pandas.Int64Dtype.itemsize
+==========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Int64Dtype.itemsize

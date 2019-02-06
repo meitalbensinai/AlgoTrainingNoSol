@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.astype
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.astype

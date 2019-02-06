@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.shape
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: IntervalArray.shape

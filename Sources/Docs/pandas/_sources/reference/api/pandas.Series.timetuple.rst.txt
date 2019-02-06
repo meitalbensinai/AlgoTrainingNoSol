@@ -1,0 +1,6 @@
+pandas.Series.timetuple
+=======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Series.timetuple

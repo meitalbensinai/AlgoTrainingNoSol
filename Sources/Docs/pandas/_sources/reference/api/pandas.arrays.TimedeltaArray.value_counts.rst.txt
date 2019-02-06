@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.value\_counts
+==========================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.value_counts

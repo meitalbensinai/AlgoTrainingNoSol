@@ -1,0 +1,1279 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Indexing &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pandas.Index" href="api/pandas.Index.html" />
+    <link rel="prev" title="pandas.Panel.drop" href="api/pandas.Panel.drop.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.Index.html" title="pandas.Index"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.Panel.drop.html" title="pandas.Panel.drop"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Reference</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panel.html">Panel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="indexing">
+<span id="api-indexing"></span><h1>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="index">
+<h2>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h2>
+<p><strong>Many of these methods or variants thereof are available on the objects
+that contain an index (Series/DataFrame) and those should most likely be
+used before calling these methods directly.</strong></p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.html#pandas.Index" title="pandas.Index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index</span></code></a></td>
+<td>Immutable ndarray implementing an ordered, sliceable set.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.values.html#pandas.Index.values" title="pandas.Index.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.values</span></code></a></td>
+<td>Return an array representing the data in the Index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_monotonic.html#pandas.Index.is_monotonic" title="pandas.Index.is_monotonic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_monotonic</span></code></a></td>
+<td>Alias for is_monotonic_increasing.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_monotonic_increasing.html#pandas.Index.is_monotonic_increasing" title="pandas.Index.is_monotonic_increasing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_monotonic_increasing</span></code></a></td>
+<td>Return if the index is monotonic increasing (only equal or increasing) values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_monotonic_decreasing.html#pandas.Index.is_monotonic_decreasing" title="pandas.Index.is_monotonic_decreasing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_monotonic_decreasing</span></code></a></td>
+<td>Return if the index is monotonic decreasing (only equal or decreasing) values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_unique.html#pandas.Index.is_unique" title="pandas.Index.is_unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_unique</span></code></a></td>
+<td>Return if the index has unique values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.has_duplicates.html#pandas.Index.has_duplicates" title="pandas.Index.has_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.has_duplicates</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.hasnans.html#pandas.Index.hasnans" title="pandas.Index.hasnans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.hasnans</span></code></a></td>
+<td>Return if I have any nans; enables various perf speedups.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.dtype.html#pandas.Index.dtype" title="pandas.Index.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.dtype</span></code></a></td>
+<td>Return the dtype object of the underlying data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.dtype_str.html#pandas.Index.dtype_str" title="pandas.Index.dtype_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.dtype_str</span></code></a></td>
+<td>Return the dtype str of the underlying data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.inferred_type.html#pandas.Index.inferred_type" title="pandas.Index.inferred_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.inferred_type</span></code></a></td>
+<td>Return a string of the type inferred from the values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_all_dates.html#pandas.Index.is_all_dates" title="pandas.Index.is_all_dates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_all_dates</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.shape.html#pandas.Index.shape" title="pandas.Index.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.shape</span></code></a></td>
+<td>Return a tuple of the shape of the underlying data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.name.html#pandas.Index.name" title="pandas.Index.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.name</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.names.html#pandas.Index.names" title="pandas.Index.names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.names</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.nbytes.html#pandas.Index.nbytes" title="pandas.Index.nbytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.nbytes</span></code></a></td>
+<td>Return the number of bytes in the underlying data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.ndim.html#pandas.Index.ndim" title="pandas.Index.ndim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.ndim</span></code></a></td>
+<td>Number of dimensions of the underlying data, by definition 1.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.size.html#pandas.Index.size" title="pandas.Index.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.size</span></code></a></td>
+<td>Return the number of elements in the underlying data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.empty.html#pandas.Index.empty" title="pandas.Index.empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.empty</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.strides.html#pandas.Index.strides" title="pandas.Index.strides"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.strides</span></code></a></td>
+<td>Return the strides of the underlying data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.itemsize.html#pandas.Index.itemsize" title="pandas.Index.itemsize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.itemsize</span></code></a></td>
+<td>Return the size of the dtype of the item of the underlying data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.base.html#pandas.Index.base" title="pandas.Index.base"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.base</span></code></a></td>
+<td>Return the base object if the memory of the underlying data is shared.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.T.html#pandas.Index.T" title="pandas.Index.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.T</span></code></a></td>
+<td>Return the transpose, which is by definition self.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.memory_usage.html#pandas.Index.memory_usage" title="pandas.Index.memory_usage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.memory_usage</span></code></a>([deep])</td>
+<td>Memory usage of the values</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="modifying-and-computations">
+<h3>Modifying and Computations<a class="headerlink" href="#modifying-and-computations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.all.html#pandas.Index.all" title="pandas.Index.all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.all</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return whether all elements are True.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.any.html#pandas.Index.any" title="pandas.Index.any"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.any</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return whether any element is True.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.argmin.html#pandas.Index.argmin" title="pandas.Index.argmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.argmin</span></code></a>([axis,&nbsp;skipna])</td>
+<td>Return a ndarray of the minimum argument indexer.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.argmax.html#pandas.Index.argmax" title="pandas.Index.argmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.argmax</span></code></a>([axis,&nbsp;skipna])</td>
+<td>Return a ndarray of the maximum argument indexer.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.copy.html#pandas.Index.copy" title="pandas.Index.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.copy</span></code></a>([name,&nbsp;deep,&nbsp;dtype])</td>
+<td>Make a copy of this object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.delete.html#pandas.Index.delete" title="pandas.Index.delete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.delete</span></code></a>(loc)</td>
+<td>Make new Index with passed location(-s) deleted.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.drop.html#pandas.Index.drop" title="pandas.Index.drop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.drop</span></code></a>(labels[,&nbsp;errors])</td>
+<td>Make new Index with passed list of labels deleted.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.drop_duplicates.html#pandas.Index.drop_duplicates" title="pandas.Index.drop_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.drop_duplicates</span></code></a>([keep])</td>
+<td>Return Index with duplicate values removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.duplicated.html#pandas.Index.duplicated" title="pandas.Index.duplicated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.duplicated</span></code></a>([keep])</td>
+<td>Indicate duplicate index values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.equals.html#pandas.Index.equals" title="pandas.Index.equals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.equals</span></code></a>(other)</td>
+<td>Determines if two Index objects contain the same elements.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.factorize.html#pandas.Index.factorize" title="pandas.Index.factorize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.factorize</span></code></a>([sort,&nbsp;na_sentinel])</td>
+<td>Encode the object as an enumerated type or categorical variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.identical.html#pandas.Index.identical" title="pandas.Index.identical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.identical</span></code></a>(other)</td>
+<td>Similar to equals, but check that other comparable attributes are also equal.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.insert.html#pandas.Index.insert" title="pandas.Index.insert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.insert</span></code></a>(loc,&nbsp;item)</td>
+<td>Make new Index inserting new item at location.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_.html#pandas.Index.is_" title="pandas.Index.is_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_</span></code></a>(other)</td>
+<td>More flexible, faster check like <code class="docutils literal notranslate"><span class="pre">is</span></code> but that works through views.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_boolean.html#pandas.Index.is_boolean" title="pandas.Index.is_boolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_boolean</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_categorical.html#pandas.Index.is_categorical" title="pandas.Index.is_categorical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_categorical</span></code></a>()</td>
+<td>Check if the Index holds categorical data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_floating.html#pandas.Index.is_floating" title="pandas.Index.is_floating"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_floating</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_integer.html#pandas.Index.is_integer" title="pandas.Index.is_integer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_integer</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_interval.html#pandas.Index.is_interval" title="pandas.Index.is_interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_interval</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_mixed.html#pandas.Index.is_mixed" title="pandas.Index.is_mixed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_mixed</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.is_numeric.html#pandas.Index.is_numeric" title="pandas.Index.is_numeric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_numeric</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_object.html#pandas.Index.is_object" title="pandas.Index.is_object"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_object</span></code></a>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.min.html#pandas.Index.min" title="pandas.Index.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.min</span></code></a>([axis,&nbsp;skipna])</td>
+<td>Return the minimum value of the Index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.max.html#pandas.Index.max" title="pandas.Index.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.max</span></code></a>([axis,&nbsp;skipna])</td>
+<td>Return the maximum value of the Index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.reindex.html#pandas.Index.reindex" title="pandas.Index.reindex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.reindex</span></code></a>(target[,&nbsp;method,&nbsp;level,&nbsp;…])</td>
+<td>Create index with target’s values (move/add/delete values as necessary).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.rename.html#pandas.Index.rename" title="pandas.Index.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.rename</span></code></a>(name[,&nbsp;inplace])</td>
+<td>Alter Index or MultiIndex name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.repeat.html#pandas.Index.repeat" title="pandas.Index.repeat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.repeat</span></code></a>(repeats[,&nbsp;axis])</td>
+<td>Repeat elements of a Index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.where.html#pandas.Index.where" title="pandas.Index.where"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.where</span></code></a>(cond[,&nbsp;other])</td>
+<td>Return an Index of same shape as self and whose corresponding entries are from self where cond is True and otherwise are from other.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.take.html#pandas.Index.take" title="pandas.Index.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.take</span></code></a>(indices[,&nbsp;axis,&nbsp;allow_fill,&nbsp;…])</td>
+<td>Return a new Index of the values selected by the indices.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.putmask.html#pandas.Index.putmask" title="pandas.Index.putmask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.putmask</span></code></a>(mask,&nbsp;value)</td>
+<td>Return a new Index of the values set with the mask.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.unique.html#pandas.Index.unique" title="pandas.Index.unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.unique</span></code></a>([level])</td>
+<td>Return unique values in the index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.nunique.html#pandas.Index.nunique" title="pandas.Index.nunique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.nunique</span></code></a>([dropna])</td>
+<td>Return number of unique elements in the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.value_counts.html#pandas.Index.value_counts" title="pandas.Index.value_counts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.value_counts</span></code></a>([normalize,&nbsp;sort,&nbsp;…])</td>
+<td>Return a Series containing counts of unique values.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="compatibility-with-multiindex">
+<h3>Compatibility with MultiIndex<a class="headerlink" href="#compatibility-with-multiindex" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.set_names.html#pandas.Index.set_names" title="pandas.Index.set_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.set_names</span></code></a>(names[,&nbsp;level,&nbsp;inplace])</td>
+<td>Set Index or MultiIndex name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.is_lexsorted_for_tuple.html#pandas.Index.is_lexsorted_for_tuple" title="pandas.Index.is_lexsorted_for_tuple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.is_lexsorted_for_tuple</span></code></a>(tup)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.droplevel.html#pandas.Index.droplevel" title="pandas.Index.droplevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.droplevel</span></code></a>([level])</td>
+<td>Return index with requested level(s) removed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="missing-values">
+<h3>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.fillna.html#pandas.Index.fillna" title="pandas.Index.fillna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.fillna</span></code></a>([value,&nbsp;downcast])</td>
+<td>Fill NA/NaN values with the specified value</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.dropna.html#pandas.Index.dropna" title="pandas.Index.dropna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.dropna</span></code></a>([how])</td>
+<td>Return Index without NA/NaN values</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.isna.html#pandas.Index.isna" title="pandas.Index.isna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.isna</span></code></a>()</td>
+<td>Detect missing values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.notna.html#pandas.Index.notna" title="pandas.Index.notna"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.notna</span></code></a>()</td>
+<td>Detect existing (non-missing) values.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="conversion">
+<h3>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.astype.html#pandas.Index.astype" title="pandas.Index.astype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.astype</span></code></a>(dtype[,&nbsp;copy])</td>
+<td>Create an Index with values cast to dtypes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.item.html#pandas.Index.item" title="pandas.Index.item"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.item</span></code></a>()</td>
+<td>Return the first element of the underlying data as a python scalar.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.map.html#pandas.Index.map" title="pandas.Index.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.map</span></code></a>(mapper[,&nbsp;na_action])</td>
+<td>Map values using input correspondence (a dict, Series, or function).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.ravel.html#pandas.Index.ravel" title="pandas.Index.ravel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.ravel</span></code></a>([order])</td>
+<td>Return an ndarray of the flattened values of the underlying data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.to_list.html#pandas.Index.to_list" title="pandas.Index.to_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.to_list</span></code></a>()</td>
+<td>Return a list of the values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.to_native_types.html#pandas.Index.to_native_types" title="pandas.Index.to_native_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.to_native_types</span></code></a>([slicer])</td>
+<td>Format specified values of <cite>self</cite> and return them.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.to_series.html#pandas.Index.to_series" title="pandas.Index.to_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.to_series</span></code></a>([index,&nbsp;name])</td>
+<td>Create a Series with both index and values equal to the index keys useful with map for returning an indexer based on an index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.to_frame.html#pandas.Index.to_frame" title="pandas.Index.to_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.to_frame</span></code></a>([index,&nbsp;name])</td>
+<td>Create a DataFrame with a column containing the Index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.view.html#pandas.Index.view" title="pandas.Index.view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.view</span></code></a>([cls])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sorting">
+<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.argsort.html#pandas.Index.argsort" title="pandas.Index.argsort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.argsort</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return the integer indices that would sort the index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.searchsorted.html#pandas.Index.searchsorted" title="pandas.Index.searchsorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.searchsorted</span></code></a>(value[,&nbsp;side,&nbsp;sorter])</td>
+<td>Find indices where elements should be inserted to maintain order.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.sort_values.html#pandas.Index.sort_values" title="pandas.Index.sort_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.sort_values</span></code></a>([return_indexer,&nbsp;ascending])</td>
+<td>Return a sorted copy of the index.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="time-specific-operations">
+<h3>Time-specific operations<a class="headerlink" href="#time-specific-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.shift.html#pandas.Index.shift" title="pandas.Index.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.shift</span></code></a>([periods,&nbsp;freq])</td>
+<td>Shift index by desired number of time frequency increments.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="combining-joining-set-operations">
+<h3>Combining / joining / set operations<a class="headerlink" href="#combining-joining-set-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.append.html#pandas.Index.append" title="pandas.Index.append"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.append</span></code></a>(other)</td>
+<td>Append a collection of Index options together.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.join.html#pandas.Index.join" title="pandas.Index.join"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.join</span></code></a>(other[,&nbsp;how,&nbsp;level,&nbsp;…])</td>
+<td>Compute join_index and indexers to conform data structures to the new index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.intersection.html#pandas.Index.intersection" title="pandas.Index.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.intersection</span></code></a>(other[,&nbsp;sort])</td>
+<td>Form the intersection of two Index objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.union.html#pandas.Index.union" title="pandas.Index.union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.union</span></code></a>(other[,&nbsp;sort])</td>
+<td>Form the union of two Index objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.difference.html#pandas.Index.difference" title="pandas.Index.difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.difference</span></code></a>(other[,&nbsp;sort])</td>
+<td>Return a new Index with elements from the index that are not in <cite>other</cite>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.symmetric_difference.html#pandas.Index.symmetric_difference" title="pandas.Index.symmetric_difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.symmetric_difference</span></code></a>(other[,&nbsp;…])</td>
+<td>Compute the symmetric difference of two Index objects.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="selecting">
+<h3>Selecting<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.asof.html#pandas.Index.asof" title="pandas.Index.asof"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.asof</span></code></a>(label)</td>
+<td>Return the label from the index, or, if not present, the previous one.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.asof_locs.html#pandas.Index.asof_locs" title="pandas.Index.asof_locs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.asof_locs</span></code></a>(where,&nbsp;mask)</td>
+<td>Finds the locations (indices) of the labels from the index for every entry in the <cite>where</cite> argument.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.contains.html#pandas.Index.contains" title="pandas.Index.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.contains</span></code></a>(key)</td>
+<td>Return a boolean indicating whether the provided key is in the index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.get_duplicates.html#pandas.Index.get_duplicates" title="pandas.Index.get_duplicates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_duplicates</span></code></a>()</td>
+<td>(DEPRECATED) Extract duplicated index elements.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.get_indexer.html#pandas.Index.get_indexer" title="pandas.Index.get_indexer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_indexer</span></code></a>(target[,&nbsp;method,&nbsp;limit,&nbsp;…])</td>
+<td>Compute indexer and mask for new index given the current index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.get_indexer_for.html#pandas.Index.get_indexer_for" title="pandas.Index.get_indexer_for"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_indexer_for</span></code></a>(target,&nbsp;**kwargs)</td>
+<td>Guaranteed return of an indexer even when non-unique.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.get_indexer_non_unique.html#pandas.Index.get_indexer_non_unique" title="pandas.Index.get_indexer_non_unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_indexer_non_unique</span></code></a>(target)</td>
+<td>Compute indexer and mask for new index given the current index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.get_level_values.html#pandas.Index.get_level_values" title="pandas.Index.get_level_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_level_values</span></code></a>(level)</td>
+<td>Return an Index of values for requested level.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.get_loc.html#pandas.Index.get_loc" title="pandas.Index.get_loc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_loc</span></code></a>(key[,&nbsp;method,&nbsp;tolerance])</td>
+<td>Get integer location, slice or boolean mask for requested label.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.get_slice_bound.html#pandas.Index.get_slice_bound" title="pandas.Index.get_slice_bound"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_slice_bound</span></code></a>(label,&nbsp;side,&nbsp;kind)</td>
+<td>Calculate slice bound that corresponds to given label.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.get_value.html#pandas.Index.get_value" title="pandas.Index.get_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_value</span></code></a>(series,&nbsp;key)</td>
+<td>Fast lookup of value from 1-dimensional ndarray.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.get_values.html#pandas.Index.get_values" title="pandas.Index.get_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.get_values</span></code></a>()</td>
+<td>Return <cite>Index</cite> data as an <cite>numpy.ndarray</cite>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.set_value.html#pandas.Index.set_value" title="pandas.Index.set_value"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.set_value</span></code></a>(arr,&nbsp;key,&nbsp;value)</td>
+<td>Fast lookup of value from 1-dimensional ndarray.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.isin.html#pandas.Index.isin" title="pandas.Index.isin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.isin</span></code></a>(values[,&nbsp;level])</td>
+<td>Return a boolean array where the index values are in <cite>values</cite>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.Index.slice_indexer.html#pandas.Index.slice_indexer" title="pandas.Index.slice_indexer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.slice_indexer</span></code></a>([start,&nbsp;end,&nbsp;step,&nbsp;kind])</td>
+<td>For an ordered or unique index, compute the slice indexer for input labels and step.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Index.slice_locs.html#pandas.Index.slice_locs" title="pandas.Index.slice_locs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index.slice_locs</span></code></a>([start,&nbsp;end,&nbsp;step,&nbsp;kind])</td>
+<td>Compute slice locations for input labels.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="numeric-index">
+<span id="api-numericindex"></span><h2>Numeric Index<a class="headerlink" href="#numeric-index" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.RangeIndex.html#pandas.RangeIndex" title="pandas.RangeIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeIndex</span></code></a></td>
+<td>Immutable Index implementing a monotonic integer range.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Int64Index.html#pandas.Int64Index" title="pandas.Int64Index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Int64Index</span></code></a></td>
+<td>Immutable ndarray implementing an ordered, sliceable set.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.UInt64Index.html#pandas.UInt64Index" title="pandas.UInt64Index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UInt64Index</span></code></a></td>
+<td>Immutable ndarray implementing an ordered, sliceable set.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.Float64Index.html#pandas.Float64Index" title="pandas.Float64Index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Float64Index</span></code></a></td>
+<td>Immutable ndarray implementing an ordered, sliceable set.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.RangeIndex.from_range.html#pandas.RangeIndex.from_range" title="pandas.RangeIndex.from_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RangeIndex.from_range</span></code></a>(data[,&nbsp;name,&nbsp;dtype])</td>
+<td>Create RangeIndex from a range (py3), or xrange (py2) object.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="categoricalindex">
+<span id="api-categoricalindex"></span><h2>CategoricalIndex<a class="headerlink" href="#categoricalindex" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.html#pandas.CategoricalIndex" title="pandas.CategoricalIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex</span></code></a></td>
+<td>Immutable Index implementing an ordered, sliceable set.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="categorical-components">
+<h3>Categorical Components<a class="headerlink" href="#categorical-components" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.codes.html#pandas.CategoricalIndex.codes" title="pandas.CategoricalIndex.codes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.codes</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.CategoricalIndex.categories.html#pandas.CategoricalIndex.categories" title="pandas.CategoricalIndex.categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.categories</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.ordered.html#pandas.CategoricalIndex.ordered" title="pandas.CategoricalIndex.ordered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.ordered</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.CategoricalIndex.rename_categories.html#pandas.CategoricalIndex.rename_categories" title="pandas.CategoricalIndex.rename_categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.rename_categories</span></code></a>(*args,&nbsp;…)</td>
+<td>Renames categories.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.reorder_categories.html#pandas.CategoricalIndex.reorder_categories" title="pandas.CategoricalIndex.reorder_categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.reorder_categories</span></code></a>(*args,&nbsp;…)</td>
+<td>Reorders categories as specified in new_categories.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.CategoricalIndex.add_categories.html#pandas.CategoricalIndex.add_categories" title="pandas.CategoricalIndex.add_categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.add_categories</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Add new categories.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.remove_categories.html#pandas.CategoricalIndex.remove_categories" title="pandas.CategoricalIndex.remove_categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.remove_categories</span></code></a>(*args,&nbsp;…)</td>
+<td>Removes the specified categories.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.CategoricalIndex.remove_unused_categories.html#pandas.CategoricalIndex.remove_unused_categories" title="pandas.CategoricalIndex.remove_unused_categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.remove_unused_categories</span></code></a>(…)</td>
+<td>Removes categories which are not used.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.set_categories.html#pandas.CategoricalIndex.set_categories" title="pandas.CategoricalIndex.set_categories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.set_categories</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Sets the categories to the specified new_categories.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.CategoricalIndex.as_ordered.html#pandas.CategoricalIndex.as_ordered" title="pandas.CategoricalIndex.as_ordered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.as_ordered</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Set the Categorical to be ordered.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.as_unordered.html#pandas.CategoricalIndex.as_unordered" title="pandas.CategoricalIndex.as_unordered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.as_unordered</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Set the Categorical to be unordered.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h3>Modifying and Computations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.CategoricalIndex.map.html#pandas.CategoricalIndex.map" title="pandas.CategoricalIndex.map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.map</span></code></a>(mapper)</td>
+<td>Map values using input correspondence (a dict, Series, or function).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.CategoricalIndex.equals.html#pandas.CategoricalIndex.equals" title="pandas.CategoricalIndex.equals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CategoricalIndex.equals</span></code></a>(other)</td>
+<td>Determines if two CategorialIndex objects contain the same elements.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="intervalindex">
+<span id="api-intervalindex"></span><h2>IntervalIndex<a class="headerlink" href="#intervalindex" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.html#pandas.IntervalIndex" title="pandas.IntervalIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex</span></code></a></td>
+<td>Immutable index of intervals that are closed on the same side.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="intervalindex-components">
+<h3>IntervalIndex Components<a class="headerlink" href="#intervalindex-components" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.from_arrays.html#pandas.IntervalIndex.from_arrays" title="pandas.IntervalIndex.from_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.from_arrays</span></code></a>(left,&nbsp;right[,&nbsp;…])</td>
+<td>Construct from two arrays defining the left and right bounds.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.from_tuples.html#pandas.IntervalIndex.from_tuples" title="pandas.IntervalIndex.from_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.from_tuples</span></code></a>(data[,&nbsp;closed,&nbsp;…])</td>
+<td>Construct an IntervalIndex from an array-like of tuples</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.from_breaks.html#pandas.IntervalIndex.from_breaks" title="pandas.IntervalIndex.from_breaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.from_breaks</span></code></a>(breaks[,&nbsp;closed,&nbsp;…])</td>
+<td>Construct an IntervalIndex from an array of splits.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.contains.html#pandas.IntervalIndex.contains" title="pandas.IntervalIndex.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.contains</span></code></a>(key)</td>
+<td>Return a boolean indicating if the key is IN the index</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.left.html#pandas.IntervalIndex.left" title="pandas.IntervalIndex.left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.left</span></code></a></td>
+<td>Return the left endpoints of each Interval in the IntervalIndex as an Index</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.right.html#pandas.IntervalIndex.right" title="pandas.IntervalIndex.right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.right</span></code></a></td>
+<td>Return the right endpoints of each Interval in the IntervalIndex as an Index</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.mid.html#pandas.IntervalIndex.mid" title="pandas.IntervalIndex.mid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.mid</span></code></a></td>
+<td>Return the midpoint of each Interval in the IntervalIndex as an Index</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.closed.html#pandas.IntervalIndex.closed" title="pandas.IntervalIndex.closed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.closed</span></code></a></td>
+<td>Whether the intervals are closed on the left-side, right-side, both or neither</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.length.html#pandas.IntervalIndex.length" title="pandas.IntervalIndex.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.length</span></code></a></td>
+<td>Return an Index with entries denoting the length of each Interval in the IntervalIndex</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.values.html#pandas.IntervalIndex.values" title="pandas.IntervalIndex.values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.values</span></code></a></td>
+<td>Return the IntervalIndex’s data as an IntervalArray.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.is_non_overlapping_monotonic.html#pandas.IntervalIndex.is_non_overlapping_monotonic" title="pandas.IntervalIndex.is_non_overlapping_monotonic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.is_non_overlapping_monotonic</span></code></a></td>
+<td>Return True if the IntervalIndex is non-overlapping (no Intervals share points) and is either monotonic increasing or monotonic decreasing, else False</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.is_overlapping.html#pandas.IntervalIndex.is_overlapping" title="pandas.IntervalIndex.is_overlapping"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.is_overlapping</span></code></a></td>
+<td>Return True if the IntervalIndex has overlapping intervals, else False.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.get_loc.html#pandas.IntervalIndex.get_loc" title="pandas.IntervalIndex.get_loc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.get_loc</span></code></a>(key[,&nbsp;method])</td>
+<td>Get integer location, slice or boolean mask for requested label.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.get_indexer.html#pandas.IntervalIndex.get_indexer" title="pandas.IntervalIndex.get_indexer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.get_indexer</span></code></a>(target[,&nbsp;method,&nbsp;…])</td>
+<td>Compute indexer and mask for new index given the current index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.set_closed.html#pandas.IntervalIndex.set_closed" title="pandas.IntervalIndex.set_closed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.set_closed</span></code></a>(closed)</td>
+<td>Return an IntervalIndex identical to the current one, but closed on the specified side</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.IntervalIndex.overlaps.html#pandas.IntervalIndex.overlaps" title="pandas.IntervalIndex.overlaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.overlaps</span></code></a>(other)</td>
+<td>Check elementwise if an Interval overlaps the values in the IntervalIndex.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IntervalIndex.to_tuples.html#pandas.IntervalIndex.to_tuples" title="pandas.IntervalIndex.to_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IntervalIndex.to_tuples</span></code></a>([na_tuple])</td>
+<td>Return an Index of tuples of the form (left, right)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="multiindex">
+<span id="api-multiindex"></span><h2>MultiIndex<a class="headerlink" href="#multiindex" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.html#pandas.MultiIndex" title="pandas.MultiIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex</span></code></a></td>
+<td>A multi-level, or hierarchical, index object for pandas objects.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.IndexSlice.html#pandas.IndexSlice" title="pandas.IndexSlice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IndexSlice</span></code></a></td>
+<td>Create an object to more easily perform multi-index slicing</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="multiindex-constructors">
+<h3>MultiIndex Constructors<a class="headerlink" href="#multiindex-constructors" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.from_arrays.html#pandas.MultiIndex.from_arrays" title="pandas.MultiIndex.from_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.from_arrays</span></code></a>(arrays[,&nbsp;sortorder,&nbsp;…])</td>
+<td>Convert arrays to MultiIndex.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.from_tuples.html#pandas.MultiIndex.from_tuples" title="pandas.MultiIndex.from_tuples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.from_tuples</span></code></a>(tuples[,&nbsp;sortorder,&nbsp;…])</td>
+<td>Convert list of tuples to MultiIndex.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.from_product.html#pandas.MultiIndex.from_product" title="pandas.MultiIndex.from_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.from_product</span></code></a>(iterables[,&nbsp;…])</td>
+<td>Make a MultiIndex from the cartesian product of multiple iterables.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.from_frame.html#pandas.MultiIndex.from_frame" title="pandas.MultiIndex.from_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.from_frame</span></code></a>(df[,&nbsp;sortorder,&nbsp;names])</td>
+<td>Make a MultiIndex from a DataFrame.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multiindex-properties">
+<h3>MultiIndex Properties<a class="headerlink" href="#multiindex-properties" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.names.html#pandas.MultiIndex.names" title="pandas.MultiIndex.names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.names</span></code></a></td>
+<td>Names of levels in MultiIndex</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.levels.html#pandas.MultiIndex.levels" title="pandas.MultiIndex.levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.levels</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.codes.html#pandas.MultiIndex.codes" title="pandas.MultiIndex.codes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.codes</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.nlevels.html#pandas.MultiIndex.nlevels" title="pandas.MultiIndex.nlevels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.nlevels</span></code></a></td>
+<td>Integer number of levels in this MultiIndex.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.levshape.html#pandas.MultiIndex.levshape" title="pandas.MultiIndex.levshape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.levshape</span></code></a></td>
+<td>A tuple with the length of each level.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multiindex-components">
+<h3>MultiIndex Components<a class="headerlink" href="#multiindex-components" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.set_levels.html#pandas.MultiIndex.set_levels" title="pandas.MultiIndex.set_levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.set_levels</span></code></a>(levels[,&nbsp;level,&nbsp;…])</td>
+<td>Set new levels on MultiIndex.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.set_codes.html#pandas.MultiIndex.set_codes" title="pandas.MultiIndex.set_codes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.set_codes</span></code></a>(codes[,&nbsp;level,&nbsp;…])</td>
+<td>Set new codes on MultiIndex.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.to_hierarchical.html#pandas.MultiIndex.to_hierarchical" title="pandas.MultiIndex.to_hierarchical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.to_hierarchical</span></code></a>(n_repeat[,&nbsp;n_shuffle])</td>
+<td>(DEPRECATED) Return a MultiIndex reshaped to conform to the shapes given by n_repeat and n_shuffle.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.to_flat_index.html#pandas.MultiIndex.to_flat_index" title="pandas.MultiIndex.to_flat_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.to_flat_index</span></code></a>()</td>
+<td>Convert a MultiIndex to an Index of Tuples containing the level values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.to_frame.html#pandas.MultiIndex.to_frame" title="pandas.MultiIndex.to_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.to_frame</span></code></a>([index,&nbsp;name])</td>
+<td>Create a DataFrame with the levels of the MultiIndex as columns.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.is_lexsorted.html#pandas.MultiIndex.is_lexsorted" title="pandas.MultiIndex.is_lexsorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.is_lexsorted</span></code></a>()</td>
+<td>Return True if the codes are lexicographically sorted</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.sortlevel.html#pandas.MultiIndex.sortlevel" title="pandas.MultiIndex.sortlevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.sortlevel</span></code></a>([level,&nbsp;ascending,&nbsp;…])</td>
+<td>Sort MultiIndex at the requested level.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.droplevel.html#pandas.MultiIndex.droplevel" title="pandas.MultiIndex.droplevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.droplevel</span></code></a>([level])</td>
+<td>Return index with requested level(s) removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.swaplevel.html#pandas.MultiIndex.swaplevel" title="pandas.MultiIndex.swaplevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.swaplevel</span></code></a>([i,&nbsp;j])</td>
+<td>Swap level i with level j.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.reorder_levels.html#pandas.MultiIndex.reorder_levels" title="pandas.MultiIndex.reorder_levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.reorder_levels</span></code></a>(order)</td>
+<td>Rearrange levels using input order.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.remove_unused_levels.html#pandas.MultiIndex.remove_unused_levels" title="pandas.MultiIndex.remove_unused_levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.remove_unused_levels</span></code></a>()</td>
+<td>Create a new MultiIndex from the current that removes unused levels, meaning that they are not expressed in the labels.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multiindex-selecting">
+<h3>MultiIndex Selecting<a class="headerlink" href="#multiindex-selecting" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.get_loc.html#pandas.MultiIndex.get_loc" title="pandas.MultiIndex.get_loc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.get_loc</span></code></a>(key[,&nbsp;method])</td>
+<td>Get location for a label or a tuple of labels as an integer, slice or boolean mask.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.get_loc_level.html#pandas.MultiIndex.get_loc_level" title="pandas.MultiIndex.get_loc_level"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.get_loc_level</span></code></a>(key[,&nbsp;level,&nbsp;…])</td>
+<td>Get both the location for the requested label(s) and the resulting sliced index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.MultiIndex.get_indexer.html#pandas.MultiIndex.get_indexer" title="pandas.MultiIndex.get_indexer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.get_indexer</span></code></a>(target[,&nbsp;method,&nbsp;…])</td>
+<td>Compute indexer and mask for new index given the current index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.MultiIndex.get_level_values.html#pandas.MultiIndex.get_level_values" title="pandas.MultiIndex.get_level_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiIndex.get_level_values</span></code></a>(level)</td>
+<td>Return vector of label values for requested level, equal to the length of the index.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="datetimeindex">
+<span id="api-datetimeindex"></span><h2>DatetimeIndex<a class="headerlink" href="#datetimeindex" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="pandas.DatetimeIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex</span></code></a></td>
+<td>Immutable ndarray of datetime64 data, represented internally as int64, and which can be boxed to Timestamp objects that are subclasses of datetime and carry metadata such as frequency information.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="time-date-components">
+<h3>Time/Date Components<a class="headerlink" href="#time-date-components" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.year.html#pandas.DatetimeIndex.year" title="pandas.DatetimeIndex.year"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.year</span></code></a></td>
+<td>The year of the datetime.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.month.html#pandas.DatetimeIndex.month" title="pandas.DatetimeIndex.month"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.month</span></code></a></td>
+<td>The month as January=1, December=12.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.day.html#pandas.DatetimeIndex.day" title="pandas.DatetimeIndex.day"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.day</span></code></a></td>
+<td>The days of the datetime.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.hour.html#pandas.DatetimeIndex.hour" title="pandas.DatetimeIndex.hour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.hour</span></code></a></td>
+<td>The hours of the datetime.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.minute.html#pandas.DatetimeIndex.minute" title="pandas.DatetimeIndex.minute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.minute</span></code></a></td>
+<td>The minutes of the datetime.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.second.html#pandas.DatetimeIndex.second" title="pandas.DatetimeIndex.second"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.second</span></code></a></td>
+<td>The seconds of the datetime.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.microsecond.html#pandas.DatetimeIndex.microsecond" title="pandas.DatetimeIndex.microsecond"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.microsecond</span></code></a></td>
+<td>The microseconds of the datetime.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.nanosecond.html#pandas.DatetimeIndex.nanosecond" title="pandas.DatetimeIndex.nanosecond"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.nanosecond</span></code></a></td>
+<td>The nanoseconds of the datetime.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.date.html#pandas.DatetimeIndex.date" title="pandas.DatetimeIndex.date"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.date</span></code></a></td>
+<td>Returns numpy array of python datetime.date objects (namely, the date part of Timestamps without timezone information).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.time.html#pandas.DatetimeIndex.time" title="pandas.DatetimeIndex.time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.time</span></code></a></td>
+<td>Returns numpy array of datetime.time.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.timetz.html#pandas.DatetimeIndex.timetz" title="pandas.DatetimeIndex.timetz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.timetz</span></code></a></td>
+<td>Returns numpy array of datetime.time also containing timezone information.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.dayofyear.html#pandas.DatetimeIndex.dayofyear" title="pandas.DatetimeIndex.dayofyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.dayofyear</span></code></a></td>
+<td>The ordinal day of the year.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.weekofyear.html#pandas.DatetimeIndex.weekofyear" title="pandas.DatetimeIndex.weekofyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.weekofyear</span></code></a></td>
+<td>The week ordinal of the year.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.week.html#pandas.DatetimeIndex.week" title="pandas.DatetimeIndex.week"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.week</span></code></a></td>
+<td>The week ordinal of the year.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.dayofweek.html#pandas.DatetimeIndex.dayofweek" title="pandas.DatetimeIndex.dayofweek"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.dayofweek</span></code></a></td>
+<td>The day of the week with Monday=0, Sunday=6.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.weekday.html#pandas.DatetimeIndex.weekday" title="pandas.DatetimeIndex.weekday"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.weekday</span></code></a></td>
+<td>The day of the week with Monday=0, Sunday=6.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.quarter.html#pandas.DatetimeIndex.quarter" title="pandas.DatetimeIndex.quarter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.quarter</span></code></a></td>
+<td>The quarter of the date.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.tz.html#pandas.DatetimeIndex.tz" title="pandas.DatetimeIndex.tz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.tz</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.freq.html#pandas.DatetimeIndex.freq" title="pandas.DatetimeIndex.freq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.freq</span></code></a></td>
+<td>Return the frequency object if it is set, otherwise None.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.freqstr.html#pandas.DatetimeIndex.freqstr" title="pandas.DatetimeIndex.freqstr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.freqstr</span></code></a></td>
+<td>Return the frequency object as a string if it is set, otherwise None.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_month_start.html#pandas.DatetimeIndex.is_month_start" title="pandas.DatetimeIndex.is_month_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_month_start</span></code></a></td>
+<td>Indicates whether the date is the first day of the month.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_month_end.html#pandas.DatetimeIndex.is_month_end" title="pandas.DatetimeIndex.is_month_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_month_end</span></code></a></td>
+<td>Indicates whether the date is the last day of the month.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_quarter_start.html#pandas.DatetimeIndex.is_quarter_start" title="pandas.DatetimeIndex.is_quarter_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_quarter_start</span></code></a></td>
+<td>Indicator for whether the date is the first day of a quarter.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_quarter_end.html#pandas.DatetimeIndex.is_quarter_end" title="pandas.DatetimeIndex.is_quarter_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_quarter_end</span></code></a></td>
+<td>Indicator for whether the date is the last day of a quarter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_year_start.html#pandas.DatetimeIndex.is_year_start" title="pandas.DatetimeIndex.is_year_start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_year_start</span></code></a></td>
+<td>Indicate whether the date is the first day of a year.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_year_end.html#pandas.DatetimeIndex.is_year_end" title="pandas.DatetimeIndex.is_year_end"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_year_end</span></code></a></td>
+<td>Indicate whether the date is the last day of the year.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.is_leap_year.html#pandas.DatetimeIndex.is_leap_year" title="pandas.DatetimeIndex.is_leap_year"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.is_leap_year</span></code></a></td>
+<td>Boolean indicator if the date belongs to a leap year.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.inferred_freq.html#pandas.DatetimeIndex.inferred_freq" title="pandas.DatetimeIndex.inferred_freq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.inferred_freq</span></code></a></td>
+<td>Tryies to return a string representing a frequency guess, generated by infer_freq.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id2">
+<h3>Selecting<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.indexer_at_time.html#pandas.DatetimeIndex.indexer_at_time" title="pandas.DatetimeIndex.indexer_at_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.indexer_at_time</span></code></a>(time[,&nbsp;asof])</td>
+<td>Returns index locations of index values at particular time of day (e.g.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.indexer_between_time.html#pandas.DatetimeIndex.indexer_between_time" title="pandas.DatetimeIndex.indexer_between_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.indexer_between_time</span></code></a>(…[,&nbsp;…])</td>
+<td>Return index locations of values between particular times of day (e.g., 9:00-9:30AM).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>Time-specific operations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.normalize.html#pandas.DatetimeIndex.normalize" title="pandas.DatetimeIndex.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.normalize</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Convert times to midnight.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.strftime.html#pandas.DatetimeIndex.strftime" title="pandas.DatetimeIndex.strftime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.strftime</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Convert to Index using specified date_format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.snap.html#pandas.DatetimeIndex.snap" title="pandas.DatetimeIndex.snap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.snap</span></code></a>([freq])</td>
+<td>Snap time stamps to nearest occurring frequency</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.tz_convert.html#pandas.DatetimeIndex.tz_convert" title="pandas.DatetimeIndex.tz_convert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.tz_convert</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Convert tz-aware Datetime Array/Index from one time zone to another.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.tz_localize.html#pandas.DatetimeIndex.tz_localize" title="pandas.DatetimeIndex.tz_localize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.tz_localize</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Localize tz-naive Datetime Array/Index to tz-aware Datetime Array/Index.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.round.html#pandas.DatetimeIndex.round" title="pandas.DatetimeIndex.round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.round</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Perform round operation on the data to the specified <cite>freq</cite>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.floor.html#pandas.DatetimeIndex.floor" title="pandas.DatetimeIndex.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.floor</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Perform floor operation on the data to the specified <cite>freq</cite>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.ceil.html#pandas.DatetimeIndex.ceil" title="pandas.DatetimeIndex.ceil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.ceil</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Perform ceil operation on the data to the specified <cite>freq</cite>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.month_name.html#pandas.DatetimeIndex.month_name" title="pandas.DatetimeIndex.month_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.month_name</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return the month names of the DateTimeIndex with specified locale.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.day_name.html#pandas.DatetimeIndex.day_name" title="pandas.DatetimeIndex.day_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.day_name</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return the day names of the DateTimeIndex with specified locale.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h3>Conversion<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.to_period.html#pandas.DatetimeIndex.to_period" title="pandas.DatetimeIndex.to_period"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.to_period</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Cast to PeriodArray/Index at a particular frequency.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.to_perioddelta.html#pandas.DatetimeIndex.to_perioddelta" title="pandas.DatetimeIndex.to_perioddelta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.to_perioddelta</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate TimedeltaArray of difference between index values and index converted to PeriodArray at specified freq.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.to_pydatetime.html#pandas.DatetimeIndex.to_pydatetime" title="pandas.DatetimeIndex.to_pydatetime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.to_pydatetime</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return Datetime Array/Index as object ndarray of datetime.datetime objects</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.DatetimeIndex.to_series.html#pandas.DatetimeIndex.to_series" title="pandas.DatetimeIndex.to_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.to_series</span></code></a>([keep_tz,&nbsp;index,&nbsp;name])</td>
+<td>Create a Series with both index and values equal to the index keys useful with map for returning an indexer based on an index</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.DatetimeIndex.to_frame.html#pandas.DatetimeIndex.to_frame" title="pandas.DatetimeIndex.to_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatetimeIndex.to_frame</span></code></a>([index,&nbsp;name])</td>
+<td>Create a DataFrame with a column containing the Index.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="timedeltaindex">
+<h2>TimedeltaIndex<a class="headerlink" href="#timedeltaindex" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.html#pandas.TimedeltaIndex" title="pandas.TimedeltaIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex</span></code></a></td>
+<td>Immutable ndarray of timedelta64 data, represented internally as int64, and which can be boxed to timedelta objects</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="components">
+<h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.days.html#pandas.TimedeltaIndex.days" title="pandas.TimedeltaIndex.days"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.days</span></code></a></td>
+<td>Number of days for each element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.seconds.html#pandas.TimedeltaIndex.seconds" title="pandas.TimedeltaIndex.seconds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.seconds</span></code></a></td>
+<td>Number of seconds (&gt;= 0 and less than 1 day) for each element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.microseconds.html#pandas.TimedeltaIndex.microseconds" title="pandas.TimedeltaIndex.microseconds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.microseconds</span></code></a></td>
+<td>Number of microseconds (&gt;= 0 and less than 1 second) for each element.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.nanoseconds.html#pandas.TimedeltaIndex.nanoseconds" title="pandas.TimedeltaIndex.nanoseconds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.nanoseconds</span></code></a></td>
+<td>Number of nanoseconds (&gt;= 0 and less than 1 microsecond) for each element.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.components.html#pandas.TimedeltaIndex.components" title="pandas.TimedeltaIndex.components"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.components</span></code></a></td>
+<td>Return a dataframe of the components (days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds) of the Timedeltas.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.inferred_freq.html#pandas.TimedeltaIndex.inferred_freq" title="pandas.TimedeltaIndex.inferred_freq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.inferred_freq</span></code></a></td>
+<td>Tryies to return a string representing a frequency guess, generated by infer_freq.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h3>Conversion<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.to_pytimedelta.html#pandas.TimedeltaIndex.to_pytimedelta" title="pandas.TimedeltaIndex.to_pytimedelta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.to_pytimedelta</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Return Timedelta Array/Index as object ndarray of datetime.timedelta objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.to_series.html#pandas.TimedeltaIndex.to_series" title="pandas.TimedeltaIndex.to_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.to_series</span></code></a>([index,&nbsp;name])</td>
+<td>Create a Series with both index and values equal to the index keys useful with map for returning an indexer based on an index.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.round.html#pandas.TimedeltaIndex.round" title="pandas.TimedeltaIndex.round"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.round</span></code></a>(freq[,&nbsp;ambiguous,&nbsp;…])</td>
+<td>Perform round operation on the data to the specified <cite>freq</cite>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.floor.html#pandas.TimedeltaIndex.floor" title="pandas.TimedeltaIndex.floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.floor</span></code></a>(freq[,&nbsp;ambiguous,&nbsp;…])</td>
+<td>Perform floor operation on the data to the specified <cite>freq</cite>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.ceil.html#pandas.TimedeltaIndex.ceil" title="pandas.TimedeltaIndex.ceil"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.ceil</span></code></a>(freq[,&nbsp;ambiguous,&nbsp;…])</td>
+<td>Perform ceil operation on the data to the specified <cite>freq</cite>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.TimedeltaIndex.to_frame.html#pandas.TimedeltaIndex.to_frame" title="pandas.TimedeltaIndex.to_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimedeltaIndex.to_frame</span></code></a>([index,&nbsp;name])</td>
+<td>Create a DataFrame with a column containing the Index.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="periodindex">
+<h2>PeriodIndex<a class="headerlink" href="#periodindex" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.html#pandas.PeriodIndex" title="pandas.PeriodIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex</span></code></a></td>
+<td>Immutable ndarray holding ordinal values indicating regular periods in time such as particular years, quarters, months, etc.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id6">
+<h3>Properties<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.day.html#pandas.PeriodIndex.day" title="pandas.PeriodIndex.day"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.day</span></code></a></td>
+<td>The days of the period</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.dayofweek.html#pandas.PeriodIndex.dayofweek" title="pandas.PeriodIndex.dayofweek"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.dayofweek</span></code></a></td>
+<td>The day of the week with Monday=0, Sunday=6</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.dayofyear.html#pandas.PeriodIndex.dayofyear" title="pandas.PeriodIndex.dayofyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.dayofyear</span></code></a></td>
+<td>The ordinal day of the year</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.days_in_month.html#pandas.PeriodIndex.days_in_month" title="pandas.PeriodIndex.days_in_month"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.days_in_month</span></code></a></td>
+<td>The number of days in the month</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.daysinmonth.html#pandas.PeriodIndex.daysinmonth" title="pandas.PeriodIndex.daysinmonth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.daysinmonth</span></code></a></td>
+<td>The number of days in the month</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.end_time.html#pandas.PeriodIndex.end_time" title="pandas.PeriodIndex.end_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.end_time</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.freq.html#pandas.PeriodIndex.freq" title="pandas.PeriodIndex.freq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.freq</span></code></a></td>
+<td>Return the frequency object if it is set, otherwise None.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.freqstr.html#pandas.PeriodIndex.freqstr" title="pandas.PeriodIndex.freqstr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.freqstr</span></code></a></td>
+<td>Return the frequency object as a string if it is set, otherwise None.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.hour.html#pandas.PeriodIndex.hour" title="pandas.PeriodIndex.hour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.hour</span></code></a></td>
+<td>The hour of the period</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.is_leap_year.html#pandas.PeriodIndex.is_leap_year" title="pandas.PeriodIndex.is_leap_year"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.is_leap_year</span></code></a></td>
+<td>Logical indicating if the date belongs to a leap year</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.minute.html#pandas.PeriodIndex.minute" title="pandas.PeriodIndex.minute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.minute</span></code></a></td>
+<td>The minute of the period</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.month.html#pandas.PeriodIndex.month" title="pandas.PeriodIndex.month"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.month</span></code></a></td>
+<td>The month as January=1, December=12</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.quarter.html#pandas.PeriodIndex.quarter" title="pandas.PeriodIndex.quarter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.quarter</span></code></a></td>
+<td>The quarter of the date</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.qyear.html#pandas.PeriodIndex.qyear" title="pandas.PeriodIndex.qyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.qyear</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.second.html#pandas.PeriodIndex.second" title="pandas.PeriodIndex.second"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.second</span></code></a></td>
+<td>The second of the period</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.start_time.html#pandas.PeriodIndex.start_time" title="pandas.PeriodIndex.start_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.start_time</span></code></a></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.week.html#pandas.PeriodIndex.week" title="pandas.PeriodIndex.week"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.week</span></code></a></td>
+<td>The week ordinal of the year</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.weekday.html#pandas.PeriodIndex.weekday" title="pandas.PeriodIndex.weekday"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.weekday</span></code></a></td>
+<td>The day of the week with Monday=0, Sunday=6</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.weekofyear.html#pandas.PeriodIndex.weekofyear" title="pandas.PeriodIndex.weekofyear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.weekofyear</span></code></a></td>
+<td>The week ordinal of the year</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.year.html#pandas.PeriodIndex.year" title="pandas.PeriodIndex.year"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.year</span></code></a></td>
+<td>The year of the period</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.asfreq.html#pandas.PeriodIndex.asfreq" title="pandas.PeriodIndex.asfreq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.asfreq</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Convert the Period Array/Index to the specified frequency <cite>freq</cite>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.PeriodIndex.strftime.html#pandas.PeriodIndex.strftime" title="pandas.PeriodIndex.strftime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.strftime</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Convert to Index using specified date_format.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.PeriodIndex.to_timestamp.html#pandas.PeriodIndex.to_timestamp" title="pandas.PeriodIndex.to_timestamp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodIndex.to_timestamp</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Cast to DatetimeArray/Index.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.Index.html" title="pandas.Index"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.Panel.drop.html" title="pandas.Panel.drop"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Reference</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

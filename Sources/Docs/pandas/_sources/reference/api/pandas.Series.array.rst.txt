@@ -1,0 +1,6 @@
+pandas.Series.array
+===================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Series.array

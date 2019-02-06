@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.special.iv &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Special functions (scipy.special)" href="../special.html" >
+    <link rel="next" title="scipy.special.ive" href="scipy.special.ive.html" >
+    <link rel="prev" title="scipy.special.kve" href="scipy.special.kve.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../special.html" accesskey="U">Special functions (<code class="docutils literal"><span class="pre">scipy.special</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.special.ive.html" title="scipy.special.ive"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.special.kve.html" title="scipy.special.kve"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.special.kve.html"
+                        title="previous chapter">scipy.special.kve</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.special.ive.html"
+                        title="next chapter">scipy.special.ive</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-special-iv">
+<h1>scipy.special.iv<a class="headerlink" href="#scipy-special-iv" title="Permalink to this headline">¶</a></h1>
+<dl class="data">
+<dt id="scipy.special.iv">
+<code class="descclassname">scipy.special.</code><code class="descname">iv</code><span class="sig-paren">(</span><em>v</em>, <em>z</em><span class="sig-paren">)</span><em class="property"> = &lt;ufunc 'iv'&gt;</em><a class="headerlink" href="#scipy.special.iv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modified Bessel function of the first kind of real order.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>v</strong> : array_like</p>
+<blockquote>
+<div><p>Order. If <em class="xref py py-obj">z</em> is of real type and negative, <em class="xref py py-obj">v</em> must be integer
+valued.</p>
+</div></blockquote>
+<p><strong>z</strong> : array_like of float or complex</p>
+<blockquote>
+<div><p>Argument.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> : ndarray</p>
+<blockquote class="last">
+<div><p>Values of the modified Bessel function.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.special.kve.html#scipy.special.kve" title="scipy.special.kve"><code class="xref py py-obj docutils literal"><span class="pre">kve</span></code></a></dt>
+<dd>This function with leading exponential behavior stripped off.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>For real <em class="xref py py-obj">z</em> and <span class="math">\(v \in [-50, 50]\)</span>, the evaluation is carried out
+using Temme&#8217;s method <a class="reference internal" href="#r447" id="id1">[R447]</a>.  For larger orders, uniform asymptotic
+expansions are applied.</p>
+<p>For complex <em class="xref py py-obj">z</em> and positive <em class="xref py py-obj">v</em>, the AMOS <a class="reference internal" href="#r448" id="id2">[R448]</a> <em class="xref py py-obj">zbesi</em> routine is
+called. It uses a power series for small <em class="xref py py-obj">z</em>, the asymptitic expansion
+for large <em class="xref py py-obj">abs(z)</em>, the Miller algorithm normalized by the Wronskian
+and a Neumann series for intermediate magnitudes, and the uniform
+asymptitic expansions for <span class="math">\(I_v(z)\)</span> and <span class="math">\(J_v(z)\)</span> for large
+orders.  Backward recurrence is used to generate sequences or reduce
+orders when necessary.</p>
+<p>The calculations above are done in the right half plane and continued
+into the left half plane by the formula,</p>
+<div class="math">
+\[I_v(z \exp(\pm\imath\pi)) = \exp(\pm\pi v) I_v(z)\]</div>
+<p>(valid when the real part of <em class="xref py py-obj">z</em> is positive).  For negative <em class="xref py py-obj">v</em>, the
+formula</p>
+<div class="math">
+\[I_{-v}(z) = I_v(z) + \frac{2}{\pi} \sin(\pi v) K_v(z)\]</div>
+<p>is used, where <span class="math">\(K_v(z)\)</span> is the modified Bessel function of the
+second kind, evaluated using the AMOS routine <em class="xref py py-obj">zbesk</em>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r447" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R447]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> Temme, Journal of Computational Physics, vol 21, 343 (1976)</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r448" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R448]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Donald E. Amos, &#8220;AMOS, A Portable Package for Bessel Functions
+of a Complex Argument and Nonnegative Order&#8221;,
+<a class="reference external" href="http://netlib.org/amos/">http://netlib.org/amos/</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

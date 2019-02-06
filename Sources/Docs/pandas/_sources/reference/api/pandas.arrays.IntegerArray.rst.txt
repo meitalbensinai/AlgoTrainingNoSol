@@ -1,0 +1,46 @@
+pandas.arrays.IntegerArray
+==========================
+
+.. currentmodule:: pandas.arrays
+
+.. autoclass:: IntegerArray
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      IntegerArray.argsort
+      IntegerArray.astype
+      IntegerArray.copy
+      IntegerArray.dropna
+      IntegerArray.factorize
+      IntegerArray.fillna
+      IntegerArray.isna
+      IntegerArray.repeat
+      IntegerArray.searchsorted
+      IntegerArray.shift
+      IntegerArray.take
+      IntegerArray.unique
+      IntegerArray.value_counts
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      IntegerArray.dtype
+      IntegerArray.nbytes
+      IntegerArray.ndim
+      IntegerArray.shape
+
+

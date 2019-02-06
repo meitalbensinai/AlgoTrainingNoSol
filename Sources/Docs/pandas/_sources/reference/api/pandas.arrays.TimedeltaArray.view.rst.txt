@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.view
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.view

@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.fillna
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.fillna

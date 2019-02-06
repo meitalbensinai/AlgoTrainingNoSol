@@ -1,0 +1,6 @@
+pandas.SparseDtype.update\_dtype
+================================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseDtype.update_dtype

@@ -1,0 +1,6 @@
+pandas.SparseDtype.subtype
+==========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseDtype.subtype

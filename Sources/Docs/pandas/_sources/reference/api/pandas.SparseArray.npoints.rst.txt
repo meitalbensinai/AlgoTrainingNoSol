@@ -1,0 +1,6 @@
+pandas.SparseArray.npoints
+==========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.npoints

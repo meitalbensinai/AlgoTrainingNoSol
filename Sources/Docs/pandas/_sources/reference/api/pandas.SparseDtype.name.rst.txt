@@ -1,0 +1,6 @@
+pandas.SparseDtype.name
+=======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseDtype.name

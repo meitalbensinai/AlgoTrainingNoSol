@@ -1,0 +1,6 @@
+pandas.SparseArray.repeat
+=========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.repeat

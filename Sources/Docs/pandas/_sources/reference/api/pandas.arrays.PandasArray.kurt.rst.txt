@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.kurt
+==============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.kurt

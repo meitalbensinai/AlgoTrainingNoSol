@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v0.8.0 (June 29, 2012) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v.0.7.3 (April 12, 2012)" href="v0.7.3.html" />
+    <link rel="prev" title="v0.8.1 (July 22, 2012)" href="v0.8.1.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.7.3.html" title="v.0.7.3 (April 12, 2012)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.8.1.html" title="v0.8.1 (July 22, 2012)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v0-8-0-june-29-2012">
+<span id="whatsnew-080"></span><h1>v0.8.0 (June 29, 2012)<a class="headerlink" href="#v0-8-0-june-29-2012" title="Permalink to this headline">¶</a></h1>
+<p>This is a major release from 0.7.3 and includes extensive work on the time
+series handling and processing infrastructure as well as a great deal of new
+functionality throughout the library. It includes over 700 commits from more
+than 20 distinct authors. Most pandas 0.7.3 and earlier users should not
+experience any issues upgrading, but due to the migration to the NumPy
+datetime64 dtype, there may be a number of bugs and incompatibilities
+lurking. Lingering incompatibilities will be fixed ASAP in a 0.8.1 release if
+necessary. See the <a class="reference internal" href="index.html#release"><span class="std std-ref">full release notes</span></a> or issue tracker
+on GitHub for a complete list.</p>
+<div class="section" id="support-for-non-unique-indexes">
+<h2>Support for non-unique indexes<a class="headerlink" href="#support-for-non-unique-indexes" title="Permalink to this headline">¶</a></h2>
+<p>All objects can now work with non-unique indexes. Data alignment / join
+operations work according to SQL join semantics (including, if application,
+index duplication in many-to-many joins)</p>
+</div>
+<div class="section" id="numpy-datetime64-dtype-and-1-6-dependency">
+<h2>NumPy datetime64 dtype and 1.6 dependency<a class="headerlink" href="#numpy-datetime64-dtype-and-1-6-dependency" title="Permalink to this headline">¶</a></h2>
+<p>Time series data are now represented using NumPy’s datetime64 dtype; thus,
+pandas 0.8.0 now requires at least NumPy 1.6. It has been tested and verified
+to work with the development version (1.7+) of NumPy as well which includes
+some significant user-facing API changes. NumPy 1.6 also has a number of bugs
+having to do with nanosecond resolution data, so I recommend that you steer
+clear of NumPy 1.6’s datetime64 API functions (though limited as they are) and
+only interact with this data using the interface that pandas provides.</p>
+<p>See the end of the 0.8.0 section for a “porting” guide listing potential issues
+for users migrating legacy code bases from pandas 0.7 or earlier to 0.8.0.</p>
+<p>Bug fixes to the 0.7.x series for legacy NumPy &lt; 1.6 users will be provided as
+they arise. There will be no more further development in 0.7.x beyond bug
+fixes.</p>
+</div>
+<div class="section" id="time-series-changes-and-improvements">
+<h2>Time series changes and improvements<a class="headerlink" href="#time-series-changes-and-improvements" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">With this release, legacy scikits.timeseries users should be able to port
+their code to use pandas.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../user_guide/timeseries.html#timeseries"><span class="std std-ref">documentation</span></a> for overview of pandas timeseries API.</p>
+</div>
+<ul class="simple">
+<li>New datetime64 representation <strong>speeds up join operations and data
+alignment</strong>, <strong>reduces memory usage</strong>, and improve serialization /
+deserialization performance significantly over datetime.datetime</li>
+<li>High performance and flexible <strong>resample</strong> method for converting from
+high-to-low and low-to-high frequency. Supports interpolation, user-defined
+aggregation functions, and control over how the intervals and result labeling
+are defined. A suite of high performance Cython/C-based resampling functions
+(including Open-High-Low-Close) have also been implemented.</li>
+<li>Revamp of <a class="reference internal" href="../user_guide/timeseries.html#timeseries-offset-aliases"><span class="std std-ref">frequency aliases</span></a> and support for
+<strong>frequency shortcuts</strong> like ‘15min’, or ‘1h30min’</li>
+<li>New <a class="reference internal" href="../user_guide/timeseries.html#timeseries-datetimeindex"><span class="std std-ref">DatetimeIndex class</span></a> supports both fixed
+frequency and irregular time
+series. Replaces now deprecated DateRange class</li>
+<li>New <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">Period</span></code> classes for representing
+<a class="reference internal" href="../user_guide/timeseries.html#timeseries-periods"><span class="std std-ref">time spans</span></a> and performing <strong>calendar logic</strong>,
+including the <cite>12 fiscal quarterly frequencies &lt;timeseries.quarterly&gt;</cite>.
+This is a partial port of, and a substantial enhancement to,
+elements of the scikits.timeseries code base. Support for conversion between
+PeriodIndex and DatetimeIndex</li>
+<li>New Timestamp data type subclasses <cite>datetime.datetime</cite>, providing the same
+interface while enabling working with nanosecond-resolution data. Also
+provides <a class="reference internal" href="../user_guide/timeseries.html#timeseries-timezone"><span class="std std-ref">easy time zone conversions</span></a>.</li>
+<li>Enhanced support for <a class="reference internal" href="../user_guide/timeseries.html#timeseries-timezone"><span class="std std-ref">time zones</span></a>. Add
+<cite>tz_convert</cite> and <code class="docutils literal notranslate"><span class="pre">tz_lcoalize</span></code> methods to TimeSeries and DataFrame. All
+timestamps are stored as UTC; Timestamps from DatetimeIndex objects with time
+zone set will be localized to local time. Time zone conversions are therefore
+essentially free. User needs to know very little about pytz library now; only
+time zone names as as strings are required. Time zone-aware timestamps are
+equal if and only if their UTC timestamps match. Operations between time
+zone-aware time series with different time zones will result in a UTC-indexed
+time series.</li>
+<li>Time series <strong>string indexing conveniences</strong> / shortcuts: slice years, year
+and month, and index values with strings</li>
+<li>Enhanced time series <strong>plotting</strong>; adaptation of scikits.timeseries
+matplotlib-based plotting code</li>
+<li>New <code class="docutils literal notranslate"><span class="pre">date_range</span></code>, <code class="docutils literal notranslate"><span class="pre">bdate_range</span></code>, and <code class="docutils literal notranslate"><span class="pre">period_range</span></code> <a class="reference internal" href="../user_guide/timeseries.html#timeseries-daterange"><span class="std std-ref">factory
+functions</span></a></li>
+<li>Robust <strong>frequency inference</strong> function <cite>infer_freq</cite> and <code class="docutils literal notranslate"><span class="pre">inferred_freq</span></code>
+property of DatetimeIndex, with option to infer frequency on construction of
+DatetimeIndex</li>
+<li>to_datetime function efficiently <strong>parses array of strings</strong> to
+DatetimeIndex. DatetimeIndex will parse array or list of strings to
+datetime64</li>
+<li><strong>Optimized</strong> support for datetime64-dtype data in Series and DataFrame
+columns</li>
+<li>New NaT (Not-a-Time) type to represent <strong>NA</strong> in timestamp arrays</li>
+<li>Optimize Series.asof for looking up <strong>“as of” values</strong> for arrays of
+timestamps</li>
+<li>Milli, Micro, Nano date offset objects</li>
+<li>Can index time series with datetime.time objects to select all data at
+particular <strong>time of day</strong> (<code class="docutils literal notranslate"><span class="pre">TimeSeries.at_time</span></code>) or <strong>between two times</strong>
+(<code class="docutils literal notranslate"><span class="pre">TimeSeries.between_time</span></code>)</li>
+<li>Add <a class="reference internal" href="../user_guide/timeseries.html#timeseries-advanced-datetime"><span class="std std-ref">tshift</span></a> method for leading/lagging
+using the frequency (if any) of the index, as opposed to a naive lead/lag
+using shift</li>
+</ul>
+</div>
+<div class="section" id="other-new-features">
+<h2>Other new features<a class="headerlink" href="#other-new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>New <a class="reference internal" href="../user_guide/reshaping.html#reshaping-tile-cut"><span class="std std-ref">cut</span></a> and <code class="docutils literal notranslate"><span class="pre">qcut</span></code> functions (like R’s cut
+function) for computing a categorical variable from a continuous variable by
+binning values either into value-based (<code class="docutils literal notranslate"><span class="pre">cut</span></code>) or quantile-based (<code class="docutils literal notranslate"><span class="pre">qcut</span></code>)
+bins</li>
+<li>Rename <code class="docutils literal notranslate"><span class="pre">Factor</span></code> to <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> and add a number of usability features</li>
+<li>Add <a class="reference internal" href="../user_guide/missing_data.html#missing-data-fillna-limit"><span class="std std-ref">limit</span></a> argument to fillna/reindex</li>
+<li>More flexible multiple function application in GroupBy, and can pass list
+(name, function) tuples to get result in particular order with given names</li>
+<li>Add flexible <a class="reference internal" href="../user_guide/missing_data.html#missing-data-replace"><span class="std std-ref">replace</span></a> method for efficiently
+substituting values</li>
+<li>Enhanced <a class="reference internal" href="../user_guide/io.html#io-parse-dates"><span class="std std-ref">read_csv/read_table</span></a> for reading time series
+data and converting multiple columns to dates</li>
+<li>Add <a class="reference internal" href="../user_guide/io.html#io-comments"><span class="std std-ref">comments</span></a> option to parser functions: read_csv, etc.</li>
+<li>Add <a class="reference internal" href="../user_guide/io.html#io-dayfirst"><span class="std std-ref">dayfirst</span></a> option to parser functions for parsing
+international DD/MM/YYYY dates</li>
+<li>Allow the user to specify the CSV reader <a class="reference internal" href="../user_guide/io.html#io-dialect"><span class="std std-ref">dialect</span></a> to
+control quoting etc.</li>
+<li>Handling <a class="reference internal" href="../user_guide/io.html#io-thousands"><span class="std std-ref">thousands</span></a> separators in read_csv to improve
+integer parsing.</li>
+<li>Enable unstacking of multiple levels in one shot. Alleviate <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code>
+bugs (empty columns being introduced)</li>
+<li>Move to klib-based hash tables for indexing; better performance and less
+memory usage than Python’s dict</li>
+<li>Add first, last, min, max, and prod optimized GroupBy functions</li>
+<li>New <a class="reference internal" href="../user_guide/merging.html#merging-merge-ordered"><span class="std std-ref">ordered_merge</span></a> function</li>
+<li>Add flexible <a class="reference internal" href="../getting_started/basics.html#basics-binop"><span class="std std-ref">comparison</span></a> instance methods eq, ne, lt,
+gt, etc. to DataFrame, Series</li>
+<li>Improve <a class="reference internal" href="../user_guide/visualization.html#visualization-scatter-matrix"><span class="std std-ref">scatter_matrix</span></a> plotting
+function and add histogram or kernel density estimates to diagonal</li>
+<li>Add <a class="reference internal" href="../user_guide/visualization.html#visualization-kde"><span class="std std-ref">‘kde’</span></a> plot option for density plots</li>
+<li>Support for converting DataFrame to R data.frame through rpy2</li>
+<li>Improved support for complex numbers in Series and DataFrame</li>
+<li>Add <a class="reference internal" href="../user_guide/computation.html#computation-pct-change"><span class="std std-ref">pct_change</span></a> method to all data structures</li>
+<li>Add max_colwidth configuration option for DataFrame console output</li>
+<li><a class="reference internal" href="../user_guide/missing_data.html#missing-data-interpolate"><span class="std std-ref">Interpolate</span></a> Series values using index values</li>
+<li>Can select multiple columns from GroupBy</li>
+<li>Add <a class="reference internal" href="../user_guide/merging.html#merging-combine-first-update"><span class="std std-ref">update</span></a> methods to Series/DataFrame
+for updating values in place</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">any</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code> method to DataFrame</li>
+</ul>
+</div>
+<div class="section" id="new-plotting-methods">
+<h2>New plotting methods<a class="headerlink" href="#new-plotting-methods" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Series.plot</span></code> now supports a <code class="docutils literal notranslate"><span class="pre">secondary_y</span></code> option:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gh">Out[1]: </span><span class="go">&lt;Figure size 640x480 with 0 Axes&gt;</span>
+
+<span class="gp">In [2]: </span><span class="n">fx</span><span class="p">[</span><span class="s1">&#39;FR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="go">                                          Out[2]: &lt;matplotlib.axes._subplots.AxesSubplot at 0x7f37d7253b70&gt;</span>
+
+<span class="gp">In [3]: </span><span class="n">fx</span><span class="p">[</span><span class="s1">&#39;IT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">secondary_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="go">                                                                                                            Out[3]: &lt;matplotlib.axes._subplots.AxesSubplot at 0x7f37d6ea4f28&gt;</span>
+</pre></div>
+</div>
+<p>Vytautas Jancauskas, the 2012 GSOC participant, has added many new plot
+types. For example, <code class="docutils literal notranslate"><span class="pre">'kde'</span></code> is a new option:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="gp">   ...: </span>                              <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [5]: </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gh">Out[5]: </span><span class="go">&lt;Figure size 640x480 with 0 Axes&gt;</span>
+
+<span class="gp">In [6]: </span><span class="n">s</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="go">                                          Out[6]: &lt;matplotlib.axes._subplots.AxesSubplot at 0x7f37d6e58710&gt;</span>
+
+<span class="gp">In [7]: </span><span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
+<span class="go">                                                                                                            Out[7]: &lt;matplotlib.axes._subplots.AxesSubplot at 0x7f37d6e58710&gt;</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../user_guide/visualization.html#visualization-other"><span class="std std-ref">the plotting page</span></a> for much more.</p>
+</div>
+<div class="section" id="other-api-changes">
+<h2>Other API changes<a class="headerlink" href="#other-api-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Deprecation of <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">time_rule</span></code>, and <code class="docutils literal notranslate"><span class="pre">timeRule</span></code> arguments names in
+time series functions. Warnings will be printed until pandas 0.9 or 1.0.</li>
+</ul>
+</div>
+<div class="section" id="potential-porting-issues-for-pandas-0-7-3-users">
+<h2>Potential porting issues for pandas &lt;= 0.7.3 users<a class="headerlink" href="#potential-porting-issues-for-pandas-0-7-3-users" title="Permalink to this headline">¶</a></h2>
+<p>The major change that may affect you in pandas 0.8.0 is that time series
+indexes use NumPy’s <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type instead of <code class="docutils literal notranslate"><span class="pre">dtype=object</span></code> arrays
+of Python’s built-in <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> objects. <code class="docutils literal notranslate"><span class="pre">DateRange</span></code> has been
+replaced by <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> but otherwise behaved identically. But, if you
+have code that converts <code class="docutils literal notranslate"><span class="pre">DateRange</span></code> or <code class="docutils literal notranslate"><span class="pre">Index</span></code> objects that used to contain
+<code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> values to plain NumPy arrays, you may have bugs lurking
+with code using scalar values because you are handing control over to NumPy:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="gp">In [9]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [10]: </span><span class="n">rng</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="gh">Out[10]: </span><span class="go">Timestamp(&#39;2000-01-06 00:00:00&#39;, freq=&#39;D&#39;)</span>
+
+<span class="gp">In [11]: </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">rng</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">)</span>
+<span class="go">                                                    Out[11]: True</span>
+
+<span class="gp">In [12]: </span><span class="n">rng_asarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+
+<span class="gp">In [13]: </span><span class="n">scalar_val</span> <span class="o">=</span> <span class="n">rng_asarray</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="gp">In [14]: </span><span class="nb">type</span><span class="p">(</span><span class="n">scalar_val</span><span class="p">)</span>
+<span class="gh">Out[14]: </span><span class="go">numpy.datetime64</span>
+</pre></div>
+</div>
+<p>pandas’s <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> object is a subclass of <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> that has
+nanosecond support (the <code class="docutils literal notranslate"><span class="pre">nanosecond</span></code> field store the nanosecond value between
+0 and 999). It should substitute directly into any code that used
+<code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> values before. Thus, I recommend not casting
+<code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> to regular NumPy arrays.</p>
+<p>If you have code that requires an array of <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> objects, you
+have a couple of options. First, the <code class="docutils literal notranslate"><span class="pre">astype(object)</span></code> method of <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>
+produces an array of <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> objects:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">stamp_array</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+<span class="gp">In [16]: </span><span class="n">stamp_array</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">Index([2000-01-01 00:00:00, 2000-01-02 00:00:00, 2000-01-03 00:00:00,</span>
+<span class="go">       2000-01-04 00:00:00, 2000-01-05 00:00:00, 2000-01-06 00:00:00,</span>
+<span class="go">       2000-01-07 00:00:00, 2000-01-08 00:00:00, 2000-01-09 00:00:00,</span>
+<span class="go">       2000-01-10 00:00:00],</span>
+<span class="go">      dtype=&#39;object&#39;)</span>
+
+<span class="gp">In [17]: </span><span class="n">stamp_array</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">                                                                                                                                                                                                                                                                               Out[17]: Timestamp(&#39;2000-01-06 00:00:00&#39;, freq=&#39;D&#39;)</span>
+</pre></div>
+</div>
+<p>To get an array of proper <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> objects, use the
+<code class="docutils literal notranslate"><span class="pre">to_pydatetime</span></code> method:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">dt_array</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
+
+<span class="gp">In [19]: </span><span class="n">dt_array</span>
+<span class="gh">Out[19]: </span><span class="go"></span>
+<span class="go">array([datetime.datetime(2000, 1, 1, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 2, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 3, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 4, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 5, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 6, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 7, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 8, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 9, 0, 0),</span>
+<span class="go">       datetime.datetime(2000, 1, 10, 0, 0)], dtype=object)</span>
+
+<span class="gp">In [20]: </span><span class="n">dt_array</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="go">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Out[20]: datetime.datetime(2000, 1, 6, 0, 0)</span>
+</pre></div>
+</div>
+<p>matplotlib knows how to handle <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> but not Timestamp
+objects. While I recommend that you plot time series using <code class="docutils literal notranslate"><span class="pre">TimeSeries.plot</span></code>,
+you can either use <code class="docutils literal notranslate"><span class="pre">to_pydatetime</span></code> or register a converter for the Timestamp
+type. See <a class="reference external" href="http://matplotlib.org/api/units_api.html">matplotlib documentation</a> for more on this.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>There are bugs in the user-facing API with the nanosecond datetime64 unit
+in NumPy 1.6. In particular, the string version of the array shows garbage
+values, and conversion to <code class="docutils literal notranslate"><span class="pre">dtype=object</span></code> is similarly broken.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2000&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="gp">In [22]: </span><span class="n">rng</span>
+<span class="gh">Out[22]: </span><span class="go"></span>
+<span class="go">DatetimeIndex([&#39;2000-01-01&#39;, &#39;2000-01-02&#39;, &#39;2000-01-03&#39;, &#39;2000-01-04&#39;,</span>
+<span class="go">               &#39;2000-01-05&#39;, &#39;2000-01-06&#39;, &#39;2000-01-07&#39;, &#39;2000-01-08&#39;,</span>
+<span class="go">               &#39;2000-01-09&#39;, &#39;2000-01-10&#39;],</span>
+<span class="go">              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)</span>
+
+<span class="gp">In [23]: </span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+<span class="go">                                                                                                                                                                                                                                                    Out[23]: </span>
+<span class="go">array([&#39;2000-01-01T00:00:00.000000000&#39;, &#39;2000-01-02T00:00:00.000000000&#39;,</span>
+<span class="go">       &#39;2000-01-03T00:00:00.000000000&#39;, &#39;2000-01-04T00:00:00.000000000&#39;,</span>
+<span class="go">       &#39;2000-01-05T00:00:00.000000000&#39;, &#39;2000-01-06T00:00:00.000000000&#39;,</span>
+<span class="go">       &#39;2000-01-07T00:00:00.000000000&#39;, &#39;2000-01-08T00:00:00.000000000&#39;,</span>
+<span class="go">       &#39;2000-01-09T00:00:00.000000000&#39;, &#39;2000-01-10T00:00:00.000000000&#39;], dtype=&#39;datetime64[ns]&#39;)</span>
+
+<span class="gp">In [24]: </span><span class="n">converted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+
+<span class="gp">In [25]: </span><span class="n">converted</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="gh">Out[25]: </span><span class="go">Timestamp(&#39;2000-01-06 00:00:00&#39;, freq=&#39;D&#39;)</span>
+</pre></div>
+</div>
+<p class="last"><strong>Trust me: don’t panic</strong>. If you are using NumPy 1.6 and restrict your
+interaction with <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> values to pandas’s API you will be just
+fine. There is nothing wrong with the data-type (a 64-bit integer
+internally); all of the important data processing happens in pandas and is
+heavily tested. I strongly recommend that you <strong>do not work directly with
+datetime64 arrays in NumPy 1.6</strong> and only use the pandas API.</p>
+</div>
+<p><strong>Support for non-unique indexes</strong>: In the latter case, you may have code
+inside a <code class="docutils literal notranslate"><span class="pre">try:...</span> <span class="pre">catch:</span></code> block that failed due to the index not being
+unique. In many cases it will no longer fail (some method like <code class="docutils literal notranslate"><span class="pre">append</span></code> still
+check for uniqueness unless disabled). However, all is not lost: you can
+inspect <code class="docutils literal notranslate"><span class="pre">index.is_unique</span></code> and raise an exception explicitly if it is
+<code class="docutils literal notranslate"><span class="pre">False</span></code> or go to a different code branch.</p>
+</div>
+<div class="section" id="contributors">
+<span id="whatsnew-0-8-0-contributors"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 27 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Adam Klein</li>
+<li>Chang She</li>
+<li>David Zaslavsky +</li>
+<li>Eric Chlebek +</li>
+<li>Jacques Kvam</li>
+<li>Kamil Kisiel</li>
+<li>Kelsey Jordahl +</li>
+<li>Kieran O’Mahony +</li>
+<li>Lorenzo Bolla +</li>
+<li>Luca Beltrame</li>
+<li>Marc Abramowitz +</li>
+<li>Mark Wiebe +</li>
+<li>Paddy Mullen +</li>
+<li>Peng Yu +</li>
+<li>Roy Hyunjin Han +</li>
+<li>RuiDC +</li>
+<li>Senthil Palanisami +</li>
+<li>Skipper Seabold</li>
+<li>Stefan van der Walt +</li>
+<li>Takafumi Arakaki +</li>
+<li>Thomas Kluyver</li>
+<li>Vytautas Jancauskas +</li>
+<li>Wes McKinney</li>
+<li>Wouter Overmeire</li>
+<li>Yaroslav Halchenko</li>
+<li>thuske +</li>
+<li>timmie +</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.7.3.html" title="v.0.7.3 (April 12, 2012)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.8.1.html" title="v0.8.1 (July 22, 2012)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

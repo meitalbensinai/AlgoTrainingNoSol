@@ -1,0 +1,6 @@
+pandas.Int16Dtype.names
+=======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Int16Dtype.names

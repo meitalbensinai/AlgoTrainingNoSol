@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.DataFrame.from_csv &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.DataFrame.from_dict" href="pandas.DataFrame.from_dict.html" />
+    <link rel="prev" title="pandas.DataFrame.floordiv" href="pandas.DataFrame.floordiv.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.DataFrame.from_dict.html" title="pandas.DataFrame.from_dict"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.DataFrame.floordiv.html" title="pandas.DataFrame.floordiv"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../frame.html" >DataFrame</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.DataFrame.html" accesskey="U">pandas.DataFrame</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-dataframe-from-csv">
+<h1>pandas.DataFrame.from_csv<a class="headerlink" href="#pandas-dataframe-from-csv" title="Permalink to this headline">¶</a></h1>
+<dl class="classmethod">
+<dt id="pandas.DataFrame.from_csv">
+<em class="property">classmethod </em><code class="descclassname">DataFrame.</code><code class="descname">from_csv</code><span class="sig-paren">(</span><em>path</em>, <em>header=0</em>, <em>sep='</em>, <em>'</em>, <em>index_col=0</em>, <em>parse_dates=True</em>, <em>encoding=None</em>, <em>tupleize_cols=None</em>, <em>infer_datetime_format=False</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/frame.py#L1826-L1891"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.DataFrame.from_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CSV file.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 0.21.0: </span>Use <a class="reference internal" href="pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a> instead.</p>
+</div>
+<p>It is preferable to use the more powerful <a class="reference internal" href="pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a>
+for most general purposes, but <code class="docutils literal notranslate"><span class="pre">from_csv</span></code> makes for an easy
+roundtrip to and from a file (the exact counterpart of
+<code class="docutils literal notranslate"><span class="pre">to_csv</span></code>), especially with a DataFrame of time series data.</p>
+<p>This method only differs from the preferred <a class="reference internal" href="pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></a>
+in some defaults:</p>
+<ul class="simple">
+<li><cite>index_col</cite> is <code class="docutils literal notranslate"><span class="pre">0</span></code> instead of <code class="docutils literal notranslate"><span class="pre">None</span></code> (take first column as index
+by default)</li>
+<li><cite>parse_dates</cite> is <code class="docutils literal notranslate"><span class="pre">True</span></code> instead of <code class="docutils literal notranslate"><span class="pre">False</span></code> (try parsing the index
+as datetime by default)</li>
+</ul>
+<p>So a <code class="docutils literal notranslate"><span class="pre">pd.DataFrame.from_csv(path)</span></code> can be replaced by
+<code class="docutils literal notranslate"><span class="pre">pd.read_csv(path,</span> <span class="pre">index_col=0,</span> <span class="pre">parse_dates=True)</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>path</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string file path or file handle / StringIO</span></dt>
+<dd></dd>
+<dt><strong>header</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default 0</span></dt>
+<dd><p class="first last">Row to use as header (skip prior rows)</p>
+</dd>
+<dt><strong>sep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, default ‘,’</span></dt>
+<dd><p class="first last">Field delimiter</p>
+</dd>
+<dt><strong>index_col</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or sequence, default 0</span></dt>
+<dd><p class="first last">Column to use for index. If a sequence is given, a MultiIndex
+is used. Different default from read_table</p>
+</dd>
+<dt><strong>parse_dates</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default True</span></dt>
+<dd><p class="first last">Parse dates. Different default from read_table</p>
+</dd>
+<dt><strong>tupleize_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first last">write multi_index columns as a list of tuples (if True)
+or new (expanded format) if False)</p>
+</dd>
+<dt><strong>infer_datetime_format</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first last">If True and <cite>parse_dates</cite> is True for a column, try to infer the
+datetime format based on the first datetime string. If the format
+can be inferred, there often will be a large parsing speed-up.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">DataFrame</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="pandas.read_csv.html#pandas.read_csv" title="pandas.read_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.read_csv</span></code></a></p>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.DataFrame.from_dict.html" title="pandas.DataFrame.from_dict"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.DataFrame.floordiv.html" title="pandas.DataFrame.floordiv"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../frame.html" >DataFrame</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.DataFrame.html" >pandas.DataFrame</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

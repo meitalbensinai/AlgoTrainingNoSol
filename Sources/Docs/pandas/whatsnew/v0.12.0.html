@@ -1,0 +1,915 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v0.12.0 (July 24, 2013) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.11.0 (April 22, 2013)" href="v0.11.0.html" />
+    <link rel="prev" title="v0.13.0 (January 3, 2014)" href="v0.13.0.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.11.0.html" title="v0.11.0 (April 22, 2013)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.13.0.html" title="v0.13.0 (January 3, 2014)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v0-12-0-july-24-2013">
+<span id="whatsnew-0120"></span><h1>v0.12.0 (July 24, 2013)<a class="headerlink" href="#v0-12-0-july-24-2013" title="Permalink to this headline">¶</a></h1>
+<p>This is a major release from 0.11.0 and includes several new features and
+enhancements along with a large number of bug fixes.</p>
+<p>Highlights include a consistent I/O API naming scheme, routines to read html,
+write MultiIndexes to csv files, read &amp; write STATA data files, read &amp; write JSON format
+files, Python 3 support for <code class="docutils literal notranslate"><span class="pre">HDFStore</span></code>, filtering of groupby expressions via <code class="docutils literal notranslate"><span class="pre">filter</span></code>, and a
+revamped <code class="docutils literal notranslate"><span class="pre">replace</span></code> routine that accepts regular expressions.</p>
+<div class="section" id="api-changes">
+<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">The I/O API is now much more consistent with a set of top level <code class="docutils literal notranslate"><span class="pre">reader</span></code> functions
+accessed like <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> that generally return a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> object.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">read_csv</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_excel</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_hdf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_sql</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_html</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_stata</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">read_clipboard</span></code></li>
+</ul>
+<p>The corresponding <code class="docutils literal notranslate"><span class="pre">writer</span></code> functions are object methods that are accessed like <code class="docutils literal notranslate"><span class="pre">df.to_csv()</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">to_csv</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_excel</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_hdf</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_sql</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_json</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_html</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_stata</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">to_clipboard</span></code></li>
+</ul>
+</li>
+<li><p class="first">Fix modulo and integer division on Series,DataFrames to act similarly to <code class="docutils literal notranslate"><span class="pre">float</span></code> dtypes to return
+<code class="docutils literal notranslate"><span class="pre">np.nan</span></code> or <code class="docutils literal notranslate"><span class="pre">np.inf</span></code> as appropriate (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3590">GH3590</a>). This correct a numpy bug that treats <code class="docutils literal notranslate"><span class="pre">integer</span></code>
+and <code class="docutils literal notranslate"><span class="pre">float</span></code> dtypes differently.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;second&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
+
+<span class="gp">In [2]: </span><span class="n">p</span> <span class="o">%</span> <span class="mi">0</span>
+<span class="gh">Out[2]: </span><span class="go"></span>
+<span class="go">   first  second</span>
+<span class="go">0    NaN     NaN</span>
+<span class="go">1    NaN     NaN</span>
+<span class="go">2    NaN     NaN</span>
+
+<span class="gp">In [3]: </span><span class="n">p</span> <span class="o">%</span> <span class="n">p</span>
+<span class="go">                                                                             Out[3]: </span>
+<span class="go">   first  second</span>
+<span class="go">0    0.0     NaN</span>
+<span class="go">1    0.0     NaN</span>
+<span class="go">2    0.0     0.0</span>
+
+<span class="gp">In [4]: </span><span class="n">p</span> <span class="o">/</span> <span class="n">p</span>
+<span class="go">                                                                                                                                                          Out[4]: </span>
+<span class="go">   first  second</span>
+<span class="go">0    1.0     NaN</span>
+<span class="go">1    1.0     NaN</span>
+<span class="go">2    1.0     1.0</span>
+
+<span class="gp">In [5]: </span><span class="n">p</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="go">                                                                                                                                                                                                                                       Out[5]: </span>
+<span class="go">   first  second</span>
+<span class="go">0    inf     NaN</span>
+<span class="go">1    inf     NaN</span>
+<span class="go">2    inf     inf</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add <code class="docutils literal notranslate"><span class="pre">squeeze</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">groupby</span></code> to allow reduction from
+DataFrame -&gt; Series if groups are unique. This is a Regression from 0.10.1.
+We are reverting back to the prior behavior. This means groupby will return the
+same shaped objects whether the groups are unique or not. Revert this issue (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2893">GH2893</a>)
+with (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3596">GH3596</a>).</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s2">&quot;val1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;val2&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
+<span class="gp">   ...: </span>                    <span class="p">{</span><span class="s2">&quot;val1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;val2&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">},</span>
+<span class="gp">   ...: </span>                    <span class="p">{</span><span class="s2">&quot;val1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;val2&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">},</span>
+<span class="gp">   ...: </span>                    <span class="p">{</span><span class="s2">&quot;val1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;val2&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}])</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [7]: </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">dataf</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">return</span> <span class="n">dataf</span><span class="p">[</span><span class="s2">&quot;val2&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">dataf</span><span class="p">[</span><span class="s2">&quot;val2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="gp">   ...: </span>
+
+<span class="go"># squeezing the result frame to a series (because we have unique groups)</span>
+<span class="gp">In [8]: </span><span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;val1&quot;</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go"></span>
+<span class="go">0    0.5</span>
+<span class="go">1   -0.5</span>
+<span class="go">2    7.5</span>
+<span class="go">3   -7.5</span>
+<span class="go">Name: 1, dtype: float64</span>
+
+<span class="go"># no squeezing (the default, and behavior in 0.10.1)</span>
+<span class="gp">In [9]: </span><span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;val1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="go">                                                                     Out[9]: </span>
+<span class="go">val2    0    1    2    3</span>
+<span class="go">val1                    </span>
+<span class="go">1     0.5 -0.5  7.5 -7.5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Raise on <code class="docutils literal notranslate"><span class="pre">iloc</span></code> when boolean indexing with a label based indexer mask
+e.g. a boolean Series, even with integer labels, will raise. Since <code class="docutils literal notranslate"><span class="pre">iloc</span></code>
+is purely positional based, the labels on the Series are not alignable (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3631">GH3631</a>)</p>
+<p>This case is rarely used, and there are plenty of alternatives. This preserves the
+<code class="docutils literal notranslate"><span class="pre">iloc</span></code> API to be <em>purely</em> positional based.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lrange</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCDE&#39;</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
+
+<span class="gp">In [11]: </span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [12]: </span><span class="n">mask</span>
+<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="go">A     True</span>
+<span class="go">B    False</span>
+<span class="go">C     True</span>
+<span class="go">D    False</span>
+<span class="go">E     True</span>
+<span class="go">Name: a, dtype: bool</span>
+
+<span class="go"># this is what you should use</span>
+<span class="gp">In [13]: </span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="go">                                                                                      Out[13]: </span>
+<span class="go">   a</span>
+<span class="go">A  0</span>
+<span class="go">C  2</span>
+<span class="go">E  4</span>
+
+<span class="go"># this will work as well</span>
+<span class="gp">In [14]: </span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="go">                                                                                                                    Out[14]: </span>
+<span class="go">   a</span>
+<span class="go">A  0</span>
+<span class="go">C  2</span>
+<span class="go">E  4</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">df.iloc[mask]</span></code> will raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">raise_on_error</span></code> argument to plotting functions is removed. Instead,
+plotting functions raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> when the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of the object
+is <code class="docutils literal notranslate"><span class="pre">object</span></code> to remind you to avoid <code class="docutils literal notranslate"><span class="pre">object</span></code> arrays whenever possible
+and thus you should cast to an appropriate numeric dtype if you need to
+plot something.</p>
+</li>
+<li><p class="first">Add <code class="docutils literal notranslate"><span class="pre">colormap</span></code> keyword to DataFrame plotting methods. Accepts either a
+matplotlib colormap object (ie, matplotlib.cm.jet) or a string name of such
+an object (ie, ‘jet’). The colormap is sampled to select the color for each
+column. Please see <a class="reference internal" href="../user_guide/visualization.html#visualization-colormaps"><span class="std std-ref">Colormaps</span></a> for more information.
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3860">GH3860</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame.interpolate()</span></code> is now deprecated. Please use
+<code class="docutils literal notranslate"><span class="pre">DataFrame.fillna()</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame.replace()</span></code> instead. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3582">GH3582</a>,
+<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3675">GH3675</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3676">GH3676</a>)</p>
+</li>
+<li><p class="first">the <code class="docutils literal notranslate"><span class="pre">method</span></code> and <code class="docutils literal notranslate"><span class="pre">axis</span></code> arguments of <code class="docutils literal notranslate"><span class="pre">DataFrame.replace()</span></code> are
+deprecated</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame.replace</span></code> ‘s <code class="docutils literal notranslate"><span class="pre">infer_types</span></code> parameter is removed and now
+performs conversion by default. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3907">GH3907</a>)</p>
+</li>
+<li><p class="first">Add the keyword <code class="docutils literal notranslate"><span class="pre">allow_duplicates</span></code> to <code class="docutils literal notranslate"><span class="pre">DataFrame.insert</span></code> to allow a duplicate column
+to be inserted if <code class="docutils literal notranslate"><span class="pre">True</span></code>, default is <code class="docutils literal notranslate"><span class="pre">False</span></code> (same as prior to 0.12) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3679">GH3679</a>)</p>
+</li>
+<li><p class="first">Implement <code class="docutils literal notranslate"><span class="pre">__nonzero__</span></code> for <code class="docutils literal notranslate"><span class="pre">NDFrame</span></code> objects (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3691">GH3691</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3696">GH3696</a>)</p>
+</li>
+<li><p class="first">IO api</p>
+<ul>
+<li><p class="first">added top-level function <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> to replace the following,
+The original API is deprecated and will be removed in a future version</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.io.parsers</span> <span class="kn">import</span> <span class="n">ExcelFile</span>
+<span class="n">xls</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span><span class="s1">&#39;path_to_file.xls&#39;</span><span class="p">)</span>
+<span class="n">xls</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NA&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>With</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;path_to_file.xls&#39;</span><span class="p">,</span> <span class="s1">&#39;Sheet1&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NA&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">added top-level function <code class="docutils literal notranslate"><span class="pre">read_sql</span></code> that is equivalent to the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.io.sql</span> <span class="kn">import</span> <span class="n">read_frame</span>
+<span class="n">read_frame</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame.to_html</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame.to_latex</span></code> now accept a path for
+their first argument (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3702">GH3702</a>)</p>
+</li>
+<li><p class="first">Do not allow astypes on <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> except to <code class="docutils literal notranslate"><span class="pre">object</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> to <code class="docutils literal notranslate"><span class="pre">object/int</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3425">GH3425</a>)</p>
+</li>
+<li><p class="first">The behavior of <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> dtypes has changed with respect to certain
+so-called reduction operations (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3726">GH3726</a>). The following operations now
+raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> when performed on a <code class="docutils literal notranslate"><span class="pre">Series</span></code> and return an <em>empty</em>
+<code class="docutils literal notranslate"><span class="pre">Series</span></code> when performed on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> similar to performing these
+operations on, for example, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of <code class="docutils literal notranslate"><span class="pre">slice</span></code> objects:</p>
+<ul class="simple">
+<li>sum, prod, mean, std, var, skew, kurt, corr, and cov</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">read_html</span></code> now defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code> when reading, and falls back on
+<code class="docutils literal notranslate"><span class="pre">bs4</span></code> + <code class="docutils literal notranslate"><span class="pre">html5lib</span></code> when lxml fails to parse. a list of parsers to try
+until success is also valid</p>
+</li>
+<li><p class="first">The internal <code class="docutils literal notranslate"><span class="pre">pandas</span></code> class hierarchy has changed (slightly). The
+previous <code class="docutils literal notranslate"><span class="pre">PandasObject</span></code> now is called <code class="docutils literal notranslate"><span class="pre">PandasContainer</span></code> and a new
+<code class="docutils literal notranslate"><span class="pre">PandasObject</span></code> has become the base class for <code class="docutils literal notranslate"><span class="pre">PandasContainer</span></code> as well
+as <code class="docutils literal notranslate"><span class="pre">Index</span></code>, <code class="docutils literal notranslate"><span class="pre">Categorical</span></code>, <code class="docutils literal notranslate"><span class="pre">GroupBy</span></code>, <code class="docutils literal notranslate"><span class="pre">SparseList</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">SparseArray</span></code> (+ their base classes). Currently, <code class="docutils literal notranslate"><span class="pre">PandasObject</span></code>
+provides string methods (from <code class="docutils literal notranslate"><span class="pre">StringMixin</span></code>). (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4090">GH4090</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4092">GH4092</a>)</p>
+</li>
+<li><p class="first">New <code class="docutils literal notranslate"><span class="pre">StringMixin</span></code> that, given a <code class="docutils literal notranslate"><span class="pre">__unicode__</span></code> method, gets python 2 and
+python 3 compatible string methods (<code class="docutils literal notranslate"><span class="pre">__str__</span></code>, <code class="docutils literal notranslate"><span class="pre">__bytes__</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">__repr__</span></code>). Plus string safety throughout. Now employed in many places
+throughout the pandas library. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4090">GH4090</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4092">GH4092</a>)</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="i-o-enhancements">
+<h2>I/O Enhancements<a class="headerlink" href="#i-o-enhancements" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pd.read_html()</span></code> can now parse HTML strings, files or urls and return
+DataFrames, courtesy of &#64;cpcloud. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3477">GH3477</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3605">GH3605</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3606">GH3606</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3616">GH3616</a>).
+It works with a <em>single</em> parser backend: BeautifulSoup4 + html5lib <a class="reference internal" href="../user_guide/io.html#io-html"><span class="std std-ref">See the docs</span></a></p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">pd.read_html()</span></code> to read the output from <code class="docutils literal notranslate"><span class="pre">DataFrame.to_html()</span></code> like so</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)})</span>
+
+<span class="gp">In [16]: </span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">   a  b</span>
+<span class="go">0  0  a</span>
+<span class="go">1  1  b</span>
+<span class="go">2  2  c</span>
+
+<span class="gp">In [17]: </span><span class="n">html</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+
+<span class="gp">In [18]: </span><span class="n">alist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="gp">In [19]: </span><span class="k">print</span><span class="p">(</span><span class="n">df</span> <span class="o">==</span> <span class="n">alist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">      a     b</span>
+<span class="go">0  True  True</span>
+<span class="go">1  True  True</span>
+<span class="go">2  True  True</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">alist</span></code> here is a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> so <code class="docutils literal notranslate"><span class="pre">pd.read_html()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">DataFrame.to_html()</span></code> are not inverses.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">pd.read_html()</span></code> no longer performs hard conversion of date strings
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3656">GH3656</a>).</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You may have to install an older version of BeautifulSoup4,
+<a class="reference internal" href="../install.html#install-optional-dependencies"><span class="std std-ref">See the installation docs</span></a></p>
+</div>
+</li>
+<li><p class="first">Added module for reading and writing Stata files: <code class="docutils literal notranslate"><span class="pre">pandas.io.stata</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/1512">GH1512</a>)
+accessible via <code class="docutils literal notranslate"><span class="pre">read_stata</span></code> top-level function for reading,
+and <code class="docutils literal notranslate"><span class="pre">to_stata</span></code> DataFrame method for writing, <a class="reference internal" href="../user_guide/io.html#io-stata"><span class="std std-ref">See the docs</span></a></p>
+</li>
+<li><p class="first">Added module for reading and writing json format files: <code class="docutils literal notranslate"><span class="pre">pandas.io.json</span></code>
+accessible via <code class="docutils literal notranslate"><span class="pre">read_json</span></code> top-level function for reading,
+and <code class="docutils literal notranslate"><span class="pre">to_json</span></code> DataFrame method for writing, <a class="reference internal" href="../user_guide/io.html#io-json"><span class="std std-ref">See the docs</span></a>
+various issues (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/1226">GH1226</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3804">GH3804</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3876">GH3876</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3867">GH3867</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/1305">GH1305</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> column support for reading and writing csv format files</p>
+<ul>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">header</span></code> option in <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> now accepts a
+list of the rows from which to read the index.</p>
+</li>
+<li><p class="first">The option, <code class="docutils literal notranslate"><span class="pre">tupleize_cols</span></code> can now be specified in both <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> and
+<code class="docutils literal notranslate"><span class="pre">read_csv</span></code>, to provide compatibility for the pre 0.12 behavior of
+writing and reading <code class="docutils literal notranslate"><span class="pre">MultIndex</span></code> columns via a list of tuples. The default in
+0.12 is to write lists of tuples and <em>not</em> interpret list of tuples as a
+<code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> column.</p>
+<p>Note: The default behavior in 0.12 remains unchanged from prior versions, but starting with 0.13,
+the default <em>to</em> write and read <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> columns will be in the new
+format. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3571">GH3571</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/1651">GH1651</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3141">GH3141</a>)</p>
+</li>
+<li><p class="first">If an <code class="docutils literal notranslate"><span class="pre">index_col</span></code> is not specified (e.g. you don’t have an index, or wrote it
+with <code class="docutils literal notranslate"><span class="pre">df.to_csv(...,</span> <span class="pre">index=False</span></code>), then any <code class="docutils literal notranslate"><span class="pre">names</span></code> on the columns index will
+be <em>lost</em>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="kn">from</span> <span class="nn">pandas.util.testing</span> <span class="kn">import</span> <span class="n">makeCustomDataframe</span> <span class="k">as</span> <span class="n">mkdf</span>
+
+<span class="gp">In [21]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">mkdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">r_idx_nlevels</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c_idx_nlevels</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [22]: </span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;mi.csv&#39;</span><span class="p">)</span>
+
+<span class="gp">In [23]: </span><span class="k">print</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mi.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="go">C0,,C_l0_g0,C_l0_g1,C_l0_g2</span>
+<span class="go">C1,,C_l1_g0,C_l1_g1,C_l1_g2</span>
+<span class="go">C2,,C_l2_g0,C_l2_g1,C_l2_g2</span>
+<span class="go">C3,,C_l3_g0,C_l3_g1,C_l3_g2</span>
+<span class="go">R0,R1,,,</span>
+<span class="go">R_l0_g0,R_l1_g0,R0C0,R0C1,R0C2</span>
+<span class="go">R_l0_g1,R_l1_g1,R1C0,R1C1,R1C2</span>
+<span class="go">R_l0_g2,R_l1_g2,R2C0,R2C1,R2C2</span>
+<span class="go">R_l0_g3,R_l1_g3,R3C0,R3C1,R3C2</span>
+<span class="go">R_l0_g4,R_l1_g4,R4C0,R4C1,R4C2</span>
+
+
+<span class="gp">In [24]: </span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;mi.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">                                                                                                                                                                                                                                                                                     Out[24]: </span>
+<span class="go">C0              C_l0_g0 C_l0_g1 C_l0_g2</span>
+<span class="go">C1              C_l1_g0 C_l1_g1 C_l1_g2</span>
+<span class="go">C2              C_l2_g0 C_l2_g1 C_l2_g2</span>
+<span class="go">C3              C_l3_g0 C_l3_g1 C_l3_g2</span>
+<span class="go">R0      R1                             </span>
+<span class="go">R_l0_g0 R_l1_g0    R0C0    R0C1    R0C2</span>
+<span class="go">R_l0_g1 R_l1_g1    R1C0    R1C1    R1C2</span>
+<span class="go">R_l0_g2 R_l1_g2    R2C0    R2C1    R2C2</span>
+<span class="go">R_l0_g3 R_l1_g3    R3C0    R3C1    R3C2</span>
+<span class="go">R_l0_g4 R_l1_g4    R4C0    R4C1    R4C2</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Support for <code class="docutils literal notranslate"><span class="pre">HDFStore</span></code> (via <code class="docutils literal notranslate"><span class="pre">PyTables</span> <span class="pre">3.0.0</span></code>) on Python3</p>
+</li>
+<li><p class="first">Iterator support via <code class="docutils literal notranslate"><span class="pre">read_hdf</span></code> that automatically opens and closes the
+store when iteration is finished. This is only for <em>tables</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;store_iterator.h5&#39;</span>
+
+<span class="gp">In [26]: </span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="gp">In [27]: </span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;df&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">   ....:</span>
+<span class="go">          0         1</span>
+<span class="go">0  0.713216 -0.778461</span>
+<span class="go">1 -0.661062  0.862877</span>
+<span class="go">2  0.344342  0.149565</span>
+<span class="go">          0         1</span>
+<span class="go">3 -0.626968 -0.875772</span>
+<span class="go">4 -0.930687 -0.218983</span>
+<span class="go">5  0.949965 -0.442354</span>
+<span class="go">          0         1</span>
+<span class="go">6 -0.402985  1.111358</span>
+<span class="go">7 -0.241527 -0.670477</span>
+<span class="go">8  0.049355  0.632633</span>
+<span class="go">          0         1</span>
+<span class="go">9 -1.502767 -1.225492</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">read_csv</span></code> will now throw a more informative error message when a file
+contains no columns, e.g., all newline characters</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="other-enhancements">
+<h2>Other Enhancements<a class="headerlink" href="#other-enhancements" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame.replace()</span></code> now allows regular expressions on contained
+<code class="docutils literal notranslate"><span class="pre">Series</span></code> with object dtype. See the examples section in the regular docs
+<a class="reference internal" href="../user_guide/missing_data.html#missing-data-replace-expression"><span class="std std-ref">Replacing via String Expression</span></a></p>
+<p>For example you can do</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [25]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ab..&#39;</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+
+<span class="gp">In [26]: </span><span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s*\.\s*&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="gh">Out[26]: </span><span class="go"></span>
+<span class="go">     a  b</span>
+<span class="go">0    a  1</span>
+<span class="go">1    b  2</span>
+<span class="go">2  NaN  3</span>
+<span class="go">3  NaN  4</span>
+</pre></div>
+</div>
+<p>to replace all occurrences of the string <code class="docutils literal notranslate"><span class="pre">'.'</span></code> with zero or more
+instances of surrounding white space with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p>Regular string replacement still works as expected. For example, you can do</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [27]: </span><span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="gh">Out[27]: </span><span class="go"></span>
+<span class="go">     a  b</span>
+<span class="go">0    a  1</span>
+<span class="go">1    b  2</span>
+<span class="go">2  NaN  3</span>
+<span class="go">3  NaN  4</span>
+</pre></div>
+</div>
+<p>to replace all occurrences of the string <code class="docutils literal notranslate"><span class="pre">'.'</span></code> with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code> now accepts the optional parameters <code class="docutils literal notranslate"><span class="pre">var_name</span></code> and <code class="docutils literal notranslate"><span class="pre">value_name</span></code>
+to specify custom column names of the returned DataFrame.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code> now allows N option, value pairs (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3667">GH3667</a>).</p>
+<blockquote>
+<div><p>Let’s say that we had an option <code class="docutils literal notranslate"><span class="pre">'a.b'</span></code> and another option <code class="docutils literal notranslate"><span class="pre">'b.c'</span></code>.
+We can set them at the same time:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [28]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;a.b&#39;</span><span class="p">)</span>
+<span class="gh">Out[28]: </span><span class="go">2</span>
+
+<span class="gp">In [29]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;b.c&#39;</span><span class="p">)</span>
+<span class="go">           Out[29]: 3</span>
+
+<span class="gp">In [30]: </span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;a.b&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b.c&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [31]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;a.b&#39;</span><span class="p">)</span>
+<span class="gh">Out[31]: </span><span class="go">1</span>
+
+<span class="gp">In [32]: </span><span class="n">pd</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s1">&#39;b.c&#39;</span><span class="p">)</span>
+<span class="go">           Out[32]: 4</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">filter</span></code> method for group objects returns a subset of the original
+object. Suppose we want to take only elements that belong to groups with a
+group sum greater than 2.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [33]: </span><span class="n">sf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [34]: </span><span class="n">sf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[34]: </span><span class="go"></span>
+<span class="go">3    3</span>
+<span class="go">4    3</span>
+<span class="go">5    3</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
+<p>The argument of <code class="docutils literal notranslate"><span class="pre">filter</span></code> must a function that, applied to the group as a
+whole, returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Another useful operation is filtering out elements that belong to groups
+with only a couple members.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [35]: </span><span class="n">dff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aabbbbcc&#39;</span><span class="p">)})</span>
+
+<span class="gp">In [36]: </span><span class="n">dff</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[36]: </span><span class="go"></span>
+<span class="go">   A  B</span>
+<span class="go">2  2  b</span>
+<span class="go">3  3  b</span>
+<span class="go">4  4  b</span>
+<span class="go">5  5  b</span>
+</pre></div>
+</div>
+<p>Alternatively, instead of dropping the offending groups, we can return a
+like-indexed objects where the groups that do not pass the filter are
+filled with NaNs.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [37]: </span><span class="n">dff</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gh">Out[37]: </span><span class="go"></span>
+<span class="go">     A    B</span>
+<span class="go">0  NaN  NaN</span>
+<span class="go">1  NaN  NaN</span>
+<span class="go">2  2.0    b</span>
+<span class="go">3  3.0    b</span>
+<span class="go">4  4.0    b</span>
+<span class="go">5  5.0    b</span>
+<span class="go">6  NaN  NaN</span>
+<span class="go">7  NaN  NaN</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Series and DataFrame hist methods now take a <code class="docutils literal notranslate"><span class="pre">figsize</span></code> argument (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3834">GH3834</a>)</p>
+</li>
+<li><p class="first">DatetimeIndexes no longer try to convert mixed-integer indexes during join
+operations (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3877">GH3877</a>)</p>
+</li>
+<li><p class="first">Timestamp.min and Timestamp.max now represent valid Timestamp instances instead
+of the default datetime.min and datetime.max (respectively), thanks &#64;SleepingPills</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">read_html</span></code> now raises when no tables are found and BeautifulSoup==4.2.0
+is detected (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4214">GH4214</a>)</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="experimental-features">
+<h2>Experimental Features<a class="headerlink" href="#experimental-features" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Added experimental <code class="docutils literal notranslate"><span class="pre">CustomBusinessDay</span></code> class to support <code class="docutils literal notranslate"><span class="pre">DateOffsets</span></code>
+with custom holiday calendars and custom weekmasks. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2301">GH2301</a>)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This uses the <code class="docutils literal notranslate"><span class="pre">numpy.busdaycalendar</span></code> API introduced in Numpy 1.7 and
+therefore requires Numpy 1.7.0 or newer.</p>
+</div>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [38]: </span><span class="kn">from</span> <span class="nn">pandas.tseries.offsets</span> <span class="kn">import</span> <span class="n">CustomBusinessDay</span>
+
+<span class="gp">In [39]: </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="go"># As an interesting example, let&#39;s look at Egypt where</span>
+<span class="go"># a Friday-Saturday weekend is observed.</span>
+<span class="gp">In [40]: </span><span class="n">weekmask_egypt</span> <span class="o">=</span> <span class="s1">&#39;Sun Mon Tue Wed Thu&#39;</span>
+
+<span class="go"># They also observe International Workers&#39; Day so let&#39;s</span>
+<span class="go"># add that for a couple of years</span>
+<span class="gp">In [41]: </span><span class="n">holidays</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2012-05-01&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2014-05-01&#39;</span><span class="p">)]</span>
+
+<span class="gp">In [42]: </span><span class="n">bday_egypt</span> <span class="o">=</span> <span class="n">CustomBusinessDay</span><span class="p">(</span><span class="n">holidays</span><span class="o">=</span><span class="n">holidays</span><span class="p">,</span> <span class="n">weekmask</span><span class="o">=</span><span class="n">weekmask_egypt</span><span class="p">)</span>
+
+<span class="gp">In [43]: </span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="gp">In [44]: </span><span class="k">print</span><span class="p">(</span><span class="n">dt</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">bday_egypt</span><span class="p">)</span>
+<span class="go">2013-05-05 00:00:00</span>
+
+<span class="gp">In [45]: </span><span class="n">dts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">bday_egypt</span><span class="p">)</span>
+
+<span class="gp">In [46]: </span><span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dts</span><span class="o">.</span><span class="n">weekday</span><span class="p">,</span> <span class="n">dts</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="s1">&#39;Mon Tue Wed Thu Fri Sat Sun&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())))</span>
+<span class="go">2013-04-30    Tue</span>
+<span class="go">2013-05-02    Thu</span>
+<span class="go">2013-05-05    Sun</span>
+<span class="go">2013-05-06    Mon</span>
+<span class="go">2013-05-07    Tue</span>
+<span class="go">Freq: C, dtype: object</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Plotting functions now raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> before trying to plot anything
+if the associated objects have have a dtype of <code class="docutils literal notranslate"><span class="pre">object</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/1818">GH1818</a>,
+<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3572">GH3572</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3911">GH3911</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3912">GH3912</a>), but they will try to convert object arrays to
+numeric arrays if possible so that you can still plot, for example, an
+object array with floats. This happens before any drawing takes place which
+eliminates any spurious plots from showing up.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">fillna</span></code> methods now raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> if the <code class="docutils literal notranslate"><span class="pre">value</span></code> parameter is
+a list or tuple.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Series.str</span></code> now supports iteration (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3638">GH3638</a>). You can iterate over the
+individual elements of each string in the <code class="docutils literal notranslate"><span class="pre">Series</span></code>. Each iteration yields
+yields a <code class="docutils literal notranslate"><span class="pre">Series</span></code> with either a single character at each index of the
+original <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. For example,</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">strs</span> <span class="o">=</span> <span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="s1">&#39;bow&#39;</span><span class="p">,</span> <span class="s1">&#39;joe&#39;</span><span class="p">,</span> <span class="s1">&#39;slow&#39;</span>
+
+<span class="gp">In [48]: </span><span class="n">ds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">strs</span><span class="p">)</span>
+
+<span class="gp">In [49]: </span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">str</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+<span class="go">0    g</span>
+<span class="go">1    b</span>
+<span class="go">2    j</span>
+<span class="go">3    s</span>
+<span class="go">dtype: object</span>
+<span class="go">0    o</span>
+<span class="go">1    o</span>
+<span class="go">2    o</span>
+<span class="go">3    l</span>
+<span class="go">dtype: object</span>
+<span class="go">0    NaN</span>
+<span class="go">1      w</span>
+<span class="go">2      e</span>
+<span class="go">3      o</span>
+<span class="go">dtype: object</span>
+<span class="go">0    NaN</span>
+<span class="go">1    NaN</span>
+<span class="go">2    NaN</span>
+<span class="go">3      w</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [50]: </span><span class="n">s</span>
+<span class="go">                                                                                                                                                                                        Out[50]: </span>
+<span class="go">0    NaN</span>
+<span class="go">1    NaN</span>
+<span class="go">2    NaN</span>
+<span class="go">3      w</span>
+<span class="go">dtype: object</span>
+
+<span class="gp">In [51]: </span><span class="n">s</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span>
+<span class="go">                                                                                                                                                                                                                                                    Out[51]: True</span>
+</pre></div>
+</div>
+<p>The last element yielded by the iterator will be a <code class="docutils literal notranslate"><span class="pre">Series</span></code> containing
+the last element of the longest string in the <code class="docutils literal notranslate"><span class="pre">Series</span></code> with all other
+elements being <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. Here since <code class="docutils literal notranslate"><span class="pre">'slow'</span></code> is the longest string
+and there are no other strings with the same length <code class="docutils literal notranslate"><span class="pre">'w'</span></code> is the only
+non-null string in the yielded <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">HDFStore</span></code></p>
+<ul class="simple">
+<li>will retain index attributes (freq,tz,name) on recreation (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3499">GH3499</a>)</li>
+<li>will warn with a <code class="docutils literal notranslate"><span class="pre">AttributeConflictWarning</span></code> if you are attempting to append
+an index with a different frequency than the existing, or attempting
+to append an index with a different name than the existing</li>
+<li>support datelike columns with a timezone as data_columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2852">GH2852</a>)</li>
+</ul>
+</li>
+<li><p class="first">Non-unique index support clarified (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3468">GH3468</a>).</p>
+<ul class="simple">
+<li>Fix assigning a new index to a duplicate index in a DataFrame would fail (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3468">GH3468</a>)</li>
+<li>Fix construction of a DataFrame with a duplicate index</li>
+<li>ref_locs support to allow duplicative indices across dtypes,
+allows iget support to always find the index (even across dtypes) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2194">GH2194</a>)</li>
+<li>applymap on a DataFrame with a non-unique index now works
+(removed warning) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/2786">GH2786</a>), and fix (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3230">GH3230</a>)</li>
+<li>Fix to_csv to handle non-unique columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3495">GH3495</a>)</li>
+<li>Duplicate indexes with getitem will return items in the correct order (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3455">GH3455</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3457">GH3457</a>)
+and handle missing elements like unique indices (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3561">GH3561</a>)</li>
+<li>Duplicate indexes with and empty DataFrame.from_records will return a correct frame (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3562">GH3562</a>)</li>
+<li>Concat to produce a non-unique columns when duplicates are across dtypes is fixed (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3602">GH3602</a>)</li>
+<li>Allow insert/delete to non-unique columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3679">GH3679</a>)</li>
+<li>Non-unique indexing with a slice via <code class="docutils literal notranslate"><span class="pre">loc</span></code> and friends fixed (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3659">GH3659</a>)</li>
+<li>Allow insert/delete to non-unique columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3679">GH3679</a>)</li>
+<li>Extend <code class="docutils literal notranslate"><span class="pre">reindex</span></code> to correctly deal with non-unique indices (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3679">GH3679</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">DataFrame.itertuples()</span></code> now works with frames with duplicate column
+names (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3873">GH3873</a>)</li>
+<li>Bug in non-unique indexing via <code class="docutils literal notranslate"><span class="pre">iloc</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4017">GH4017</a>); added <code class="docutils literal notranslate"><span class="pre">takeable</span></code> argument to
+<code class="docutils literal notranslate"><span class="pre">reindex</span></code> for location-based taking</li>
+<li>Allow non-unique indexing in series via <code class="docutils literal notranslate"><span class="pre">.ix/.loc</span></code> and <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4246">GH4246</a>)</li>
+<li>Fixed non-unique indexing memory allocation issue with <code class="docutils literal notranslate"><span class="pre">.ix/.loc</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4280">GH4280</a>)</li>
+</ul>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame.from_records</span></code> did not accept empty recarrays (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3682">GH3682</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">read_html</span></code> now correctly skips tests (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3741">GH3741</a>)</p>
+</li>
+<li><p class="first">Fixed a bug where <code class="docutils literal notranslate"><span class="pre">DataFrame.replace</span></code> with a compiled regular expression
+in the <code class="docutils literal notranslate"><span class="pre">to_replace</span></code> argument wasn’t working (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3907">GH3907</a>)</p>
+</li>
+<li><p class="first">Improved <code class="docutils literal notranslate"><span class="pre">network</span></code> test decorator to catch <code class="docutils literal notranslate"><span class="pre">IOError</span></code> (and therefore
+<code class="docutils literal notranslate"><span class="pre">URLError</span></code> as well). Added <code class="docutils literal notranslate"><span class="pre">with_connectivity_check</span></code> decorator to allow
+explicitly checking a website as a proxy for seeing if there is network
+connectivity. Plus, new <code class="docutils literal notranslate"><span class="pre">optional_args</span></code> decorator factory for decorators.
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3910">GH3910</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3914">GH3914</a>)</p>
+</li>
+<li><p class="first">Fixed testing issue where too many sockets where open thus leading to a
+connection reset issue (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3982">GH3982</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3985">GH3985</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4028">GH4028</a>,
+<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4054">GH4054</a>)</p>
+</li>
+<li><p class="first">Fixed failing tests in test_yahoo, test_google where symbols were not
+retrieved but were being accessed (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3982">GH3982</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3985">GH3985</a>,
+<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4028">GH4028</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4054">GH4054</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Series.hist</span></code> will now take the figure from the current environment if
+one is not passed</p>
+</li>
+<li><p class="first">Fixed bug where a 1xN DataFrame would barf on a 1xN mask (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4071">GH4071</a>)</p>
+</li>
+<li><p class="first">Fixed running of <code class="docutils literal notranslate"><span class="pre">tox</span></code> under python3 where the pickle import was getting
+rewritten in an incompatible way (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4062">GH4062</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4063">GH4063</a>)</p>
+</li>
+<li><p class="first">Fixed bug where sharex and sharey were not being passed to grouped_hist
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4089">GH4089</a>)</p>
+</li>
+<li><p class="first">Fixed bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.replace</span></code> where a nested dict wasn’t being
+iterated over when regex=False (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4115">GH4115</a>)</p>
+</li>
+<li><p class="first">Fixed bug in the parsing of microseconds when using the <code class="docutils literal notranslate"><span class="pre">format</span></code>
+argument in <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4152">GH4152</a>)</p>
+</li>
+<li><p class="first">Fixed bug in <code class="docutils literal notranslate"><span class="pre">PandasAutoDateLocator</span></code> where <code class="docutils literal notranslate"><span class="pre">invert_xaxis</span></code> triggered
+incorrectly <code class="docutils literal notranslate"><span class="pre">MilliSecondLocator</span></code>  (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3990">GH3990</a>)</p>
+</li>
+<li><p class="first">Fixed bug in plotting that wasn’t raising on invalid colormap for
+matplotlib 1.1.1 (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4215">GH4215</a>)</p>
+</li>
+<li><p class="first">Fixed the legend displaying in <code class="docutils literal notranslate"><span class="pre">DataFrame.plot(kind='kde')</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4216">GH4216</a>)</p>
+</li>
+<li><p class="first">Fixed bug where Index slices weren’t carrying the name attribute
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4226">GH4226</a>)</p>
+</li>
+<li><p class="first">Fixed bug in initializing <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> with an array of strings
+in a certain time zone (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4229">GH4229</a>)</p>
+</li>
+<li><p class="first">Fixed bug where html5lib wasn’t being properly skipped (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4265">GH4265</a>)</p>
+</li>
+<li><p class="first">Fixed bug where get_data_famafrench wasn’t using the correct file edges
+(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4281">GH4281</a>)</p>
+</li>
+</ul>
+</div></blockquote>
+<p>See the <a class="reference internal" href="index.html#release"><span class="std std-ref">full release notes</span></a> or issue tracker
+on GitHub for a complete list.</p>
+</div>
+<div class="section" id="contributors">
+<span id="whatsnew-0-12-0-contributors"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 50 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Andy Hayden</li>
+<li>Chang She</li>
+<li>Christopher Whelan</li>
+<li>Damien Garaud</li>
+<li>Dan Allan</li>
+<li>Dan Birken</li>
+<li>Dieter Vandenbussche</li>
+<li>Dražen Lučanin</li>
+<li>Gábor Lipták +</li>
+<li>Jeff Mellen +</li>
+<li>Jeff Tratner +</li>
+<li>Jeffrey Tratner +</li>
+<li>Jonathan deWerd +</li>
+<li>Joris Van den Bossche +</li>
+<li>Juraj Niznan +</li>
+<li>Karmel Allison</li>
+<li>Kelsey Jordahl</li>
+<li>Kevin Stone +</li>
+<li>Kieran O’Mahony</li>
+<li>Kyle Meyer +</li>
+<li>Mike Kelly +</li>
+<li>PKEuS +</li>
+<li>Patrick O’Brien +</li>
+<li>Phillip Cloud</li>
+<li>Richard Höchenberger +</li>
+<li>Skipper Seabold</li>
+<li>SleepingPills +</li>
+<li>Tobias Brandt</li>
+<li>Tom Farnbauer +</li>
+<li>TomAugspurger +</li>
+<li>Trent Hauck +</li>
+<li>Wes McKinney</li>
+<li>Wouter Overmeire</li>
+<li>Yaroslav Halchenko</li>
+<li>conmai +</li>
+<li>danielballan +</li>
+<li>davidshinn +</li>
+<li>dieterv77</li>
+<li>duozhang +</li>
+<li>ejnens +</li>
+<li>gliptak +</li>
+<li>jniznan +</li>
+<li>jreback</li>
+<li>lexual</li>
+<li>nipunreddevil +</li>
+<li>ogiaquino +</li>
+<li>stonebig +</li>
+<li>tim smith +</li>
+<li>timmie</li>
+<li>y-p</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.11.0.html" title="v0.11.0 (April 22, 2013)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.13.0.html" title="v0.13.0 (January 3, 2014)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

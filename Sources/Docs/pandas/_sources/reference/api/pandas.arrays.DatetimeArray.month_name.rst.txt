@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.month\_name
+=======================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.month_name

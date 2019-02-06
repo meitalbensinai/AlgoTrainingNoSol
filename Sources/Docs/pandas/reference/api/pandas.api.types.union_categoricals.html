@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.api.types.union_categoricals &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.api.types.infer_dtype" href="pandas.api.types.infer_dtype.html" />
+    <link rel="prev" title="pandas.errors.UnsupportedFunctionCall" href="pandas.errors.UnsupportedFunctionCall.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.api.types.infer_dtype.html" title="pandas.api.types.infer_dtype"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.errors.UnsupportedFunctionCall.html" title="pandas.errors.UnsupportedFunctionCall"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../general_utility_functions.html" accesskey="U">General utility functions</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-api-types-union-categoricals">
+<h1>pandas.api.types.union_categoricals<a class="headerlink" href="#pandas-api-types-union-categoricals" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.api.types.union_categoricals">
+<code class="descclassname">pandas.api.types.</code><code class="descname">union_categoricals</code><span class="sig-paren">(</span><em>to_union</em>, <em>sort_categories=False</em>, <em>ignore_order=False</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/dtypes/concat.py#L214-L386"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.api.types.union_categoricals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine list-like of Categorical-like, unioning categories. All
+categories must have the same dtype.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>to_union</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list-like of Categorical, CategoricalIndex,</span></dt>
+<dd><p class="first last">or Series with dtype=’category’</p>
+</dd>
+<dt><strong>sort_categories</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first last">If true, resulting categories will be lexsorted, otherwise
+they will be ordered as they appear in the data.</p>
+</dd>
+<dt><strong>ignore_order</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean, default False</span></dt>
+<dd><p class="first">If true, the ordered attribute of the Categoricals will be ignored.
+Results in an unordered categorical.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.20.0.</span></p>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Categorical</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>TypeError</strong></dt>
+<dd><ul class="first last simple">
+<li>all inputs do not have the same dtype</li>
+<li>all inputs do not have the same ordered property</li>
+<li>all inputs are ordered and their categories are not identical</li>
+<li>sort_categories=True and Categoricals are ordered</li>
+</ul>
+</dd>
+<dt><strong>ValueError</strong></dt>
+<dd><p class="first last">Empty list of categoricals passed</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>To learn more about categories, see <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/categorical.html#unioning">link</a></p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="k">import</span> <span class="n">union_categoricals</span>
+</pre></div>
+</div>
+<p>If you want to combine categoricals that do not necessarily have
+the same categories, <cite>union_categoricals</cite> will combine a list-like
+of categoricals. The new categories will be the union of the
+categories being combined.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">union_categoricals</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+<span class="go">[b, c, a, b]</span>
+<span class="go">Categories (3, object): [b, c, a]</span>
+</pre></div>
+</div>
+<p>By default, the resulting categories will be ordered as they appear
+in the <cite>categories</cite> of the data. If you want the categories to be
+lexsorted, use <cite>sort_categories=True</cite> argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">union_categoricals</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">sort_categories</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[b, c, a, b]</span>
+<span class="go">Categories (3, object): [a, b, c]</span>
+</pre></div>
+</div>
+<p><cite>union_categoricals</cite> also works with the case of combining two
+categoricals of the same categories and order information (e.g. what
+you could also <cite>append</cite> for).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">union_categoricals</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+<span class="go">[a, b, a, b, a]</span>
+<span class="go">Categories (2, object): [a &lt; b]</span>
+</pre></div>
+</div>
+<p>Raises <cite>TypeError</cite> because the categories are ordered and not identical.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">union_categoricals</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+<span class="go">TypeError: to union ordered Categoricals, all categories must be the same</span>
+</pre></div>
+</div>
+<p>New in version 0.20.0</p>
+<p>Ordered categoricals with different categories or orderings can be
+combined by using the <cite>ignore_ordered=True</cite> argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">union_categoricals</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">ignore_order</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[a, b, c, c, b, a]</span>
+<span class="go">Categories (3, object): [a, b, c]</span>
+</pre></div>
+</div>
+<p><cite>union_categoricals</cite> also works with a <cite>CategoricalIndex</cite>, or <cite>Series</cite>
+containing categorical data, but note that the resulting array will
+always be a plain <cite>Categorical</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">union_categoricals</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+<span class="go">[b, c, a, b]</span>
+<span class="go">Categories (3, object): [b, c, a]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.api.types.infer_dtype.html" title="pandas.api.types.infer_dtype"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.errors.UnsupportedFunctionCall.html" title="pandas.errors.UnsupportedFunctionCall"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../general_utility_functions.html" >General utility functions</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

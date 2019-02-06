@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.round
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.round

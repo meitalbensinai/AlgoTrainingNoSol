@@ -1,0 +1,6 @@
+pandas.SparseArray.kind
+=======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.kind

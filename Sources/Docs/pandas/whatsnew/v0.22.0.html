@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v0.22.0 (December 29, 2017) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.21.1 (December 12, 2017)" href="v0.21.1.html" />
+    <link rel="prev" title="What’s new in 0.23.0 (May 15, 2018)" href="v0.23.0.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.21.1.html" title="v0.21.1 (December 12, 2017)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.23.0.html" title="What’s new in 0.23.0 (May 15, 2018)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v0-22-0-december-29-2017">
+<span id="whatsnew-0220"></span><h1>v0.22.0 (December 29, 2017)<a class="headerlink" href="#v0-22-0-december-29-2017" title="Permalink to this headline">¶</a></h1>
+<p>This is a major release from 0.21.1 and includes a single, API-breaking change.
+We recommend that all users upgrade to this version after carefully reading the
+release note (singular!).</p>
+<div class="section" id="backwards-incompatible-api-changes">
+<span id="whatsnew-0220-api-breaking"></span><h2>Backwards incompatible API changes<a class="headerlink" href="#backwards-incompatible-api-changes" title="Permalink to this headline">¶</a></h2>
+<p>Pandas 0.22.0 changes the handling of empty and all-<em>NA</em> sums and products. The
+summary is that</p>
+<ul class="simple">
+<li>The sum of an empty or all-<em>NA</em> <code class="docutils literal notranslate"><span class="pre">Series</span></code> is now <code class="docutils literal notranslate"><span class="pre">0</span></code></li>
+<li>The product of an empty or all-<em>NA</em> <code class="docutils literal notranslate"><span class="pre">Series</span></code> is now <code class="docutils literal notranslate"><span class="pre">1</span></code></li>
+<li>We’ve added a <code class="docutils literal notranslate"><span class="pre">min_count</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">.sum()</span></code> and <code class="docutils literal notranslate"><span class="pre">.prod()</span></code> controlling
+the minimum number of valid values for the result to be valid. If fewer than
+<code class="docutils literal notranslate"><span class="pre">min_count</span></code> non-<em>NA</em> values are present, the result is <em>NA</em>. The default is
+<code class="docutils literal notranslate"><span class="pre">0</span></code>. To return <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the 0.21 behavior, use <code class="docutils literal notranslate"><span class="pre">min_count=1</span></code>.</li>
+</ul>
+<p>Some background: In pandas 0.21, we fixed a long-standing inconsistency
+in the return value of all-<em>NA</em> series depending on whether or not bottleneck
+was installed. See <a class="reference internal" href="v0.21.0.html#whatsnew-0210-api-breaking-bottleneck"><span class="std std-ref">Sum/Prod of all-NaN or empty Series/DataFrames is now consistently NaN</span></a>. At the same
+time, we changed the sum and prod of an empty <code class="docutils literal notranslate"><span class="pre">Series</span></code> to also be <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p>Based on feedback, we’ve partially reverted those changes.</p>
+<div class="section" id="arithmetic-operations">
+<h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h3>
+<p>The default sum for empty or all-<em>NA</em> <code class="docutils literal notranslate"><span class="pre">Series</span></code> is now <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p><em>pandas 0.21.x</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[1]: </span><span class="go">nan</span>
+
+<span class="gp">In [2]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[2]: </span><span class="go">nan</span>
+</pre></div>
+</div>
+<p><em>pandas 0.22.0</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[1]: </span><span class="go">0.0</span>
+
+<span class="gp">In [2]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">            Out[2]: 0.0</span>
+</pre></div>
+</div>
+<p>The default behavior is the same as pandas 0.20.3 with bottleneck installed. It
+also matches the behavior of NumPy’s <code class="docutils literal notranslate"><span class="pre">np.nansum</span></code> on empty and all-<em>NA</em> arrays.</p>
+<p>To have the sum of an empty series return <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (the default behavior of
+pandas 0.20.3 without bottleneck, or pandas 0.21.x), use the <code class="docutils literal notranslate"><span class="pre">min_count</span></code>
+keyword.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[3]: </span><span class="go">nan</span>
+</pre></div>
+</div>
+<p>Thanks to the <code class="docutils literal notranslate"><span class="pre">skipna</span></code> parameter, the <code class="docutils literal notranslate"><span class="pre">.sum</span></code> on an all-<em>NA</em>
+series is conceptually the same as the <code class="docutils literal notranslate"><span class="pre">.sum</span></code> of an empty one with
+<code class="docutils literal notranslate"><span class="pre">skipna=True</span></code> (the default).</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># skipna=True by default</span>
+<span class="gh">Out[4]: </span><span class="go">nan</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">min_count</span></code> parameter refers to the minimum number of <em>non-null</em> values
+required for a non-NA sum or product.</p>
+<p><a class="reference internal" href="../reference/api/pandas.Series.prod.html#pandas.Series.prod" title="pandas.Series.prod"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.prod()</span></code></a> has been updated to behave the same as <a class="reference internal" href="../reference/api/pandas.Series.sum.html#pandas.Series.sum" title="pandas.Series.sum"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.sum()</span></code></a>,
+returning <code class="docutils literal notranslate"><span class="pre">1</span></code> instead.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([])</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+<span class="gh">Out[5]: </span><span class="go">1.0</span>
+
+<span class="gp">In [6]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+<span class="go">            Out[6]: 1.0</span>
+
+<span class="gp">In [7]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([])</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">                        Out[7]: nan</span>
+</pre></div>
+</div>
+<p>These changes affect <a class="reference internal" href="../reference/api/pandas.DataFrame.sum.html#pandas.DataFrame.sum" title="pandas.DataFrame.sum"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DataFrame.sum()</span></code></a> and <a class="reference internal" href="../reference/api/pandas.DataFrame.prod.html#pandas.DataFrame.prod" title="pandas.DataFrame.prod"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DataFrame.prod()</span></code></a> as well.
+Finally, a few less obvious places in pandas are affected by this change.</p>
+</div>
+<div class="section" id="grouping-by-a-categorical">
+<h3>Grouping by a Categorical<a class="headerlink" href="#grouping-by-a-categorical" title="Permalink to this headline">¶</a></h3>
+<p>Grouping by a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> and summing now returns <code class="docutils literal notranslate"><span class="pre">0</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">NaN</span></code> for categories with no observations. The product now returns <code class="docutils literal notranslate"><span class="pre">1</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p><em>pandas 0.21.x</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">grouper</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+
+<span class="gp">In [9]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">grouper</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[9]:</span>
+<span class="go">a    3.0</span>
+<span class="go">b    NaN</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p><em>pandas 0.22</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">grouper</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+
+<span class="gp">In [9]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">grouper</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[9]: </span><span class="go"></span>
+<span class="go">a    3</span>
+<span class="go">b    0</span>
+<span class="go">Length: 2, dtype: int64</span>
+</pre></div>
+</div>
+<p>To restore the 0.21 behavior of returning <code class="docutils literal notranslate"><span class="pre">NaN</span></code> for unobserved groups,
+use <code class="docutils literal notranslate"><span class="pre">min_count&gt;=1</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">grouper</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="go">a    3.0</span>
+<span class="go">b    NaN</span>
+<span class="go">Length: 2, dtype: float64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resample">
+<h3>Resample<a class="headerlink" href="#resample" title="Permalink to this headline">¶</a></h3>
+<p>The sum and product of all-<em>NA</em> bins has changed from <code class="docutils literal notranslate"><span class="pre">NaN</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code> for
+sum and <code class="docutils literal notranslate"><span class="pre">1</span></code> for product.</p>
+<p><em>pandas 0.21.x</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+<span class="gp">   ....: </span>              <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">   ....: </span><span class="n">s</span>
+<span class="gh">Out[11]:</span>
+<span class="go">2017-01-01    1.0</span>
+<span class="go">2017-01-02    1.0</span>
+<span class="go">2017-01-03    NaN</span>
+<span class="go">2017-01-04    NaN</span>
+<span class="go">Freq: D, dtype: float64</span>
+
+<span class="gp">In [12]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[12]:</span>
+<span class="go">2017-01-01    2.0</span>
+<span class="go">2017-01-03    NaN</span>
+<span class="go">Freq: 2D, dtype: float64</span>
+</pre></div>
+</div>
+<p><em>pandas 0.22.0</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+<span class="gp">   ....: </span>              <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [12]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[12]: </span><span class="go"></span>
+<span class="go">2017-01-01    2.0</span>
+<span class="go">2017-01-03    0.0</span>
+<span class="go">Freq: 2D, Length: 2, dtype: float64</span>
+</pre></div>
+</div>
+<p>To restore the 0.21 behavior of returning <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, use <code class="docutils literal notranslate"><span class="pre">min_count&gt;=1</span></code>.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">s</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[13]: </span><span class="go"></span>
+<span class="go">2017-01-01    2.0</span>
+<span class="go">2017-01-03    NaN</span>
+<span class="go">Freq: 2D, Length: 2, dtype: float64</span>
+</pre></div>
+</div>
+<p>In particular, upsampling and taking the sum or product is affected, as
+upsampling introduces missing values even if the original series was
+entirely valid.</p>
+<p><em>pandas 0.21.x</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([</span><span class="s1">&#39;2017-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-01-02&#39;</span><span class="p">])</span>
+
+<span class="gp">In [15]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;12H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[15]:</span>
+<span class="go">2017-01-01 00:00:00    1.0</span>
+<span class="go">2017-01-01 12:00:00    NaN</span>
+<span class="go">2017-01-02 00:00:00    2.0</span>
+<span class="go">Freq: 12H, dtype: float64</span>
+</pre></div>
+</div>
+<p><em>pandas 0.22.0</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [14]: </span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([</span><span class="s1">&#39;2017-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2017-01-02&#39;</span><span class="p">])</span>
+
+<span class="gp">In [15]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;12H&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[15]: </span><span class="go"></span>
+<span class="go">2017-01-01 00:00:00    1</span>
+<span class="go">2017-01-01 12:00:00    0</span>
+<span class="go">2017-01-02 00:00:00    2</span>
+<span class="go">Freq: 12H, Length: 3, dtype: int64</span>
+</pre></div>
+</div>
+<p>Once again, the <code class="docutils literal notranslate"><span class="pre">min_count</span></code> keyword is available to restore the 0.21 behavior.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;12H&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gh">Out[16]: </span><span class="go"></span>
+<span class="go">2017-01-01 00:00:00    1.0</span>
+<span class="go">2017-01-01 12:00:00    NaN</span>
+<span class="go">2017-01-02 00:00:00    2.0</span>
+<span class="go">Freq: 12H, Length: 3, dtype: float64</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rolling-and-expanding">
+<h3>Rolling and Expanding<a class="headerlink" href="#rolling-and-expanding" title="Permalink to this headline">¶</a></h3>
+<p>Rolling and expanding already have a <code class="docutils literal notranslate"><span class="pre">min_periods</span></code> keyword that behaves
+similar to <code class="docutils literal notranslate"><span class="pre">min_count</span></code>. The only case that changes is when doing a rolling
+or expanding sum with <code class="docutils literal notranslate"><span class="pre">min_periods=0</span></code>. Previously this returned <code class="docutils literal notranslate"><span class="pre">NaN</span></code>,
+when fewer than <code class="docutils literal notranslate"><span class="pre">min_periods</span></code> non-<em>NA</em> values were in the window. Now it
+returns <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p><em>pandas 0.21.1</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+
+<span class="gp">In [18]: </span><span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[18]:</span>
+<span class="go">0   NaN</span>
+<span class="go">1   NaN</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p><em>pandas 0.22.0</em></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+
+<span class="gp">In [18]: </span><span class="n">s</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="gh">Out[18]: </span><span class="go"></span>
+<span class="go">0    0.0</span>
+<span class="go">1    0.0</span>
+<span class="go">Length: 2, dtype: float64</span>
+</pre></div>
+</div>
+<p>The default behavior of <code class="docutils literal notranslate"><span class="pre">min_periods=None</span></code>, implying that <code class="docutils literal notranslate"><span class="pre">min_periods</span></code>
+equals the window size, is unchanged.</p>
+</div>
+</div>
+<div class="section" id="compatibility">
+<h2>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
+<p>If you maintain a library that should work across pandas versions, it
+may be easiest to exclude pandas 0.21 from your requirements. Otherwise, all your
+<code class="docutils literal notranslate"><span class="pre">sum()</span></code> calls would need to check if the <code class="docutils literal notranslate"><span class="pre">Series</span></code> is empty before summing.</p>
+<p>With setuptools, in your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pandas!=0.21.*&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>With conda, use</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">requirements</span><span class="p">:</span>
+  <span class="nt">run</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pandas !=0.21.0,!=0.21.1</span>
+</pre></div>
+</div>
+<p>Note that the inconsistency in the return value for all-<em>NA</em> series is still
+there for pandas 0.20.3 and earlier. Avoiding pandas 0.21 will only help with
+the empty case.</p>
+</div>
+<div class="section" id="contributors">
+<span id="whatsnew-0-22-0-contributors"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 1 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Tom Augspurger</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.21.1.html" title="v0.21.1 (December 12, 2017)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.23.0.html" title="What’s new in 0.23.0 (May 15, 2018)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

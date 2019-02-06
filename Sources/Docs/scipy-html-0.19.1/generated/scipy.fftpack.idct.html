@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.fftpack.idct &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Discrete Fourier transforms (scipy.fftpack)" href="../fftpack.html" >
+    <link rel="next" title="scipy.fftpack.dst" href="scipy.fftpack.dst.html" >
+    <link rel="prev" title="scipy.fftpack.dct" href="scipy.fftpack.dct.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../fftpack.html" accesskey="U">Discrete Fourier transforms (<code class="docutils literal"><span class="pre">scipy.fftpack</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.fftpack.dst.html" title="scipy.fftpack.dst"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.fftpack.dct.html" title="scipy.fftpack.dct"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.fftpack.dct.html"
+                        title="previous chapter">scipy.fftpack.dct</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.fftpack.dst.html"
+                        title="next chapter">scipy.fftpack.dst</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-fftpack-idct">
+<h1>scipy.fftpack.idct<a class="headerlink" href="#scipy-fftpack-idct" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.fftpack.idct">
+<code class="descclassname">scipy.fftpack.</code><code class="descname">idct</code><span class="sig-paren">(</span><em>x</em>, <em>type=2</em>, <em>n=None</em>, <em>axis=-1</em>, <em>norm=None</em>, <em>overwrite_x=False</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/fftpack/realtransforms.py#L142-L202"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.fftpack.idct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Inverse Discrete Cosine Transform of an arbitrary type sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
+<blockquote>
+<div><p>The input array.</p>
+</div></blockquote>
+<p><strong>type</strong> : {1, 2, 3}, optional</p>
+<blockquote>
+<div><p>Type of the DCT (see Notes). Default type is 2.</p>
+</div></blockquote>
+<p><strong>n</strong> : int, optional</p>
+<blockquote>
+<div><p>Length of the transform.  If <code class="docutils literal"><span class="pre">n</span> <span class="pre">&lt;</span> <span class="pre">x.shape[axis]</span></code>, <em class="xref py py-obj">x</em> is
+truncated.  If <code class="docutils literal"><span class="pre">n</span> <span class="pre">&gt;</span> <span class="pre">x.shape[axis]</span></code>, <em class="xref py py-obj">x</em> is zero-padded. The
+default results in <code class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">x.shape[axis]</span></code>.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>Axis along which the idct is computed; the default is over the
+last axis (i.e., <code class="docutils literal"><span class="pre">axis=-1</span></code>).</p>
+</div></blockquote>
+<p><strong>norm</strong> : {None, &#8216;ortho&#8217;}, optional</p>
+<blockquote>
+<div><p>Normalization mode (see Notes). Default is None.</p>
+</div></blockquote>
+<p><strong>overwrite_x</strong> : bool, optional</p>
+<blockquote>
+<div><p>If True, the contents of <em class="xref py py-obj">x</em> can be destroyed; the default is False.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>idct</strong> : ndarray of real</p>
+<blockquote class="last">
+<div><p>The transformed input array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="scipy.fftpack.dct.html#scipy.fftpack.dct" title="scipy.fftpack.dct"><code class="xref py py-obj docutils literal"><span class="pre">dct</span></code></a></dt>
+<dd>Forward DCT</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>For a single dimension array <em class="xref py py-obj">x</em>, <code class="docutils literal"><span class="pre">idct(x,</span> <span class="pre">norm='ortho')</span></code> is equal to
+MATLAB <code class="docutils literal"><span class="pre">idct(x)</span></code>.</p>
+<p>&#8216;The&#8217; IDCT is the IDCT of type 2, which is the same as DCT of type 3.</p>
+<p>IDCT of type 1 is the DCT of type 1, IDCT of type 2 is the DCT of type
+3, and IDCT of type 3 is the DCT of type 2. For the definition of these
+types, see <a class="reference internal" href="scipy.fftpack.dct.html#scipy.fftpack.dct" title="scipy.fftpack.dct"><code class="xref py py-obj docutils literal"><span class="pre">dct</span></code></a>.</p>
+<p class="rubric">Examples</p>
+<p>The Type 1 DCT is equivalent to the DFT for real, even-symmetrical
+inputs.  The output is also real and even-symmetrical.  Half of the IFFT
+input is used to generate half of the IFFT output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.fftpack</span> <span class="k">import</span> <span class="n">ifft</span><span class="p">,</span> <span class="n">idct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ifft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">30.</span><span class="p">,</span>  <span class="o">-</span><span class="mf">8.</span><span class="p">,</span>   <span class="mf">6.</span><span class="p">,</span>  <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>   <span class="mf">6.</span><span class="p">,</span>  <span class="o">-</span><span class="mf">8.</span><span class="p">]))</span><span class="o">.</span><span class="n">real</span>
+<span class="go">array([  4.,   3.,   5.,  10.,   5.,   3.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">idct</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">30.</span><span class="p">,</span>  <span class="o">-</span><span class="mf">8.</span><span class="p">,</span>   <span class="mf">6.</span><span class="p">,</span>  <span class="o">-</span><span class="mf">2.</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span>
+<span class="go">array([  4.,   3.,   5.,  10.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

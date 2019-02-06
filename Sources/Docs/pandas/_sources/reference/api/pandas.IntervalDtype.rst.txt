@@ -1,0 +1,46 @@
+pandas.IntervalDtype
+====================
+
+.. currentmodule:: pandas
+
+.. autoclass:: IntervalDtype
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      IntervalDtype.construct_array_type
+      IntervalDtype.construct_from_string
+      IntervalDtype.is_dtype
+      IntervalDtype.reset_cache
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      IntervalDtype.base
+      IntervalDtype.isbuiltin
+      IntervalDtype.isnative
+      IntervalDtype.itemsize
+      IntervalDtype.kind
+      IntervalDtype.na_value
+      IntervalDtype.name
+      IntervalDtype.names
+      IntervalDtype.num
+      IntervalDtype.shape
+      IntervalDtype.str
+      IntervalDtype.subdtype
+      IntervalDtype.type
+
+

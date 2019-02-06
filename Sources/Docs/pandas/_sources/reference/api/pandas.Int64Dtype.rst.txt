@@ -1,0 +1,41 @@
+pandas.Int64Dtype
+=================
+
+.. currentmodule:: pandas
+
+.. autoclass:: Int64Dtype
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      Int64Dtype.construct_array_type
+      Int64Dtype.construct_from_string
+      Int64Dtype.is_dtype
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      Int64Dtype.base
+      Int64Dtype.is_signed_integer
+      Int64Dtype.is_unsigned_integer
+      Int64Dtype.itemsize
+      Int64Dtype.kind
+      Int64Dtype.na_value
+      Int64Dtype.name
+      Int64Dtype.names
+      Int64Dtype.numpy_dtype
+
+

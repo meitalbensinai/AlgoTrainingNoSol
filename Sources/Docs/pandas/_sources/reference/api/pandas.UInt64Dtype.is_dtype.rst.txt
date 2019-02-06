@@ -1,0 +1,6 @@
+pandas.UInt64Dtype.is\_dtype
+============================
+
+.. currentmodule:: pandas
+
+.. automethod:: UInt64Dtype.is_dtype

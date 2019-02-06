@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.freqstr
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.freqstr

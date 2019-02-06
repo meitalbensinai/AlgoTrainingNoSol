@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.components
+=======================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: TimedeltaArray.components

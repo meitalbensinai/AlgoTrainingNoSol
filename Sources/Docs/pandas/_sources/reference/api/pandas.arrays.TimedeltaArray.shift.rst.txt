@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.shift
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.shift

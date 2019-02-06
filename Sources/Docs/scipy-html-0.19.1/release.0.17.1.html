@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>SciPy 0.17.1 Release Notes &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="up" title="Release Notes" href="release.html" >
+    <link rel="next" title="SciPy 0.17.0 Release Notes" href="release.0.17.0.html" >
+    <link rel="prev" title="SciPy 0.18.0 Release Notes" href="release.0.18.0.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="release.html" accesskey="U">Release Notes</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="release.0.17.0.html" title="SciPy 0.17.0 Release Notes"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="release.0.18.0.html" title="SciPy 0.18.0 Release Notes"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SciPy 0.17.1 Release Notes</a><ul>
+<li><a class="reference internal" href="#issues-closed-for-0-17-1">Issues closed for 0.17.1</a></li>
+<li><a class="reference internal" href="#pull-requests-for-0-17-1">Pull requests for 0.17.1</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="release.0.18.0.html"
+                        title="previous chapter">SciPy 0.18.0 Release Notes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="release.0.17.0.html"
+                        title="next chapter">SciPy 0.17.0 Release Notes</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-0-17-1-release-notes">
+<h1>SciPy 0.17.1 Release Notes<a class="headerlink" href="#scipy-0-17-1-release-notes" title="Permalink to this headline">¶</a></h1>
+<p>SciPy 0.17.1 is a bug-fix release with no new features compared to 0.17.0.</p>
+<div class="section" id="issues-closed-for-0-17-1">
+<h2>Issues closed for 0.17.1<a class="headerlink" href="#issues-closed-for-0-17-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/5817">#5817</a>: BUG: skew, kurtosis return np.nan instead of &#8220;propagate&#8221;</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/5850">#5850</a>: Test failed with sgelsy</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/5898">#5898</a>: interpolate.interp1d crashes using float128</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/5953">#5953</a>: Massive performance regression in cKDTree.query with L_inf distance...</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/6062">#6062</a>: mannwhitneyu breaks backward compatibility in 0.17.0</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/issues/6134">#6134</a>: T test does not handle nans</li>
+</ul>
+</div>
+<div class="section" id="pull-requests-for-0-17-1">
+<h2>Pull requests for 0.17.1<a class="headerlink" href="#pull-requests-for-0-17-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/5902">#5902</a>: BUG: interpolate: make interp1d handle np.float128 again</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/5957">#5957</a>: BUG: slow down with p=np.inf in 0.17 cKDTree.query</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/5970">#5970</a>: Actually propagate nans through stats functions with nan_policy=&#8221;propagate&#8221;</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/5971">#5971</a>: BUG: linalg: fix lwork check in <code class="docutils literal"><span class="pre">*gelsy</span></code></li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/6074">#6074</a>: BUG: special: fixed violation of strict aliasing rules.</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/6083">#6083</a>: BUG: Fix dtype for sum of linear operators</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/6100">#6100</a>: BUG: Fix mannwhitneyu to be backward compatible</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/6135">#6135</a>: Don&#8217;t pass null pointers to LAPACK, even during workspace queries.</li>
+<li><a class="reference external" href="https://github.com/scipy/scipy/pull/6148">#6148</a>: stats: fix handling of nan values in T tests and kendalltau</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

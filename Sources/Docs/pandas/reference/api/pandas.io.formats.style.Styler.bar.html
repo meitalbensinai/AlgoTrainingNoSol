@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.io.formats.style.Styler.bar &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.io.formats.style.Styler.clear" href="pandas.io.formats.style.Styler.clear.html" />
+    <link rel="prev" title="pandas.io.formats.style.Styler.background_gradient" href="pandas.io.formats.style.Styler.background_gradient.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.io.formats.style.Styler.clear.html" title="pandas.io.formats.style.Styler.clear"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.io.formats.style.Styler.background_gradient.html" title="pandas.io.formats.style.Styler.background_gradient"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../style.html" >Style</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.io.formats.style.Styler.html" accesskey="U">pandas.io.formats.style.Styler</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-io-formats-style-styler-bar">
+<h1>pandas.io.formats.style.Styler.bar<a class="headerlink" href="#pandas-io-formats-style-styler-bar" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="pandas.io.formats.style.Styler.bar">
+<code class="descclassname">Styler.</code><code class="descname">bar</code><span class="sig-paren">(</span><em>subset=None</em>, <em>axis=0</em>, <em>color='#d65f5f'</em>, <em>width=100</em>, <em>align='left'</em>, <em>vmin=None</em>, <em>vmax=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/io/formats/style.py#L1073-L1141"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.io.formats.style.Styler.bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw bar chart in the cell backgrounds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>subset</strong> <span class="classifier-delimiter">:</span> <span class="classifier">IndexSlice, optional</span></dt>
+<dd><p class="first last">A valid slice for <cite>data</cite> to limit the style application to.</p>
+</dd>
+<dt><strong>axis</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, str or None, default 0</span></dt>
+<dd><p class="first last">Apply to each column (<cite>axis=0</cite> or <cite>‘index’</cite>)
+or to each row (<cite>axis=1</cite> or <cite>‘columns’</cite>) or
+to the entire DataFrame at once with <cite>axis=None</cite>.</p>
+</dd>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str or 2-tuple/list</span></dt>
+<dd><p class="first last">If a str is passed, the color is the same for both
+negative and positive numbers. If 2-tuple/list is used, the
+first element is the color_negative and the second is the
+color_positive (eg: [‘#d65f5f’, ‘#5fba7d’]).</p>
+</dd>
+<dt><strong>width</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, default 100</span></dt>
+<dd><p class="first last">A number between 0 or 100. The largest value will cover <cite>width</cite>
+percent of the cell’s width.</p>
+</dd>
+<dt><strong>align</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{‘left’, ‘zero’,’ mid’}, default ‘left’</span></dt>
+<dd><p class="first">How to align the bars with the cells.</p>
+<ul class="last">
+<li><p class="first">‘left’ : the min value starts at the left of the cell.</p>
+</li>
+<li><p class="first">‘zero’ : a value of zero is located at the center of the cell.</p>
+</li>
+<li><p class="first">‘mid’ : the center of the cell is at (max-min)/2, or
+if values are all negative (positive) the zero is aligned
+at the right (left) of the cell.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.20.0.</span></p>
+</div>
+</li>
+</ul>
+</dd>
+<dt><strong>vmin</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd><p class="first">Minimum bar value, defining the left hand limit
+of the bar drawing range, lower values are clipped to <cite>vmin</cite>.
+When None (default): the minimum value of the data will be used.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.24.0.</span></p>
+</div>
+</dd>
+<dt><strong>vmax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd><p class="first">Maximum bar value, defining the right hand limit
+of the bar drawing range, higher values are clipped to <cite>vmax</cite>.
+When None (default): the maximum value of the data will be used.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.24.0.</span></p>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>self</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Styler</span></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.io.formats.style.Styler.clear.html" title="pandas.io.formats.style.Styler.clear"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.io.formats.style.Styler.background_gradient.html" title="pandas.io.formats.style.Styler.background_gradient"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../style.html" >Style</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.io.formats.style.Styler.html" >pandas.io.formats.style.Styler</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

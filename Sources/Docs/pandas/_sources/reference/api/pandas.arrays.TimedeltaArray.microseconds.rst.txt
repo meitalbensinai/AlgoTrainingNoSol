@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.microseconds
+=========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: TimedeltaArray.microseconds

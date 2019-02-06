@@ -1,0 +1,6 @@
+pandas.PeriodDtype.is\_dtype
+============================
+
+.. currentmodule:: pandas
+
+.. automethod:: PeriodDtype.is_dtype

@@ -1,35 +1,57 @@
 # Flow
 
-## Basic Training
+## Basic Training (55-59 work days)
 
-Basic
+Basic - 8 days
 
-Statistics
+Statistics - 2 days
 
-Common Grounds - Algo and DS + Research Reports
+Common Grounds Algo + Research Reports - 12 days
 
-Your team topics
+Common Grounds DS + Research Reports - 12 days
 
-Problem Formalization
+Your team topics - 5 days Algo OR 9 days DS
 
-NN specialization
+Problem Formalization - 1 day
 
-Your team final project
+Andrew NG's NN specialization - 10 days
+
+Your team final project - 5 days
 
 Thats it for basic training, congrats!!!
 
-## Advanced
+## Advanced 
 
-### If in Algo team:
+### If in Algo team: (9 days)
 
-Finish CV Introduction
+Finish CV Introduction - 5 days
 
-Finish Reinforcement 
+Finish Reinforcement - 4 days
 
-### If in DS team:
+### If in DS team: (8 days)
 
-Finish NLP Introduction
+Finish NLP Introduction - 2 days
 
-Finish SNA Introduction
+Finish SNA Introduction - 2 days
 
-Finish Reinforcement 
+Finish Reinforcement - 4 days
+
+
+
+
+
+
+
+
+
+
+
+# To Add
+
+Azrieli and Sons
+
+Time series analysis
+
+Association rules
+
+Algo final exercise

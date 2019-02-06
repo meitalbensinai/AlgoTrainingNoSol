@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.fillna
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.fillna

@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.is\_year\_start
+===========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.is_year_start

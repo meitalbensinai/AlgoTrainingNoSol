@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.sem
+=============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.sem

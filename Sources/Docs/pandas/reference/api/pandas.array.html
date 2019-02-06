@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.array &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.Timestamp" href="pandas.Timestamp.html" />
+    <link rel="prev" title="Pandas Arrays" href="../arrays.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.Timestamp.html" title="pandas.Timestamp"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../arrays.html" title="Pandas Arrays"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../arrays.html" accesskey="U">Pandas Arrays</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-array">
+<h1>pandas.array<a class="headerlink" href="#pandas-array" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.array">
+<code class="descclassname">pandas.</code><code class="descname">array</code><span class="sig-paren">(</span><em>data</em>, <em>dtype=None</em>, <em>copy=True</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/arrays/array_.py#L10-L274"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an array.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.24.0.</span></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>data</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Sequence of objects</span></dt>
+<dd><p class="first">The scalars inside <cite>data</cite> should be instances of the
+scalar type for <cite>dtype</cite>. It’s expected that <cite>data</cite>
+represents a 1-dimensional array of data.</p>
+<p class="last">When <cite>data</cite> is an Index or Series, the underlying array
+will be extracted from <cite>data</cite>.</p>
+</dd>
+<dt><strong>dtype</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, np.dtype, or ExtensionDtype, optional</span></dt>
+<dd><p class="first">The dtype to use for the array. This may be a NumPy
+dtype or an extension type registered with pandas using
+<a class="reference internal" href="pandas.api.extensions.register_extension_dtype.html#pandas.api.extensions.register_extension_dtype" title="pandas.api.extensions.register_extension_dtype"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.api.extensions.register_extension_dtype()</span></code></a>.</p>
+<p>If not specified, there are two possibilities:</p>
+<ol class="arabic simple">
+<li>When <cite>data</cite> is a <a class="reference internal" href="pandas.Series.html#pandas.Series" title="pandas.Series"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a>, <a class="reference internal" href="pandas.Index.html#pandas.Index" title="pandas.Index"><code class="xref py py-class docutils literal notranslate"><span class="pre">Index</span></code></a>, or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensionArray</span></code>, the <cite>dtype</cite> will be taken
+from the data.</li>
+<li>Otherwise, pandas will attempt to infer the <cite>dtype</cite>
+from the data.</li>
+</ol>
+<p>Note that when <cite>data</cite> is a NumPy array, <code class="docutils literal notranslate"><span class="pre">data.dtype</span></code> is
+<em>not</em> used for inferring the array type. This is because
+NumPy cannot represent all the types of data that can be
+held in extension arrays.</p>
+<p>Currently, pandas will infer an extension dtype for sequences of</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Scalar Type</th>
+<th class="head">Array Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="pandas.Interval.html#pandas.Interval" title="pandas.Interval"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Interval</span></code></a></td>
+<td><a class="reference internal" href="pandas.arrays.IntervalArray.html#pandas.arrays.IntervalArray" title="pandas.arrays.IntervalArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.arrays.IntervalArray</span></code></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="pandas.Period.html#pandas.Period" title="pandas.Period"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Period</span></code></a></td>
+<td><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.arrays.PeriodArray</span></code></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></td>
+<td><a class="reference internal" href="pandas.arrays.DatetimeArray.html#pandas.arrays.DatetimeArray" title="pandas.arrays.DatetimeArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.arrays.DatetimeArray</span></code></a></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a></td>
+<td><a class="reference internal" href="pandas.arrays.TimedeltaArray.html#pandas.arrays.TimedeltaArray" title="pandas.arrays.TimedeltaArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.arrays.TimedeltaArray</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<p class="last">For all other cases, NumPy’s usual inference rules will be used.</p>
+</dd>
+<dt><strong>copy</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Whether to copy the data, even if not necessary. Depending
+on the type of <cite>data</cite>, creating the new array may require
+copying data, even if <code class="docutils literal notranslate"><span class="pre">copy=False</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>ExtensionArray</strong></dt>
+<dd><p class="first last">The newly created array.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ValueError</strong></dt>
+<dd><p class="first last">When <cite>data</cite> is not 1-dimensional.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code></a></dt>
+<dd>Construct a NumPy array.</dd>
+<dt><a class="reference internal" href="pandas.Series.html#pandas.Series" title="pandas.Series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series</span></code></a></dt>
+<dd>Construct a pandas Series.</dd>
+<dt><a class="reference internal" href="pandas.Index.html#pandas.Index" title="pandas.Index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Index</span></code></a></dt>
+<dd>Construct a pandas Index.</dd>
+<dt><a class="reference internal" href="pandas.arrays.PandasArray.html#pandas.arrays.PandasArray" title="pandas.arrays.PandasArray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arrays.PandasArray</span></code></a></dt>
+<dd>ExtensionArray wrapping a NumPy array.</dd>
+<dt><a class="reference internal" href="pandas.Series.array.html#pandas.Series.array" title="pandas.Series.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Series.array</span></code></a></dt>
+<dd>Extract the array stored within a Series.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Omitting the <cite>dtype</cite> argument means pandas will attempt to infer the
+best array type from the values in the data. As new array types are
+added by pandas and 3rd party libraries, the “best” array type may
+change. We recommend specifying <cite>dtype</cite> to ensure that</p>
+<ol class="arabic simple">
+<li>the correct array type for the data is returned</li>
+<li>the returned array type doesn’t change as new extension types
+are added by pandas and third-party libraries</li>
+</ol>
+<p>Additionally, if the underlying memory representation of the returned
+array matters, we recommend specifying the <cite>dtype</cite> as a concrete object
+rather than a string alias or allowing it to be inferred. For example,
+a future version of pandas or a 3rd-party library may include a
+dedicated ExtensionArray for string data. In this event, the following
+would no longer return a <a class="reference internal" href="pandas.arrays.PandasArray.html#pandas.arrays.PandasArray" title="pandas.arrays.PandasArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">arrays.PandasArray</span></code></a> backed by a NumPy
+array.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="go">&lt;PandasArray&gt;</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;]</span>
+<span class="go">Length: 2, dtype: str32</span>
+</pre></div>
+</div>
+<p>This would instead return the new ExtensionArray dedicated for string
+data. If you really need the new array to be backed by a  NumPy array,
+specify that in the dtype.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s2">&quot;&lt;U1&quot;</span><span class="p">))</span>
+<span class="go">&lt;PandasArray&gt;</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;]</span>
+<span class="go">Length: 2, dtype: str32</span>
+</pre></div>
+</div>
+<p>Or use the dedicated constructor for the array you’re expecting, and
+wrap that in a PandasArray</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U1&#39;</span><span class="p">))</span>
+<span class="go">&lt;PandasArray&gt;</span>
+<span class="go">[&#39;a&#39;, &#39;b&#39;]</span>
+<span class="go">Length: 2, dtype: str32</span>
+</pre></div>
+</div>
+<p>Finally, Pandas has arrays that mostly overlap with NumPy</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="pandas.arrays.DatetimeArray.html#pandas.arrays.DatetimeArray" title="pandas.arrays.DatetimeArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">arrays.DatetimeArray</span></code></a></li>
+<li><a class="reference internal" href="pandas.arrays.TimedeltaArray.html#pandas.arrays.TimedeltaArray" title="pandas.arrays.TimedeltaArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">arrays.TimedeltaArray</span></code></a></li>
+</ul>
+</div></blockquote>
+<p>When data with a <code class="docutils literal notranslate"><span class="pre">datetime64[ns]</span></code> or <code class="docutils literal notranslate"><span class="pre">timedelta64[ns]</span></code> dtype is
+passed, pandas will always return a <code class="docutils literal notranslate"><span class="pre">DatetimeArray</span></code> or <code class="docutils literal notranslate"><span class="pre">TimedeltaArray</span></code>
+rather than a <code class="docutils literal notranslate"><span class="pre">PandasArray</span></code>. This is for symmetry with the case of
+timezone-aware data, which NumPy does not natively support.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+<span class="go">&lt;DatetimeArray&gt;</span>
+<span class="go">[&#39;2015-01-01 00:00:00&#39;, &#39;2016-01-01 00:00:00&#39;]</span>
+<span class="go">Length: 2, dtype: datetime64[ns]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;1H&quot;</span><span class="p">,</span> <span class="s2">&quot;2H&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;timedelta64[ns]&#39;</span><span class="p">)</span>
+<span class="go">&lt;TimedeltaArray&gt;</span>
+<span class="go">[&#39;01:00:00&#39;, &#39;02:00:00&#39;]</span>
+<span class="go">Length: 2, dtype: timedelta64[ns]</span>
+</pre></div>
+</div>
+<p class="rubric">Examples</p>
+<p>If a dtype is not specified, <cite>data</cite> is passed through to
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">numpy.array()</span></code>, and a <a class="reference internal" href="pandas.arrays.PandasArray.html#pandas.arrays.PandasArray" title="pandas.arrays.PandasArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">arrays.PandasArray</span></code></a> is returned.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">&lt;PandasArray&gt;</span>
+<span class="go">[1, 2]</span>
+<span class="go">Length: 2, dtype: int64</span>
+</pre></div>
+</div>
+<p>Or the NumPy dtype can be specified</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s2">&quot;int32&quot;</span><span class="p">))</span>
+<span class="go">&lt;PandasArray&gt;</span>
+<span class="go">[1, 2]</span>
+<span class="go">Length: 2, dtype: int32</span>
+</pre></div>
+</div>
+<p>You can use the string alias for <cite>dtype</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="go">[a, b, a]</span>
+<span class="go">Categories (2, object): [a, b]</span>
+</pre></div>
+</div>
+<p>Or specify the actual dtype</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span>
+<span class="gp">... </span>         <span class="n">dtype</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">CategoricalDtype</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="go">[a, b, a]</span>
+<span class="go">Categories (3, object): [a &lt; b &lt; c]</span>
+</pre></div>
+</div>
+<p>Because omitting the <cite>dtype</cite> passes the data through to NumPy,
+a mixture of valid integers and NA will return a floating-point
+NumPy array.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span>
+<span class="go">&lt;PandasArray&gt;</span>
+<span class="go">[1.0,  2.0, nan]</span>
+<span class="go">Length: 3, dtype: float64</span>
+</pre></div>
+</div>
+<p>To use pandas’ nullable <a class="reference internal" href="pandas.arrays.IntegerArray.html#pandas.arrays.IntegerArray" title="pandas.arrays.IntegerArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.arrays.IntegerArray</span></code></a>, specify
+the dtype:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;Int64&#39;</span><span class="p">)</span>
+<span class="go">&lt;IntegerArray&gt;</span>
+<span class="go">[1, 2, NaN]</span>
+<span class="go">Length: 3, dtype: Int64</span>
+</pre></div>
+</div>
+<p>Pandas will infer an ExtensionArray for some types of data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2000&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s2">&quot;2000&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)])</span>
+<span class="go">&lt;PeriodArray&gt;</span>
+<span class="go">[&#39;2000-01-01&#39;, &#39;2000-01-01&#39;]</span>
+<span class="go">Length: 2, dtype: period[D]</span>
+</pre></div>
+</div>
+<p><cite>data</cite> must be 1-dimensional. A ValueError is raised when the input
+has the wrong dimensionality.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">Cannot pass scalar &#39;1&#39; to &#39;pandas.array&#39;.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.Timestamp.html" title="pandas.Timestamp"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../arrays.html" title="Pandas Arrays"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../arrays.html" >Pandas Arrays</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

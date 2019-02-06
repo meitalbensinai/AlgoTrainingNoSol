@@ -1,0 +1,1374 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>v0.17.1 (November 21, 2015) &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="v0.17.0 (October 9, 2015)" href="v0.17.0.html" />
+    <link rel="prev" title="v0.18.0 (March 13, 2016)" href="v0.18.0.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.17.0.html" title="v0.17.0 (October 9, 2015)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.18.0.html" title="v0.18.0 (March 13, 2016)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Release Notes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-23">Version 0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-22">Version 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-21">Version 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-20">Version 0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-19">Version 0.19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-18">Version 0.18</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#version-0-17">Version 0.17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-16">Version 0.16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-15">Version 0.15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-14">Version 0.14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-13">Version 0.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-12">Version 0.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-10">Version 0.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-9">Version 0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-8">Version 0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-7">Version 0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-6">Version 0.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-5">Version 0.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#version-0-4">Version 0.4</a></li>
+</ul>
+</li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="v0-17-1-november-21-2015">
+<span id="whatsnew-0171"></span><h1>v0.17.1 (November 21, 2015)<a class="headerlink" href="#v0-17-1-november-21-2015" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We are proud to announce that <em>pandas</em> has become a sponsored project of the (<a class="reference external" href="http://www.numfocus.org/blog/numfocus-announces-new-fiscally-sponsored-project-pandas">NumFOCUS organization</a>). This will help ensure the success of development of <em>pandas</em> as a world-class open-source project.</p>
+</div>
+<p>This is a minor bug-fix release from 0.17.0 and includes a large number of
+bug fixes along several new features, enhancements, and performance improvements.
+We recommend that all users upgrade to this version.</p>
+<p>Highlights include:</p>
+<ul class="simple">
+<li>Support for Conditional HTML Formatting, see <a class="reference internal" href="#whatsnew-0171-style"><span class="std std-ref">here</span></a></li>
+<li>Releasing the GIL on the csv reader &amp; other ops, see <a class="reference internal" href="#whatsnew-0171-performance"><span class="std std-ref">here</span></a></li>
+<li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">DataFrame.drop_duplicates</span></code> from 0.16.2, causing incorrect results on integer values (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11376">GH11376</a>)</li>
+</ul>
+<div class="contents local topic" id="what-s-new-in-v0-17-1">
+<p class="topic-title first">What’s new in v0.17.1</p>
+<ul class="simple">
+<li><a class="reference internal" href="#new-features" id="id1">New features</a><ul>
+<li><a class="reference internal" href="#conditional-html-formatting" id="id2">Conditional HTML Formatting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enhancements" id="id3">Enhancements</a></li>
+<li><a class="reference internal" href="#api-changes" id="id4">API changes</a><ul>
+<li><a class="reference internal" href="#deprecations" id="id5">Deprecations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#performance-improvements" id="id6">Performance Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes" id="id7">Bug Fixes</a></li>
+<li><a class="reference internal" href="#contributors" id="id8">Contributors</a></li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="conditional-html-formatting">
+<span id="whatsnew-0171-style"></span><h3>Conditional HTML Formatting<a class="headerlink" href="#conditional-html-formatting" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a new feature and is under active development.
+We’ll be adding features an  possibly making breaking changes in future
+releases. Feedback is <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11610">welcome</a>.</p>
+</div>
+<p>We’ve added <em>experimental</em> support for conditional HTML formatting:
+the visual styling of a DataFrame based on the data.
+The styling is accomplished with HTML and CSS.
+Accesses the styler class with the <a class="reference internal" href="../reference/api/pandas.DataFrame.style.html#pandas.DataFrame.style" title="pandas.DataFrame.style"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pandas.DataFrame.style</span></code></a>, attribute,
+an instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">Styler</span></code> with your data attached.</p>
+<p>Here’s a quick example:</p>
+<blockquote>
+<div><div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">))</span>
+
+<span class="gp">In [3]: </span><span class="n">html</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">low</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>We can render the HTML to get the following table.</p>
+
+        <style  type="text/css" >
+
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col0 {
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col1 {
+
+                background-color:  #89d548;
+
+                background-color:  #89d548;
+
+                background-color:  #89d548;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col2 {
+
+                background-color:  #3aba76;
+
+                background-color:  #3aba76;
+
+                background-color:  #3aba76;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col3 {
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col4 {
+
+                background-color:  #24878e;
+
+                background-color:  #24878e;
+
+                background-color:  #24878e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col0 {
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col1 {
+
+                background-color:  #2c738e;
+
+                background-color:  #2c738e;
+
+                background-color:  #2c738e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col2 {
+
+                background-color:  #1f9f88;
+
+                background-color:  #1f9f88;
+
+                background-color:  #1f9f88;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col3 {
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col4 {
+
+                background-color:  #297a8e;
+
+                background-color:  #297a8e;
+
+                background-color:  #297a8e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col0 {
+
+                background-color:  #27808e;
+
+                background-color:  #27808e;
+
+                background-color:  #27808e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col1 {
+
+                background-color:  #3bbb75;
+
+                background-color:  #3bbb75;
+
+                background-color:  #3bbb75;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col2 {
+
+                background-color:  #b2dd2d;
+
+                background-color:  #b2dd2d;
+
+                background-color:  #b2dd2d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col3 {
+
+                background-color:  #1f9a8a;
+
+                background-color:  #1f9a8a;
+
+                background-color:  #1f9a8a;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col4 {
+
+                background-color:  #228d8d;
+
+                background-color:  #228d8d;
+
+                background-color:  #228d8d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col0 {
+
+                background-color:  #218e8d;
+
+                background-color:  #218e8d;
+
+                background-color:  #218e8d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col1 {
+
+                background-color:  #efe51c;
+
+                background-color:  #efe51c;
+
+                background-color:  #efe51c;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col2 {
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col3 {
+
+                background-color:  #d5e21a;
+
+                background-color:  #d5e21a;
+
+                background-color:  #d5e21a;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col4 {
+
+                background-color:  #2eb37c;
+
+                background-color:  #2eb37c;
+
+                background-color:  #2eb37c;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col0 {
+
+                background-color:  #6ece58;
+
+                background-color:  #6ece58;
+
+                background-color:  #6ece58;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col1 {
+
+                background-color:  #b2dd2d;
+
+                background-color:  #b2dd2d;
+
+                background-color:  #b2dd2d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col2 {
+
+                background-color:  #238a8d;
+
+                background-color:  #238a8d;
+
+                background-color:  #238a8d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col3 {
+
+                background-color:  #f1e51d;
+
+                background-color:  #f1e51d;
+
+                background-color:  #f1e51d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col4 {
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col0 {
+
+                background-color:  #26828e;
+
+                background-color:  #26828e;
+
+                background-color:  #26828e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col1 {
+
+                background-color:  #81d34d;
+
+                background-color:  #81d34d;
+
+                background-color:  #81d34d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col2 {
+
+                background-color:  #2a768e;
+
+                background-color:  #2a768e;
+
+                background-color:  #2a768e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col3 {
+
+                background-color:  #34b679;
+
+                background-color:  #34b679;
+
+                background-color:  #34b679;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col4 {
+
+                background-color:  #297a8e;
+
+                background-color:  #297a8e;
+
+                background-color:  #297a8e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col0 {
+
+                background-color:  #1f998a;
+
+                background-color:  #1f998a;
+
+                background-color:  #1f998a;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col1 {
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col2 {
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+                background-color:  #31688e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col3 {
+
+                background-color:  #1f968b;
+
+                background-color:  #1f968b;
+
+                background-color:  #1f968b;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col4 {
+
+                background-color:  #5cc863;
+
+                background-color:  #5cc863;
+
+                background-color:  #5cc863;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col0 {
+
+                background-color:  #1f9e89;
+
+                background-color:  #1f9e89;
+
+                background-color:  #1f9e89;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col1 {
+
+                background-color:  #40bd72;
+
+                background-color:  #40bd72;
+
+                background-color:  #40bd72;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col2 {
+
+                background-color:  #5cc863;
+
+                background-color:  #5cc863;
+
+                background-color:  #5cc863;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col3 {
+
+                background-color:  #228c8d;
+
+                background-color:  #228c8d;
+
+                background-color:  #228c8d;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col4 {
+
+                background-color:  #28ae80;
+
+                background-color:  #28ae80;
+
+                background-color:  #28ae80;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col0 {
+
+                background-color:  #2a788e;
+
+                background-color:  #2a788e;
+
+                background-color:  #2a788e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col1 {
+
+                background-color:  #23898e;
+
+                background-color:  #23898e;
+
+                background-color:  #23898e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col2 {
+
+                background-color:  #1fa088;
+
+                background-color:  #1fa088;
+
+                background-color:  #1fa088;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col3 {
+
+                background-color:  #90d743;
+
+                background-color:  #90d743;
+
+                background-color:  #90d743;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col4 {
+
+                background-color:  #2cb17e;
+
+                background-color:  #2cb17e;
+
+                background-color:  #2cb17e;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col0 {
+
+                background-color:  #22a785;
+
+                background-color:  #22a785;
+
+                background-color:  #22a785;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col1 {
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col2 {
+
+                background-color:  #44bf70;
+
+                background-color:  #44bf70;
+
+                background-color:  #44bf70;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col3 {
+
+                background-color:  #d2e21b;
+
+                background-color:  #d2e21b;
+
+                background-color:  #d2e21b;
+
+            }
+
+            #T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col4 {
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+                background-color:  #fde725;
+
+            }
+
+        </style>
+
+        <table id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb">
+
+
+        <thead>
+
+            <tr>
+
+                <th class="blank">
+
+                <th class="col_heading level0 col0">a
+
+                <th class="col_heading level0 col1">b
+
+                <th class="col_heading level0 col2">c
+
+                <th class="col_heading level0 col3">d
+
+                <th class="col_heading level0 col4">e
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row0">
+
+                        0
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col0" class="data row0 col0">
+
+                        -1.085631
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col1" class="data row0 col1">
+
+                        0.997345
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col2" class="data row0 col2">
+
+                        0.282978
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col3" class="data row0 col3">
+
+                        -1.506295
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow0_col4" class="data row0 col4">
+
+                        -0.5786
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row1">
+
+                        1
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col0" class="data row1 col0">
+
+                        1.651437
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col1" class="data row1 col1">
+
+                        -2.426679
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col2" class="data row1 col2">
+
+                        -0.428913
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col3" class="data row1 col3">
+
+                        1.265936
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow1_col4" class="data row1 col4">
+
+                        -0.86674
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row2">
+
+                        2
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col0" class="data row2 col0">
+
+                        -0.678886
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col1" class="data row2 col1">
+
+                        -0.094709
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col2" class="data row2 col2">
+
+                        1.49139
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col3" class="data row2 col3">
+
+                        -0.638902
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow2_col4" class="data row2 col4">
+
+                        -0.443982
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row3">
+
+                        3
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col0" class="data row3 col0">
+
+                        -0.434351
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col1" class="data row3 col1">
+
+                        2.20593
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col2" class="data row3 col2">
+
+                        2.186786
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col3" class="data row3 col3">
+
+                        1.004054
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow3_col4" class="data row3 col4">
+
+                        0.386186
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row4">
+
+                        4
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col0" class="data row4 col0">
+
+                        0.737369
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col1" class="data row4 col1">
+
+                        1.490732
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col2" class="data row4 col2">
+
+                        -0.935834
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col3" class="data row4 col3">
+
+                        1.175829
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow4_col4" class="data row4 col4">
+
+                        -1.253881
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row5">
+
+                        5
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col0" class="data row5 col0">
+
+                        -0.637752
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col1" class="data row5 col1">
+
+                        0.907105
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col2" class="data row5 col2">
+
+                        -1.428681
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col3" class="data row5 col3">
+
+                        -0.140069
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow5_col4" class="data row5 col4">
+
+                        -0.861755
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row6">
+
+                        6
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col0" class="data row6 col0">
+
+                        -0.255619
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col1" class="data row6 col1">
+
+                        -2.798589
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col2" class="data row6 col2">
+
+                        -1.771533
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col3" class="data row6 col3">
+
+                        -0.699877
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow6_col4" class="data row6 col4">
+
+                        0.927462
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row7">
+
+                        7
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col0" class="data row7 col0">
+
+                        -0.173636
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col1" class="data row7 col1">
+
+                        0.002846
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col2" class="data row7 col2">
+
+                        0.688223
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col3" class="data row7 col3">
+
+                        -0.879536
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow7_col4" class="data row7 col4">
+
+                        0.283627
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row8">
+
+                        8
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col0" class="data row8 col0">
+
+                        -0.805367
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col1" class="data row8 col1">
+
+                        -1.727669
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col2" class="data row8 col2">
+
+                        -0.3909
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col3" class="data row8 col3">
+
+                        0.573806
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow8_col4" class="data row8 col4">
+
+                        0.338589
+
+
+            </tr>
+
+            <tr>
+
+                <th id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fb" class="row_heading level4 row9">
+
+                        9
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col0" class="data row9 col0">
+
+                        -0.01183
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col1" class="data row9 col1">
+
+                        2.392365
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col2" class="data row9 col2">
+
+                        0.412912
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col3" class="data row9 col3">
+
+                        0.978736
+
+
+                <td id="T_8d7c2fec_8d9e_11e5_8e2c_a45e60bd97fbrow9_col4" class="data row9 col4">
+
+                        2.238143
+
+
+            </tr>
+
+        </tbody>
+        </table>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Styler</span></code> interacts nicely with the Jupyter Notebook.
+See the <span class="xref std std-ref">documentation</span> for more.</p>
+</div>
+</div>
+<div class="section" id="enhancements">
+<span id="whatsnew-0171-enhancements"></span><h2>Enhancements<a class="headerlink" href="#enhancements" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> now supports conversion to strings with <code class="docutils literal notranslate"><span class="pre">astype(str)</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10442">GH10442</a>)</p>
+</li>
+<li><p class="first">Support for <code class="docutils literal notranslate"><span class="pre">compression</span></code> (gzip/bz2) in <a class="reference internal" href="../reference/api/pandas.DataFrame.to_csv.html#pandas.DataFrame.to_csv" title="pandas.DataFrame.to_csv"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.to_csv()</span></code></a> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/7615">GH7615</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pd.read_*</span></code> functions can now also accept <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.7)"><code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">py._path.local.LocalPath</span></code>
+objects for the <code class="docutils literal notranslate"><span class="pre">filepath_or_buffer</span></code> argument. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11033">GH11033</a>)
+- The <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> functions <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">.to_html()</span></code> and <code class="docutils literal notranslate"><span class="pre">.to_latex()</span></code> can now handle paths beginning with tildes (e.g. <code class="docutils literal notranslate"><span class="pre">~/Documents/</span></code>) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11438">GH11438</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> now uses the fields of a <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> as columns, if columns are not supplied (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11181">GH11181</a>)</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">DataFrame.itertuples()</span></code> now returns <code class="docutils literal notranslate"><span class="pre">namedtuple</span></code> objects, when possible. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11269">GH11269</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11625">GH11625</a>)</p>
+</li>
+<li><p class="first">Added <code class="docutils literal notranslate"><span class="pre">axvlines_kwds</span></code> to parallel coordinates plot (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10709">GH10709</a>)</p>
+</li>
+<li><p class="first">Option to <code class="docutils literal notranslate"><span class="pre">.info()</span></code> and <code class="docutils literal notranslate"><span class="pre">.memory_usage()</span></code> to provide for deep introspection of memory consumption. Note that this can be expensive to compute and therefore is an optional parameter. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11595">GH11595</a>)</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">})</span>  <span class="c1"># noqa: F821</span>
+
+<span class="gp">In [5]: </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="go"># shows the &#39;+&#39; as we have object dtypes</span>
+<span class="gp">In [6]: </span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="go">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 1000 entries, 0 to 999</span>
+<span class="go">Data columns (total 2 columns):</span>
+<span class="go">A    1000 non-null object</span>
+<span class="go">B    1000 non-null category</span>
+<span class="go">dtypes: category(1), object(1)</span>
+<span class="go">memory usage: 9.0+ KB</span>
+
+<span class="go"># we have an accurate memory assessment (but can be expensive to compute this)</span>
+<span class="gp">In [7]: </span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">memory_usage</span><span class="o">=</span><span class="s1">&#39;deep&#39;</span><span class="p">)</span>
+<span class="go">                                                                                                                                                                                                                    &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="go">RangeIndex: 1000 entries, 0 to 999</span>
+<span class="go">Data columns (total 2 columns):</span>
+<span class="go">A    1000 non-null object</span>
+<span class="go">B    1000 non-null category</span>
+<span class="go">dtypes: category(1), object(1)</span>
+<span class="go">memory usage: 75.4 KB</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Index</span></code> now has a <code class="docutils literal notranslate"><span class="pre">fillna</span></code> method (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10089">GH10089</a>)</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go">Float64Index([1.0, 2.0, 3.0], dtype=&#39;float64&#39;)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Series of type <code class="docutils literal notranslate"><span class="pre">category</span></code> now make <code class="docutils literal notranslate"><span class="pre">.str.&lt;...&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">.dt.&lt;...&gt;</span></code> accessor methods / properties available, if the categories are of that type. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10661">GH10661</a>)</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aabb&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="gp">In [10]: </span><span class="n">s</span>
+<span class="gh">Out[10]: </span><span class="go"></span>
+<span class="go">0    a</span>
+<span class="go">1    a</span>
+<span class="go">2    b</span>
+<span class="go">3    b</span>
+<span class="go">Length: 4, dtype: category</span>
+<span class="go">Categories (2, object): [a, b]</span>
+
+<span class="gp">In [11]: </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">                                                                                                Out[11]: </span>
+<span class="go">0     True</span>
+<span class="go">1     True</span>
+<span class="go">2    False</span>
+<span class="go">3    False</span>
+<span class="go">Length: 4, dtype: bool</span>
+
+<span class="gp">In [12]: </span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/2015&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="gp">In [13]: </span><span class="n">date</span>
+<span class="gh">Out[13]: </span><span class="go"></span>
+<span class="go">0   2015-01-01</span>
+<span class="go">1   2015-01-02</span>
+<span class="go">2   2015-01-03</span>
+<span class="go">3   2015-01-04</span>
+<span class="go">4   2015-01-05</span>
+<span class="go">Length: 5, dtype: category</span>
+<span class="go">Categories (5, datetime64[ns]): [2015-01-01, 2015-01-02, 2015-01-03, 2015-01-04, 2015-01-05]</span>
+
+<span class="gp">In [14]: </span><span class="n">date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+<span class="go">                                                                                                                                                                                                             Out[14]: </span>
+<span class="go">0    1</span>
+<span class="go">1    2</span>
+<span class="go">2    3</span>
+<span class="go">3    4</span>
+<span class="go">4    5</span>
+<span class="go">Length: 5, dtype: int64</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> now has a <code class="docutils literal notranslate"><span class="pre">margins_name</span></code> argument so you can use something other than the default of ‘All’ (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/3335">GH3335</a>)</p>
+</li>
+<li><p class="first">Implement export of <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code> dtypes with a fixed HDF5 store (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11411">GH11411</a>)</p>
+</li>
+<li><p class="first">Pretty printing sets (e.g. in DataFrame cells) now uses set literal syntax (<code class="docutils literal notranslate"><span class="pre">{x,</span> <span class="pre">y}</span></code>) instead of
+Legacy Python syntax (<code class="docutils literal notranslate"><span class="pre">set([x,</span> <span class="pre">y])</span></code>) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11215">GH11215</a>)</p>
+</li>
+<li><p class="first">Improve the error message in <code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.io.gbq.to_gbq()</span></code> when a streaming insert fails (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11285">GH11285</a>)
+and when the DataFrame does not match the schema of the destination table (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11359">GH11359</a>)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="api-changes">
+<span id="whatsnew-0171-api"></span><h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> in <code class="docutils literal notranslate"><span class="pre">Index.shift</span></code> for non-supported index types (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/8038">GH8038</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> reductions on <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> and <code class="docutils literal notranslate"><span class="pre">timedelta64</span></code> dtyped series now
+result in <code class="docutils literal notranslate"><span class="pre">NaT</span></code> and not <code class="docutils literal notranslate"><span class="pre">nan</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11245">GH11245</a>).</li>
+<li>Indexing with a null key will raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, instead of a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11356">GH11356</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Series.ptp</span></code> will now ignore missing values by default (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11163">GH11163</a>)</li>
+</ul>
+<div class="section" id="deprecations">
+<span id="whatsnew-0171-deprecations"></span><h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">pandas.io.ga</span></code> module which implements <code class="docutils literal notranslate"><span class="pre">google-analytics</span></code> support is deprecated and will be removed in a future version (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11308">GH11308</a>)</li>
+<li>Deprecate the <code class="docutils literal notranslate"><span class="pre">engine</span></code> keyword in <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code>, which will be removed in a future version (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11274">GH11274</a>)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="performance-improvements">
+<span id="whatsnew-0171-performance"></span><h2>Performance Improvements<a class="headerlink" href="#performance-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Checking monotonic-ness before sorting on an index (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11080">GH11080</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Series.dropna</span></code> performance improvement when its dtype can’t contain <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11159">GH11159</a>)</li>
+<li>Release the GIL on most datetime field operations (e.g. <code class="docutils literal notranslate"><span class="pre">DatetimeIndex.year</span></code>, <code class="docutils literal notranslate"><span class="pre">Series.dt.year</span></code>), normalization, and conversion to and from <code class="docutils literal notranslate"><span class="pre">Period</span></code>, <code class="docutils literal notranslate"><span class="pre">DatetimeIndex.to_period</span></code> and <code class="docutils literal notranslate"><span class="pre">PeriodIndex.to_timestamp</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11263">GH11263</a>)</li>
+<li>Release the GIL on some rolling algos: <code class="docutils literal notranslate"><span class="pre">rolling_median</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_mean</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_max</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_min</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_var</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_kurt</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling_skew</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11450">GH11450</a>)</li>
+<li>Release the GIL when reading and parsing text files in <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>, <code class="docutils literal notranslate"><span class="pre">read_table</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11272">GH11272</a>)</li>
+<li>Improved performance of <code class="docutils literal notranslate"><span class="pre">rolling_median</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11450">GH11450</a>)</li>
+<li>Improved performance of <code class="docutils literal notranslate"><span class="pre">to_excel</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11352">GH11352</a>)</li>
+<li>Performance bug in repr of <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> categories, which was rendering the strings before chopping them for display (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11305">GH11305</a>)</li>
+<li>Performance improvement in <code class="docutils literal notranslate"><span class="pre">Categorical.remove_unused_categories</span></code>, (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11643">GH11643</a>).</li>
+<li>Improved performance of <code class="docutils literal notranslate"><span class="pre">Series</span></code> constructor with no data and <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11433">GH11433</a>)</li>
+<li>Improved performance of <code class="docutils literal notranslate"><span class="pre">shift</span></code>, <code class="docutils literal notranslate"><span class="pre">cumprod</span></code>, and <code class="docutils literal notranslate"><span class="pre">cumsum</span></code> with groupby (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/4095">GH4095</a>)</li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<span id="whatsnew-0171-bug-fixes"></span><h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">SparseArray.__iter__()</span></code> now does not cause <code class="docutils literal notranslate"><span class="pre">PendingDeprecationWarning</span></code> in Python 3.5 (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11622">GH11622</a>)</li>
+<li>Regression from 0.16.2 for output formatting of long floats/nan, restored in (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11302">GH11302</a>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Series.sort_index()</span></code> now correctly handles the <code class="docutils literal notranslate"><span class="pre">inplace</span></code> option (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11402">GH11402</a>)</li>
+<li>Incorrectly distributed .c file in the build on <code class="docutils literal notranslate"><span class="pre">PyPi</span></code> when reading a csv of floats and passing <code class="docutils literal notranslate"><span class="pre">na_values=&lt;a</span> <span class="pre">scalar&gt;</span></code> would show an exception (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11374">GH11374</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">.to_latex()</span></code> output broken when the index has a name (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10660">GH10660</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">HDFStore.append</span></code> with strings whose encoded length exceeded the max unencoded length (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11234">GH11234</a>)</li>
+<li>Bug in merging <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code> dtypes (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11405">GH11405</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">HDFStore.select</span></code> when comparing with a numpy scalar in a where clause (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11283">GH11283</a>)</li>
+<li>Bug in using <code class="docutils literal notranslate"><span class="pre">DataFrame.ix</span></code> with a MultiIndex indexer (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11372">GH11372</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">date_range</span></code> with ambiguous endpoints (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11626">GH11626</a>)</li>
+<li>Prevent adding new attributes to the accessors <code class="docutils literal notranslate"><span class="pre">.str</span></code>, <code class="docutils literal notranslate"><span class="pre">.dt</span></code> and <code class="docutils literal notranslate"><span class="pre">.cat</span></code>. Retrieving such
+a value was not possible, so error out on setting it. (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10673">GH10673</a>)</li>
+<li>Bug in tz-conversions with an ambiguous time and <code class="docutils literal notranslate"><span class="pre">.dt</span></code> accessors (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11295">GH11295</a>)</li>
+<li>Bug in output formatting when using an index of ambiguous times (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11619">GH11619</a>)</li>
+<li>Bug in comparisons of Series vs list-likes (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11339">GH11339</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.replace</span></code> with a <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code> and a non-compat to_replace (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11326">GH11326</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11153">GH11153</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">isnull</span></code> where <code class="docutils literal notranslate"><span class="pre">numpy.datetime64('NaT')</span></code> in a <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> was not determined to be null(<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11206">GH11206</a>)</li>
+<li>Bug in list-like indexing with a mixed-integer Index (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11320">GH11320</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> with <code class="docutils literal notranslate"><span class="pre">margins=True</span></code> when indexes are of <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> dtype (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10993">GH10993</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.plot</span></code> cannot use hex strings colors (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10299">GH10299</a>)</li>
+<li>Regression in <code class="docutils literal notranslate"><span class="pre">DataFrame.drop_duplicates</span></code> from 0.16.2, causing incorrect results on integer values (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11376">GH11376</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.eval</span></code> where unary ops in a list error (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11235">GH11235</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">squeeze()</span></code> with zero length arrays (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11230">GH11230</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/8999">GH8999</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">describe()</span></code> dropping column names for hierarchical indexes (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11517">GH11517</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.pct_change()</span></code> not propagating <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword on <code class="docutils literal notranslate"><span class="pre">.fillna</span></code> method (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11150">GH11150</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> when a mix of integer and string column names are passed as the <code class="docutils literal notranslate"><span class="pre">columns</span></code> parameter (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11637">GH11637</a>)</li>
+<li>Bug in indexing with a <code class="docutils literal notranslate"><span class="pre">range</span></code>, (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11652">GH11652</a>)</li>
+<li>Bug in inference of numpy scalars and preserving dtype when setting columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11638">GH11638</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">to_sql</span></code> using unicode column names giving UnicodeEncodeError with (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11431">GH11431</a>).</li>
+<li>Fix regression in setting of <code class="docutils literal notranslate"><span class="pre">xticks</span></code> in <code class="docutils literal notranslate"><span class="pre">plot</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11529">GH11529</a>).</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">holiday.dates</span></code> where observance rules could not be applied to holiday and doc enhancement (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11477">GH11477</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11533">GH11533</a>)</li>
+<li>Fix plotting issues when having plain <code class="docutils literal notranslate"><span class="pre">Axes</span></code> instances instead of <code class="docutils literal notranslate"><span class="pre">SubplotAxes</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11520">GH11520</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11556">GH11556</a>).</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.to_latex()</span></code> produces an extra rule when <code class="docutils literal notranslate"><span class="pre">header=False</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/7124">GH7124</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">df.groupby(...).apply(func)</span></code> when a func returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> containing a new datetimelike column (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11324">GH11324</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pandas.json</span></code> when file to load is big (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11344">GH11344</a>)</li>
+<li>Bugs in <code class="docutils literal notranslate"><span class="pre">to_excel</span></code> with duplicate columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11007">GH11007</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10982">GH10982</a>, <a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10970">GH10970</a>)</li>
+<li>Fixed a bug that prevented the construction of an empty series of dtype <code class="docutils literal notranslate"><span class="pre">datetime64[ns,</span> <span class="pre">tz]</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11245">GH11245</a>).</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> with MultiIndex containing integers (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11317">GH11317</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">to_excel</span></code> with openpyxl 2.2+ and merging (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11408">GH11408</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.to_dict()</span></code> produces a <code class="docutils literal notranslate"><span class="pre">np.datetime64</span></code> object instead of <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> when only datetime is present in data (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11327">GH11327</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.corr()</span></code> raises exception when computes Kendall correlation for DataFrames with boolean and not boolean columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11560">GH11560</a>)</li>
+<li>Bug in the link-time error caused by C <code class="docutils literal notranslate"><span class="pre">inline</span></code> functions on FreeBSD 10+ (with <code class="docutils literal notranslate"><span class="pre">clang</span></code>) (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/10510">GH10510</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.to_csv</span></code> in passing through arguments for formatting <code class="docutils literal notranslate"><span class="pre">MultiIndexes</span></code>, including <code class="docutils literal notranslate"><span class="pre">date_format</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/7791">GH7791</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.join()</span></code> with <code class="docutils literal notranslate"><span class="pre">how='right'</span></code> producing a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11519">GH11519</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">Series.quantile</span></code> with empty list results has <code class="docutils literal notranslate"><span class="pre">Index</span></code> with <code class="docutils literal notranslate"><span class="pre">object</span></code> dtype (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11588">GH11588</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">pd.merge</span></code> results in empty <code class="docutils literal notranslate"><span class="pre">Int64Index</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Index(dtype=object)</span></code> when the merge result is empty (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11588">GH11588</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">Categorical.remove_unused_categories</span></code> when having <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11599">GH11599</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.to_sparse()</span></code> loses column names for MultiIndexes (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11600">GH11600</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.round()</span></code> with non-unique column index producing a Fatal Python error (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11611">GH11611</a>)</li>
+<li>Bug in <code class="docutils literal notranslate"><span class="pre">DataFrame.round()</span></code> with <code class="docutils literal notranslate"><span class="pre">decimals</span></code> being a non-unique indexed Series producing extra columns (<a class="reference external" href="https://github.com/pandas-dev/pandas/issues/11618">GH11618</a>)</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<span id="whatsnew-0-17-1-contributors"></span><h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>A total of 63 people contributed patches to this release.  People with a
+“+” by their names contributed a patch for the first time.
+</p>
+<ul class="simple">
+<li>Aleksandr Drozd +</li>
+<li>Alex Chase +</li>
+<li>Anthonios Partheniou</li>
+<li>BrenBarn +</li>
+<li>Brian J. McGuirk +</li>
+<li>Chris</li>
+<li>Christian Berendt +</li>
+<li>Christian Perez +</li>
+<li>Cody Piersall +</li>
+<li>Data &amp; Code Expert Experimenting with Code on Data</li>
+<li>DrIrv +</li>
+<li>Evan Wright</li>
+<li>Guillaume Gay</li>
+<li>Hamed Saljooghinejad +</li>
+<li>Iblis Lin +</li>
+<li>Jake VanderPlas</li>
+<li>Jan Schulz</li>
+<li>Jean-Mathieu Deschenes +</li>
+<li>Jeff Reback</li>
+<li>Jimmy Callin +</li>
+<li>Joris Van den Bossche</li>
+<li>K.-Michael Aye</li>
+<li>Ka Wo Chen</li>
+<li>Loïc Séguin-C +</li>
+<li>Luo Yicheng +</li>
+<li>Magnus Jöud +</li>
+<li>Manuel Leonhardt +</li>
+<li>Matthew Gilbert</li>
+<li>Maximilian Roos</li>
+<li>Michael +</li>
+<li>Nicholas Stahl +</li>
+<li>Nicolas Bonnotte +</li>
+<li>Pastafarianist +</li>
+<li>Petra Chong +</li>
+<li>Phil Schaf +</li>
+<li>Philipp A +</li>
+<li>Rob deCarvalho +</li>
+<li>Roman Khomenko +</li>
+<li>Rémy Léone +</li>
+<li>Sebastian Bank +</li>
+<li>Sinhrks</li>
+<li>Stephan Hoyer</li>
+<li>Thierry Moisan</li>
+<li>Tom Augspurger</li>
+<li>Tux1 +</li>
+<li>Varun +</li>
+<li>Wieland Hoffmann +</li>
+<li>Winterflower</li>
+<li>Yoav Ram +</li>
+<li>Younggun Kim</li>
+<li>Zeke +</li>
+<li>ajcr</li>
+<li>azuranski +</li>
+<li>behzad nouri</li>
+<li>cel4</li>
+<li>emilydolson +</li>
+<li>hironow +</li>
+<li>lexual</li>
+<li>llllllllll +</li>
+<li>rockg</li>
+<li>silentquasar +</li>
+<li>sinhrks</li>
+<li>taeold +</li>
+</ul>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="v0.17.0.html" title="v0.17.0 (October 9, 2015)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.18.0.html" title="v0.18.0 (March 13, 2016)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

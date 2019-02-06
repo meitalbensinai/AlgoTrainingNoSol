@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.spatial.HalfspaceIntersection &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Spatial algorithms and data structures (scipy.spatial)" href="../spatial.html" >
+    <link rel="next" title="scipy.spatial.HalfspaceIntersection.add_halfspaces" href="scipy.spatial.HalfspaceIntersection.add_halfspaces.html" >
+    <link rel="prev" title="scipy.spatial.SphericalVoronoi.sort_vertices_of_regions" href="scipy.spatial.SphericalVoronoi.sort_vertices_of_regions.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../spatial.html" accesskey="U">Spatial algorithms and data structures (<code class="docutils literal"><span class="pre">scipy.spatial</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.HalfspaceIntersection.add_halfspaces.html" title="scipy.spatial.HalfspaceIntersection.add_halfspaces"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.SphericalVoronoi.sort_vertices_of_regions.html" title="scipy.spatial.SphericalVoronoi.sort_vertices_of_regions"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.spatial.SphericalVoronoi.sort_vertices_of_regions.html"
+                        title="previous chapter">scipy.spatial.SphericalVoronoi.sort_vertices_of_regions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.spatial.HalfspaceIntersection.add_halfspaces.html"
+                        title="next chapter">scipy.spatial.HalfspaceIntersection.add_halfspaces</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-spatial-halfspaceintersection">
+<h1>scipy.spatial.HalfspaceIntersection<a class="headerlink" href="#scipy-spatial-halfspaceintersection" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="scipy.spatial.HalfspaceIntersection">
+<em class="property">class </em><code class="descclassname">scipy.spatial.</code><code class="descname">HalfspaceIntersection</code><span class="sig-paren">(</span><em>halfspaces</em>, <em>interior_point</em>, <em>incremental=False</em>, <em>qhull_options=None</em><span class="sig-paren">)</span><a class="headerlink" href="#scipy.spatial.HalfspaceIntersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Halfspace intersections in N dimensions.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.19.0.</span></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>halfspaces</strong> : ndarray of floats, shape (nineq, ndim+1)</p>
+<blockquote>
+<div><p>Stacked Inequalities of the form Ax + b &lt;= 0 in format [A; b]</p>
+</div></blockquote>
+<p><strong>interior_point</strong> : ndarray of floats, shape (ndim,)</p>
+<blockquote>
+<div><p>Point clearly inside the region defined by halfspaces. Also called a feasible
+point, it can be obtained by linear programming.</p>
+</div></blockquote>
+<p><strong>incremental</strong> : bool, optional</p>
+<blockquote>
+<div><p>Allow adding new halfspaces incrementally. This takes up some additional
+resources.</p>
+</div></blockquote>
+<p><strong>qhull_options</strong> : str, optional</p>
+<blockquote>
+<div><p>Additional options to pass to Qhull. See Qhull manual
+for details. (Default: &#8220;Qx&#8221; for ndim &gt; 4 and &#8220;&#8221; otherwise)
+Option &#8220;H&#8221; is always enabled.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>QhullError</strong></p>
+<blockquote>
+<div><p>Raised when Qhull encounters an error condition, such as
+geometrical degeneracy when options to resolve are not enabled.</p>
+</div></blockquote>
+<p><strong>ValueError</strong></p>
+<blockquote class="last">
+<div><p>Raised if an incompatible array is given as input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The intersections are computed using the
+<a class="reference external" href="http://www.qhull.org/">Qhull library</a>.
+This reproduces the &#8220;qhalf&#8221; functionality of Qhull.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="qhull" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Qhull]</a></td><td><a class="reference external" href="http://www.qhull.org/">http://www.qhull.org/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r350" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R350]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> S. Boyd, L. Vandenberghe, Convex Optimization, available
+at <a class="reference external" href="http://stanford.edu/~boyd/cvxbook/">http://stanford.edu/~boyd/cvxbook/</a></td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Halfspace intersection of planes forming some polygon</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="k">import</span> <span class="n">HalfspaceIntersection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">halfspaces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+<span class="gp">... </span>                       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+<span class="gp">... </span>                       <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.</span><span class="p">],</span>
+<span class="gp">... </span>                       <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">feasible_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hs</span> <span class="o">=</span> <span class="n">HalfspaceIntersection</span><span class="p">(</span><span class="n">halfspaces</span><span class="p">,</span> <span class="n">feasible_point</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot halfspaces as filled regions and intersection points:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">symbols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fmt</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;edgecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">sym</span><span class="p">,</span> <span class="n">sign</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">halfspaces</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">signs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">hlist</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">fmt</span><span class="p">[</span><span class="s2">&quot;hatch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sym</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">x+</span><span class="si">{}</span><span class="s1">y+</span><span class="si">{}</span><span class="s1">=0&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">hlist</span><span class="p">))</span>
+<span class="gp">... </span>        <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="n">sign</span><span class="p">],</span> <span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">fmt</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">x+</span><span class="si">{}</span><span class="s1">y+</span><span class="si">{}</span><span class="s1">=0&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">hlist</span><span class="p">))</span>
+<span class="gp">... </span>        <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="n">sign</span><span class="p">],</span> <span class="o">**</span><span class="n">fmt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">hs</span><span class="o">.</span><span class="n">intersections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, qhull does not provide with a way to compute an interior point.
+This can easily be computed using linear programming. Considering halfspaces
+of the form <span class="math">\(Ax + b \leq 0\)</span>, solving the linear program:</p>
+<div class="math">
+\[ \begin{align}\begin{aligned}max \: y\\s.t. Ax + y ||A_i|| \leq -b\end{aligned}\end{align} \]</div>
+<p>With <span class="math">\(A_i\)</span> being the rows of A, i.e. the normals to each plane.</p>
+<p>Will yield a point x that is furthest inside the convex polyhedron. To
+be precise, it is the center of the largest hypersphere of radius y
+inscribed in the polyhedron. This point is called the Chebyshev center
+of the polyhedron (see <a class="reference internal" href="#r350" id="id3">[R350]</a> 4.3.1, pp148-149). The
+equations outputted by Qhull are always normalized.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">linprog</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="k">import</span> <span class="n">Circle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">norm_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">halfspaces</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">halfspaces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">halfspaces</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">halfspaces</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">norm_vector</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="o">-</span> <span class="n">halfspaces</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">linprog</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A_ub</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">b_ub</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../generated/scipy-spatial-HalfspaceIntersection-1.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/scipy-spatial-HalfspaceIntersection-1.png" src="../_images/scipy-spatial-HalfspaceIntersection-1.png" />
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>halfspaces</td>
+<td>(ndarray of double, shape (nineq, ndim+1)) Input halfspaces.</td>
+</tr>
+<tr class="row-even"><td>interior_point :ndarray of floats, shape (ndim,)</td>
+<td>Input interior point.</td>
+</tr>
+<tr class="row-odd"><td>intersections</td>
+<td>(ndarray of double, shape (ninter, ndim)) Intersections of all halfspaces.</td>
+</tr>
+<tr class="row-even"><td>dual_points</td>
+<td>(ndarray of double, shape (nineq, ndim)) Dual points of the input halfspaces.</td>
+</tr>
+<tr class="row-odd"><td>dual_facets</td>
+<td>(list of lists of ints) Indices of points forming the (non necessarily simplicial) facets of the dual convex hull.</td>
+</tr>
+<tr class="row-even"><td>dual_vertices</td>
+<td>(ndarray of ints, shape (nvertices,)) Indices of halfspaces forming the vertices of the dual convex hull. For 2-D convex hulls, the vertices are in counterclockwise order. For other dimensions, they are in input order.</td>
+</tr>
+<tr class="row-odd"><td>dual_equations</td>
+<td>(ndarray of double, shape (nfacet, ndim+1)) [normal, offset] forming the hyperplane equation of the dual facet (see <a class="reference external" href="http://www.qhull.org/">Qhull documentation</a>  for more).</td>
+</tr>
+<tr class="row-even"><td>dual_area</td>
+<td>(float) Area of the dual convex hull</td>
+</tr>
+<tr class="row-odd"><td>dual_volume</td>
+<td>(float) Volume of the dual convex hull</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="scipy.spatial.HalfspaceIntersection.add_halfspaces.html#scipy.spatial.HalfspaceIntersection.add_halfspaces" title="scipy.spatial.HalfspaceIntersection.add_halfspaces"><code class="xref py py-obj docutils literal"><span class="pre">add_halfspaces</span></code></a>(halfspaces[,&nbsp;restart])</td>
+<td>Process a set of additional new halfspaces.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.spatial.HalfspaceIntersection.close.html#scipy.spatial.HalfspaceIntersection.close" title="scipy.spatial.HalfspaceIntersection.close"><code class="xref py py-obj docutils literal"><span class="pre">close</span></code></a>()</td>
+<td>Finish incremental processing.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

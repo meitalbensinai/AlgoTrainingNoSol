@@ -1,0 +1,6 @@
+pandas.Int8Dtype.construct\_array\_type
+=======================================
+
+.. currentmodule:: pandas
+
+.. automethod:: Int8Dtype.construct_array_type

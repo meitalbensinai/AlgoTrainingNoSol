@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.arrays.DatetimeArray.take &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.arrays.DatetimeArray.to_julian_date" href="pandas.arrays.DatetimeArray.to_julian_date.html" />
+    <link rel="prev" title="pandas.arrays.DatetimeArray.strftime" href="pandas.arrays.DatetimeArray.strftime.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.arrays.DatetimeArray.to_julian_date.html" title="pandas.arrays.DatetimeArray.to_julian_date"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.arrays.DatetimeArray.strftime.html" title="pandas.arrays.DatetimeArray.strftime"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../arrays.html" >Pandas Arrays</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.arrays.DatetimeArray.html" accesskey="U">pandas.arrays.DatetimeArray</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-arrays-datetimearray-take">
+<h1>pandas.arrays.DatetimeArray.take<a class="headerlink" href="#pandas-arrays-datetimearray-take" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="pandas.arrays.DatetimeArray.take">
+<code class="descclassname">DatetimeArray.</code><code class="descname">take</code><span class="sig-paren">(</span><em>indices</em>, <em>allow_fill=False</em>, <em>fill_value=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/arrays/datetimelike.py#L587-L596"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.arrays.DatetimeArray.take" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take elements from an array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>indices</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of integers</span></dt>
+<dd><p class="first last">Indices to be taken.</p>
+</dd>
+<dt><strong>allow_fill</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first">How to handle negative values in <cite>indices</cite>.</p>
+<ul class="last simple">
+<li>False: negative values in <cite>indices</cite> indicate positional indices
+from the right (the default). This is similar to
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.take.html#numpy.take" title="(in NumPy v1.15)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.take()</span></code></a>.</li>
+<li>True: negative values in <cite>indices</cite> indicate
+missing values. These values are set to <cite>fill_value</cite>. Any other
+other negative values raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</li>
+</ul>
+</dd>
+<dt><strong>fill_value</strong> <span class="classifier-delimiter">:</span> <span class="classifier">any, optional</span></dt>
+<dd><p class="first">Fill value to use for NA-indices when <cite>allow_fill</cite> is True.
+This may be <code class="docutils literal notranslate"><span class="pre">None</span></code>, in which case the default NA value for
+the type, <code class="docutils literal notranslate"><span class="pre">self.dtype.na_value</span></code>, is used.</p>
+<p class="last">For many ExtensionArrays, there will be two representations of
+<cite>fill_value</cite>: a user-facing “boxed” scalar, and a low-level
+physical NA value. <cite>fill_value</cite> should be the user-facing version,
+and the implementation should handle translating that to the
+physical version for processing the take if necessary.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>ExtensionArray</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>IndexError</strong></dt>
+<dd><p class="first last">When the indices are out of bounds for the array.</p>
+</dd>
+<dt><strong>ValueError</strong></dt>
+<dd><p class="first last">When <cite>indices</cite> contains negative values other than <code class="docutils literal notranslate"><span class="pre">-1</span></code>
+and <cite>allow_fill</cite> is True.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.take.html#numpy.take" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.take</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.api.extensions.take</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p>ExtensionArray.take is called by <code class="docutils literal notranslate"><span class="pre">Series.__getitem__</span></code>, <code class="docutils literal notranslate"><span class="pre">.loc</span></code>,
+<code class="docutils literal notranslate"><span class="pre">iloc</span></code>, when <cite>indices</cite> is a sequence of values. Additionally,
+it’s called by <code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.reindex()</span></code>, or any other method
+that causes realignment, with a <cite>fill_value</cite>.</p>
+<p class="rubric">Examples</p>
+<p>Here’s an example implementation, which relies on casting the
+extension array to object dtype. This uses the helper method
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.api.extensions.take()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">take</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">allow_fill</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">pandas.core.algorithms</span> <span class="kn">import</span> <span class="n">take</span>
+
+    <span class="c1"># If the ExtensionArray is backed by an ndarray, then</span>
+    <span class="c1"># just pass that here instead of coercing to object.</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">allow_fill</span> <span class="ow">and</span> <span class="n">fill_value</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">fill_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">na_value</span>
+
+    <span class="c1"># fill value should always be translated from the scalar</span>
+    <span class="c1"># type for the array, to the physical storage type for</span>
+    <span class="c1"># the data, before passing to take.</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">take</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+                  <span class="n">allow_fill</span><span class="o">=</span><span class="n">allow_fill</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_from_sequence</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.arrays.DatetimeArray.to_julian_date.html" title="pandas.arrays.DatetimeArray.to_julian_date"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.arrays.DatetimeArray.strftime.html" title="pandas.arrays.DatetimeArray.strftime"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../arrays.html" >Pandas Arrays</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="pandas.arrays.DatetimeArray.html" >pandas.arrays.DatetimeArray</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

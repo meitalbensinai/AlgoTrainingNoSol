@@ -1,0 +1,6 @@
+pandas.arrays.IntegerArray.copy
+===============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntegerArray.copy

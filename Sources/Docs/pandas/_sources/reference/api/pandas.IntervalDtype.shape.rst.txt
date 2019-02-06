@@ -1,0 +1,6 @@
+pandas.IntervalDtype.shape
+==========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: IntervalDtype.shape

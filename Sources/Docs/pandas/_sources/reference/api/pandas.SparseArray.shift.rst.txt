@@ -1,0 +1,6 @@
+pandas.SparseArray.shift
+========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.shift

@@ -1,0 +1,6 @@
+pandas.arrays.IntegerArray.shape
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: IntegerArray.shape

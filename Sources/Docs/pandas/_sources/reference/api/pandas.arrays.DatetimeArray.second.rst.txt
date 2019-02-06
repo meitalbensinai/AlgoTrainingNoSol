@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.second
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.second

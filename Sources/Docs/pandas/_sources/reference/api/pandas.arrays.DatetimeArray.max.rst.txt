@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.max
+===============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.max

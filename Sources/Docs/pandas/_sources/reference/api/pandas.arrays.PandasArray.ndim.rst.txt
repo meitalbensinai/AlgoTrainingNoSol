@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.ndim
+==============================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: PandasArray.ndim

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.spatial.SphericalVoronoi.sort_vertices_of_regions &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="scipy.spatial.SphericalVoronoi" href="scipy.spatial.SphericalVoronoi.html" >
+    <link rel="next" title="scipy.spatial.HalfspaceIntersection" href="scipy.spatial.HalfspaceIntersection.html" >
+    <link rel="prev" title="scipy.spatial.SphericalVoronoi" href="scipy.spatial.SphericalVoronoi.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../spatial.html" >Spatial algorithms and data structures (<code class="docutils literal"><span class="pre">scipy.spatial</span></code>)</a></li>
+          <li class="active"><a href="scipy.spatial.SphericalVoronoi.html" accesskey="U">scipy.spatial.SphericalVoronoi</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.HalfspaceIntersection.html" title="scipy.spatial.HalfspaceIntersection"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.SphericalVoronoi.html" title="scipy.spatial.SphericalVoronoi"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.spatial.SphericalVoronoi.html"
+                        title="previous chapter">scipy.spatial.SphericalVoronoi</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.spatial.HalfspaceIntersection.html"
+                        title="next chapter">scipy.spatial.HalfspaceIntersection</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-spatial-sphericalvoronoi-sort-vertices-of-regions">
+<h1>scipy.spatial.SphericalVoronoi.sort_vertices_of_regions<a class="headerlink" href="#scipy-spatial-sphericalvoronoi-sort-vertices-of-regions" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="scipy.spatial.SphericalVoronoi.sort_vertices_of_regions">
+<code class="descclassname">SphericalVoronoi.</code><code class="descname">sort_vertices_of_regions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/spatial/_spherical_voronoi.py#L284-L307"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.spatial.SphericalVoronoi.sort_vertices_of_regions" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each region in regions, it sorts the indices of the Voronoi
+vertices such that the resulting points are in a clockwise or
+counterclockwise order around the generator point.</p>
+<p>This is done as follows: Recall that the n-th region in regions
+surrounds the n-th generator in points and that the k-th
+Voronoi vertex in vertices is the projected circumcenter of the
+tetrahedron obtained by the k-th triangle in _tri.simplices (and the
+origin). For each region n, we choose the first triangle (=Voronoi
+vertex) in _tri.simplices and a vertex of that triangle not equal to
+the center n. These determine a unique neighbor of that triangle,
+which is then chosen as the second triangle. The second triangle
+will have a unique vertex not equal to the current vertex or the
+center. This determines a unique neighbor of the second triangle,
+which is then chosen as the third triangle and so forth. We proceed
+through all the triangles (=Voronoi vertices) belonging to the
+generator in points and obtain a sorted version of the vertices
+of its surrounding region.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

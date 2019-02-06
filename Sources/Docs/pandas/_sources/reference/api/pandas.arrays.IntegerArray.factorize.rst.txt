@@ -1,0 +1,6 @@
+pandas.arrays.IntegerArray.factorize
+====================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntegerArray.factorize

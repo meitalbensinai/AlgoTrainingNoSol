@@ -1,0 +1,40 @@
+pandas.SparseDtype
+==================
+
+.. currentmodule:: pandas
+
+.. autoclass:: SparseDtype
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      SparseDtype.construct_array_type
+      SparseDtype.construct_from_string
+      SparseDtype.is_dtype
+      SparseDtype.update_dtype
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      SparseDtype.fill_value
+      SparseDtype.kind
+      SparseDtype.na_value
+      SparseDtype.name
+      SparseDtype.names
+      SparseDtype.subtype
+      SparseDtype.type
+
+

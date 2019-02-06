@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Statistical functions for masked arrays (scipy.stats.mstats) &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="up" title="Statistical functions (scipy.stats)" href="stats.html" >
+    <link rel="next" title="scipy.stats.mstats.argstoarray" href="generated/scipy.stats.mstats.argstoarray.html" >
+    <link rel="prev" title="scipy.stats.boxcox_normplot" href="generated/scipy.stats.boxcox_normplot.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="stats.html" accesskey="U">Statistical functions (<code class="docutils literal"><span class="pre">scipy.stats</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.stats.mstats.argstoarray.html" title="scipy.stats.mstats.argstoarray"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.stats.boxcox_normplot.html" title="scipy.stats.boxcox_normplot"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generated/scipy.stats.boxcox_normplot.html"
+                        title="previous chapter">scipy.stats.boxcox_normplot</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generated/scipy.stats.mstats.argstoarray.html"
+                        title="next chapter">scipy.stats.mstats.argstoarray</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <span class="target" id="module-scipy.stats.mstats"></span><div class="section" id="statistical-functions-for-masked-arrays-scipy-stats-mstats">
+<h1>Statistical functions for masked arrays (<a class="reference internal" href="#module-scipy.stats.mstats" title="scipy.stats.mstats"><code class="xref py py-mod docutils literal"><span class="pre">scipy.stats.mstats</span></code></a>)<a class="headerlink" href="#statistical-functions-for-masked-arrays-scipy-stats-mstats" title="Permalink to this headline">¶</a></h1>
+<p>This module contains a large number of statistical functions that can
+be used with masked arrays.</p>
+<p>Most of these functions are similar to those in scipy.stats but might
+have small differences in the API or in the algorithm used. Since this
+is a relatively new package, some API changes are still possible.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.argstoarray.html#scipy.stats.mstats.argstoarray" title="scipy.stats.mstats.argstoarray"><code class="xref py py-obj docutils literal"><span class="pre">argstoarray</span></code></a>(*args)</td>
+<td>Constructs a 2D array from a group of sequences.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.betai.html#scipy.stats.mstats.betai" title="scipy.stats.mstats.betai"><code class="xref py py-obj docutils literal"><span class="pre">betai</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.mstats.betai.html#scipy.stats.mstats.betai" title="scipy.stats.mstats.betai"><code class="xref py py-obj docutils literal"><span class="pre">betai</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.chisquare.html#scipy.stats.mstats.chisquare" title="scipy.stats.mstats.chisquare"><code class="xref py py-obj docutils literal"><span class="pre">chisquare</span></code></a>(f_obs[,&nbsp;f_exp,&nbsp;ddof,&nbsp;axis])</td>
+<td>Calculates a one-way chi square test.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.count_tied_groups.html#scipy.stats.mstats.count_tied_groups" title="scipy.stats.mstats.count_tied_groups"><code class="xref py py-obj docutils literal"><span class="pre">count_tied_groups</span></code></a>(x[,&nbsp;use_missing])</td>
+<td>Counts the number of tied values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.describe.html#scipy.stats.mstats.describe" title="scipy.stats.mstats.describe"><code class="xref py py-obj docutils literal"><span class="pre">describe</span></code></a>(a[,&nbsp;axis,&nbsp;ddof,&nbsp;bias])</td>
+<td>Computes several descriptive statistics of the passed array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.f_oneway.html#scipy.stats.mstats.f_oneway" title="scipy.stats.mstats.f_oneway"><code class="xref py py-obj docutils literal"><span class="pre">f_oneway</span></code></a>(*args)</td>
+<td>Performs a 1-way ANOVA, returning an F-value and probability given any number of groups.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.f_value_wilks_lambda.html#scipy.stats.mstats.f_value_wilks_lambda" title="scipy.stats.mstats.f_value_wilks_lambda"><code class="xref py py-obj docutils literal"><span class="pre">f_value_wilks_lambda</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.mstats.f_value_wilks_lambda.html#scipy.stats.mstats.f_value_wilks_lambda" title="scipy.stats.mstats.f_value_wilks_lambda"><code class="xref py py-obj docutils literal"><span class="pre">f_value_wilks_lambda</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.find_repeats.html#scipy.stats.mstats.find_repeats" title="scipy.stats.mstats.find_repeats"><code class="xref py py-obj docutils literal"><span class="pre">find_repeats</span></code></a>(arr)</td>
+<td>Find repeats in arr and return a tuple (repeats, repeat_count).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.friedmanchisquare.html#scipy.stats.mstats.friedmanchisquare" title="scipy.stats.mstats.friedmanchisquare"><code class="xref py py-obj docutils literal"><span class="pre">friedmanchisquare</span></code></a>(*args)</td>
+<td>Friedman Chi-Square is a non-parametric, one-way within-subjects ANOVA.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.kendalltau.html#scipy.stats.mstats.kendalltau" title="scipy.stats.mstats.kendalltau"><code class="xref py py-obj docutils literal"><span class="pre">kendalltau</span></code></a>(x,&nbsp;y[,&nbsp;use_ties,&nbsp;use_missing])</td>
+<td>Computes Kendall&#8217;s rank correlation tau on two variables <em>x</em> and <em>y</em>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.kendalltau_seasonal.html#scipy.stats.mstats.kendalltau_seasonal" title="scipy.stats.mstats.kendalltau_seasonal"><code class="xref py py-obj docutils literal"><span class="pre">kendalltau_seasonal</span></code></a>(x)</td>
+<td>Computes a multivariate Kendall&#8217;s rank correlation tau, for seasonal data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.kruskalwallis.html#scipy.stats.mstats.kruskalwallis" title="scipy.stats.mstats.kruskalwallis"><code class="xref py py-obj docutils literal"><span class="pre">kruskalwallis</span></code></a>(*args)</td>
+<td>Compute the Kruskal-Wallis H-test for independent samples</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.ks_twosamp.html#scipy.stats.mstats.ks_twosamp" title="scipy.stats.mstats.ks_twosamp"><code class="xref py py-obj docutils literal"><span class="pre">ks_twosamp</span></code></a>(data1,&nbsp;data2[,&nbsp;alternative])</td>
+<td>Computes the Kolmogorov-Smirnov test on two samples.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.kurtosis.html#scipy.stats.mstats.kurtosis" title="scipy.stats.mstats.kurtosis"><code class="xref py py-obj docutils literal"><span class="pre">kurtosis</span></code></a>(a[,&nbsp;axis,&nbsp;fisher,&nbsp;bias])</td>
+<td>Computes the kurtosis (Fisher or Pearson) of a dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.kurtosistest.html#scipy.stats.mstats.kurtosistest" title="scipy.stats.mstats.kurtosistest"><code class="xref py py-obj docutils literal"><span class="pre">kurtosistest</span></code></a>(a[,&nbsp;axis])</td>
+<td>Tests whether a dataset has normal kurtosis</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.linregress.html#scipy.stats.mstats.linregress" title="scipy.stats.mstats.linregress"><code class="xref py py-obj docutils literal"><span class="pre">linregress</span></code></a>(x[,&nbsp;y])</td>
+<td>Calculate a linear least-squares regression for two sets of measurements.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.mannwhitneyu.html#scipy.stats.mstats.mannwhitneyu" title="scipy.stats.mstats.mannwhitneyu"><code class="xref py py-obj docutils literal"><span class="pre">mannwhitneyu</span></code></a>(x,&nbsp;y[,&nbsp;use_continuity])</td>
+<td>Computes the Mann-Whitney statistic</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.plotting_positions.html#scipy.stats.mstats.plotting_positions" title="scipy.stats.mstats.plotting_positions"><code class="xref py py-obj docutils literal"><span class="pre">plotting_positions</span></code></a>(data[,&nbsp;alpha,&nbsp;beta])</td>
+<td>Returns plotting positions (or empirical percentile points) for the data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.mode.html#scipy.stats.mstats.mode" title="scipy.stats.mstats.mode"><code class="xref py py-obj docutils literal"><span class="pre">mode</span></code></a>(a[,&nbsp;axis])</td>
+<td>Returns an array of the modal (most common) value in the passed array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.moment.html#scipy.stats.mstats.moment" title="scipy.stats.mstats.moment"><code class="xref py py-obj docutils literal"><span class="pre">moment</span></code></a>(a[,&nbsp;moment,&nbsp;axis])</td>
+<td>Calculates the nth moment about the mean for a sample.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.mquantiles.html#scipy.stats.mstats.mquantiles" title="scipy.stats.mstats.mquantiles"><code class="xref py py-obj docutils literal"><span class="pre">mquantiles</span></code></a>(a[,&nbsp;prob,&nbsp;alphap,&nbsp;betap,&nbsp;axis,&nbsp;limit])</td>
+<td>Computes empirical quantiles for a data array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.msign.html#scipy.stats.mstats.msign" title="scipy.stats.mstats.msign"><code class="xref py py-obj docutils literal"><span class="pre">msign</span></code></a>(x)</td>
+<td>Returns the sign of x, or 0 if x is masked.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.normaltest.html#scipy.stats.mstats.normaltest" title="scipy.stats.mstats.normaltest"><code class="xref py py-obj docutils literal"><span class="pre">normaltest</span></code></a>(a[,&nbsp;axis])</td>
+<td>Tests whether a sample differs from a normal distribution.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.obrientransform.html#scipy.stats.mstats.obrientransform" title="scipy.stats.mstats.obrientransform"><code class="xref py py-obj docutils literal"><span class="pre">obrientransform</span></code></a>(*args)</td>
+<td>Computes a transform on input data (any number of columns).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.pearsonr.html#scipy.stats.mstats.pearsonr" title="scipy.stats.mstats.pearsonr"><code class="xref py py-obj docutils literal"><span class="pre">pearsonr</span></code></a>(x,&nbsp;y)</td>
+<td>Calculates a Pearson correlation coefficient and the p-value for testing non-correlation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.plotting_positions.html#scipy.stats.mstats.plotting_positions" title="scipy.stats.mstats.plotting_positions"><code class="xref py py-obj docutils literal"><span class="pre">plotting_positions</span></code></a>(data[,&nbsp;alpha,&nbsp;beta])</td>
+<td>Returns plotting positions (or empirical percentile points) for the data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.pointbiserialr.html#scipy.stats.mstats.pointbiserialr" title="scipy.stats.mstats.pointbiserialr"><code class="xref py py-obj docutils literal"><span class="pre">pointbiserialr</span></code></a>(x,&nbsp;y)</td>
+<td>Calculates a point biserial correlation coefficient and its p-value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.rankdata.html#scipy.stats.mstats.rankdata" title="scipy.stats.mstats.rankdata"><code class="xref py py-obj docutils literal"><span class="pre">rankdata</span></code></a>(data[,&nbsp;axis,&nbsp;use_missing])</td>
+<td>Returns the rank (also known as order statistics) of each data point along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.scoreatpercentile.html#scipy.stats.mstats.scoreatpercentile" title="scipy.stats.mstats.scoreatpercentile"><code class="xref py py-obj docutils literal"><span class="pre">scoreatpercentile</span></code></a>(data,&nbsp;per[,&nbsp;limit,&nbsp;...])</td>
+<td>Calculate the score at the given &#8216;per&#8217; percentile of the sequence a.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.sem.html#scipy.stats.mstats.sem" title="scipy.stats.mstats.sem"><code class="xref py py-obj docutils literal"><span class="pre">sem</span></code></a>(a[,&nbsp;axis,&nbsp;ddof])</td>
+<td>Calculates the standard error of the mean of the input array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.signaltonoise.html#scipy.stats.mstats.signaltonoise" title="scipy.stats.mstats.signaltonoise"><code class="xref py py-obj docutils literal"><span class="pre">signaltonoise</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.mstats.signaltonoise.html#scipy.stats.mstats.signaltonoise" title="scipy.stats.mstats.signaltonoise"><code class="xref py py-obj docutils literal"><span class="pre">signaltonoise</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.skew.html#scipy.stats.mstats.skew" title="scipy.stats.mstats.skew"><code class="xref py py-obj docutils literal"><span class="pre">skew</span></code></a>(a[,&nbsp;axis,&nbsp;bias])</td>
+<td>Computes the skewness of a data set.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.skewtest.html#scipy.stats.mstats.skewtest" title="scipy.stats.mstats.skewtest"><code class="xref py py-obj docutils literal"><span class="pre">skewtest</span></code></a>(a[,&nbsp;axis])</td>
+<td>Tests whether the skew is different from the normal distribution.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.spearmanr.html#scipy.stats.mstats.spearmanr" title="scipy.stats.mstats.spearmanr"><code class="xref py py-obj docutils literal"><span class="pre">spearmanr</span></code></a>(x,&nbsp;y[,&nbsp;use_ties])</td>
+<td>Calculates a Spearman rank-order correlation coefficient and the p-value to test for non-correlation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.theilslopes.html#scipy.stats.mstats.theilslopes" title="scipy.stats.mstats.theilslopes"><code class="xref py py-obj docutils literal"><span class="pre">theilslopes</span></code></a>(y[,&nbsp;x,&nbsp;alpha])</td>
+<td>Computes the Theil-Sen estimator for a set of points (x, y).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.threshold.html#scipy.stats.mstats.threshold" title="scipy.stats.mstats.threshold"><code class="xref py py-obj docutils literal"><span class="pre">threshold</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.mstats.threshold.html#scipy.stats.mstats.threshold" title="scipy.stats.mstats.threshold"><code class="xref py py-obj docutils literal"><span class="pre">threshold</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.tmax.html#scipy.stats.mstats.tmax" title="scipy.stats.mstats.tmax"><code class="xref py py-obj docutils literal"><span class="pre">tmax</span></code></a>(a[,&nbsp;upperlimit,&nbsp;axis,&nbsp;inclusive])</td>
+<td>Compute the trimmed maximum</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.tmean.html#scipy.stats.mstats.tmean" title="scipy.stats.mstats.tmean"><code class="xref py py-obj docutils literal"><span class="pre">tmean</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis])</td>
+<td>Compute the trimmed mean.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.tmin.html#scipy.stats.mstats.tmin" title="scipy.stats.mstats.tmin"><code class="xref py py-obj docutils literal"><span class="pre">tmin</span></code></a>(a[,&nbsp;lowerlimit,&nbsp;axis,&nbsp;inclusive])</td>
+<td>Compute the trimmed minimum</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.trim.html#scipy.stats.mstats.trim" title="scipy.stats.mstats.trim"><code class="xref py py-obj docutils literal"><span class="pre">trim</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;relative,&nbsp;axis])</td>
+<td>Trims an array by masking the data outside some given limits.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.trima.html#scipy.stats.mstats.trima" title="scipy.stats.mstats.trima"><code class="xref py py-obj docutils literal"><span class="pre">trima</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive])</td>
+<td>Trims an array by masking the data outside some given limits.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimboth.html#scipy.stats.mstats.trimboth" title="scipy.stats.mstats.trimboth"><code class="xref py py-obj docutils literal"><span class="pre">trimboth</span></code></a>(data[,&nbsp;proportiontocut,&nbsp;inclusive,&nbsp;...])</td>
+<td>Trims the smallest and largest data values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_stde.html#scipy.stats.mstats.trimmed_stde" title="scipy.stats.mstats.trimmed_stde"><code class="xref py py-obj docutils literal"><span class="pre">trimmed_stde</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis])</td>
+<td>Returns the standard error of the trimmed mean along the given axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimr.html#scipy.stats.mstats.trimr" title="scipy.stats.mstats.trimr"><code class="xref py py-obj docutils literal"><span class="pre">trimr</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis])</td>
+<td>Trims an array by masking some proportion of the data on each end.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimtail.html#scipy.stats.mstats.trimtail" title="scipy.stats.mstats.trimtail"><code class="xref py py-obj docutils literal"><span class="pre">trimtail</span></code></a>(data[,&nbsp;proportiontocut,&nbsp;tail,&nbsp;...])</td>
+<td>Trims the data by masking values from one tail.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.tsem.html#scipy.stats.mstats.tsem" title="scipy.stats.mstats.tsem"><code class="xref py py-obj docutils literal"><span class="pre">tsem</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis,&nbsp;ddof])</td>
+<td>Compute the trimmed standard error of the mean.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.ttest_onesamp.html#scipy.stats.mstats.ttest_onesamp" title="scipy.stats.mstats.ttest_onesamp"><code class="xref py py-obj docutils literal"><span class="pre">ttest_onesamp</span></code></a>(a,&nbsp;popmean[,&nbsp;axis])</td>
+<td>Calculates the T-test for the mean of ONE group of scores.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.ttest_ind.html#scipy.stats.mstats.ttest_ind" title="scipy.stats.mstats.ttest_ind"><code class="xref py py-obj docutils literal"><span class="pre">ttest_ind</span></code></a>(a,&nbsp;b[,&nbsp;axis,&nbsp;equal_var])</td>
+<td>Calculates the T-test for the means of TWO INDEPENDENT samples of scores.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.ttest_onesamp.html#scipy.stats.mstats.ttest_onesamp" title="scipy.stats.mstats.ttest_onesamp"><code class="xref py py-obj docutils literal"><span class="pre">ttest_onesamp</span></code></a>(a,&nbsp;popmean[,&nbsp;axis])</td>
+<td>Calculates the T-test for the mean of ONE group of scores.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.ttest_rel.html#scipy.stats.mstats.ttest_rel" title="scipy.stats.mstats.ttest_rel"><code class="xref py py-obj docutils literal"><span class="pre">ttest_rel</span></code></a>(a,&nbsp;b[,&nbsp;axis])</td>
+<td>Calculates the T-test on TWO RELATED samples of scores, a and b.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.tvar.html#scipy.stats.mstats.tvar" title="scipy.stats.mstats.tvar"><code class="xref py py-obj docutils literal"><span class="pre">tvar</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis,&nbsp;ddof])</td>
+<td>Compute the trimmed variance</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.variation.html#scipy.stats.mstats.variation" title="scipy.stats.mstats.variation"><code class="xref py py-obj docutils literal"><span class="pre">variation</span></code></a>(a[,&nbsp;axis])</td>
+<td>Computes the coefficient of variation, the ratio of the biased standard deviation to the mean.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.winsorize.html#scipy.stats.mstats.winsorize" title="scipy.stats.mstats.winsorize"><code class="xref py py-obj docutils literal"><span class="pre">winsorize</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;inplace,&nbsp;axis])</td>
+<td>Returns a Winsorized version of the input array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.zmap.html#scipy.stats.mstats.zmap" title="scipy.stats.mstats.zmap"><code class="xref py py-obj docutils literal"><span class="pre">zmap</span></code></a>(scores,&nbsp;compare[,&nbsp;axis,&nbsp;ddof])</td>
+<td>Calculates the relative z-scores.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.zscore.html#scipy.stats.mstats.zscore" title="scipy.stats.mstats.zscore"><code class="xref py py-obj docutils literal"><span class="pre">zscore</span></code></a>(a[,&nbsp;axis,&nbsp;ddof])</td>
+<td>Calculates the z score of each value in the sample, relative to the sample mean and standard deviation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.compare_medians_ms.html#scipy.stats.mstats.compare_medians_ms" title="scipy.stats.mstats.compare_medians_ms"><code class="xref py py-obj docutils literal"><span class="pre">compare_medians_ms</span></code></a>(group_1,&nbsp;group_2[,&nbsp;axis])</td>
+<td>Compares the medians from two independent groups along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.gmean.html#scipy.stats.mstats.gmean" title="scipy.stats.mstats.gmean"><code class="xref py py-obj docutils literal"><span class="pre">gmean</span></code></a>(a[,&nbsp;axis,&nbsp;dtype])</td>
+<td>Compute the geometric mean along the specified axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.hdmedian.html#scipy.stats.mstats.hdmedian" title="scipy.stats.mstats.hdmedian"><code class="xref py py-obj docutils literal"><span class="pre">hdmedian</span></code></a>(data[,&nbsp;axis,&nbsp;var])</td>
+<td>Returns the Harrell-Davis estimate of the median along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.hdquantiles.html#scipy.stats.mstats.hdquantiles" title="scipy.stats.mstats.hdquantiles"><code class="xref py py-obj docutils literal"><span class="pre">hdquantiles</span></code></a>(data[,&nbsp;prob,&nbsp;axis,&nbsp;var])</td>
+<td>Computes quantile estimates with the Harrell-Davis method.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.hdquantiles_sd.html#scipy.stats.mstats.hdquantiles_sd" title="scipy.stats.mstats.hdquantiles_sd"><code class="xref py py-obj docutils literal"><span class="pre">hdquantiles_sd</span></code></a>(data[,&nbsp;prob,&nbsp;axis])</td>
+<td>The standard error of the Harrell-Davis quantile estimates by jackknife.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.hmean.html#scipy.stats.mstats.hmean" title="scipy.stats.mstats.hmean"><code class="xref py py-obj docutils literal"><span class="pre">hmean</span></code></a>(a[,&nbsp;axis,&nbsp;dtype])</td>
+<td>Calculates the harmonic mean along the specified axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.idealfourths.html#scipy.stats.mstats.idealfourths" title="scipy.stats.mstats.idealfourths"><code class="xref py py-obj docutils literal"><span class="pre">idealfourths</span></code></a>(data[,&nbsp;axis])</td>
+<td>Returns an estimate of the lower and upper quartiles.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.kruskal.html#scipy.stats.mstats.kruskal" title="scipy.stats.mstats.kruskal"><code class="xref py py-obj docutils literal"><span class="pre">kruskal</span></code></a>(*args)</td>
+<td>Compute the Kruskal-Wallis H-test for independent samples</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.ks_2samp.html#scipy.stats.mstats.ks_2samp" title="scipy.stats.mstats.ks_2samp"><code class="xref py py-obj docutils literal"><span class="pre">ks_2samp</span></code></a>(data1,&nbsp;data2[,&nbsp;alternative])</td>
+<td>Computes the Kolmogorov-Smirnov test on two samples.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.median_cihs.html#scipy.stats.mstats.median_cihs" title="scipy.stats.mstats.median_cihs"><code class="xref py py-obj docutils literal"><span class="pre">median_cihs</span></code></a>(data[,&nbsp;alpha,&nbsp;axis])</td>
+<td>Computes the alpha-level confidence interval for the median of the data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.meppf.html#scipy.stats.mstats.meppf" title="scipy.stats.mstats.meppf"><code class="xref py py-obj docutils literal"><span class="pre">meppf</span></code></a>(data[,&nbsp;alpha,&nbsp;beta])</td>
+<td>Returns plotting positions (or empirical percentile points) for the data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.mjci.html#scipy.stats.mstats.mjci" title="scipy.stats.mstats.mjci"><code class="xref py py-obj docutils literal"><span class="pre">mjci</span></code></a>(data[,&nbsp;prob,&nbsp;axis])</td>
+<td>Returns the Maritz-Jarrett estimators of the standard error of selected experimental quantiles of the data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.mquantiles_cimj.html#scipy.stats.mstats.mquantiles_cimj" title="scipy.stats.mstats.mquantiles_cimj"><code class="xref py py-obj docutils literal"><span class="pre">mquantiles_cimj</span></code></a>(data[,&nbsp;prob,&nbsp;alpha,&nbsp;axis])</td>
+<td>Computes the alpha confidence interval for the selected quantiles of the data, with Maritz-Jarrett estimators.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.rsh.html#scipy.stats.mstats.rsh" title="scipy.stats.mstats.rsh"><code class="xref py py-obj docutils literal"><span class="pre">rsh</span></code></a>(data[,&nbsp;points])</td>
+<td>Evaluates Rosenblatt&#8217;s shifted histogram estimators for each point on the dataset &#8216;data&#8217;.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.sen_seasonal_slopes.html#scipy.stats.mstats.sen_seasonal_slopes" title="scipy.stats.mstats.sen_seasonal_slopes"><code class="xref py py-obj docutils literal"><span class="pre">sen_seasonal_slopes</span></code></a>(x)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_mean.html#scipy.stats.mstats.trimmed_mean" title="scipy.stats.mstats.trimmed_mean"><code class="xref py py-obj docutils literal"><span class="pre">trimmed_mean</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_mean_ci.html#scipy.stats.mstats.trimmed_mean_ci" title="scipy.stats.mstats.trimmed_mean_ci"><code class="xref py py-obj docutils literal"><span class="pre">trimmed_mean_ci</span></code></a>(data[,&nbsp;limits,&nbsp;inclusive,&nbsp;...])</td>
+<td>Selected confidence interval of the trimmed mean along the given axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_std.html#scipy.stats.mstats.trimmed_std" title="scipy.stats.mstats.trimmed_std"><code class="xref py py-obj docutils literal"><span class="pre">trimmed_std</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_var.html#scipy.stats.mstats.trimmed_var" title="scipy.stats.mstats.trimmed_var"><code class="xref py py-obj docutils literal"><span class="pre">trimmed_var</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mstats.ttest_1samp.html#scipy.stats.mstats.ttest_1samp" title="scipy.stats.mstats.ttest_1samp"><code class="xref py py-obj docutils literal"><span class="pre">ttest_1samp</span></code></a>(a,&nbsp;popmean[,&nbsp;axis])</td>
+<td>Calculates the T-test for the mean of ONE group of scores.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

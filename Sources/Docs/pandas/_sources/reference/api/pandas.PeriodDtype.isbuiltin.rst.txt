@@ -1,0 +1,6 @@
+pandas.PeriodDtype.isbuiltin
+============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: PeriodDtype.isbuiltin

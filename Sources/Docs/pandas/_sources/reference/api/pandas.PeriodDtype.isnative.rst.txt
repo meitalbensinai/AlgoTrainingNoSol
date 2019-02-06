@@ -1,0 +1,6 @@
+pandas.PeriodDtype.isnative
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: PeriodDtype.isnative

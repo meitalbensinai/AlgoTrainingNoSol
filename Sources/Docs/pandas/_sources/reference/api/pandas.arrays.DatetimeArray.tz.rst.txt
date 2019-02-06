@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.tz
+==============================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.tz

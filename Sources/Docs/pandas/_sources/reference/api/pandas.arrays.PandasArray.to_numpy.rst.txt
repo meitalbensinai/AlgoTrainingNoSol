@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.to\_numpy
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.to_numpy

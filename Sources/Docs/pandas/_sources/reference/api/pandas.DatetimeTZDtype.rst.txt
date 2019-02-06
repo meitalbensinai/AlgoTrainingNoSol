@@ -1,0 +1,47 @@
+pandas.DatetimeTZDtype
+======================
+
+.. currentmodule:: pandas
+
+.. autoclass:: DatetimeTZDtype
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      DatetimeTZDtype.construct_array_type
+      DatetimeTZDtype.construct_from_string
+      DatetimeTZDtype.is_dtype
+      DatetimeTZDtype.reset_cache
+
+
+
+
+   
+
+
+..
+   HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+   .. autosummary::
+      :toctree:
+      
+      DatetimeTZDtype.base
+      DatetimeTZDtype.isbuiltin
+      DatetimeTZDtype.isnative
+      DatetimeTZDtype.itemsize
+      DatetimeTZDtype.kind
+      DatetimeTZDtype.na_value
+      DatetimeTZDtype.name
+      DatetimeTZDtype.names
+      DatetimeTZDtype.num
+      DatetimeTZDtype.shape
+      DatetimeTZDtype.str
+      DatetimeTZDtype.subdtype
+      DatetimeTZDtype.tz
+      DatetimeTZDtype.unit
+
+

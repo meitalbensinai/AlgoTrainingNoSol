@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.asi8
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: TimedeltaArray.asi8

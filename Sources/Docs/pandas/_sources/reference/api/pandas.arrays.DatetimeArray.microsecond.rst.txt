@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.microsecond
+=======================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.microsecond

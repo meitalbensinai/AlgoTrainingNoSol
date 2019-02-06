@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.stats.binned_statistic &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Statistical functions (scipy.stats)" href="../stats.html" >
+    <link rel="next" title="scipy.stats.binned_statistic_2d" href="scipy.stats.binned_statistic_2d.html" >
+    <link rel="prev" title="scipy.stats.relfreq" href="scipy.stats.relfreq.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../stats.html" accesskey="U">Statistical functions (<code class="docutils literal"><span class="pre">scipy.stats</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.binned_statistic_2d.html" title="scipy.stats.binned_statistic_2d"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.relfreq.html" title="scipy.stats.relfreq"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.stats.relfreq.html"
+                        title="previous chapter">scipy.stats.relfreq</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.stats.binned_statistic_2d.html"
+                        title="next chapter">scipy.stats.binned_statistic_2d</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-stats-binned-statistic">
+<h1>scipy.stats.binned_statistic<a class="headerlink" href="#scipy-stats-binned-statistic" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.stats.binned_statistic">
+<code class="descclassname">scipy.stats.</code><code class="descname">binned_statistic</code><span class="sig-paren">(</span><em>x</em>, <em>values</em>, <em>statistic='mean'</em>, <em>bins=10</em>, <em>range=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/stats/_binned_statistic.py#L18-L182"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.stats.binned_statistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a binned statistic for one or more sets of data.</p>
+<p>This is a generalization of a histogram function.  A histogram divides
+the space into bins, and returns the count of the number of points in
+each bin.  This function allows the computation of the sum, mean, median,
+or other statistic of the values (or set of values) within each bin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : (N,) array_like</p>
+<blockquote>
+<div><p>A sequence of values to be binned.</p>
+</div></blockquote>
+<p><strong>values</strong> : (N,) array_like or list of (N,) array_like</p>
+<blockquote>
+<div><p>The data on which the statistic will be computed.  This must be
+the same shape as <em class="xref py py-obj">x</em>, or a set of sequences - each the same shape as
+<em class="xref py py-obj">x</em>.  If <em class="xref py py-obj">values</em> is a set of sequences, the statistic will be computed
+on each independently.</p>
+</div></blockquote>
+<p><strong>statistic</strong> : string or callable, optional</p>
+<blockquote>
+<div><p>The statistic to compute (default is &#8216;mean&#8217;).
+The following statistics are available:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;mean&#8217; : compute the mean of values for points within each bin.
+Empty bins will be represented by NaN.</li>
+<li>&#8216;median&#8217; : compute the median of values for points within each
+bin. Empty bins will be represented by NaN.</li>
+<li>&#8216;count&#8217; : compute the count of points within each bin.  This is
+identical to an unweighted histogram.  <em class="xref py py-obj">values</em> array is not
+referenced.</li>
+<li>&#8216;sum&#8217; : compute the sum of values for points within each bin.
+This is identical to a weighted histogram.</li>
+<li>&#8216;min&#8217; : compute the minimum of values for points within each bin.
+Empty bins will be represented by NaN.</li>
+<li>&#8216;max&#8217; : compute the maximum of values for point within each bin.
+Empty bins will be represented by NaN.</li>
+<li>function : a user-defined function which takes a 1D array of
+values, and outputs a single numerical statistic. This function
+will be called on the values in each bin.  Empty bins will be
+represented by function([]), or NaN if this returns an error.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>bins</strong> : int or sequence of scalars, optional</p>
+<blockquote>
+<div><p>If <em class="xref py py-obj">bins</em> is an int, it defines the number of equal-width bins in the
+given range (10 by default).  If <em class="xref py py-obj">bins</em> is a sequence, it defines the
+bin edges, including the rightmost edge, allowing for non-uniform bin
+widths.  Values in <em class="xref py py-obj">x</em> that are smaller than lowest bin edge are
+assigned to bin number 0, values beyond the highest bin are assigned to
+<code class="docutils literal"><span class="pre">bins[-1]</span></code>.  If the bin edges are specified, the number of bins will
+be, (nx = len(bins)-1).</p>
+</div></blockquote>
+<p><strong>range</strong> : (float, float) or [(float, float)], optional</p>
+<blockquote>
+<div><p>The lower and upper range of the bins.  If not provided, range
+is simply <code class="docutils literal"><span class="pre">(x.min(),</span> <span class="pre">x.max())</span></code>.  Values outside the range are
+ignored.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>statistic</strong> : array</p>
+<blockquote>
+<div><p>The values of the selected statistic in each bin.</p>
+</div></blockquote>
+<p><strong>bin_edges</strong> : array of dtype float</p>
+<blockquote>
+<div><p>Return the bin edges <code class="docutils literal"><span class="pre">(length(statistic)+1)</span></code>.</p>
+</div></blockquote>
+<p>binnumber: 1-D ndarray of ints</p>
+<blockquote class="last">
+<div><p>Indices of the bins (corresponding to <em class="xref py py-obj">bin_edges</em>) in which each value
+of <em class="xref py py-obj">x</em> belongs.  Same length as <em class="xref py py-obj">values</em>.  A binnumber of <em class="xref py py-obj">i</em> means the
+corresponding value is between (bin_edges[i-1], bin_edges[i]).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.digitize.html#numpy.digitize" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.digitize</span></code></a>, <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.histogram.html#numpy.histogram" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.histogram</span></code></a>, <a class="reference internal" href="scipy.stats.binned_statistic_2d.html#scipy.stats.binned_statistic_2d" title="scipy.stats.binned_statistic_2d"><code class="xref py py-obj docutils literal"><span class="pre">binned_statistic_2d</span></code></a>, <a class="reference internal" href="scipy.stats.binned_statistic_dd.html#scipy.stats.binned_statistic_dd" title="scipy.stats.binned_statistic_dd"><code class="xref py py-obj docutils literal"><span class="pre">binned_statistic_dd</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>All but the last (righthand-most) bin is half-open.  In other words, if
+<em class="xref py py-obj">bins</em> is <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>, then the first bin is <code class="docutils literal"><span class="pre">[1,</span> <span class="pre">2)</span></code> (including 1,
+but excluding 2) and the second <code class="docutils literal"><span class="pre">[2,</span> <span class="pre">3)</span></code>.  The last bin, however, is
+<code class="docutils literal"><span class="pre">[3,</span> <span class="pre">4]</span></code>, which <em>includes</em> 4.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.11.0.</span></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p>First some basic examples:</p>
+<p>Create two evenly spaced bins in the range of the given sample, and sum the
+corresponding values in each of those bins:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">values</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(array([ 4. ,  4.5]), array([ 1.,  4.,  7.]), array([1, 1, 1, 2, 2]))</span>
+</pre></div>
+</div>
+<p>Multiple arrays of values can also be passed.  The statistic is calculated
+on each set independently:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">values</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(array([[ 4. ,  4.5], [ 8. ,  9. ]]), array([ 1.,  4.,  7.]),</span>
+<span class="go">    array([1, 1, 1, 2, 2]))</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                       <span class="n">bins</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">(array([ 1.,  2.,  4.]), array([ 1.,  2.,  3.,  4.]),</span>
+<span class="go">    array([1, 2, 1, 2, 3]))</span>
+</pre></div>
+</div>
+<p>As a second example, we now generate some random data of sailing boat speed
+as a function of wind speed, and then determine how fast our boat is for
+certain wind speeds:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">windspeed</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">boatspeed</span> <span class="o">=</span> <span class="o">.</span><span class="mi">3</span> <span class="o">*</span> <span class="n">windspeed</span><span class="o">**.</span><span class="mi">5</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">windspeed</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="n">boatspeed</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">windspeed</span><span class="p">,</span> <span class="n">boatspeed</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;raw data&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;binned statistic of data&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now we can use <code class="docutils literal"><span class="pre">binnumber</span></code> to select all datapoints with a windspeed
+below 1:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">low_boatspeed</span> <span class="o">=</span> <span class="n">boatspeed</span><span class="p">[</span><span class="n">binnumber</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>As a final example, we will use <code class="docutils literal"><span class="pre">bin_edges</span></code> and <code class="docutils literal"><span class="pre">binnumber</span></code> to make a
+plot of a distribution that shows the mean and distribution around that
+mean per bin, on top of a regular histogram and the probability
+distribution function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">maxwell</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">samples</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">maxwell</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_pdf</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">statistic</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_centers</span> <span class="o">=</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">bin_width</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;stepfilled&#39;</span><span class="p">,</span>
+<span class="gp">... </span>         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;histogram of data&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_pdf</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;analytical pdf&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;binned statistic of data&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">binnumber</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">bin_width</span><span class="p">,</span> <span class="n">x_pdf</span><span class="p">,</span> <span class="s1">&#39;g.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../generated/scipy-stats-binned_statistic-1.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/scipy-stats-binned_statistic-1_00.png" src="../_images/scipy-stats-binned_statistic-1_00.png" />
+</div>
+<div class="figure">
+<img alt="../_images/scipy-stats-binned_statistic-1_01.png" src="../_images/scipy-stats-binned_statistic-1_01.png" />
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

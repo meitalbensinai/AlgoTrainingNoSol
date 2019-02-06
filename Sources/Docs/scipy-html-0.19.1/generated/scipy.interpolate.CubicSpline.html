@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.interpolate.CubicSpline &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Interpolation (scipy.interpolate)" href="../interpolate.html" >
+    <link rel="next" title="scipy.interpolate.CubicSpline.__call__" href="scipy.interpolate.CubicSpline.__call__.html" >
+    <link rel="prev" title="scipy.interpolate.Akima1DInterpolator.roots" href="scipy.interpolate.Akima1DInterpolator.roots.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../interpolate.html" accesskey="U">Interpolation (<code class="docutils literal"><span class="pre">scipy.interpolate</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.interpolate.CubicSpline.__call__.html" title="scipy.interpolate.CubicSpline.__call__"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.interpolate.Akima1DInterpolator.roots.html" title="scipy.interpolate.Akima1DInterpolator.roots"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.interpolate.Akima1DInterpolator.roots.html"
+                        title="previous chapter">scipy.interpolate.Akima1DInterpolator.roots</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.interpolate.CubicSpline.__call__.html"
+                        title="next chapter">scipy.interpolate.CubicSpline.__call__</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-interpolate-cubicspline">
+<h1>scipy.interpolate.CubicSpline<a class="headerlink" href="#scipy-interpolate-cubicspline" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="scipy.interpolate.CubicSpline">
+<em class="property">class </em><code class="descclassname">scipy.interpolate.</code><code class="descname">CubicSpline</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>axis=0</em>, <em>bc_type='not-a-knot'</em>, <em>extrapolate=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/interpolate/_cubic.py#L352-L770"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.interpolate.CubicSpline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cubic spline data interpolator.</p>
+<p>Interpolate data with a piecewise cubic polynomial which is twice
+continuously differentiable <a class="reference internal" href="#r58" id="id1">[R58]</a>. The result is represented as a <a class="reference internal" href="scipy.interpolate.PPoly.html#scipy.interpolate.PPoly" title="scipy.interpolate.PPoly"><code class="xref py py-obj docutils literal"><span class="pre">PPoly</span></code></a>
+instance with breakpoints matching the given data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like, shape (n,)</p>
+<blockquote>
+<div><p>1-d array containing values of the independent variable.
+Values must be real, finite and in strictly increasing order.</p>
+</div></blockquote>
+<p><strong>y</strong> : array_like</p>
+<blockquote>
+<div><p>Array containing values of the dependent variable. It can have
+arbitrary number of dimensions, but the length along <a class="reference internal" href="scipy.interpolate.CubicSpline.axis.html#scipy.interpolate.CubicSpline.axis" title="scipy.interpolate.CubicSpline.axis"><code class="xref py py-obj docutils literal"><span class="pre">axis</span></code></a> (see below)
+must match the length of <a class="reference internal" href="scipy.interpolate.CubicSpline.x.html#scipy.interpolate.CubicSpline.x" title="scipy.interpolate.CubicSpline.x"><code class="xref py py-obj docutils literal"><span class="pre">x</span></code></a>. Values must be finite.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>Axis along which <em class="xref py py-obj">y</em> is assumed to be varying. Meaning that for
+<code class="docutils literal"><span class="pre">x[i]</span></code> the corresponding values are <code class="docutils literal"><span class="pre">np.take(y,</span> <span class="pre">i,</span> <span class="pre">axis=axis)</span></code>.
+Default is 0.</p>
+</div></blockquote>
+<p><strong>bc_type</strong> : string or 2-tuple, optional</p>
+<blockquote>
+<div><p>Boundary condition type. Two additional equations, given by the
+boundary conditions, are required to determine all coefficients of
+polynomials on each segment <a class="reference internal" href="#r59" id="id2">[R59]</a>.</p>
+<p>If <em class="xref py py-obj">bc_type</em> is a string, then the specified condition will be applied
+at both ends of a spline. Available conditions are:</p>
+<ul class="simple">
+<li>&#8216;not-a-knot&#8217; (default): The first and second segment at a curve end
+are the same polynomial. It is a good default when there is no
+information on boundary conditions.</li>
+<li>&#8216;periodic&#8217;: The interpolated functions is assumed to be periodic
+of period <code class="docutils literal"><span class="pre">x[-1]</span> <span class="pre">-</span> <span class="pre">x[0]</span></code>. The first and last value of <em class="xref py py-obj">y</em> must be
+identical: <code class="docutils literal"><span class="pre">y[0]</span> <span class="pre">==</span> <span class="pre">y[-1]</span></code>. This boundary condition will result in
+<code class="docutils literal"><span class="pre">y'[0]</span> <span class="pre">==</span> <span class="pre">y'[-1]</span></code> and <code class="docutils literal"><span class="pre">y''[0]</span> <span class="pre">==</span> <span class="pre">y''[-1]</span></code>.</li>
+<li>&#8216;clamped&#8217;: The first derivative at curves ends are zero. Assuming
+a 1D <em class="xref py py-obj">y</em>, <code class="docutils literal"><span class="pre">bc_type=((1,</span> <span class="pre">0.0),</span> <span class="pre">(1,</span> <span class="pre">0.0))</span></code> is the same condition.</li>
+<li>&#8216;natural&#8217;: The second derivative at curve ends are zero. Assuming
+a 1D <em class="xref py py-obj">y</em>, <code class="docutils literal"><span class="pre">bc_type=((2,</span> <span class="pre">0.0),</span> <span class="pre">(2,</span> <span class="pre">0.0))</span></code> is the same condition.</li>
+</ul>
+<p>If <em class="xref py py-obj">bc_type</em> is a 2-tuple, the first and the second value will be
+applied at the curve start and end respectively. The tuple values can
+be one of the previously mentioned strings (except &#8216;periodic&#8217;) or a
+tuple <em class="xref py py-obj">(order, deriv_values)</em> allowing to specify arbitrary
+derivatives at curve ends:</p>
+<ul class="simple">
+<li><em class="xref py py-obj">order</em>: the derivative order, 1 or 2.</li>
+<li><em class="xref py py-obj">deriv_value</em>: array_like containing derivative values, shape must
+be the same as <em class="xref py py-obj">y</em>, excluding <a class="reference internal" href="scipy.interpolate.CubicSpline.axis.html#scipy.interpolate.CubicSpline.axis" title="scipy.interpolate.CubicSpline.axis"><code class="xref py py-obj docutils literal"><span class="pre">axis</span></code></a> dimension. For example, if <em class="xref py py-obj">y</em>
+is 1D, then <em class="xref py py-obj">deriv_value</em> must be a scalar. If <em class="xref py py-obj">y</em> is 3D with the
+shape (n0, n1, n2) and axis=2, then <em class="xref py py-obj">deriv_value</em> must be 2D
+and have the shape (n0, n1).</li>
+</ul>
+</div></blockquote>
+<p><strong>extrapolate</strong> : {bool, &#8216;periodic&#8217;, None}, optional</p>
+<blockquote class="last">
+<div><p>If bool, determines whether to extrapolate to out-of-bounds points
+based on first and last intervals, or to return NaNs. If &#8216;periodic&#8217;,
+periodic extrapolation is used. If None (default), <a class="reference internal" href="scipy.interpolate.CubicSpline.extrapolate.html#scipy.interpolate.CubicSpline.extrapolate" title="scipy.interpolate.CubicSpline.extrapolate"><code class="xref py py-obj docutils literal"><span class="pre">extrapolate</span></code></a> is
+set to &#8216;periodic&#8217; for <code class="docutils literal"><span class="pre">bc_type='periodic'</span></code> and to True otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="scipy.interpolate.Akima1DInterpolator.html#scipy.interpolate.Akima1DInterpolator" title="scipy.interpolate.Akima1DInterpolator"><code class="xref py py-obj docutils literal"><span class="pre">Akima1DInterpolator</span></code></a>, <a class="reference internal" href="scipy.interpolate.PchipInterpolator.html#scipy.interpolate.PchipInterpolator" title="scipy.interpolate.PchipInterpolator"><code class="xref py py-obj docutils literal"><span class="pre">PchipInterpolator</span></code></a>, <a class="reference internal" href="scipy.interpolate.PPoly.html#scipy.interpolate.PPoly" title="scipy.interpolate.PPoly"><code class="xref py py-obj docutils literal"><span class="pre">PPoly</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>Parameters <em class="xref py py-obj">bc_type</em> and <code class="xref py py-obj docutils literal"><span class="pre">interpolate</span></code> work independently, i.e. the former
+controls only construction of a spline, and the latter only evaluation.</p>
+<p>When a boundary condition is &#8216;not-a-knot&#8217; and n = 2, it is replaced by
+a condition that the first derivative is equal to the linear interpolant
+slope. When both boundary conditions are &#8216;not-a-knot&#8217; and n = 3, the
+solution is sought as a parabola passing through given points.</p>
+<p>When &#8216;not-a-knot&#8217; boundary conditions is applied to both ends, the
+resulting spline will be the same as returned by <a class="reference internal" href="scipy.interpolate.splrep.html#scipy.interpolate.splrep" title="scipy.interpolate.splrep"><code class="xref py py-obj docutils literal"><span class="pre">splrep</span></code></a> (with <code class="docutils literal"><span class="pre">s=0</span></code>)
+and <a class="reference internal" href="scipy.interpolate.InterpolatedUnivariateSpline.html#scipy.interpolate.InterpolatedUnivariateSpline" title="scipy.interpolate.InterpolatedUnivariateSpline"><code class="xref py py-obj docutils literal"><span class="pre">InterpolatedUnivariateSpline</span></code></a>, but these two methods use a
+representation in B-spline basis.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.18.0.</span></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r58" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R58]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> <a class="reference external" href="https://en.wikiversity.org/wiki/Cubic_Spline_Interpolation">Cubic Spline Interpolation</a>
+on Wikiversity.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r59" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R59]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id4">2</a>)</em> Carl de Boor, &#8220;A Practical Guide to Splines&#8221;, Springer-Verlag, 1978.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>In this example the cubic spline is used to interpolate a sampled sinusoid.
+You can see that the spline continuity property holds for the first and
+second derivatives and violates only for the third derivative.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">CubicSpline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">9.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;S&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;S&#39;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;S&#39;&#39;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;S&#39;&#39;&#39;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../generated/scipy-interpolate-CubicSpline-1.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/scipy-interpolate-CubicSpline-1_00_00.png" src="../_images/scipy-interpolate-CubicSpline-1_00_00.png" />
+</div>
+<p>In the second example, the unit circle is interpolated with a spline. A
+periodic boundary condition is used. You can see that the first derivative
+values, ds/dx=0, ds/dy=1 at the periodic point (1, 0) are correctly
+computed. Note that a circle cannot be exactly represented by a cubic
+spline. To increase precision, more breakpoints would be required.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">bc_type</span><span class="o">=</span><span class="s1">&#39;periodic&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ds/dx=</span><span class="si">{:.1f}</span><span class="s2"> ds/dy=</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="go">ds/dx=0.0 ds/dy=1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cs</span><span class="p">(</span><span class="n">xs</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cs</span><span class="p">(</span><span class="n">xs</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;spline&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/scipy-interpolate-CubicSpline-1_01_00.png" src="../_images/scipy-interpolate-CubicSpline-1_01_00.png" />
+</div>
+<p>The third example is the interpolation of a polynomial y = x**3 on the
+interval 0 &lt;= x&lt;= 1. A cubic spline can represent this function exactly.
+To achieve that we need to specify values and first derivatives at
+endpoints of the interval. Note that y&#8217; = 3 * x**2 and thus y&#8217;(0) = 0 and
+y&#8217;(1) = 3.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bc_type</span><span class="o">=</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="1%" />
+<col width="99%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>x</td>
+<td>(ndarray, shape (n,)) Breakpoints. The same <a class="reference internal" href="scipy.interpolate.CubicSpline.x.html#scipy.interpolate.CubicSpline.x" title="scipy.interpolate.CubicSpline.x"><code class="xref py py-obj docutils literal"><span class="pre">x</span></code></a> which was passed to the constructor.</td>
+</tr>
+<tr class="row-even"><td>c</td>
+<td>(ndarray, shape (4, n-1, ...)) Coefficients of the polynomials on each segment. The trailing dimensions match the dimensions of <em class="xref py py-obj">y</em>, excluding <a class="reference internal" href="scipy.interpolate.CubicSpline.axis.html#scipy.interpolate.CubicSpline.axis" title="scipy.interpolate.CubicSpline.axis"><code class="xref py py-obj docutils literal"><span class="pre">axis</span></code></a>. For example, if <em class="xref py py-obj">y</em> is 1-d, then <code class="docutils literal"><span class="pre">c[k,</span> <span class="pre">i]</span></code> is a coefficient for <code class="docutils literal"><span class="pre">(x-x[i])**(3-k)</span></code> on the segment between <code class="docutils literal"><span class="pre">x[i]</span></code> and <code class="docutils literal"><span class="pre">x[i+1]</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>axis</td>
+<td>(int) Interpolation axis. The same <a class="reference internal" href="scipy.interpolate.CubicSpline.axis.html#scipy.interpolate.CubicSpline.axis" title="scipy.interpolate.CubicSpline.axis"><code class="xref py py-obj docutils literal"><span class="pre">axis</span></code></a> which was passed to the constructor.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="scipy.interpolate.CubicSpline.__call__.html#scipy.interpolate.CubicSpline.__call__" title="scipy.interpolate.CubicSpline.__call__"><code class="xref py py-obj docutils literal"><span class="pre">__call__</span></code></a>(x[,&nbsp;nu,&nbsp;extrapolate])</td>
+<td>Evaluate the piecewise polynomial or its derivative.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.interpolate.CubicSpline.derivative.html#scipy.interpolate.CubicSpline.derivative" title="scipy.interpolate.CubicSpline.derivative"><code class="xref py py-obj docutils literal"><span class="pre">derivative</span></code></a>([nu])</td>
+<td>Construct a new piecewise polynomial representing the derivative.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.interpolate.CubicSpline.antiderivative.html#scipy.interpolate.CubicSpline.antiderivative" title="scipy.interpolate.CubicSpline.antiderivative"><code class="xref py py-obj docutils literal"><span class="pre">antiderivative</span></code></a>([nu])</td>
+<td>Construct a new piecewise polynomial representing the antiderivative.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="scipy.interpolate.CubicSpline.integrate.html#scipy.interpolate.CubicSpline.integrate" title="scipy.interpolate.CubicSpline.integrate"><code class="xref py py-obj docutils literal"><span class="pre">integrate</span></code></a>(a,&nbsp;b[,&nbsp;extrapolate])</td>
+<td>Compute a definite integral over a piecewise polynomial.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="scipy.interpolate.CubicSpline.roots.html#scipy.interpolate.CubicSpline.roots" title="scipy.interpolate.CubicSpline.roots"><code class="xref py py-obj docutils literal"><span class="pre">roots</span></code></a>([discontinuity,&nbsp;extrapolate])</td>
+<td>Find real roots of the the piecewise polynomial.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

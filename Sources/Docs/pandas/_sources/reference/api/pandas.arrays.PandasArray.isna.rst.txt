@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.isna
+==============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.isna

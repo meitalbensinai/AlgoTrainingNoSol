@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.ndim
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: IntervalArray.ndim

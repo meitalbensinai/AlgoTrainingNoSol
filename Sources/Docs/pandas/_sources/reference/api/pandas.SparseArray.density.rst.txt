@@ -1,0 +1,6 @@
+pandas.SparseArray.density
+==========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.density

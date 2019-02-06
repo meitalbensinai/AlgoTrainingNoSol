@@ -1,0 +1,6 @@
+pandas.IntervalDtype.isbuiltin
+==============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: IntervalDtype.isbuiltin

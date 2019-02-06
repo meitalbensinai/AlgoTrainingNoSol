@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.Series.str.findall &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.Series.str.get" href="pandas.Series.str.get.html" />
+    <link rel="prev" title="pandas.Series.str.find" href="pandas.Series.str.find.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.str.get.html" title="pandas.Series.str.get"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.str.find.html" title="pandas.Series.str.find"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../series.html" accesskey="U">Series</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-series-str-findall">
+<h1>pandas.Series.str.findall<a class="headerlink" href="#pandas-series-str-findall" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="pandas.Series.str.findall">
+<code class="descclassname">Series.str.</code><code class="descname">findall</code><span class="sig-paren">(</span><em>pat</em>, <em>flags=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/core/strings.py#L1755-L1757"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.Series.str.findall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all occurrences of pattern or regular expression in the Series/Index.</p>
+<p>Equivalent to applying <a class="reference external" href="https://docs.python.org/3/library/re.html#re.findall" title="(in Python v3.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">re.findall()</span></code></a> to all the elements in the
+Series/Index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>pat</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Pattern or regular expression.</p>
+</dd>
+<dt><strong>flags</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default 0</span></dt>
+<dd><p class="first last"><code class="docutils literal notranslate"><span class="pre">re</span></code> module flags, e.g. <cite>re.IGNORECASE</cite> (default is 0, which means
+no flags).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Series/Index of lists of strings</strong></dt>
+<dd><p class="first last">All non-overlapping matches of pattern or regular expression in each
+string of this Series/Index.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="pandas.Series.str.count.html#pandas.Series.str.count" title="pandas.Series.str.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a></dt>
+<dd>Count occurrences of pattern or regular expression in each string of the Series/Index.</dd>
+<dt><a class="reference internal" href="pandas.Series.str.extractall.html#pandas.Series.str.extractall" title="pandas.Series.str.extractall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extractall</span></code></a></dt>
+<dd>For each string in the Series, extract groups from all matches of regular expression and return a DataFrame with one row for each match and one column for each group.</dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/re.html#re.findall" title="(in Python v3.7)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">re.findall</span></code></a></dt>
+<dd>The equivalent <code class="docutils literal notranslate"><span class="pre">re</span></code> function to all non-overlapping matches of pattern or regular expression in string, as a list of strings.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Lion&#39;</span><span class="p">,</span> <span class="s1">&#39;Monkey&#39;</span><span class="p">,</span> <span class="s1">&#39;Rabbit&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The search for the pattern ‘Monkey’ returns one match:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;Monkey&#39;</span><span class="p">)</span>
+<span class="go">0          []</span>
+<span class="go">1    [Monkey]</span>
+<span class="go">2          []</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>On the other hand, the search for the pattern ‘MONKEY’ doesn’t return any
+match:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;MONKEY&#39;</span><span class="p">)</span>
+<span class="go">0    []</span>
+<span class="go">1    []</span>
+<span class="go">2    []</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>Flags can be added to the pattern or regular expression. For instance,
+to find the pattern ‘MONKEY’ ignoring the case:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;MONKEY&#39;</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="go">0          []</span>
+<span class="go">1    [Monkey]</span>
+<span class="go">2          []</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>When the pattern matches more than one string in the Series, all matches
+are returned:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="go">0    [on]</span>
+<span class="go">1    [on]</span>
+<span class="go">2      []</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>Regular expressions are supported too. For instance, the search for all the
+strings ending with the word ‘on’ is shown next:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;on$&#39;</span><span class="p">)</span>
+<span class="go">0    [on]</span>
+<span class="go">1      []</span>
+<span class="go">2      []</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+<p>If the pattern is found more than once in the same string, then a list of
+multiple strings is returned:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="go">0        []</span>
+<span class="go">1        []</span>
+<span class="go">2    [b, b]</span>
+<span class="go">dtype: object</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.str.get.html" title="pandas.Series.str.get"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.Series.str.find.html" title="pandas.Series.str.find"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../series.html" >Series</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.month
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.month

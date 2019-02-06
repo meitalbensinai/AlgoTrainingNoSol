@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.dropna
+===================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.dropna

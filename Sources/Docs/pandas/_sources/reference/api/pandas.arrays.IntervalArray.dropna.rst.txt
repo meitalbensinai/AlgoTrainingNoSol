@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.dropna
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntervalArray.dropna

@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.inferred\_freq
+===========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: TimedeltaArray.inferred_freq

@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.inferred\_freq
+==========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.inferred_freq

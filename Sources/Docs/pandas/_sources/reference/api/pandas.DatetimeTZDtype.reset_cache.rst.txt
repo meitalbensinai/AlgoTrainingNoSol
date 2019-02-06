@@ -1,0 +1,6 @@
+pandas.DatetimeTZDtype.reset\_cache
+===================================
+
+.. currentmodule:: pandas
+
+.. automethod:: DatetimeTZDtype.reset_cache

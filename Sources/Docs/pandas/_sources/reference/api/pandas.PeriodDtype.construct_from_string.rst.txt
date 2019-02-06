@@ -1,0 +1,6 @@
+pandas.PeriodDtype.construct\_from\_string
+==========================================
+
+.. currentmodule:: pandas
+
+.. automethod:: PeriodDtype.construct_from_string

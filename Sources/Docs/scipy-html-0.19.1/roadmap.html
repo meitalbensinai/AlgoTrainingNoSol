@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>SciPy Roadmap &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="next" title="Clustering package (scipy.cluster)" href="cluster.html" >
+    <link rel="prev" title="SciPy Developer Guide" href="dev/index.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="cluster.html" title="Clustering package (scipy.cluster)"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="dev/index.html" title="SciPy Developer Guide"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SciPy Roadmap</a><ul>
+<li><a class="reference internal" href="#general">General</a><ul>
+<li><a class="reference internal" href="#api-changes">API changes</a></li>
+<li><a class="reference internal" href="#test-coverage">Test coverage</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modules">Modules</a><ul>
+<li><a class="reference internal" href="#cluster">cluster</a></li>
+<li><a class="reference internal" href="#constants">constants</a></li>
+<li><a class="reference internal" href="#fftpack">fftpack</a></li>
+<li><a class="reference internal" href="#integrate">integrate</a></li>
+<li><a class="reference internal" href="#interpolate">interpolate</a></li>
+<li><a class="reference internal" href="#io">io</a></li>
+<li><a class="reference internal" href="#linalg">linalg</a></li>
+<li><a class="reference internal" href="#misc">misc</a></li>
+<li><a class="reference internal" href="#ndimage">ndimage</a></li>
+<li><a class="reference internal" href="#odr">odr</a></li>
+<li><a class="reference internal" href="#optimize">optimize</a></li>
+<li><a class="reference internal" href="#signal">signal</a></li>
+<li><a class="reference internal" href="#sparse">sparse</a></li>
+<li><a class="reference internal" href="#sparse-csgraph">sparse.csgraph</a></li>
+<li><a class="reference internal" href="#sparse-linalg">sparse.linalg</a></li>
+<li><a class="reference internal" href="#spatial">spatial</a></li>
+<li><a class="reference internal" href="#special">special</a></li>
+<li><a class="reference internal" href="#stats">stats</a></li>
+<li><a class="reference internal" href="#weave">weave</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#new-modules-under-discussion">New modules under discussion</a><ul>
+<li><a class="reference internal" href="#diff">diff</a></li>
+<li><a class="reference internal" href="#transforms">transforms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dev/index.html"
+                        title="previous chapter">SciPy Developer Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cluster.html"
+                        title="next chapter">Clustering package (<code class="docutils literal"><span class="pre">scipy.cluster</span></code>)</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-roadmap">
+<h1>SciPy Roadmap<a class="headerlink" href="#scipy-roadmap" title="Permalink to this headline">¶</a></h1>
+<p>Most of this roadmap is intended to provide a high-level view on what is
+most needed per SciPy submodule in terms of new functionality, bug fixes, etc.
+Part of those are must-haves for the <code class="docutils literal"><span class="pre">1.0</span></code> version of Scipy.
+Furthermore it contains ideas for major new features - those are marked as such,
+and are not needed for SciPy to become 1.0.  Things not mentioned in this roadmap are
+not necessarily unimportant or out of scope, however we (the SciPy developers)
+want to provide to our users and contributors a clear picture of where SciPy is
+going and where help is needed most urgently.</p>
+<p>When a module is in a 1.0-ready state, it means that it has the functionality
+we consider essential and has an API and code quality (including documentation
+and tests) that&#8217;s of high enough quality.</p>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<p>This roadmap will be evolving together with SciPy.  Updates can be submitted as
+pull requests.  For large or disruptive changes you may want to discuss
+those first on the scipy-dev mailing list.</p>
+<div class="section" id="api-changes">
+<h3>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
+<p>In general, we want to take advantage of the major version change to fix some
+known warts in the API.  The change from 0.x.x to 1.x.x is the chance to fix
+those API issues that we all know are ugly warts.  Example: unify the
+convention for specifying tolerances (including absolute, relative, argument
+and function value tolerances) of the optimization functions.  More API issues
+will be noted in the module sections below.  However, there should be
+<em>clear value</em> in making a breaking change.  The 1.0 version label is not a
+license to just break things - see it as a normal release with a somewhat
+more aggressive/extensive set of cleanups.</p>
+<p>It should be made more clear what is public and what is private in SciPy.
+Everything private should be underscored as much as possible.  Now this is done
+consistently when we add new code, but for 1.0 it should also be done for
+existing code.</p>
+</div>
+<div class="section" id="test-coverage">
+<h3>Test coverage<a class="headerlink" href="#test-coverage" title="Permalink to this headline">¶</a></h3>
+<p>Test coverage of code added in the last few years is quite good, and we aim for
+a high coverage for all new code that is added.  However, there is still a
+significant amount of old code for which coverage is poor.  Bringing that up to
+the current standard is probably not realistic, but we should plug the biggest
+holes.  Additionally the coverage should be tracked over time and we should
+ensure it only goes up.</p>
+<p>Besides coverage there is also the issue of correctness - older code may have a
+few tests that provide decent statement coverage, but that doesn&#8217;t necessarily
+say much about whether the code does what it says on the box.  Therefore code
+review of some parts of the code (<code class="docutils literal"><span class="pre">stats</span></code> and <code class="docutils literal"><span class="pre">signal</span></code> in particular) is
+necessary.</p>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>The documentation is in decent shape.  Expanding of current docstrings and
+putting them in the standard NumPy format should continue, so the number of
+reST errors and glitches in the html docs decreases.  Most modules also have a
+tutorial in the reference guide that is a good introduction, however there are
+a few missing or incomplete tutorials - this should be fixed.</p>
+</div>
+<div class="section" id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h3>
+<p>Scipy 1.0 will likely contain more backwards-incompatible changes than a minor
+release.  Therefore we will have a longer-lived maintenance branch of the last
+0.X release.</p>
+<p>Regarding Cython code:</p>
+<blockquote>
+<div><ul class="simple">
+<li>It&#8217;s not clear how much functionality can be Cythonized without making the
+.so files too large.  This needs measuring.</li>
+<li>Cython&#8217;s old syntax for using NumPy arrays should be removed and replaced
+with Cython memoryviews.</li>
+<li>New feature idea: more of the currently wrapped libraries should export
+Cython-importable versions that can be used without linking.</li>
+</ul>
+</div></blockquote>
+<p>Regarding build environments:</p>
+<blockquote>
+<div><ul class="simple">
+<li>NumPy and SciPy should both build from source on Windows with a MinGW-w64
+toolchain and be compatible with Python
+installations compiled with either the same MinGW or with MSVC.</li>
+<li>Bento development has stopped, so will remain having an experimental,
+use-at-your-own-risk status.  Only the people that use it will be
+responsible for keeping the Bento build updated.</li>
+</ul>
+</div></blockquote>
+<p>A more complete continuous integration setup is needed; at the moment we often
+find out right before a release that there are issues on some less-often used
+platform or Python version.  At least needed are Windows (MSVC and MingwPy),
+Linux and OS X builds, coverage of the lowest and highest Python and NumPy
+versions that are supported.</p>
+</div>
+</div>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cluster">
+<h3>cluster<a class="headerlink" href="#cluster" title="Permalink to this headline">¶</a></h3>
+<p>This module is in good shape.</p>
+</div>
+<div class="section" id="constants">
+<h3>constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h3>
+<p>This module is basically done, low-maintenance and without open issues.</p>
+</div>
+<div class="section" id="fftpack">
+<h3>fftpack<a class="headerlink" href="#fftpack" title="Permalink to this headline">¶</a></h3>
+<p>Needed:</p>
+<blockquote>
+<div><ul class="simple">
+<li>solve issues with single precision: large errors, disabled for difficult sizes</li>
+<li>fix caching bug</li>
+<li>Bluestein algorithm (or chirp Z-transform)</li>
+<li>deprecate fftpack.convolve as public function (was not meant to be public)</li>
+</ul>
+</div></blockquote>
+<p>There&#8217;s a large overlap with <code class="docutils literal"><span class="pre">numpy.fft</span></code>.  This duplication has to change
+(both are too widely used to deprecate one); in the documentation we should
+make clear that <code class="docutils literal"><span class="pre">scipy.fftpack</span></code> is preferred over <code class="docutils literal"><span class="pre">numpy.fft</span></code>.
+If there are differences in signature or functionality, the best version
+should be picked case by case (example: numpy&#8217;s <code class="docutils literal"><span class="pre">rfft</span></code> is preferred, see
+gh-2487).</p>
+</div>
+<div class="section" id="integrate">
+<h3>integrate<a class="headerlink" href="#integrate" title="Permalink to this headline">¶</a></h3>
+<p>Needed for ODE solvers:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Documentation is pretty bad, needs fixing</li>
+<li>A promising new ODE solver interface is in progress: gh-6326.
+This needs to be finished and merged.  After that, older API can
+possibly be deprecated.</li>
+</ul>
+</div></blockquote>
+<p>The numerical integration functions are in good shape.  Support for integrating
+complex-valued functions and integrating multiple intervals (see gh-3325) could
+be added, but is not required for SciPy 1.0.</p>
+</div>
+<div class="section" id="interpolate">
+<h3>interpolate<a class="headerlink" href="#interpolate" title="Permalink to this headline">¶</a></h3>
+<p>Needed:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Both fitpack and fitpack2 interfaces will be kept.</li>
+<li>splmake is deprecated; is different spline representation, we need exactly one</li>
+<li>interp1d/interp2d are somewhat ugly but widely used, so we keep them.</li>
+</ul>
+</div></blockquote>
+<p>Ideas for new features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Spline fitting routines with better user control.</li>
+<li>Integration and differentiation and arithmetic routines for splines</li>
+<li>Transparent tensor-product splines.</li>
+<li>NURBS support.</li>
+<li>Mesh refinement and coarsening of B-splines and corresponding tensor products.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="io">
+<h3>io<a class="headerlink" href="#io" title="Permalink to this headline">¶</a></h3>
+<p>wavfile;</p>
+<blockquote>
+<div><ul class="simple">
+<li>PCM float will be supported, for anything else use <code class="docutils literal"><span class="pre">audiolab</span></code> or other
+specialized libraries.</li>
+<li>Raise errors instead of warnings if data not understood.</li>
+</ul>
+</div></blockquote>
+<p>Other sub-modules (matlab, netcdf, idl, harwell-boeing, arff, matrix market)
+are in good shape.</p>
+</div>
+<div class="section" id="linalg">
+<h3>linalg<a class="headerlink" href="#linalg" title="Permalink to this headline">¶</a></h3>
+<p>Needed:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Remove functions that are duplicate with <code class="docutils literal"><span class="pre">numpy.linalg</span></code></li>
+<li><code class="docutils literal"><span class="pre">get_lapack_funcs</span></code> should always use <code class="docutils literal"><span class="pre">flapack</span></code></li>
+<li>Wrap more LAPACK functions</li>
+<li>One too many funcs for LU decomposition, remove one</li>
+</ul>
+</div></blockquote>
+<p>Ideas for new features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add type-generic wrappers in the Cython BLAS and LAPACK</li>
+<li>Make many of the linear algebra routines into gufuncs</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="misc">
+<h3>misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">scipy.misc</span></code> will be removed as a public module.  The functions in it can be
+moved to other modules:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">pilutil</span></code>, images : <code class="docutils literal"><span class="pre">ndimage</span></code></li>
+<li><code class="docutils literal"><span class="pre">comb</span></code>, <code class="docutils literal"><span class="pre">factorial</span></code>, <code class="docutils literal"><span class="pre">logsumexp</span></code>, <code class="docutils literal"><span class="pre">pade</span></code> : <code class="docutils literal"><span class="pre">special</span></code></li>
+<li><code class="docutils literal"><span class="pre">doccer</span></code> : move to <code class="docutils literal"><span class="pre">scipy._lib</span></code></li>
+<li><code class="docutils literal"><span class="pre">info</span></code>, <code class="docutils literal"><span class="pre">who</span></code> : these are NumPy functions</li>
+<li><code class="docutils literal"><span class="pre">derivative</span></code>, <code class="docutils literal"><span class="pre">central_diff_weight</span></code> : remove, replace with more extensive
+functionality for numerical differentiation - likely in a new module
+<code class="docutils literal"><span class="pre">scipy.diff</span></code> (see below)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ndimage">
+<h3>ndimage<a class="headerlink" href="#ndimage" title="Permalink to this headline">¶</a></h3>
+<p>Underlying <code class="docutils literal"><span class="pre">ndimage</span></code> is a powerful interpolation engine.  Unfortunately, it was
+never decided whether to use a pixel model (<code class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></code> elements with centers
+<code class="docutils literal"><span class="pre">(0.5,</span> <span class="pre">0.5)</span></code>) or a data point model (values at points on a grid).  Over time,
+it seems that the data point model is better defined and easier to implement.
+We therefore propose to move to this data representation for 1.0, and to vet
+all interpolation code to ensure that boundary values, transformations, etc.
+are correctly computed.  Addressing this issue will close several issues,
+including #1323, #1903, #2045 and #2640.</p>
+<p>The morphology interface needs to be standardized:</p>
+<blockquote>
+<div><ul class="simple">
+<li>binary dilation/erosion/opening/closing take a &#8220;structure&#8221; argument,
+whereas their grey equivalent take size (has to be a tuple, not a scalar),
+footprint, or structure.</li>
+<li>a scalar should be acceptable for size, equivalent to providing that same
+value for each axis.</li>
+<li>for binary dilation/erosion/opening/closing, the structuring element is
+optional, whereas it&#8217;s mandatory for grey.  Grey morphology operations
+should get the same default.</li>
+<li>other filters should also take that default value where possible.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="odr">
+<h3>odr<a class="headerlink" href="#odr" title="Permalink to this headline">¶</a></h3>
+<p>Rename the module to <code class="docutils literal"><span class="pre">regression</span></code> or <code class="docutils literal"><span class="pre">fitting</span></code>, include
+<code class="docutils literal"><span class="pre">optimize.curve_fit</span></code>. This module will then provide a home for other fitting
+functionality - what exactly needs to be worked out in more detail, a
+discussion can be found at <a class="reference external" href="https://github.com/scipy/scipy/pull/448">https://github.com/scipy/scipy/pull/448</a>.</p>
+</div>
+<div class="section" id="optimize">
+<h3>optimize<a class="headerlink" href="#optimize" title="Permalink to this headline">¶</a></h3>
+<p>Overall this module is in reasonably good shape, however it is missing a few
+more good global optimizers as well as large-scale optimizers.  These should be
+added.  Other things that are needed:</p>
+<blockquote>
+<div><ul class="simple">
+<li>deprecate the <code class="docutils literal"><span class="pre">fmin_*</span></code> functions in the documentation, <code class="docutils literal"><span class="pre">minimize</span></code> is
+preferred.</li>
+<li>clearly define what&#8217;s out of scope for this module.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="signal">
+<h3>signal<a class="headerlink" href="#signal" title="Permalink to this headline">¶</a></h3>
+<p><em>Convolution and correlation</em>: (Relevant functions are convolve, correlate,
+fftconvolve, convolve2d, correlate2d, and sepfir2d.) Eliminate the overlap with
+<em class="xref py py-obj">ndimage</em> (and elsewhere).  From <code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy.signal</span></code> and <code class="docutils literal"><span class="pre">scipy.ndimage</span></code>
+(and anywhere else we find them), pick the &#8220;best of class&#8221; for 1-D, 2-D and n-d
+convolution and correlation, put the implementation somewhere, and use that
+consistently throughout SciPy.</p>
+<p><em>B-splines</em>: (Relevant functions are bspline, cubic, quadratic, gauss_spline,
+cspline1d, qspline1d, cspline2d, qspline2d, cspline1d_eval, and spline_filter.)
+Move the good stuff to <em class="xref py py-obj">interpolate</em> (with appropriate API changes to match how
+things are done in <em class="xref py py-obj">interpolate</em>), and eliminate any duplication.</p>
+<p><em>Filter design</em>: merge <em class="xref py py-obj">firwin</em> and <em class="xref py py-obj">firwin2</em> so <em class="xref py py-obj">firwin2</em> can be removed.</p>
+<p><em>Continuous-Time Linear Systems</em>: remove <em class="xref py py-obj">lsim2</em>, <em class="xref py py-obj">impulse2</em>, <em class="xref py py-obj">step2</em>.  Make
+<em class="xref py py-obj">lsim</em>, <em class="xref py py-obj">impulse</em> and <em class="xref py py-obj">step</em> &#8220;just work&#8221; for any input system.  Improve
+performance of ltisys (less internal transformations between different
+representations). Fill gaps in lti system conversion functions.</p>
+<p><em>Second Order Sections</em>: Make SOS filtering equally capable as existing
+methods. This includes ltisys objects, an <em class="xref py py-obj">lfiltic</em> equivalent, and numerically
+stable conversions to and from other filter representations. SOS filters could
+be considered as the default filtering method for ltisys objects, for their
+numerical stability.</p>
+<p><em>Wavelets</em>: what&#8217;s there now doesn&#8217;t make much sense.  Continous wavelets
+only at the moment - decide whether to completely rewrite or remove them.
+Discrete wavelet transforms are out of scope (PyWavelets does a good job
+for those).</p>
+</div>
+<div class="section" id="sparse">
+<h3>sparse<a class="headerlink" href="#sparse" title="Permalink to this headline">¶</a></h3>
+<p>The sparse matrix formats are getting feature-complete but are slow ...
+reimplement parts in Cython?</p>
+<blockquote>
+<div><ul class="simple">
+<li>Small matrices are slower than PySparse, needs fixing</li>
+</ul>
+</div></blockquote>
+<p>There are a lot of formats.  These should be kept, but
+improvements/optimizations should go into CSR/CSC, which are the preferred
+formats.  LIL may be the exception, it&#8217;s inherently inefficient.  It could be
+dropped if DOK is extended to support all the operations LIL currently
+provides.  Alternatives are being worked on, see  <a class="reference external" href="https://github.com/ev-br/sparr">https://github.com/ev-br/sparr</a>
+and <a class="reference external" href="https://github.com/perimosocordiae/sparray">https://github.com/perimosocordiae/sparray</a>.</p>
+<p>Ideas for new features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Sparse arrays now act like np.matrix.  We want sparse <em>arrays</em>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="sparse-csgraph">
+<h3>sparse.csgraph<a class="headerlink" href="#sparse-csgraph" title="Permalink to this headline">¶</a></h3>
+<p>This module is in good shape.</p>
+</div>
+<div class="section" id="sparse-linalg">
+<h3>sparse.linalg<a class="headerlink" href="#sparse-linalg" title="Permalink to this headline">¶</a></h3>
+<p>Arpack is in good shape.</p>
+<p>isolve:</p>
+<blockquote>
+<div><ul class="simple">
+<li>callback keyword is inconsistent</li>
+<li>tol keyword is broken, should be relative tol</li>
+<li>Fortran code not re-entrant (but we don&#8217;t solve, maybe re-use from
+PyKrilov)</li>
+</ul>
+</div></blockquote>
+<p>dsolve:</p>
+<blockquote>
+<div><ul class="simple">
+<li>add sparse Cholesky or incomplete Cholesky</li>
+<li>look at CHOLMOD</li>
+</ul>
+</div></blockquote>
+<p>Ideas for new features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Wrappers for PROPACK for faster sparse SVD computation.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="spatial">
+<h3>spatial<a class="headerlink" href="#spatial" title="Permalink to this headline">¶</a></h3>
+<p>QHull wrappers are in good shape.</p>
+<p>Needed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">KDTree</span></code> will be removed, and <code class="docutils literal"><span class="pre">cKDTree</span></code> will be renamed to <code class="docutils literal"><span class="pre">KDTree</span></code>
+in a backwards-compatible way.</li>
+<li><code class="docutils literal"><span class="pre">distance_wrap.c</span></code> needs to be cleaned up (maybe rewrite in Cython).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="special">
+<h3>special<a class="headerlink" href="#special" title="Permalink to this headline">¶</a></h3>
+<p>Though there are still a lot of functions that need improvements in precision,
+probably the only show-stoppers are hypergeometric functions, parabolic cylinder
+functions, and spheroidal wave functions. Three possible ways to handle this:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Get good double-precision implementations. This is doable for parabolic
+cylinder functions (in progress). I think it&#8217;s possible for hypergeometric
+functions, though maybe not in time. For spheroidal wavefunctions this is
+not possible with current theory.</li>
+<li>Port Boost&#8217;s arbitrary precision library and use it under the hood to get
+double precision accuracy. This might be necessary as a stopgap measure
+for hypergeometric functions; the idea of using arbitrary precision has
+been suggested before by &#64;nmayorov and in gh-5349. Likely necessary for
+spheroidal wave functions, this could be reused:
+<a class="reference external" href="https://github.com/radelman/scattering">https://github.com/radelman/scattering</a>.</li>
+<li>Add clear warnings to the documentation about the limits of the existing
+implementations.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="stats">
+<h3>stats<a class="headerlink" href="#stats" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">stats.distributions</span></code> is in good shape.</p>
+<p><code class="docutils literal"><span class="pre">gaussian_kde</span></code> is in good shape but limited. It should not be expanded
+probably, this fits better in Statsmodels (which already has a lot more KDE
+functionality).</p>
+<p><code class="docutils literal"><span class="pre">stats.mstats</span></code> is a useful module for worked with data with missing values.
+One problem it has though is that in many cases the functions have diverged
+from their counterparts in <code class="docutils literal"><span class="pre">scipy.stats</span></code>.  The <code class="docutils literal"><span class="pre">mstats</span></code> functions should be
+updated so that the two sets of functions are consistent.</p>
+</div>
+<div class="section" id="weave">
+<h3>weave<a class="headerlink" href="#weave" title="Permalink to this headline">¶</a></h3>
+<p>This module is deprecated and will be removed for Scipy 1.0.  It has been
+packaged as a separate package &#8220;weave&#8221;, which users that still rely on the
+functionality provided by <code class="docutils literal"><span class="pre">scipy.weave</span></code> should use.</p>
+<p>Also note that this is the only module that was not ported to Python 3.</p>
+</div>
+</div>
+<div class="section" id="new-modules-under-discussion">
+<h2>New modules under discussion<a class="headerlink" href="#new-modules-under-discussion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="diff">
+<h3>diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h3>
+<p>Currently Scipy doesn&#8217;t provide much support for numerical differentiation.
+A new <code class="docutils literal"><span class="pre">scipy.diff</span></code> module for that is discussed in
+<a class="reference external" href="https://github.com/scipy/scipy/issues/2035">https://github.com/scipy/scipy/issues/2035</a>.  There&#8217;s also a fairly detailed
+GSoC proposal to build on, see <a class="reference external" href="https://github.com/scipy/scipy/wiki/Proposal:-add-finite-difference-numerical-derivatives-as-scipy.diff">here</a>.</p>
+<p>There is also <code class="docutils literal"><span class="pre">approx_derivative</span></code> in <code class="docutils literal"><span class="pre">optimize</span></code>, which is still private
+but could form a solid basis for this module.</p>
+</div>
+<div class="section" id="transforms">
+<h3>transforms<a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
+<p>This module was discussed previously, mainly to provide a home for
+discrete wavelet transform functionality.  Other transforms could fit as well,
+for example there&#8217;s a PR for a Hankel transform .
+<em>Note: this is on the back burner, because the plans to integrate PyWavelets
+DWT code has been put on hold.</em></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

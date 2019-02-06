@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pandas.read_csv &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pandas.read_fwf" href="pandas.read_fwf.html" />
+    <link rel="prev" title="pandas.read_table" href="pandas.read_table.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.read_fwf.html" title="pandas.read_fwf"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pandas.read_table.html" title="pandas.read_table"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../io.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window.html">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="pandas-read-csv">
+<h1>pandas.read_csv<a class="headerlink" href="#pandas-read-csv" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pandas.read_csv">
+<code class="descclassname">pandas.</code><code class="descname">read_csv</code><span class="sig-paren">(</span><em>filepath_or_buffer</em>, <em>sep='</em>, <em>'</em>, <em>delimiter=None</em>, <em>header='infer'</em>, <em>names=None</em>, <em>index_col=None</em>, <em>usecols=None</em>, <em>squeeze=False</em>, <em>prefix=None</em>, <em>mangle_dupe_cols=True</em>, <em>dtype=None</em>, <em>engine=None</em>, <em>converters=None</em>, <em>true_values=None</em>, <em>false_values=None</em>, <em>skipinitialspace=False</em>, <em>skiprows=None</em>, <em>skipfooter=0</em>, <em>nrows=None</em>, <em>na_values=None</em>, <em>keep_default_na=True</em>, <em>na_filter=True</em>, <em>verbose=False</em>, <em>skip_blank_lines=True</em>, <em>parse_dates=False</em>, <em>infer_datetime_format=False</em>, <em>keep_date_col=False</em>, <em>date_parser=None</em>, <em>dayfirst=False</em>, <em>iterator=False</em>, <em>chunksize=None</em>, <em>compression='infer'</em>, <em>thousands=None</em>, <em>decimal=b'.'</em>, <em>lineterminator=None</em>, <em>quotechar='&quot;'</em>, <em>quoting=0</em>, <em>doublequote=True</em>, <em>escapechar=None</em>, <em>comment=None</em>, <em>encoding=None</em>, <em>dialect=None</em>, <em>tupleize_cols=None</em>, <em>error_bad_lines=True</em>, <em>warn_bad_lines=True</em>, <em>delim_whitespace=False</em>, <em>low_memory=True</em>, <em>memory_map=False</em>, <em>float_precision=None</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pandas-dev/pandas/blob/v0.24.0/pandas/io/parsers.py#L531-L697"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pandas.read_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a comma-separated values (csv) file into DataFrame.</p>
+<p>Also supports optionally iterating or breaking of the file
+into chunks.</p>
+<p>Additional help can be found in the online docs for
+<a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html">IO Tools</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>filepath_or_buffer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, path object, or file-like object</span></dt>
+<dd><p class="first">Any valid string path is acceptable. The string could be a URL. Valid
+URL schemes include http, ftp, s3, and file. For file URLs, a host is
+expected. A local file could be: <a class="reference external" href="file://localhost/path/to/table.csv">file://localhost/path/to/table.csv</a>.</p>
+<p>If you want to pass in a path object, pandas accepts either
+<code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> or <code class="docutils literal notranslate"><span class="pre">py._path.local.LocalPath</span></code>.</p>
+<p class="last">By file-like object, we refer to objects with a <code class="docutils literal notranslate"><span class="pre">read()</span></code> method, such as
+a file handler (e.g. via builtin <code class="docutils literal notranslate"><span class="pre">open</span></code> function) or <code class="docutils literal notranslate"><span class="pre">StringIO</span></code>.</p>
+</dd>
+<dt><strong>sep</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default ‘,’</span></dt>
+<dd><p class="first last">Delimiter to use. If sep is None, the C engine cannot automatically detect
+the separator, but the Python parsing engine can, meaning the latter will
+be used and automatically detect the separator by Python’s builtin sniffer
+tool, <code class="docutils literal notranslate"><span class="pre">csv.Sniffer</span></code>. In addition, separators longer than 1 character and
+different from <code class="docutils literal notranslate"><span class="pre">'\s+'</span></code> will be interpreted as regular expressions and
+will also force the use of the Python parsing engine. Note that regex
+delimiters are prone to ignoring quoted data. Regex example: <code class="docutils literal notranslate"><span class="pre">'\r\t'</span></code>.</p>
+</dd>
+<dt><strong>delimiter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt>
+<dd><p class="first last">Alias for sep.</p>
+</dd>
+<dt><strong>header</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, list of int, default ‘infer’</span></dt>
+<dd><p class="first last">Row number(s) to use as the column names, and the start of the
+data.  Default behavior is to infer the column names: if no names
+are passed the behavior is identical to <code class="docutils literal notranslate"><span class="pre">header=0</span></code> and column
+names are inferred from the first line of the file, if column
+names are passed explicitly then the behavior is identical to
+<code class="docutils literal notranslate"><span class="pre">header=None</span></code>. Explicitly pass <code class="docutils literal notranslate"><span class="pre">header=0</span></code> to be able to
+replace existing names. The header can be a list of integers that
+specify row locations for a multi-index on the columns
+e.g. [0,1,3]. Intervening rows that are not specified will be
+skipped (e.g. 2 in this example is skipped). Note that this
+parameter ignores commented lines and empty lines if
+<code class="docutils literal notranslate"><span class="pre">skip_blank_lines=True</span></code>, so <code class="docutils literal notranslate"><span class="pre">header=0</span></code> denotes the first line of
+data rather than the first line of the file.</p>
+</dd>
+<dt><strong>names</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like, optional</span></dt>
+<dd><p class="first last">List of column names to use. If file contains no header row, then you
+should explicitly pass <code class="docutils literal notranslate"><span class="pre">header=None</span></code>. Duplicates in this list will cause
+a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code> to be issued.</p>
+</dd>
+<dt><strong>index_col</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, sequence or bool, optional</span></dt>
+<dd><p class="first last">Column to use as the row labels of the DataFrame. If a sequence is given, a
+MultiIndex is used. If you have a malformed file with delimiters at the end
+of each line, you might consider <code class="docutils literal notranslate"><span class="pre">index_col=False</span></code> to force pandas to
+not use the first column as the index (row names).</p>
+</dd>
+<dt><strong>usecols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list-like or callable, optional</span></dt>
+<dd><p class="first">Return a subset of the columns. If list-like, all elements must either
+be positional (i.e. integer indices into the document columns) or strings
+that correspond to column names provided either by the user in <cite>names</cite> or
+inferred from the document header row(s). For example, a valid list-like
+<cite>usecols</cite> parameter would be <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code> or <code class="docutils literal notranslate"><span class="pre">['foo',</span> <span class="pre">'bar',</span> <span class="pre">'baz']</span></code>.
+Element order is ignored, so <code class="docutils literal notranslate"><span class="pre">usecols=[0,</span> <span class="pre">1]</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0]</span></code>.
+To instantiate a DataFrame from <code class="docutils literal notranslate"><span class="pre">data</span></code> with element order preserved use
+<code class="docutils literal notranslate"><span class="pre">pd.read_csv(data,</span> <span class="pre">usecols=['foo',</span> <span class="pre">'bar'])[['foo',</span> <span class="pre">'bar']]</span></code> for columns
+in <code class="docutils literal notranslate"><span class="pre">['foo',</span> <span class="pre">'bar']</span></code> order or
+<code class="docutils literal notranslate"><span class="pre">pd.read_csv(data,</span> <span class="pre">usecols=['foo',</span> <span class="pre">'bar'])[['bar',</span> <span class="pre">'foo']]</span></code>
+for <code class="docutils literal notranslate"><span class="pre">['bar',</span> <span class="pre">'foo']</span></code> order.</p>
+<p class="last">If callable, the callable function will be evaluated against the column
+names, returning names where the callable function evaluates to True. An
+example of a valid callable argument would be <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x.upper()</span> <span class="pre">in</span>
+<span class="pre">['AAA',</span> <span class="pre">'BBB',</span> <span class="pre">'DDD']</span></code>. Using this parameter results in much faster
+parsing time and lower memory usage.</p>
+</dd>
+<dt><strong>squeeze</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">If the parsed data only contains one column then return a Series.</p>
+</dd>
+<dt><strong>prefix</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Prefix to add to column numbers when no header, e.g. ‘X’ for X0, X1, …</p>
+</dd>
+<dt><strong>mangle_dupe_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Duplicate columns will be specified as ‘X’, ‘X.1’, …’X.N’, rather than
+‘X’…’X’. Passing in False will cause data to be overwritten if there
+are duplicate names in the columns.</p>
+</dd>
+<dt><strong>dtype</strong> <span class="classifier-delimiter">:</span> <span class="classifier">Type name or dict of column -&gt; type, optional</span></dt>
+<dd><p class="first last">Data type for data or columns. E.g. {‘a’: np.float64, ‘b’: np.int32,
+‘c’: ‘Int64’}
+Use <cite>str</cite> or <cite>object</cite> together with suitable <cite>na_values</cite> settings
+to preserve and not interpret dtype.
+If converters are specified, they will be applied INSTEAD
+of dtype conversion.</p>
+</dd>
+<dt><strong>engine</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{‘c’, ‘python’}, optional</span></dt>
+<dd><p class="first last">Parser engine to use. The C engine is faster while the python engine is
+currently more feature-complete.</p>
+</dd>
+<dt><strong>converters</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict, optional</span></dt>
+<dd><p class="first last">Dict of functions for converting values in certain columns. Keys can either
+be integers or column labels.</p>
+</dd>
+<dt><strong>true_values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional</span></dt>
+<dd><p class="first last">Values to consider as True.</p>
+</dd>
+<dt><strong>false_values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list, optional</span></dt>
+<dd><p class="first last">Values to consider as False.</p>
+</dd>
+<dt><strong>skipinitialspace</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">Skip spaces after delimiter.</p>
+</dd>
+<dt><strong>skiprows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list-like, int or callable, optional</span></dt>
+<dd><p class="first">Line numbers to skip (0-indexed) or number of lines to skip (int)
+at the start of the file.</p>
+<p class="last">If callable, the callable function will be evaluated against the row
+indices, returning True if the row should be skipped and False otherwise.
+An example of a valid callable argument would be <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">[0,</span> <span class="pre">2]</span></code>.</p>
+</dd>
+<dt><strong>skipfooter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, default 0</span></dt>
+<dd><p class="first last">Number of lines at bottom of file to skip (Unsupported with engine=’c’).</p>
+</dd>
+<dt><strong>nrows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">Number of rows of file to read. Useful for reading pieces of large files.</p>
+</dd>
+<dt><strong>na_values</strong> <span class="classifier-delimiter">:</span> <span class="classifier">scalar, str, list-like, or dict, optional</span></dt>
+<dd><p class="first last">Additional strings to recognize as NA/NaN. If dict passed, specific
+per-column NA values.  By default the following values are interpreted as
+NaN: ‘’, ‘#N/A’, ‘#N/A N/A’, ‘#NA’, ‘-1.#IND’, ‘-1.#QNAN’, ‘-NaN’, ‘-nan’,
+‘1.#IND’, ‘1.#QNAN’, ‘N/A’, ‘NA’, ‘NULL’, ‘NaN’, ‘n/a’, ‘nan’,
+‘null’.</p>
+</dd>
+<dt><strong>keep_default_na</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first">Whether or not to include the default NaN values when parsing the data.
+Depending on whether <cite>na_values</cite> is passed in, the behavior is as follows:</p>
+<ul class="simple">
+<li>If <cite>keep_default_na</cite> is True, and <cite>na_values</cite> are specified, <cite>na_values</cite>
+is appended to the default NaN values used for parsing.</li>
+<li>If <cite>keep_default_na</cite> is True, and <cite>na_values</cite> are not specified, only
+the default NaN values are used for parsing.</li>
+<li>If <cite>keep_default_na</cite> is False, and <cite>na_values</cite> are specified, only
+the NaN values specified <cite>na_values</cite> are used for parsing.</li>
+<li>If <cite>keep_default_na</cite> is False, and <cite>na_values</cite> are not specified, no
+strings will be parsed as NaN.</li>
+</ul>
+<p class="last">Note that if <cite>na_filter</cite> is passed in as False, the <cite>keep_default_na</cite> and
+<cite>na_values</cite> parameters will be ignored.</p>
+</dd>
+<dt><strong>na_filter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Detect missing value markers (empty strings and the value of na_values). In
+data without any NAs, passing na_filter=False can improve the performance
+of reading a large file.</p>
+</dd>
+<dt><strong>verbose</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">Indicate number of NA values placed in non-numeric columns.</p>
+</dd>
+<dt><strong>skip_blank_lines</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">If True, skip over blank lines rather than interpreting as NaN values.</p>
+</dd>
+<dt><strong>parse_dates</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool or list of int or names or list of lists or dict, default False</span></dt>
+<dd><p class="first">The behavior is as follows:</p>
+<ul class="simple">
+<li>boolean. If True -&gt; try parsing the index.</li>
+<li>list of int or names. e.g. If [1, 2, 3] -&gt; try parsing columns 1, 2, 3
+each as a separate date column.</li>
+<li>list of lists. e.g.  If [[1, 3]] -&gt; combine columns 1 and 3 and parse as
+a single date column.</li>
+<li>dict, e.g. {‘foo’ : [1, 3]} -&gt; parse columns 1, 3 as date and call
+result ‘foo’</li>
+</ul>
+<p>If a column or index contains an unparseable date, the entire column or
+index will be returned unaltered as an object data type. For non-standard
+datetime parsing, use <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code> after <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code></p>
+<p class="last">Note: A fast-path exists for iso8601-formatted dates.</p>
+</dd>
+<dt><strong>infer_datetime_format</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">If True and <cite>parse_dates</cite> is enabled, pandas will attempt to infer the
+format of the datetime strings in the columns, and if it can be inferred,
+switch to a faster method of parsing them. In some cases this can increase
+the parsing speed by 5-10x.</p>
+</dd>
+<dt><strong>keep_date_col</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">If True and <cite>parse_dates</cite> specifies combining multiple columns then
+keep the original columns.</p>
+</dd>
+<dt><strong>date_parser</strong> <span class="classifier-delimiter">:</span> <span class="classifier">function, optional</span></dt>
+<dd><p class="first last">Function to use for converting a sequence of string columns to an array of
+datetime instances. The default uses <code class="docutils literal notranslate"><span class="pre">dateutil.parser.parser</span></code> to do the
+conversion. Pandas will try to call <cite>date_parser</cite> in three different ways,
+advancing to the next if an exception occurs: 1) Pass one or more arrays
+(as defined by <cite>parse_dates</cite>) as arguments; 2) concatenate (row-wise) the
+string values from the columns defined by <cite>parse_dates</cite> into a single array
+and pass that; and 3) call <cite>date_parser</cite> once for each row using one or
+more strings (corresponding to the columns defined by <cite>parse_dates</cite>) as
+arguments.</p>
+</dd>
+<dt><strong>dayfirst</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">DD/MM format dates, international and European format.</p>
+</dd>
+<dt><strong>iterator</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">Return TextFileReader object for iteration or getting chunks with
+<code class="docutils literal notranslate"><span class="pre">get_chunk()</span></code>.</p>
+</dd>
+<dt><strong>chunksize</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">Return TextFileReader object for iteration.
+See the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/io.html#io-chunking">IO Tools docs</a>
+for more information on <code class="docutils literal notranslate"><span class="pre">iterator</span></code> and <code class="docutils literal notranslate"><span class="pre">chunksize</span></code>.</p>
+</dd>
+<dt><strong>compression</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{‘infer’, ‘gzip’, ‘bz2’, ‘zip’, ‘xz’, None}, default ‘infer’</span></dt>
+<dd><p class="first">For on-the-fly decompression of on-disk data. If ‘infer’ and
+<cite>filepath_or_buffer</cite> is path-like, then detect compression from the
+following extensions: ‘.gz’, ‘.bz2’, ‘.zip’, or ‘.xz’ (otherwise no
+decompression). If using ‘zip’, the ZIP file must contain only one data
+file to be read in. Set to None for no decompression.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.18.1: </span>support for ‘zip’ and ‘xz’ compression.</p>
+</div>
+</dd>
+<dt><strong>thousands</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Thousands separator.</p>
+</dd>
+<dt><strong>decimal</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, default ‘.’</span></dt>
+<dd><p class="first last">Character to recognize as decimal point (e.g. use ‘,’ for European data).</p>
+</dd>
+<dt><strong>lineterminator</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str (length 1), optional</span></dt>
+<dd><p class="first last">Character to break file into lines. Only valid with C parser.</p>
+</dd>
+<dt><strong>quotechar</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str (length 1), optional</span></dt>
+<dd><p class="first last">The character used to denote the start and end of a quoted item. Quoted
+items can include the delimiter and it will be ignored.</p>
+</dd>
+<dt><strong>quoting</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int or csv.QUOTE_* instance, default 0</span></dt>
+<dd><p class="first last">Control field quoting behavior per <code class="docutils literal notranslate"><span class="pre">csv.QUOTE_*</span></code> constants. Use one of
+QUOTE_MINIMAL (0), QUOTE_ALL (1), QUOTE_NONNUMERIC (2) or QUOTE_NONE (3).</p>
+</dd>
+<dt><strong>doublequote</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default <code class="docutils literal notranslate"><span class="pre">True</span></code></span></dt>
+<dd><p class="first last">When quotechar is specified and quoting is not <code class="docutils literal notranslate"><span class="pre">QUOTE_NONE</span></code>, indicate
+whether or not to interpret two consecutive quotechar elements INSIDE a
+field as a single <code class="docutils literal notranslate"><span class="pre">quotechar</span></code> element.</p>
+</dd>
+<dt><strong>escapechar</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str (length 1), optional</span></dt>
+<dd><p class="first last">One-character string used to escape other characters.</p>
+</dd>
+<dt><strong>comment</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Indicates remainder of line should not be parsed. If found at the beginning
+of a line, the line will be ignored altogether. This parameter must be a
+single character. Like empty lines (as long as <code class="docutils literal notranslate"><span class="pre">skip_blank_lines=True</span></code>),
+fully commented lines are ignored by the parameter <cite>header</cite> but not by
+<cite>skiprows</cite>. For example, if <code class="docutils literal notranslate"><span class="pre">comment='#'</span></code>, parsing
+<code class="docutils literal notranslate"><span class="pre">#empty\na,b,c\n1,2,3</span></code> with <code class="docutils literal notranslate"><span class="pre">header=0</span></code> will result in ‘a,b,c’ being
+treated as the header.</p>
+</dd>
+<dt><strong>encoding</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Encoding to use for UTF when reading/writing (ex. ‘utf-8’). <a class="reference external" href="https://docs.python.org/3/library/codecs.html#standard-encodings">List of Python
+standard encodings</a> .</p>
+</dd>
+<dt><strong>dialect</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str or csv.Dialect, optional</span></dt>
+<dd><p class="first last">If provided, this parameter will override values (default or not) for the
+following parameters: <cite>delimiter</cite>, <cite>doublequote</cite>, <cite>escapechar</cite>,
+<cite>skipinitialspace</cite>, <cite>quotechar</cite>, and <cite>quoting</cite>. If it is necessary to
+override values, a ParserWarning will be issued. See csv.Dialect
+documentation for more details.</p>
+</dd>
+<dt><strong>tupleize_cols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first">Leave a list of tuples on columns as is (default is to convert to
+a MultiIndex on the columns).</p>
+<div class="last deprecated">
+<p><span class="versionmodified">Deprecated since version 0.21.0: </span>This argument will be removed and will always convert to MultiIndex</p>
+</div>
+</dd>
+<dt><strong>error_bad_lines</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Lines with too many fields (e.g. a csv line with too many commas) will by
+default cause an exception to be raised, and no DataFrame will be returned.
+If False, then these “bad lines” will dropped from the DataFrame that is
+returned.</p>
+</dd>
+<dt><strong>warn_bad_lines</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">If error_bad_lines is False, and warn_bad_lines is True, a warning for each
+“bad line” will be output.</p>
+</dd>
+<dt><strong>delim_whitespace</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first">Specifies whether or not whitespace (e.g. <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> or <code class="docutils literal notranslate"><span class="pre">'</span>&#160;&#160;&#160; <span class="pre">'</span></code>) will be
+used as the sep. Equivalent to setting <code class="docutils literal notranslate"><span class="pre">sep='\s+'</span></code>. If this option
+is set to True, nothing should be passed in for the <code class="docutils literal notranslate"><span class="pre">delimiter</span></code>
+parameter.</p>
+<div class="last versionadded">
+<p><span class="versionmodified">New in version 0.18.1: </span>support for the Python parser.</p>
+</div>
+</dd>
+<dt><strong>low_memory</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default True</span></dt>
+<dd><p class="first last">Internally process the file in chunks, resulting in lower memory use
+while parsing, but possibly mixed type inference.  To ensure no mixed
+types either set False, or specify the type with the <cite>dtype</cite> parameter.
+Note that the entire file is read into a single DataFrame regardless,
+use the <cite>chunksize</cite> or <cite>iterator</cite> parameter to return the data in chunks.
+(Only valid with C parser).</p>
+</dd>
+<dt><strong>memory_map</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, default False</span></dt>
+<dd><p class="first last">If a filepath is provided for <cite>filepath_or_buffer</cite>, map the file object
+directly onto memory and access the data directly from there. Using this
+option can improve performance because there is no longer any I/O overhead.</p>
+</dd>
+<dt><strong>float_precision</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">Specifies which converter the C engine should use for floating-point
+values. The options are <cite>None</cite> for the ordinary converter,
+<cite>high</cite> for the high-precision converter, and <cite>round_trip</cite> for the
+round-trip converter.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>DataFrame or TextParser</strong></dt>
+<dd><p class="first last">A comma-separated values (csv) file is returned as two-dimensional
+data structure with labeled axes.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_csv</span></code></dt>
+<dd>Write DataFrame to a comma-separated values (csv) file.</dd>
+<dt><a class="reference internal" href="#pandas.read_csv" title="pandas.read_csv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv</span></code></a></dt>
+<dd>Read a comma-separated values (csv) file into DataFrame.</dd>
+<dt><a class="reference internal" href="pandas.read_fwf.html#pandas.read_fwf" title="pandas.read_fwf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_fwf</span></code></a></dt>
+<dd>Read a table of fixed-width formatted lines into DataFrame.</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>  <span class="c1"># doctest: +SKIP</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pandas.read_fwf.html" title="pandas.read_fwf"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pandas.read_table.html" title="pandas.read_table"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../io.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

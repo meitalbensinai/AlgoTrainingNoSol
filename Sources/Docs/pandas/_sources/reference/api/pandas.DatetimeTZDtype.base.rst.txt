@@ -1,0 +1,6 @@
+pandas.DatetimeTZDtype.base
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: DatetimeTZDtype.base

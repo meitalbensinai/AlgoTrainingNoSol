@@ -1,0 +1,6 @@
+pandas.DatetimeTZDtype.name
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: DatetimeTZDtype.name

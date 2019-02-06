@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Development on GitHub &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development on GitHub</a><ul>
+<li><a class="reference internal" href="#labels-and-milestones">Labels and Milestones</a></li>
+<li><a class="reference internal" href="#dealing-with-pull-requests">Dealing with pull requests</a></li>
+<li><a class="reference internal" href="#backporting">Backporting</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="development-on-github">
+<h1>Development on GitHub<a class="headerlink" href="#development-on-github" title="Permalink to this headline">¶</a></h1>
+<p>SciPy development largely takes place on GitHub; this section describes the
+expected way of working for issues, pull requests and managing the main
+<code class="docutils literal"><span class="pre">scipy</span></code> repository.</p>
+<div class="section" id="labels-and-milestones">
+<span id="id1"></span><h2>Labels and Milestones<a class="headerlink" href="#labels-and-milestones" title="Permalink to this headline">¶</a></h2>
+<p>Each issue and pull request normally gets at least two labels: one for the
+topic or component (<code class="docutils literal"><span class="pre">scipy.stats</span></code>, <code class="docutils literal"><span class="pre">Documentation</span></code>, etc.), and one for the
+nature of the issue or pull request (<code class="docutils literal"><span class="pre">enhancement</span></code>, <code class="docutils literal"><span class="pre">maintenance</span></code>,
+<code class="docutils literal"><span class="pre">defect</span></code>, etc.).  Other labels that may be added depending on the situation:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">easy-fix</span></code>: for issues suitable to be tackled by new contributors.</li>
+<li><code class="docutils literal"><span class="pre">needs-work</span></code>: for pull requests that have review comments that haven&#8217;t been
+addressed for a while.</li>
+<li><code class="docutils literal"><span class="pre">needs-decision</span></code>: for issues or pull requests that need a decision.</li>
+<li><code class="docutils literal"><span class="pre">needs-champion</span></code>: for pull requests that were not finished by the original
+author, but are worth resurrecting.</li>
+<li><code class="docutils literal"><span class="pre">backport-candidate</span></code>: bugfixes that should be considered for backporting by
+the release manager.</li>
+</ul>
+<p>A milestone is created for each version number for which a release is planned.
+Issues that need to be addressed and pull requests that need to be merged for a
+particular release should be set to the corresponding milestone.  After a pull
+request is merged, its milestone (and that of the issue it closes) should be
+set to the next upcoming release - this makes it easy to get an overview of
+changes and to add a complete list of those to the release notes.</p>
+</div>
+<div class="section" id="dealing-with-pull-requests">
+<h2>Dealing with pull requests<a class="headerlink" href="#dealing-with-pull-requests" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>When merging contributions, a committer is responsible for ensuring that
+those meet the requirements outlined in <a class="reference external" href="https://github.com/scipy/scipy/blob/master/HACKING.rst.txt">Contributing to SciPy</a>. Also check
+that new features and backwards compatibility breaks were discussed on the
+scipy-dev mailing list.</li>
+<li>New code goes in via a pull request (PR).</li>
+<li>Merge new code with the green button.  In case of merge conflicts, ask the PR
+submitter to rebase (this may require providing some git instructions).</li>
+<li>Backports and trivial additions to finish a PR (really trivial, like a typo
+or PEP8 fix) can be pushed directly.</li>
+<li>For PRs that add new features or are in some way complex, wait at least a day
+or two before merging it.  That way, others get a chance to comment before
+the code goes in.</li>
+<li>Squashing commits or cleaning up commit messages of a PR that you consider
+too messy is OK. Make sure though to retain the original author name when
+doing this.</li>
+<li>Make sure that the labels and milestone on a merged PR are set correctly.</li>
+<li>When you want to reject a PR: if it&#8217;s very obvious you can just close it and
+explain why, if not obvious then it&#8217;s a good idea to first explain why you
+think the PR is not suitable for inclusion in Scipy and then let a second
+committer comment or close.</li>
+</ul>
+</div>
+<div class="section" id="backporting">
+<span id="id2"></span><h2>Backporting<a class="headerlink" href="#backporting" title="Permalink to this headline">¶</a></h2>
+<p>All pull requests (whether they contain enhancements, bug fixes or something else),
+should be made against master.  Only bug fixes are candidates for backporting
+to a maintenance branch.  The backport strategy for SciPy is to (a) only backport
+fixes that are important, and (b) to only backport when it&#8217;s reasonably sure
+that a new bugfix release on the relevant maintenance branch will be made.
+Typically, the developer who merges an important bugfix adds the
+<code class="docutils literal"><span class="pre">backport-candidate</span></code> label and pings the release manager, who decides on
+whether and when the backport is done.  After the backport is completed, the
+<code class="docutils literal"><span class="pre">backport-candidate</span></code> label has to be removed again.</p>
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<p><em>PR status page:</em> When new commits get added to a pull request, GitHub doesn&#8217;t send out any
+notifications.  The <code class="docutils literal"><span class="pre">needs-work</span></code> label may not be justified anymore though.
+<a class="reference external" href="https://pav.iki.fi/scipy-needs-work/">This page</a> gives an overview of PRs
+that were updated, need review, need a decision, etc.</p>
+<p><em>Cross-referencing:</em> Cross-referencing issues and pull requests on GitHub is
+often useful.  GitHub allows doing that by using <code class="docutils literal"><span class="pre">gh-xxxx</span></code> or <code class="docutils literal"><span class="pre">#xxxx</span></code> with
+<code class="docutils literal"><span class="pre">xxxx</span></code> the issue/PR number.  The <code class="docutils literal"><span class="pre">gh-xxxx</span></code> format is strongly preferred,
+because it&#8217;s clear that that is a GitHub link.  Older issues contain <code class="docutils literal"><span class="pre">#xxxx</span></code>
+which is about Trac (what we used pre-GitHub) tickets.</p>
+<p><em>PR naming convention:</em> Pull requests, issues and commit messages usually start
+with a three-letter abbreviation like <code class="docutils literal"><span class="pre">ENH:</span></code> or <code class="docutils literal"><span class="pre">BUG:</span></code>.  This is useful to
+quickly see what the nature of the commit/PR/issue is.  For the full list of
+abbreviations, see <a class="reference external" href="http://docs.scipy.org/doc/numpy-dev/dev/gitwash/development_workflow.html#writing-the-commit-message">writing the commit message</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

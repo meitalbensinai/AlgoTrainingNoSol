@@ -1,0 +1,6 @@
+pandas.Int8Dtype.is\_signed\_integer
+====================================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Int8Dtype.is_signed_integer

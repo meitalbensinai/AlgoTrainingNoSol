@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Window &#8212; pandas 0.24.0 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pandas.core.window.Rolling.count" href="api/pandas.core.window.Rolling.count.html" />
+    <link rel="prev" title="pandas.tseries.frequencies.to_offset" href="api/pandas.tseries.frequencies.to_offset.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.core.window.Rolling.count.html" title="pandas.core.window.Rolling.count"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.tseries.frequencies.to_offset.html" title="pandas.tseries.frequencies.to_offset"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Reference</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="document">
+            <div class="sphinxsidebar">
+                <h3>Table Of Contents</h3>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/v0.24.0.html">What's New in 0.24.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">pandas Ecosystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="io.html">Input/Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_functions.html">General functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="series.html">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame.html">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Pandas Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="panel.html">Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexing.html">Indexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offset_frequency.html">Date Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="offset_frequency.html#frequencies">Frequencies</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupby.html">GroupBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling.html">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style.html">Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_utility_functions.html">General utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">Release Notes</a></li>
+</ul>
+
+                <h3 style="margin-top: 1.5em;">Search</h3>
+
+                <form class="search" action="../search.html" method="get">
+                    <input type="text" name="q" size="18"/>
+                    <input type="submit" value="Go"/>
+                    <input type="hidden" name="check_keywords" value="yes"/>
+                    <input type="hidden" name="area" value="default"/>
+                </form>
+                <p class="searchtip" style="font-size: 90%">
+                    Enter search terms or a module, class or function name.
+                </p>
+
+            </div>
+             
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body">
+                        
+  <div class="section" id="window">
+<span id="api-window"></span><h1>Window<a class="headerlink" href="#window" title="Permalink to this headline">¶</a></h1>
+<p>Rolling objects are returned by <code class="docutils literal notranslate"><span class="pre">.rolling</span></code> calls: <a class="reference internal" href="api/pandas.DataFrame.rolling.html#pandas.DataFrame.rolling" title="pandas.DataFrame.rolling"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.DataFrame.rolling()</span></code></a>, <a class="reference internal" href="api/pandas.Series.rolling.html#pandas.Series.rolling" title="pandas.Series.rolling"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.Series.rolling()</span></code></a>, etc.
+Expanding objects are returned by <code class="docutils literal notranslate"><span class="pre">.expanding</span></code> calls: <a class="reference internal" href="api/pandas.DataFrame.expanding.html#pandas.DataFrame.expanding" title="pandas.DataFrame.expanding"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.DataFrame.expanding()</span></code></a>, <a class="reference internal" href="api/pandas.Series.expanding.html#pandas.Series.expanding" title="pandas.Series.expanding"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.Series.expanding()</span></code></a>, etc.
+EWM objects are returned by <code class="docutils literal notranslate"><span class="pre">.ewm</span></code> calls: <a class="reference internal" href="api/pandas.DataFrame.ewm.html#pandas.DataFrame.ewm" title="pandas.DataFrame.ewm"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.DataFrame.ewm()</span></code></a>, <a class="reference internal" href="api/pandas.Series.ewm.html#pandas.Series.ewm" title="pandas.Series.ewm"><code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.Series.ewm()</span></code></a>, etc.</p>
+<div class="section" id="standard-moving-window-functions">
+<h2>Standard moving window functions<a class="headerlink" href="#standard-moving-window-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.count.html#pandas.core.window.Rolling.count" title="pandas.core.window.Rolling.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.count</span></code></a>()</td>
+<td>The rolling count of any non-NaN observations inside the window.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.sum.html#pandas.core.window.Rolling.sum" title="pandas.core.window.Rolling.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.sum</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate rolling sum of given DataFrame or Series.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.mean.html#pandas.core.window.Rolling.mean" title="pandas.core.window.Rolling.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.mean</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the rolling mean of the values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.median.html#pandas.core.window.Rolling.median" title="pandas.core.window.Rolling.median"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.median</span></code></a>(**kwargs)</td>
+<td>Calculate the rolling median.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.var.html#pandas.core.window.Rolling.var" title="pandas.core.window.Rolling.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.var</span></code></a>([ddof])</td>
+<td>Calculate unbiased rolling variance.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.std.html#pandas.core.window.Rolling.std" title="pandas.core.window.Rolling.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.std</span></code></a>([ddof])</td>
+<td>Calculate rolling standard deviation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.min.html#pandas.core.window.Rolling.min" title="pandas.core.window.Rolling.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.min</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the rolling minimum.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.max.html#pandas.core.window.Rolling.max" title="pandas.core.window.Rolling.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.max</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the rolling maximum.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.corr.html#pandas.core.window.Rolling.corr" title="pandas.core.window.Rolling.corr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.corr</span></code></a>([other,&nbsp;pairwise])</td>
+<td>Calculate rolling correlation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.cov.html#pandas.core.window.Rolling.cov" title="pandas.core.window.Rolling.cov"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.cov</span></code></a>([other,&nbsp;pairwise,&nbsp;ddof])</td>
+<td>Calculate the rolling sample covariance.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.skew.html#pandas.core.window.Rolling.skew" title="pandas.core.window.Rolling.skew"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.skew</span></code></a>(**kwargs)</td>
+<td>Unbiased rolling skewness.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.kurt.html#pandas.core.window.Rolling.kurt" title="pandas.core.window.Rolling.kurt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.kurt</span></code></a>(**kwargs)</td>
+<td>Calculate unbiased rolling kurtosis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.apply.html#pandas.core.window.Rolling.apply" title="pandas.core.window.Rolling.apply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.apply</span></code></a>(func[,&nbsp;raw,&nbsp;args,&nbsp;kwargs])</td>
+<td>The rolling function’s apply function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Rolling.aggregate.html#pandas.core.window.Rolling.aggregate" title="pandas.core.window.Rolling.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.aggregate</span></code></a>(arg,&nbsp;*args,&nbsp;**kwargs)</td>
+<td>Aggregate using one or more operations over the specified axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Rolling.quantile.html#pandas.core.window.Rolling.quantile" title="pandas.core.window.Rolling.quantile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rolling.quantile</span></code></a>(quantile[,&nbsp;interpolation])</td>
+<td>Calculate the rolling quantile.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Window.mean.html#pandas.core.window.Window.mean" title="pandas.core.window.Window.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Window.mean</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the window mean of the values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Window.sum.html#pandas.core.window.Window.sum" title="pandas.core.window.Window.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Window.sum</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate window sum of given DataFrame or Series.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="standard-expanding-window-functions">
+<span id="api-functions-expanding"></span><h2>Standard expanding window functions<a class="headerlink" href="#standard-expanding-window-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.count.html#pandas.core.window.Expanding.count" title="pandas.core.window.Expanding.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.count</span></code></a>(**kwargs)</td>
+<td>The expanding count of any non-NaN observations inside the window.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.sum.html#pandas.core.window.Expanding.sum" title="pandas.core.window.Expanding.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.sum</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate expanding sum of given DataFrame or Series.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.mean.html#pandas.core.window.Expanding.mean" title="pandas.core.window.Expanding.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.mean</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the expanding mean of the values.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.median.html#pandas.core.window.Expanding.median" title="pandas.core.window.Expanding.median"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.median</span></code></a>(**kwargs)</td>
+<td>Calculate the expanding median.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.var.html#pandas.core.window.Expanding.var" title="pandas.core.window.Expanding.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.var</span></code></a>([ddof])</td>
+<td>Calculate unbiased expanding variance.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.std.html#pandas.core.window.Expanding.std" title="pandas.core.window.Expanding.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.std</span></code></a>([ddof])</td>
+<td>Calculate expanding standard deviation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.min.html#pandas.core.window.Expanding.min" title="pandas.core.window.Expanding.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.min</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the expanding minimum.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.max.html#pandas.core.window.Expanding.max" title="pandas.core.window.Expanding.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.max</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Calculate the expanding maximum.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.corr.html#pandas.core.window.Expanding.corr" title="pandas.core.window.Expanding.corr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.corr</span></code></a>([other,&nbsp;pairwise])</td>
+<td>Calculate expanding correlation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.cov.html#pandas.core.window.Expanding.cov" title="pandas.core.window.Expanding.cov"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.cov</span></code></a>([other,&nbsp;pairwise,&nbsp;ddof])</td>
+<td>Calculate the expanding sample covariance.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.skew.html#pandas.core.window.Expanding.skew" title="pandas.core.window.Expanding.skew"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.skew</span></code></a>(**kwargs)</td>
+<td>Unbiased expanding skewness.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.kurt.html#pandas.core.window.Expanding.kurt" title="pandas.core.window.Expanding.kurt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.kurt</span></code></a>(**kwargs)</td>
+<td>Calculate unbiased expanding kurtosis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.apply.html#pandas.core.window.Expanding.apply" title="pandas.core.window.Expanding.apply"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.apply</span></code></a>(func[,&nbsp;raw,&nbsp;args,&nbsp;kwargs])</td>
+<td>The expanding function’s apply function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.Expanding.aggregate.html#pandas.core.window.Expanding.aggregate" title="pandas.core.window.Expanding.aggregate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.aggregate</span></code></a>(arg,&nbsp;*args,&nbsp;**kwargs)</td>
+<td>Aggregate using one or more operations over the specified axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.Expanding.quantile.html#pandas.core.window.Expanding.quantile" title="pandas.core.window.Expanding.quantile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Expanding.quantile</span></code></a>(quantile[,&nbsp;interpolation])</td>
+<td>Calculate the expanding quantile.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exponentially-weighted-moving-window-functions">
+<h2>Exponentially-weighted moving window functions<a class="headerlink" href="#exponentially-weighted-moving-window-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.EWM.mean.html#pandas.core.window.EWM.mean" title="pandas.core.window.EWM.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EWM.mean</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Exponential weighted moving average.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.EWM.std.html#pandas.core.window.EWM.std" title="pandas.core.window.EWM.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EWM.std</span></code></a>([bias])</td>
+<td>Exponential weighted moving stddev.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.EWM.var.html#pandas.core.window.EWM.var" title="pandas.core.window.EWM.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EWM.var</span></code></a>([bias])</td>
+<td>Exponential weighted moving variance.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="api/pandas.core.window.EWM.corr.html#pandas.core.window.EWM.corr" title="pandas.core.window.EWM.corr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EWM.corr</span></code></a>([other,&nbsp;pairwise])</td>
+<td>Exponential weighted sample correlation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="api/pandas.core.window.EWM.cov.html#pandas.core.window.EWM.cov" title="pandas.core.window.EWM.cov"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EWM.cov</span></code></a>([other,&nbsp;pairwise,&nbsp;bias])</td>
+<td>Exponential weighted sample covariance.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="clearer"></div>
+        </div>
+    </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.core.window.Rolling.count.html" title="pandas.core.window.Rolling.count"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api/pandas.tseries.frequencies.to_offset.html" title="pandas.tseries.frequencies.to_offset"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">pandas 0.24.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >API Reference</a> &#187;</li> 
+      </ul>
+    </div>
+<style type="text/css">
+    .scrollToTop {
+        text-align: center;
+        font-weight: bold;
+        position: fixed;
+        bottom: 60px;
+        right: 40px;
+        display: none;
+    }
+</style>
+<a href="#" class="scrollToTop">Scroll To Top</a>
+<script type="text/javascript">
+$(document).ready(function() {
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27880019-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

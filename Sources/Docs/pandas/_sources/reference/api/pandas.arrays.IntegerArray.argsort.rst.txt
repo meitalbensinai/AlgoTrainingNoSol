@@ -1,0 +1,6 @@
+pandas.arrays.IntegerArray.argsort
+==================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntegerArray.argsort

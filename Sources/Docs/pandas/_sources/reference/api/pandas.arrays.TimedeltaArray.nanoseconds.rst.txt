@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.nanoseconds
+========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: TimedeltaArray.nanoseconds

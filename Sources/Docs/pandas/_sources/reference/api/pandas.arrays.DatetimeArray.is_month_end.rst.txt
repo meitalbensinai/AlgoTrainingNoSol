@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.is\_month\_end
+==========================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: DatetimeArray.is_month_end

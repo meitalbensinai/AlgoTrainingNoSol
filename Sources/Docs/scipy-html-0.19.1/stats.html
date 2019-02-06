@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Statistical functions (scipy.stats) &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="index.html" >
+    <link rel="next" title="scipy.stats.rv_continuous" href="generated/scipy.stats.rv_continuous.html" >
+    <link rel="prev" title="scipy.special.sinc" href="generated/scipy.special.sinc.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy v0.19.1 Reference Guide</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.stats.rv_continuous.html" title="scipy.stats.rv_continuous"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="generated/scipy.special.sinc.html" title="scipy.special.sinc"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Statistical functions (<code class="docutils literal"><span class="pre">scipy.stats</span></code>)</a><ul>
+<li><a class="reference internal" href="#continuous-distributions">Continuous distributions</a></li>
+<li><a class="reference internal" href="#multivariate-distributions">Multivariate distributions</a></li>
+<li><a class="reference internal" href="#discrete-distributions">Discrete distributions</a></li>
+<li><a class="reference internal" href="#statistical-functions">Statistical functions</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#circular-statistical-functions">Circular statistical functions</a></li>
+<li><a class="reference internal" href="#contingency-table-functions">Contingency table functions</a></li>
+<li><a class="reference internal" href="#plot-tests">Plot-tests</a></li>
+<li><a class="reference internal" href="#masked-statistics-functions">Masked statistics functions</a></li>
+<li><a class="reference internal" href="#univariate-and-multivariate-kernel-density-estimation-scipy-stats-kde">Univariate and multivariate kernel density estimation (<code class="docutils literal"><span class="pre">scipy.stats.kde</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="generated/scipy.special.sinc.html"
+                        title="previous chapter">scipy.special.sinc</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="generated/scipy.stats.rv_continuous.html"
+                        title="next chapter">scipy.stats.rv_continuous</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <span class="target" id="module-scipy.stats"></span><div class="section" id="module-scipy.stats">
+<span id="statistical-functions-scipy-stats"></span><h1>Statistical functions (<a class="reference internal" href="#module-scipy.stats" title="scipy.stats"><code class="xref py py-mod docutils literal"><span class="pre">scipy.stats</span></code></a>)<a class="headerlink" href="#module-scipy.stats" title="Permalink to this headline">¶</a></h1>
+<p>This module contains a large number of probability distributions as
+well as a growing library of statistical functions.</p>
+<p>Each univariate distribution is an instance of a subclass of <a class="reference internal" href="generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="scipy.stats.rv_continuous"><code class="xref py py-obj docutils literal"><span class="pre">rv_continuous</span></code></a>
+(<a class="reference internal" href="generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="scipy.stats.rv_discrete"><code class="xref py py-obj docutils literal"><span class="pre">rv_discrete</span></code></a> for discrete distributions):</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.rv_continuous.html#scipy.stats.rv_continuous" title="scipy.stats.rv_continuous"><code class="xref py py-obj docutils literal"><span class="pre">rv_continuous</span></code></a>([momtype,&nbsp;a,&nbsp;b,&nbsp;xtol,&nbsp;...])</td>
+<td>A generic continuous random variable class meant for subclassing.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.rv_discrete.html#scipy.stats.rv_discrete" title="scipy.stats.rv_discrete"><code class="xref py py-obj docutils literal"><span class="pre">rv_discrete</span></code></a>([a,&nbsp;b,&nbsp;name,&nbsp;badvalue,&nbsp;...])</td>
+<td>A generic discrete random variable class meant for subclassing.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.rv_histogram.html#scipy.stats.rv_histogram" title="scipy.stats.rv_histogram"><code class="xref py py-obj docutils literal"><span class="pre">rv_histogram</span></code></a>(histogram,&nbsp;*args,&nbsp;**kwargs)</td>
+<td>Generates a distribution given by a histogram.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="continuous-distributions">
+<h2>Continuous distributions<a class="headerlink" href="#continuous-distributions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.alpha.html#scipy.stats.alpha" title="scipy.stats.alpha"><code class="xref py py-obj docutils literal"><span class="pre">alpha</span></code></a></td>
+<td>An alpha continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.anglit.html#scipy.stats.anglit" title="scipy.stats.anglit"><code class="xref py py-obj docutils literal"><span class="pre">anglit</span></code></a></td>
+<td>An anglit continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.arcsine.html#scipy.stats.arcsine" title="scipy.stats.arcsine"><code class="xref py py-obj docutils literal"><span class="pre">arcsine</span></code></a></td>
+<td>An arcsine continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.argus.html#scipy.stats.argus" title="scipy.stats.argus"><code class="xref py py-obj docutils literal"><span class="pre">argus</span></code></a></td>
+<td>Argus distribution</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.beta.html#scipy.stats.beta" title="scipy.stats.beta"><code class="xref py py-obj docutils literal"><span class="pre">beta</span></code></a></td>
+<td>A beta continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.betaprime.html#scipy.stats.betaprime" title="scipy.stats.betaprime"><code class="xref py py-obj docutils literal"><span class="pre">betaprime</span></code></a></td>
+<td>A beta prime continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.bradford.html#scipy.stats.bradford" title="scipy.stats.bradford"><code class="xref py py-obj docutils literal"><span class="pre">bradford</span></code></a></td>
+<td>A Bradford continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.burr.html#scipy.stats.burr" title="scipy.stats.burr"><code class="xref py py-obj docutils literal"><span class="pre">burr</span></code></a></td>
+<td>A Burr (Type III) continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.burr12.html#scipy.stats.burr12" title="scipy.stats.burr12"><code class="xref py py-obj docutils literal"><span class="pre">burr12</span></code></a></td>
+<td>A Burr (Type XII) continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.cauchy.html#scipy.stats.cauchy" title="scipy.stats.cauchy"><code class="xref py py-obj docutils literal"><span class="pre">cauchy</span></code></a></td>
+<td>A Cauchy continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.chi.html#scipy.stats.chi" title="scipy.stats.chi"><code class="xref py py-obj docutils literal"><span class="pre">chi</span></code></a></td>
+<td>A chi continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.chi2.html#scipy.stats.chi2" title="scipy.stats.chi2"><code class="xref py py-obj docutils literal"><span class="pre">chi2</span></code></a></td>
+<td>A chi-squared continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.cosine.html#scipy.stats.cosine" title="scipy.stats.cosine"><code class="xref py py-obj docutils literal"><span class="pre">cosine</span></code></a></td>
+<td>A cosine continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.dgamma.html#scipy.stats.dgamma" title="scipy.stats.dgamma"><code class="xref py py-obj docutils literal"><span class="pre">dgamma</span></code></a></td>
+<td>A double gamma continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.dweibull.html#scipy.stats.dweibull" title="scipy.stats.dweibull"><code class="xref py py-obj docutils literal"><span class="pre">dweibull</span></code></a></td>
+<td>A double Weibull continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.erlang.html#scipy.stats.erlang" title="scipy.stats.erlang"><code class="xref py py-obj docutils literal"><span class="pre">erlang</span></code></a></td>
+<td>An Erlang continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.expon.html#scipy.stats.expon" title="scipy.stats.expon"><code class="xref py py-obj docutils literal"><span class="pre">expon</span></code></a></td>
+<td>An exponential continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.exponnorm.html#scipy.stats.exponnorm" title="scipy.stats.exponnorm"><code class="xref py py-obj docutils literal"><span class="pre">exponnorm</span></code></a></td>
+<td>An exponentially modified Normal continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.exponweib.html#scipy.stats.exponweib" title="scipy.stats.exponweib"><code class="xref py py-obj docutils literal"><span class="pre">exponweib</span></code></a></td>
+<td>An exponentiated Weibull continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.exponpow.html#scipy.stats.exponpow" title="scipy.stats.exponpow"><code class="xref py py-obj docutils literal"><span class="pre">exponpow</span></code></a></td>
+<td>An exponential power continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.f.html#scipy.stats.f" title="scipy.stats.f"><code class="xref py py-obj docutils literal"><span class="pre">f</span></code></a></td>
+<td>An F continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.fatiguelife.html#scipy.stats.fatiguelife" title="scipy.stats.fatiguelife"><code class="xref py py-obj docutils literal"><span class="pre">fatiguelife</span></code></a></td>
+<td>A fatigue-life (Birnbaum-Saunders) continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.fisk.html#scipy.stats.fisk" title="scipy.stats.fisk"><code class="xref py py-obj docutils literal"><span class="pre">fisk</span></code></a></td>
+<td>A Fisk continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.foldcauchy.html#scipy.stats.foldcauchy" title="scipy.stats.foldcauchy"><code class="xref py py-obj docutils literal"><span class="pre">foldcauchy</span></code></a></td>
+<td>A folded Cauchy continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.foldnorm.html#scipy.stats.foldnorm" title="scipy.stats.foldnorm"><code class="xref py py-obj docutils literal"><span class="pre">foldnorm</span></code></a></td>
+<td>A folded normal continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.frechet_r.html#scipy.stats.frechet_r" title="scipy.stats.frechet_r"><code class="xref py py-obj docutils literal"><span class="pre">frechet_r</span></code></a></td>
+<td>A Frechet right (or Weibull minimum) continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.frechet_l.html#scipy.stats.frechet_l" title="scipy.stats.frechet_l"><code class="xref py py-obj docutils literal"><span class="pre">frechet_l</span></code></a></td>
+<td>A Frechet left (or Weibull maximum) continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.genlogistic.html#scipy.stats.genlogistic" title="scipy.stats.genlogistic"><code class="xref py py-obj docutils literal"><span class="pre">genlogistic</span></code></a></td>
+<td>A generalized logistic continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.gennorm.html#scipy.stats.gennorm" title="scipy.stats.gennorm"><code class="xref py py-obj docutils literal"><span class="pre">gennorm</span></code></a></td>
+<td>A generalized normal continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.genpareto.html#scipy.stats.genpareto" title="scipy.stats.genpareto"><code class="xref py py-obj docutils literal"><span class="pre">genpareto</span></code></a></td>
+<td>A generalized Pareto continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.genexpon.html#scipy.stats.genexpon" title="scipy.stats.genexpon"><code class="xref py py-obj docutils literal"><span class="pre">genexpon</span></code></a></td>
+<td>A generalized exponential continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.genextreme.html#scipy.stats.genextreme" title="scipy.stats.genextreme"><code class="xref py py-obj docutils literal"><span class="pre">genextreme</span></code></a></td>
+<td>A generalized extreme value continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.gausshyper.html#scipy.stats.gausshyper" title="scipy.stats.gausshyper"><code class="xref py py-obj docutils literal"><span class="pre">gausshyper</span></code></a></td>
+<td>A Gauss hypergeometric continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.gamma.html#scipy.stats.gamma" title="scipy.stats.gamma"><code class="xref py py-obj docutils literal"><span class="pre">gamma</span></code></a></td>
+<td>A gamma continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.gengamma.html#scipy.stats.gengamma" title="scipy.stats.gengamma"><code class="xref py py-obj docutils literal"><span class="pre">gengamma</span></code></a></td>
+<td>A generalized gamma continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.genhalflogistic.html#scipy.stats.genhalflogistic" title="scipy.stats.genhalflogistic"><code class="xref py py-obj docutils literal"><span class="pre">genhalflogistic</span></code></a></td>
+<td>A generalized half-logistic continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.gilbrat.html#scipy.stats.gilbrat" title="scipy.stats.gilbrat"><code class="xref py py-obj docutils literal"><span class="pre">gilbrat</span></code></a></td>
+<td>A Gilbrat continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.gompertz.html#scipy.stats.gompertz" title="scipy.stats.gompertz"><code class="xref py py-obj docutils literal"><span class="pre">gompertz</span></code></a></td>
+<td>A Gompertz (or truncated Gumbel) continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.gumbel_r.html#scipy.stats.gumbel_r" title="scipy.stats.gumbel_r"><code class="xref py py-obj docutils literal"><span class="pre">gumbel_r</span></code></a></td>
+<td>A right-skewed Gumbel continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.gumbel_l.html#scipy.stats.gumbel_l" title="scipy.stats.gumbel_l"><code class="xref py py-obj docutils literal"><span class="pre">gumbel_l</span></code></a></td>
+<td>A left-skewed Gumbel continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.halfcauchy.html#scipy.stats.halfcauchy" title="scipy.stats.halfcauchy"><code class="xref py py-obj docutils literal"><span class="pre">halfcauchy</span></code></a></td>
+<td>A Half-Cauchy continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.halflogistic.html#scipy.stats.halflogistic" title="scipy.stats.halflogistic"><code class="xref py py-obj docutils literal"><span class="pre">halflogistic</span></code></a></td>
+<td>A half-logistic continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.halfnorm.html#scipy.stats.halfnorm" title="scipy.stats.halfnorm"><code class="xref py py-obj docutils literal"><span class="pre">halfnorm</span></code></a></td>
+<td>A half-normal continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.halfgennorm.html#scipy.stats.halfgennorm" title="scipy.stats.halfgennorm"><code class="xref py py-obj docutils literal"><span class="pre">halfgennorm</span></code></a></td>
+<td>The upper half of a generalized normal continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.hypsecant.html#scipy.stats.hypsecant" title="scipy.stats.hypsecant"><code class="xref py py-obj docutils literal"><span class="pre">hypsecant</span></code></a></td>
+<td>A hyperbolic secant continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.invgamma.html#scipy.stats.invgamma" title="scipy.stats.invgamma"><code class="xref py py-obj docutils literal"><span class="pre">invgamma</span></code></a></td>
+<td>An inverted gamma continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.invgauss.html#scipy.stats.invgauss" title="scipy.stats.invgauss"><code class="xref py py-obj docutils literal"><span class="pre">invgauss</span></code></a></td>
+<td>An inverse Gaussian continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.invweibull.html#scipy.stats.invweibull" title="scipy.stats.invweibull"><code class="xref py py-obj docutils literal"><span class="pre">invweibull</span></code></a></td>
+<td>An inverted Weibull continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.johnsonsb.html#scipy.stats.johnsonsb" title="scipy.stats.johnsonsb"><code class="xref py py-obj docutils literal"><span class="pre">johnsonsb</span></code></a></td>
+<td>A Johnson SB continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.johnsonsu.html#scipy.stats.johnsonsu" title="scipy.stats.johnsonsu"><code class="xref py py-obj docutils literal"><span class="pre">johnsonsu</span></code></a></td>
+<td>A Johnson SU continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.kappa4.html#scipy.stats.kappa4" title="scipy.stats.kappa4"><code class="xref py py-obj docutils literal"><span class="pre">kappa4</span></code></a></td>
+<td>Kappa 4 parameter distribution.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.kappa3.html#scipy.stats.kappa3" title="scipy.stats.kappa3"><code class="xref py py-obj docutils literal"><span class="pre">kappa3</span></code></a></td>
+<td>Kappa 3 parameter distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ksone.html#scipy.stats.ksone" title="scipy.stats.ksone"><code class="xref py py-obj docutils literal"><span class="pre">ksone</span></code></a></td>
+<td>General Kolmogorov-Smirnov one-sided test.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.kstwobign.html#scipy.stats.kstwobign" title="scipy.stats.kstwobign"><code class="xref py py-obj docutils literal"><span class="pre">kstwobign</span></code></a></td>
+<td>Kolmogorov-Smirnov two-sided test for large N.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.laplace.html#scipy.stats.laplace" title="scipy.stats.laplace"><code class="xref py py-obj docutils literal"><span class="pre">laplace</span></code></a></td>
+<td>A Laplace continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.levy.html#scipy.stats.levy" title="scipy.stats.levy"><code class="xref py py-obj docutils literal"><span class="pre">levy</span></code></a></td>
+<td>A Levy continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.levy_l.html#scipy.stats.levy_l" title="scipy.stats.levy_l"><code class="xref py py-obj docutils literal"><span class="pre">levy_l</span></code></a></td>
+<td>A left-skewed Levy continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.levy_stable.html#scipy.stats.levy_stable" title="scipy.stats.levy_stable"><code class="xref py py-obj docutils literal"><span class="pre">levy_stable</span></code></a></td>
+<td>A Levy-stable continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.logistic.html#scipy.stats.logistic" title="scipy.stats.logistic"><code class="xref py py-obj docutils literal"><span class="pre">logistic</span></code></a></td>
+<td>A logistic (or Sech-squared) continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.loggamma.html#scipy.stats.loggamma" title="scipy.stats.loggamma"><code class="xref py py-obj docutils literal"><span class="pre">loggamma</span></code></a></td>
+<td>A log gamma continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.loglaplace.html#scipy.stats.loglaplace" title="scipy.stats.loglaplace"><code class="xref py py-obj docutils literal"><span class="pre">loglaplace</span></code></a></td>
+<td>A log-Laplace continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.lognorm.html#scipy.stats.lognorm" title="scipy.stats.lognorm"><code class="xref py py-obj docutils literal"><span class="pre">lognorm</span></code></a></td>
+<td>A lognormal continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.lomax.html#scipy.stats.lomax" title="scipy.stats.lomax"><code class="xref py py-obj docutils literal"><span class="pre">lomax</span></code></a></td>
+<td>A Lomax (Pareto of the second kind) continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.maxwell.html#scipy.stats.maxwell" title="scipy.stats.maxwell"><code class="xref py py-obj docutils literal"><span class="pre">maxwell</span></code></a></td>
+<td>A Maxwell continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mielke.html#scipy.stats.mielke" title="scipy.stats.mielke"><code class="xref py py-obj docutils literal"><span class="pre">mielke</span></code></a></td>
+<td>A Mielke&#8217;s Beta-Kappa continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.nakagami.html#scipy.stats.nakagami" title="scipy.stats.nakagami"><code class="xref py py-obj docutils literal"><span class="pre">nakagami</span></code></a></td>
+<td>A Nakagami continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ncx2.html#scipy.stats.ncx2" title="scipy.stats.ncx2"><code class="xref py py-obj docutils literal"><span class="pre">ncx2</span></code></a></td>
+<td>A non-central chi-squared continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ncf.html#scipy.stats.ncf" title="scipy.stats.ncf"><code class="xref py py-obj docutils literal"><span class="pre">ncf</span></code></a></td>
+<td>A non-central F distribution continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.nct.html#scipy.stats.nct" title="scipy.stats.nct"><code class="xref py py-obj docutils literal"><span class="pre">nct</span></code></a></td>
+<td>A non-central Student&#8217;s T continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.norm.html#scipy.stats.norm" title="scipy.stats.norm"><code class="xref py py-obj docutils literal"><span class="pre">norm</span></code></a></td>
+<td>A normal continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.pareto.html#scipy.stats.pareto" title="scipy.stats.pareto"><code class="xref py py-obj docutils literal"><span class="pre">pareto</span></code></a></td>
+<td>A Pareto continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.pearson3.html#scipy.stats.pearson3" title="scipy.stats.pearson3"><code class="xref py py-obj docutils literal"><span class="pre">pearson3</span></code></a></td>
+<td>A pearson type III continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.powerlaw.html#scipy.stats.powerlaw" title="scipy.stats.powerlaw"><code class="xref py py-obj docutils literal"><span class="pre">powerlaw</span></code></a></td>
+<td>A power-function continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.powerlognorm.html#scipy.stats.powerlognorm" title="scipy.stats.powerlognorm"><code class="xref py py-obj docutils literal"><span class="pre">powerlognorm</span></code></a></td>
+<td>A power log-normal continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.powernorm.html#scipy.stats.powernorm" title="scipy.stats.powernorm"><code class="xref py py-obj docutils literal"><span class="pre">powernorm</span></code></a></td>
+<td>A power normal continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.rdist.html#scipy.stats.rdist" title="scipy.stats.rdist"><code class="xref py py-obj docutils literal"><span class="pre">rdist</span></code></a></td>
+<td>An R-distributed continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.reciprocal.html#scipy.stats.reciprocal" title="scipy.stats.reciprocal"><code class="xref py py-obj docutils literal"><span class="pre">reciprocal</span></code></a></td>
+<td>A reciprocal continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.rayleigh.html#scipy.stats.rayleigh" title="scipy.stats.rayleigh"><code class="xref py py-obj docutils literal"><span class="pre">rayleigh</span></code></a></td>
+<td>A Rayleigh continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.rice.html#scipy.stats.rice" title="scipy.stats.rice"><code class="xref py py-obj docutils literal"><span class="pre">rice</span></code></a></td>
+<td>A Rice continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.recipinvgauss.html#scipy.stats.recipinvgauss" title="scipy.stats.recipinvgauss"><code class="xref py py-obj docutils literal"><span class="pre">recipinvgauss</span></code></a></td>
+<td>A reciprocal inverse Gaussian continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.semicircular.html#scipy.stats.semicircular" title="scipy.stats.semicircular"><code class="xref py py-obj docutils literal"><span class="pre">semicircular</span></code></a></td>
+<td>A semicircular continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.skewnorm.html#scipy.stats.skewnorm" title="scipy.stats.skewnorm"><code class="xref py py-obj docutils literal"><span class="pre">skewnorm</span></code></a></td>
+<td>A skew-normal random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.t.html#scipy.stats.t" title="scipy.stats.t"><code class="xref py py-obj docutils literal"><span class="pre">t</span></code></a></td>
+<td>A Student&#8217;s T continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.trapz.html#scipy.stats.trapz" title="scipy.stats.trapz"><code class="xref py py-obj docutils literal"><span class="pre">trapz</span></code></a></td>
+<td>A trapezoidal continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.triang.html#scipy.stats.triang" title="scipy.stats.triang"><code class="xref py py-obj docutils literal"><span class="pre">triang</span></code></a></td>
+<td>A triangular continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.truncexpon.html#scipy.stats.truncexpon" title="scipy.stats.truncexpon"><code class="xref py py-obj docutils literal"><span class="pre">truncexpon</span></code></a></td>
+<td>A truncated exponential continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.truncnorm.html#scipy.stats.truncnorm" title="scipy.stats.truncnorm"><code class="xref py py-obj docutils literal"><span class="pre">truncnorm</span></code></a></td>
+<td>A truncated normal continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.tukeylambda.html#scipy.stats.tukeylambda" title="scipy.stats.tukeylambda"><code class="xref py py-obj docutils literal"><span class="pre">tukeylambda</span></code></a></td>
+<td>A Tukey-Lamdba continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.uniform.html#scipy.stats.uniform" title="scipy.stats.uniform"><code class="xref py py-obj docutils literal"><span class="pre">uniform</span></code></a></td>
+<td>A uniform continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.vonmises.html#scipy.stats.vonmises" title="scipy.stats.vonmises"><code class="xref py py-obj docutils literal"><span class="pre">vonmises</span></code></a></td>
+<td>A Von Mises continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.vonmises_line.html#scipy.stats.vonmises_line" title="scipy.stats.vonmises_line"><code class="xref py py-obj docutils literal"><span class="pre">vonmises_line</span></code></a></td>
+<td>A Von Mises continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.wald.html#scipy.stats.wald" title="scipy.stats.wald"><code class="xref py py-obj docutils literal"><span class="pre">wald</span></code></a></td>
+<td>A Wald continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.weibull_min.html#scipy.stats.weibull_min" title="scipy.stats.weibull_min"><code class="xref py py-obj docutils literal"><span class="pre">weibull_min</span></code></a></td>
+<td>A Frechet right (or Weibull minimum) continuous random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.weibull_max.html#scipy.stats.weibull_max" title="scipy.stats.weibull_max"><code class="xref py py-obj docutils literal"><span class="pre">weibull_max</span></code></a></td>
+<td>A Frechet left (or Weibull maximum) continuous random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.wrapcauchy.html#scipy.stats.wrapcauchy" title="scipy.stats.wrapcauchy"><code class="xref py py-obj docutils literal"><span class="pre">wrapcauchy</span></code></a></td>
+<td>A wrapped Cauchy continuous random variable.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="multivariate-distributions">
+<h2>Multivariate distributions<a class="headerlink" href="#multivariate-distributions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.multivariate_normal.html#scipy.stats.multivariate_normal" title="scipy.stats.multivariate_normal"><code class="xref py py-obj docutils literal"><span class="pre">multivariate_normal</span></code></a></td>
+<td>A multivariate normal random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.matrix_normal.html#scipy.stats.matrix_normal" title="scipy.stats.matrix_normal"><code class="xref py py-obj docutils literal"><span class="pre">matrix_normal</span></code></a></td>
+<td>A matrix normal random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.dirichlet.html#scipy.stats.dirichlet" title="scipy.stats.dirichlet"><code class="xref py py-obj docutils literal"><span class="pre">dirichlet</span></code></a></td>
+<td>A Dirichlet random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.wishart.html#scipy.stats.wishart" title="scipy.stats.wishart"><code class="xref py py-obj docutils literal"><span class="pre">wishart</span></code></a></td>
+<td>A Wishart random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.invwishart.html#scipy.stats.invwishart" title="scipy.stats.invwishart"><code class="xref py py-obj docutils literal"><span class="pre">invwishart</span></code></a></td>
+<td>An inverse Wishart random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.multinomial.html#scipy.stats.multinomial" title="scipy.stats.multinomial"><code class="xref py py-obj docutils literal"><span class="pre">multinomial</span></code></a></td>
+<td>A multinomial random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.special_ortho_group.html#scipy.stats.special_ortho_group" title="scipy.stats.special_ortho_group"><code class="xref py py-obj docutils literal"><span class="pre">special_ortho_group</span></code></a></td>
+<td>A matrix-valued SO(N) random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ortho_group.html#scipy.stats.ortho_group" title="scipy.stats.ortho_group"><code class="xref py py-obj docutils literal"><span class="pre">ortho_group</span></code></a></td>
+<td>A matrix-valued O(N) random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.random_correlation.html#scipy.stats.random_correlation" title="scipy.stats.random_correlation"><code class="xref py py-obj docutils literal"><span class="pre">random_correlation</span></code></a></td>
+<td>A random correlation matrix.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="discrete-distributions">
+<h2>Discrete distributions<a class="headerlink" href="#discrete-distributions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.bernoulli.html#scipy.stats.bernoulli" title="scipy.stats.bernoulli"><code class="xref py py-obj docutils literal"><span class="pre">bernoulli</span></code></a></td>
+<td>A Bernoulli discrete random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.binom.html#scipy.stats.binom" title="scipy.stats.binom"><code class="xref py py-obj docutils literal"><span class="pre">binom</span></code></a></td>
+<td>A binomial discrete random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.boltzmann.html#scipy.stats.boltzmann" title="scipy.stats.boltzmann"><code class="xref py py-obj docutils literal"><span class="pre">boltzmann</span></code></a></td>
+<td>A Boltzmann (Truncated Discrete Exponential) random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.dlaplace.html#scipy.stats.dlaplace" title="scipy.stats.dlaplace"><code class="xref py py-obj docutils literal"><span class="pre">dlaplace</span></code></a></td>
+<td>A  Laplacian discrete random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.geom.html#scipy.stats.geom" title="scipy.stats.geom"><code class="xref py py-obj docutils literal"><span class="pre">geom</span></code></a></td>
+<td>A geometric discrete random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.hypergeom.html#scipy.stats.hypergeom" title="scipy.stats.hypergeom"><code class="xref py py-obj docutils literal"><span class="pre">hypergeom</span></code></a></td>
+<td>A hypergeometric discrete random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.logser.html#scipy.stats.logser" title="scipy.stats.logser"><code class="xref py py-obj docutils literal"><span class="pre">logser</span></code></a></td>
+<td>A Logarithmic (Log-Series, Series) discrete random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.nbinom.html#scipy.stats.nbinom" title="scipy.stats.nbinom"><code class="xref py py-obj docutils literal"><span class="pre">nbinom</span></code></a></td>
+<td>A negative binomial discrete random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.planck.html#scipy.stats.planck" title="scipy.stats.planck"><code class="xref py py-obj docutils literal"><span class="pre">planck</span></code></a></td>
+<td>A Planck discrete exponential random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.poisson.html#scipy.stats.poisson" title="scipy.stats.poisson"><code class="xref py py-obj docutils literal"><span class="pre">poisson</span></code></a></td>
+<td>A Poisson discrete random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.randint.html#scipy.stats.randint" title="scipy.stats.randint"><code class="xref py py-obj docutils literal"><span class="pre">randint</span></code></a></td>
+<td>A uniform discrete random variable.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.skellam.html#scipy.stats.skellam" title="scipy.stats.skellam"><code class="xref py py-obj docutils literal"><span class="pre">skellam</span></code></a></td>
+<td>A  Skellam discrete random variable.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.zipf.html#scipy.stats.zipf" title="scipy.stats.zipf"><code class="xref py py-obj docutils literal"><span class="pre">zipf</span></code></a></td>
+<td>A Zipf discrete random variable.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="statistical-functions">
+<h2>Statistical functions<a class="headerlink" href="#statistical-functions" title="Permalink to this headline">¶</a></h2>
+<p>Several of these functions have a similar version in scipy.stats.mstats
+which work for masked arrays.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.describe.html#scipy.stats.describe" title="scipy.stats.describe"><code class="xref py py-obj docutils literal"><span class="pre">describe</span></code></a>(a[,&nbsp;axis,&nbsp;ddof,&nbsp;bias,&nbsp;nan_policy])</td>
+<td>Computes several descriptive statistics of the passed array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.gmean.html#scipy.stats.gmean" title="scipy.stats.gmean"><code class="xref py py-obj docutils literal"><span class="pre">gmean</span></code></a>(a[,&nbsp;axis,&nbsp;dtype])</td>
+<td>Compute the geometric mean along the specified axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.hmean.html#scipy.stats.hmean" title="scipy.stats.hmean"><code class="xref py py-obj docutils literal"><span class="pre">hmean</span></code></a>(a[,&nbsp;axis,&nbsp;dtype])</td>
+<td>Calculates the harmonic mean along the specified axis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.kurtosis.html#scipy.stats.kurtosis" title="scipy.stats.kurtosis"><code class="xref py py-obj docutils literal"><span class="pre">kurtosis</span></code></a>(a[,&nbsp;axis,&nbsp;fisher,&nbsp;bias,&nbsp;nan_policy])</td>
+<td>Computes the kurtosis (Fisher or Pearson) of a dataset.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.kurtosistest.html#scipy.stats.kurtosistest" title="scipy.stats.kurtosistest"><code class="xref py py-obj docutils literal"><span class="pre">kurtosistest</span></code></a>(a[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Tests whether a dataset has normal kurtosis</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mode.html#scipy.stats.mode" title="scipy.stats.mode"><code class="xref py py-obj docutils literal"><span class="pre">mode</span></code></a>(a[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Returns an array of the modal (most common) value in the passed array.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.moment.html#scipy.stats.moment" title="scipy.stats.moment"><code class="xref py py-obj docutils literal"><span class="pre">moment</span></code></a>(a[,&nbsp;moment,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Calculates the nth moment about the mean for a sample.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.normaltest.html#scipy.stats.normaltest" title="scipy.stats.normaltest"><code class="xref py py-obj docutils literal"><span class="pre">normaltest</span></code></a>(a[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Tests whether a sample differs from a normal distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.skew.html#scipy.stats.skew" title="scipy.stats.skew"><code class="xref py py-obj docutils literal"><span class="pre">skew</span></code></a>(a[,&nbsp;axis,&nbsp;bias,&nbsp;nan_policy])</td>
+<td>Computes the skewness of a data set.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.skewtest.html#scipy.stats.skewtest" title="scipy.stats.skewtest"><code class="xref py py-obj docutils literal"><span class="pre">skewtest</span></code></a>(a[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Tests whether the skew is different from the normal distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.kstat.html#scipy.stats.kstat" title="scipy.stats.kstat"><code class="xref py py-obj docutils literal"><span class="pre">kstat</span></code></a>(data[,&nbsp;n])</td>
+<td>Return the nth k-statistic (1&lt;=n&lt;=4 so far).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.kstatvar.html#scipy.stats.kstatvar" title="scipy.stats.kstatvar"><code class="xref py py-obj docutils literal"><span class="pre">kstatvar</span></code></a>(data[,&nbsp;n])</td>
+<td>Returns an unbiased estimator of the variance of the k-statistic.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.tmean.html#scipy.stats.tmean" title="scipy.stats.tmean"><code class="xref py py-obj docutils literal"><span class="pre">tmean</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis])</td>
+<td>Compute the trimmed mean.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.tvar.html#scipy.stats.tvar" title="scipy.stats.tvar"><code class="xref py py-obj docutils literal"><span class="pre">tvar</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis,&nbsp;ddof])</td>
+<td>Compute the trimmed variance</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.tmin.html#scipy.stats.tmin" title="scipy.stats.tmin"><code class="xref py py-obj docutils literal"><span class="pre">tmin</span></code></a>(a[,&nbsp;lowerlimit,&nbsp;axis,&nbsp;inclusive,&nbsp;...])</td>
+<td>Compute the trimmed minimum</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.tmax.html#scipy.stats.tmax" title="scipy.stats.tmax"><code class="xref py py-obj docutils literal"><span class="pre">tmax</span></code></a>(a[,&nbsp;upperlimit,&nbsp;axis,&nbsp;inclusive,&nbsp;...])</td>
+<td>Compute the trimmed maximum</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.tstd.html#scipy.stats.tstd" title="scipy.stats.tstd"><code class="xref py py-obj docutils literal"><span class="pre">tstd</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis,&nbsp;ddof])</td>
+<td>Compute the trimmed sample standard deviation</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.tsem.html#scipy.stats.tsem" title="scipy.stats.tsem"><code class="xref py py-obj docutils literal"><span class="pre">tsem</span></code></a>(a[,&nbsp;limits,&nbsp;inclusive,&nbsp;axis,&nbsp;ddof])</td>
+<td>Compute the trimmed standard error of the mean.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.variation.html#scipy.stats.variation" title="scipy.stats.variation"><code class="xref py py-obj docutils literal"><span class="pre">variation</span></code></a>(a[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Computes the coefficient of variation, the ratio of the biased standard deviation to the mean.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.find_repeats.html#scipy.stats.find_repeats" title="scipy.stats.find_repeats"><code class="xref py py-obj docutils literal"><span class="pre">find_repeats</span></code></a>(arr)</td>
+<td>Find repeats and repeat counts.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.trim_mean.html#scipy.stats.trim_mean" title="scipy.stats.trim_mean"><code class="xref py py-obj docutils literal"><span class="pre">trim_mean</span></code></a>(a,&nbsp;proportiontocut[,&nbsp;axis])</td>
+<td>Return mean of array after trimming distribution from both tails.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.cumfreq.html#scipy.stats.cumfreq" title="scipy.stats.cumfreq"><code class="xref py py-obj docutils literal"><span class="pre">cumfreq</span></code></a>(a[,&nbsp;numbins,&nbsp;defaultreallimits,&nbsp;weights])</td>
+<td>Returns a cumulative frequency histogram, using the histogram function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.histogram2.html#scipy.stats.histogram2" title="scipy.stats.histogram2"><code class="xref py py-obj docutils literal"><span class="pre">histogram2</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.histogram2.html#scipy.stats.histogram2" title="scipy.stats.histogram2"><code class="xref py py-obj docutils literal"><span class="pre">histogram2</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.histogram.html#scipy.stats.histogram" title="scipy.stats.histogram"><code class="xref py py-obj docutils literal"><span class="pre">histogram</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.histogram.html#scipy.stats.histogram" title="scipy.stats.histogram"><code class="xref py py-obj docutils literal"><span class="pre">histogram</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.itemfreq.html#scipy.stats.itemfreq" title="scipy.stats.itemfreq"><code class="xref py py-obj docutils literal"><span class="pre">itemfreq</span></code></a>(a)</td>
+<td>Returns a 2-D array of item frequencies.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.percentileofscore.html#scipy.stats.percentileofscore" title="scipy.stats.percentileofscore"><code class="xref py py-obj docutils literal"><span class="pre">percentileofscore</span></code></a>(a,&nbsp;score[,&nbsp;kind])</td>
+<td>The percentile rank of a score relative to a list of scores.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.scoreatpercentile.html#scipy.stats.scoreatpercentile" title="scipy.stats.scoreatpercentile"><code class="xref py py-obj docutils literal"><span class="pre">scoreatpercentile</span></code></a>(a,&nbsp;per[,&nbsp;limit,&nbsp;...])</td>
+<td>Calculate the score at a given percentile of the input sequence.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.relfreq.html#scipy.stats.relfreq" title="scipy.stats.relfreq"><code class="xref py py-obj docutils literal"><span class="pre">relfreq</span></code></a>(a[,&nbsp;numbins,&nbsp;defaultreallimits,&nbsp;weights])</td>
+<td>Returns a relative frequency histogram, using the histogram function.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.binned_statistic.html#scipy.stats.binned_statistic" title="scipy.stats.binned_statistic"><code class="xref py py-obj docutils literal"><span class="pre">binned_statistic</span></code></a>(x,&nbsp;values[,&nbsp;statistic,&nbsp;...])</td>
+<td>Compute a binned statistic for one or more sets of data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.binned_statistic_2d.html#scipy.stats.binned_statistic_2d" title="scipy.stats.binned_statistic_2d"><code class="xref py py-obj docutils literal"><span class="pre">binned_statistic_2d</span></code></a>(x,&nbsp;y,&nbsp;values[,&nbsp;...])</td>
+<td>Compute a bidimensional binned statistic for one or more sets of data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.binned_statistic_dd.html#scipy.stats.binned_statistic_dd" title="scipy.stats.binned_statistic_dd"><code class="xref py py-obj docutils literal"><span class="pre">binned_statistic_dd</span></code></a>(sample,&nbsp;values[,&nbsp;...])</td>
+<td>Compute a multidimensional binned statistic for a set of data.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.obrientransform.html#scipy.stats.obrientransform" title="scipy.stats.obrientransform"><code class="xref py py-obj docutils literal"><span class="pre">obrientransform</span></code></a>(*args)</td>
+<td>Computes the O&#8217;Brien transform on input data (any number of arrays).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.signaltonoise.html#scipy.stats.signaltonoise" title="scipy.stats.signaltonoise"><code class="xref py py-obj docutils literal"><span class="pre">signaltonoise</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.signaltonoise.html#scipy.stats.signaltonoise" title="scipy.stats.signaltonoise"><code class="xref py py-obj docutils literal"><span class="pre">signaltonoise</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.bayes_mvs.html#scipy.stats.bayes_mvs" title="scipy.stats.bayes_mvs"><code class="xref py py-obj docutils literal"><span class="pre">bayes_mvs</span></code></a>(data[,&nbsp;alpha])</td>
+<td>Bayesian confidence intervals for the mean, var, and std.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mvsdist.html#scipy.stats.mvsdist" title="scipy.stats.mvsdist"><code class="xref py py-obj docutils literal"><span class="pre">mvsdist</span></code></a>(data)</td>
+<td>&#8216;Frozen&#8217; distributions for mean, variance, and standard deviation of data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.sem.html#scipy.stats.sem" title="scipy.stats.sem"><code class="xref py py-obj docutils literal"><span class="pre">sem</span></code></a>(a[,&nbsp;axis,&nbsp;ddof,&nbsp;nan_policy])</td>
+<td>Calculates the standard error of the mean (or standard error of measurement) of the values in the input array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.zmap.html#scipy.stats.zmap" title="scipy.stats.zmap"><code class="xref py py-obj docutils literal"><span class="pre">zmap</span></code></a>(scores,&nbsp;compare[,&nbsp;axis,&nbsp;ddof])</td>
+<td>Calculates the relative z-scores.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.zscore.html#scipy.stats.zscore" title="scipy.stats.zscore"><code class="xref py py-obj docutils literal"><span class="pre">zscore</span></code></a>(a[,&nbsp;axis,&nbsp;ddof])</td>
+<td>Calculates the z score of each value in the sample, relative to the sample mean and standard deviation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.iqr.html#scipy.stats.iqr" title="scipy.stats.iqr"><code class="xref py py-obj docutils literal"><span class="pre">iqr</span></code></a>(x[,&nbsp;axis,&nbsp;rng,&nbsp;scale,&nbsp;nan_policy,&nbsp;...])</td>
+<td>Compute the interquartile range of the data along the specified axis.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.sigmaclip.html#scipy.stats.sigmaclip" title="scipy.stats.sigmaclip"><code class="xref py py-obj docutils literal"><span class="pre">sigmaclip</span></code></a>(a[,&nbsp;low,&nbsp;high])</td>
+<td>Iterative sigma-clipping of array elements.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.threshold.html#scipy.stats.threshold" title="scipy.stats.threshold"><code class="xref py py-obj docutils literal"><span class="pre">threshold</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.threshold.html#scipy.stats.threshold" title="scipy.stats.threshold"><code class="xref py py-obj docutils literal"><span class="pre">threshold</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.trimboth.html#scipy.stats.trimboth" title="scipy.stats.trimboth"><code class="xref py py-obj docutils literal"><span class="pre">trimboth</span></code></a>(a,&nbsp;proportiontocut[,&nbsp;axis])</td>
+<td>Slices off a proportion of items from both ends of an array.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.trim1.html#scipy.stats.trim1" title="scipy.stats.trim1"><code class="xref py py-obj docutils literal"><span class="pre">trim1</span></code></a>(a,&nbsp;proportiontocut[,&nbsp;tail,&nbsp;axis])</td>
+<td>Slices off a proportion from ONE end of the passed array distribution.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.f_oneway.html#scipy.stats.f_oneway" title="scipy.stats.f_oneway"><code class="xref py py-obj docutils literal"><span class="pre">f_oneway</span></code></a>(*args)</td>
+<td>Performs a 1-way ANOVA.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.pearsonr.html#scipy.stats.pearsonr" title="scipy.stats.pearsonr"><code class="xref py py-obj docutils literal"><span class="pre">pearsonr</span></code></a>(x,&nbsp;y)</td>
+<td>Calculates a Pearson correlation coefficient and the p-value for testing non-correlation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.spearmanr.html#scipy.stats.spearmanr" title="scipy.stats.spearmanr"><code class="xref py py-obj docutils literal"><span class="pre">spearmanr</span></code></a>(a[,&nbsp;b,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Calculates a Spearman rank-order correlation coefficient and the p-value to test for non-correlation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.pointbiserialr.html#scipy.stats.pointbiserialr" title="scipy.stats.pointbiserialr"><code class="xref py py-obj docutils literal"><span class="pre">pointbiserialr</span></code></a>(x,&nbsp;y)</td>
+<td>Calculates a point biserial correlation coefficient and its p-value.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.kendalltau.html#scipy.stats.kendalltau" title="scipy.stats.kendalltau"><code class="xref py py-obj docutils literal"><span class="pre">kendalltau</span></code></a>(x,&nbsp;y[,&nbsp;initial_lexsort,&nbsp;nan_policy])</td>
+<td>Calculates Kendall&#8217;s tau, a correlation measure for ordinal data.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.weightedtau.html#scipy.stats.weightedtau" title="scipy.stats.weightedtau"><code class="xref py py-obj docutils literal"><span class="pre">weightedtau</span></code></a>(x,&nbsp;y[,&nbsp;rank,&nbsp;weigher,&nbsp;additive])</td>
+<td>Computes a weighted version of Kendall&#8217;s <span class="math">\(\tau\)</span>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.linregress.html#scipy.stats.linregress" title="scipy.stats.linregress"><code class="xref py py-obj docutils literal"><span class="pre">linregress</span></code></a>(x[,&nbsp;y])</td>
+<td>Calculate a linear least-squares regression for two sets of measurements.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.theilslopes.html#scipy.stats.theilslopes" title="scipy.stats.theilslopes"><code class="xref py py-obj docutils literal"><span class="pre">theilslopes</span></code></a>(y[,&nbsp;x,&nbsp;alpha])</td>
+<td>Computes the Theil-Sen estimator for a set of points (x, y).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.f_value.html#scipy.stats.f_value" title="scipy.stats.f_value"><code class="xref py py-obj docutils literal"><span class="pre">f_value</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.f_value.html#scipy.stats.f_value" title="scipy.stats.f_value"><code class="xref py py-obj docutils literal"><span class="pre">f_value</span></code></a> is deprecated!</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ttest_1samp.html#scipy.stats.ttest_1samp" title="scipy.stats.ttest_1samp"><code class="xref py py-obj docutils literal"><span class="pre">ttest_1samp</span></code></a>(a,&nbsp;popmean[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Calculates the T-test for the mean of ONE group of scores.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ttest_ind.html#scipy.stats.ttest_ind" title="scipy.stats.ttest_ind"><code class="xref py py-obj docutils literal"><span class="pre">ttest_ind</span></code></a>(a,&nbsp;b[,&nbsp;axis,&nbsp;equal_var,&nbsp;nan_policy])</td>
+<td>Calculates the T-test for the means of <em>two independent</em> samples of scores.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ttest_ind_from_stats.html#scipy.stats.ttest_ind_from_stats" title="scipy.stats.ttest_ind_from_stats"><code class="xref py py-obj docutils literal"><span class="pre">ttest_ind_from_stats</span></code></a>(mean1,&nbsp;std1,&nbsp;nobs1,&nbsp;...)</td>
+<td>T-test for means of two independent samples from descriptive statistics.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ttest_rel.html#scipy.stats.ttest_rel" title="scipy.stats.ttest_rel"><code class="xref py py-obj docutils literal"><span class="pre">ttest_rel</span></code></a>(a,&nbsp;b[,&nbsp;axis,&nbsp;nan_policy])</td>
+<td>Calculates the T-test on TWO RELATED samples of scores, a and b.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.kstest.html#scipy.stats.kstest" title="scipy.stats.kstest"><code class="xref py py-obj docutils literal"><span class="pre">kstest</span></code></a>(rvs,&nbsp;cdf[,&nbsp;args,&nbsp;N,&nbsp;alternative,&nbsp;mode])</td>
+<td>Perform the Kolmogorov-Smirnov test for goodness of fit.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.chisquare.html#scipy.stats.chisquare" title="scipy.stats.chisquare"><code class="xref py py-obj docutils literal"><span class="pre">chisquare</span></code></a>(f_obs[,&nbsp;f_exp,&nbsp;ddof,&nbsp;axis])</td>
+<td>Calculates a one-way chi square test.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.power_divergence.html#scipy.stats.power_divergence" title="scipy.stats.power_divergence"><code class="xref py py-obj docutils literal"><span class="pre">power_divergence</span></code></a>(f_obs[,&nbsp;f_exp,&nbsp;ddof,&nbsp;axis,&nbsp;...])</td>
+<td>Cressie-Read power divergence statistic and goodness of fit test.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ks_2samp.html#scipy.stats.ks_2samp" title="scipy.stats.ks_2samp"><code class="xref py py-obj docutils literal"><span class="pre">ks_2samp</span></code></a>(data1,&nbsp;data2)</td>
+<td>Computes the Kolmogorov-Smirnov statistic on 2 samples.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.mannwhitneyu.html#scipy.stats.mannwhitneyu" title="scipy.stats.mannwhitneyu"><code class="xref py py-obj docutils literal"><span class="pre">mannwhitneyu</span></code></a>(x,&nbsp;y[,&nbsp;use_continuity,&nbsp;alternative])</td>
+<td>Computes the Mann-Whitney rank test on samples x and y.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.tiecorrect.html#scipy.stats.tiecorrect" title="scipy.stats.tiecorrect"><code class="xref py py-obj docutils literal"><span class="pre">tiecorrect</span></code></a>(rankvals)</td>
+<td>Tie correction factor for ties in the Mann-Whitney U and Kruskal-Wallis H tests.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.rankdata.html#scipy.stats.rankdata" title="scipy.stats.rankdata"><code class="xref py py-obj docutils literal"><span class="pre">rankdata</span></code></a>(a[,&nbsp;method])</td>
+<td>Assign ranks to data, dealing with ties appropriately.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ranksums.html#scipy.stats.ranksums" title="scipy.stats.ranksums"><code class="xref py py-obj docutils literal"><span class="pre">ranksums</span></code></a>(x,&nbsp;y)</td>
+<td>Compute the Wilcoxon rank-sum statistic for two samples.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon" title="scipy.stats.wilcoxon"><code class="xref py py-obj docutils literal"><span class="pre">wilcoxon</span></code></a>(x[,&nbsp;y,&nbsp;zero_method,&nbsp;correction])</td>
+<td>Calculate the Wilcoxon signed-rank test.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.kruskal.html#scipy.stats.kruskal" title="scipy.stats.kruskal"><code class="xref py py-obj docutils literal"><span class="pre">kruskal</span></code></a>(*args,&nbsp;**kwargs)</td>
+<td>Compute the Kruskal-Wallis H-test for independent samples</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.friedmanchisquare.html#scipy.stats.friedmanchisquare" title="scipy.stats.friedmanchisquare"><code class="xref py py-obj docutils literal"><span class="pre">friedmanchisquare</span></code></a>(*args)</td>
+<td>Computes the Friedman test for repeated measurements</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.combine_pvalues.html#scipy.stats.combine_pvalues" title="scipy.stats.combine_pvalues"><code class="xref py py-obj docutils literal"><span class="pre">combine_pvalues</span></code></a>(pvalues[,&nbsp;method,&nbsp;weights])</td>
+<td>Methods for combining the p-values of independent tests bearing upon the same hypothesis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ss.html#scipy.stats.ss" title="scipy.stats.ss"><code class="xref py py-obj docutils literal"><span class="pre">ss</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.ss.html#scipy.stats.ss" title="scipy.stats.ss"><code class="xref py py-obj docutils literal"><span class="pre">ss</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.square_of_sums.html#scipy.stats.square_of_sums" title="scipy.stats.square_of_sums"><code class="xref py py-obj docutils literal"><span class="pre">square_of_sums</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.square_of_sums.html#scipy.stats.square_of_sums" title="scipy.stats.square_of_sums"><code class="xref py py-obj docutils literal"><span class="pre">square_of_sums</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.jarque_bera.html#scipy.stats.jarque_bera" title="scipy.stats.jarque_bera"><code class="xref py py-obj docutils literal"><span class="pre">jarque_bera</span></code></a>(x)</td>
+<td>Perform the Jarque-Bera goodness of fit test on sample data.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ansari.html#scipy.stats.ansari" title="scipy.stats.ansari"><code class="xref py py-obj docutils literal"><span class="pre">ansari</span></code></a>(x,&nbsp;y)</td>
+<td>Perform the Ansari-Bradley test for equal scale parameters</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.bartlett.html#scipy.stats.bartlett" title="scipy.stats.bartlett"><code class="xref py py-obj docutils literal"><span class="pre">bartlett</span></code></a>(*args)</td>
+<td>Perform Bartlett&#8217;s test for equal variances</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.levene.html#scipy.stats.levene" title="scipy.stats.levene"><code class="xref py py-obj docutils literal"><span class="pre">levene</span></code></a>(*args,&nbsp;**kwds)</td>
+<td>Perform Levene test for equal variances.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.shapiro.html#scipy.stats.shapiro" title="scipy.stats.shapiro"><code class="xref py py-obj docutils literal"><span class="pre">shapiro</span></code></a>(x[,&nbsp;a,&nbsp;reta])</td>
+<td>Perform the Shapiro-Wilk test for normality.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.anderson.html#scipy.stats.anderson" title="scipy.stats.anderson"><code class="xref py py-obj docutils literal"><span class="pre">anderson</span></code></a>(x[,&nbsp;dist])</td>
+<td>Anderson-Darling test for data coming from a particular distribution</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.anderson_ksamp.html#scipy.stats.anderson_ksamp" title="scipy.stats.anderson_ksamp"><code class="xref py py-obj docutils literal"><span class="pre">anderson_ksamp</span></code></a>(samples[,&nbsp;midrank])</td>
+<td>The Anderson-Darling test for k-samples.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.binom_test.html#scipy.stats.binom_test" title="scipy.stats.binom_test"><code class="xref py py-obj docutils literal"><span class="pre">binom_test</span></code></a>(x[,&nbsp;n,&nbsp;p,&nbsp;alternative])</td>
+<td>Perform a test that the probability of success is p.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.fligner.html#scipy.stats.fligner" title="scipy.stats.fligner"><code class="xref py py-obj docutils literal"><span class="pre">fligner</span></code></a>(*args,&nbsp;**kwds)</td>
+<td>Perform Fligner-Killeen test for equality of variance.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.median_test.html#scipy.stats.median_test" title="scipy.stats.median_test"><code class="xref py py-obj docutils literal"><span class="pre">median_test</span></code></a>(*args,&nbsp;**kwds)</td>
+<td>Mood&#8217;s median test.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.mood.html#scipy.stats.mood" title="scipy.stats.mood"><code class="xref py py-obj docutils literal"><span class="pre">mood</span></code></a>(x,&nbsp;y[,&nbsp;axis])</td>
+<td>Perform Mood&#8217;s test for equal scale parameters.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.boxcox.html#scipy.stats.boxcox" title="scipy.stats.boxcox"><code class="xref py py-obj docutils literal"><span class="pre">boxcox</span></code></a>(x[,&nbsp;lmbda,&nbsp;alpha])</td>
+<td>Return a positive dataset transformed by a Box-Cox power transformation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.boxcox_normmax.html#scipy.stats.boxcox_normmax" title="scipy.stats.boxcox_normmax"><code class="xref py py-obj docutils literal"><span class="pre">boxcox_normmax</span></code></a>(x[,&nbsp;brack,&nbsp;method])</td>
+<td>Compute optimal Box-Cox transform parameter for input data.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.boxcox_llf.html#scipy.stats.boxcox_llf" title="scipy.stats.boxcox_llf"><code class="xref py py-obj docutils literal"><span class="pre">boxcox_llf</span></code></a>(lmb,&nbsp;data)</td>
+<td>The boxcox log-likelihood function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.entropy.html#scipy.stats.entropy" title="scipy.stats.entropy"><code class="xref py py-obj docutils literal"><span class="pre">entropy</span></code></a>(pk[,&nbsp;qk,&nbsp;base])</td>
+<td>Calculate the entropy of a distribution for given probability values.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.chisqprob.html#scipy.stats.chisqprob" title="scipy.stats.chisqprob"><code class="xref py py-obj docutils literal"><span class="pre">chisqprob</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.chisqprob.html#scipy.stats.chisqprob" title="scipy.stats.chisqprob"><code class="xref py py-obj docutils literal"><span class="pre">chisqprob</span></code></a> is deprecated!</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.betai.html#scipy.stats.betai" title="scipy.stats.betai"><code class="xref py py-obj docutils literal"><span class="pre">betai</span></code></a>(*args,&nbsp;**kwds)</td>
+<td><a class="reference internal" href="generated/scipy.stats.betai.html#scipy.stats.betai" title="scipy.stats.betai"><code class="xref py py-obj docutils literal"><span class="pre">betai</span></code></a> is deprecated!</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="circular-statistical-functions">
+<h2>Circular statistical functions<a class="headerlink" href="#circular-statistical-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.circmean.html#scipy.stats.circmean" title="scipy.stats.circmean"><code class="xref py py-obj docutils literal"><span class="pre">circmean</span></code></a>(samples[,&nbsp;high,&nbsp;low,&nbsp;axis])</td>
+<td>Compute the circular mean for samples in a range.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.circvar.html#scipy.stats.circvar" title="scipy.stats.circvar"><code class="xref py py-obj docutils literal"><span class="pre">circvar</span></code></a>(samples[,&nbsp;high,&nbsp;low,&nbsp;axis])</td>
+<td>Compute the circular variance for samples assumed to be in a range</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.circstd.html#scipy.stats.circstd" title="scipy.stats.circstd"><code class="xref py py-obj docutils literal"><span class="pre">circstd</span></code></a>(samples[,&nbsp;high,&nbsp;low,&nbsp;axis])</td>
+<td>Compute the circular standard deviation for samples assumed to be in the range [low to high].</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="contingency-table-functions">
+<h2>Contingency table functions<a class="headerlink" href="#contingency-table-functions" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.chi2_contingency.html#scipy.stats.chi2_contingency" title="scipy.stats.chi2_contingency"><code class="xref py py-obj docutils literal"><span class="pre">chi2_contingency</span></code></a>(observed[,&nbsp;correction,&nbsp;lambda_])</td>
+<td>Chi-square test of independence of variables in a contingency table.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.contingency.expected_freq.html#scipy.stats.contingency.expected_freq" title="scipy.stats.contingency.expected_freq"><code class="xref py py-obj docutils literal"><span class="pre">contingency.expected_freq</span></code></a>(observed)</td>
+<td>Compute the expected frequencies from a contingency table.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.contingency.margins.html#scipy.stats.contingency.margins" title="scipy.stats.contingency.margins"><code class="xref py py-obj docutils literal"><span class="pre">contingency.margins</span></code></a>(a)</td>
+<td>Return a list of the marginal sums of the array <em class="xref py py-obj">a</em>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.fisher_exact.html#scipy.stats.fisher_exact" title="scipy.stats.fisher_exact"><code class="xref py py-obj docutils literal"><span class="pre">fisher_exact</span></code></a>(table[,&nbsp;alternative])</td>
+<td>Performs a Fisher exact test on a 2x2 contingency table.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="plot-tests">
+<h2>Plot-tests<a class="headerlink" href="#plot-tests" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.ppcc_max.html#scipy.stats.ppcc_max" title="scipy.stats.ppcc_max"><code class="xref py py-obj docutils literal"><span class="pre">ppcc_max</span></code></a>(x[,&nbsp;brack,&nbsp;dist])</td>
+<td>Calculate the shape parameter that maximizes the PPCC</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.ppcc_plot.html#scipy.stats.ppcc_plot" title="scipy.stats.ppcc_plot"><code class="xref py py-obj docutils literal"><span class="pre">ppcc_plot</span></code></a>(x,&nbsp;a,&nbsp;b[,&nbsp;dist,&nbsp;plot,&nbsp;N])</td>
+<td>Calculate and optionally plot probability plot correlation coefficient.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.probplot.html#scipy.stats.probplot" title="scipy.stats.probplot"><code class="xref py py-obj docutils literal"><span class="pre">probplot</span></code></a>(x[,&nbsp;sparams,&nbsp;dist,&nbsp;fit,&nbsp;plot,&nbsp;rvalue])</td>
+<td>Calculate quantiles for a probability plot, and optionally show the plot.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/scipy.stats.boxcox_normplot.html#scipy.stats.boxcox_normplot" title="scipy.stats.boxcox_normplot"><code class="xref py py-obj docutils literal"><span class="pre">boxcox_normplot</span></code></a>(x,&nbsp;la,&nbsp;lb[,&nbsp;plot,&nbsp;N])</td>
+<td>Compute parameters for a Box-Cox normality plot, optionally show it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="masked-statistics-functions">
+<h2>Masked statistics functions<a class="headerlink" href="#masked-statistics-functions" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stats.mstats.html">Statistical functions for masked arrays (<code class="docutils literal"><span class="pre">scipy.stats.mstats</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.argstoarray.html">scipy.stats.mstats.argstoarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.betai.html">scipy.stats.mstats.betai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.chisquare.html">scipy.stats.mstats.chisquare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.count_tied_groups.html">scipy.stats.mstats.count_tied_groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.describe.html">scipy.stats.mstats.describe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.f_oneway.html">scipy.stats.mstats.f_oneway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.f_value_wilks_lambda.html">scipy.stats.mstats.f_value_wilks_lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.find_repeats.html">scipy.stats.mstats.find_repeats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.friedmanchisquare.html">scipy.stats.mstats.friedmanchisquare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.kendalltau.html">scipy.stats.mstats.kendalltau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.kendalltau_seasonal.html">scipy.stats.mstats.kendalltau_seasonal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.kruskalwallis.html">scipy.stats.mstats.kruskalwallis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ks_twosamp.html">scipy.stats.mstats.ks_twosamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.kurtosis.html">scipy.stats.mstats.kurtosis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.kurtosistest.html">scipy.stats.mstats.kurtosistest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.linregress.html">scipy.stats.mstats.linregress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.mannwhitneyu.html">scipy.stats.mstats.mannwhitneyu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.plotting_positions.html">scipy.stats.mstats.plotting_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.mode.html">scipy.stats.mstats.mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.moment.html">scipy.stats.mstats.moment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.mquantiles.html">scipy.stats.mstats.mquantiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.msign.html">scipy.stats.mstats.msign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.normaltest.html">scipy.stats.mstats.normaltest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.obrientransform.html">scipy.stats.mstats.obrientransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.pearsonr.html">scipy.stats.mstats.pearsonr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.plotting_positions.html">scipy.stats.mstats.plotting_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.pointbiserialr.html">scipy.stats.mstats.pointbiserialr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.rankdata.html">scipy.stats.mstats.rankdata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.scoreatpercentile.html">scipy.stats.mstats.scoreatpercentile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.sem.html">scipy.stats.mstats.sem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.signaltonoise.html">scipy.stats.mstats.signaltonoise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.skew.html">scipy.stats.mstats.skew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.skewtest.html">scipy.stats.mstats.skewtest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.spearmanr.html">scipy.stats.mstats.spearmanr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.theilslopes.html">scipy.stats.mstats.theilslopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.threshold.html">scipy.stats.mstats.threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.tmax.html">scipy.stats.mstats.tmax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.tmean.html">scipy.stats.mstats.tmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.tmin.html">scipy.stats.mstats.tmin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trim.html">scipy.stats.mstats.trim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trima.html">scipy.stats.mstats.trima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimboth.html">scipy.stats.mstats.trimboth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_stde.html">scipy.stats.mstats.trimmed_stde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimr.html">scipy.stats.mstats.trimr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimtail.html">scipy.stats.mstats.trimtail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.tsem.html">scipy.stats.mstats.tsem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ttest_onesamp.html">scipy.stats.mstats.ttest_onesamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ttest_ind.html">scipy.stats.mstats.ttest_ind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ttest_onesamp.html">scipy.stats.mstats.ttest_onesamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ttest_rel.html">scipy.stats.mstats.ttest_rel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.tvar.html">scipy.stats.mstats.tvar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.variation.html">scipy.stats.mstats.variation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.winsorize.html">scipy.stats.mstats.winsorize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.zmap.html">scipy.stats.mstats.zmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.zscore.html">scipy.stats.mstats.zscore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.compare_medians_ms.html">scipy.stats.mstats.compare_medians_ms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.gmean.html">scipy.stats.mstats.gmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.hdmedian.html">scipy.stats.mstats.hdmedian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.hdquantiles.html">scipy.stats.mstats.hdquantiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.hdquantiles_sd.html">scipy.stats.mstats.hdquantiles_sd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.hmean.html">scipy.stats.mstats.hmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.idealfourths.html">scipy.stats.mstats.idealfourths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.kruskal.html">scipy.stats.mstats.kruskal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ks_2samp.html">scipy.stats.mstats.ks_2samp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.median_cihs.html">scipy.stats.mstats.median_cihs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.meppf.html">scipy.stats.mstats.meppf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.mjci.html">scipy.stats.mstats.mjci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.mquantiles_cimj.html">scipy.stats.mstats.mquantiles_cimj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.rsh.html">scipy.stats.mstats.rsh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.sen_seasonal_slopes.html">scipy.stats.mstats.sen_seasonal_slopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_mean.html">scipy.stats.mstats.trimmed_mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_mean_ci.html">scipy.stats.mstats.trimmed_mean_ci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_std.html">scipy.stats.mstats.trimmed_std</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.trimmed_var.html">scipy.stats.mstats.trimmed_var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/scipy.stats.mstats.ttest_1samp.html">scipy.stats.mstats.ttest_1samp</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="univariate-and-multivariate-kernel-density-estimation-scipy-stats-kde">
+<h2>Univariate and multivariate kernel density estimation (<code class="xref py py-mod docutils literal"><span class="pre">scipy.stats.kde</span></code>)<a class="headerlink" href="#univariate-and-multivariate-kernel-density-estimation-scipy-stats-kde" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="generated/scipy.stats.gaussian_kde.html#scipy.stats.gaussian_kde" title="scipy.stats.gaussian_kde"><code class="xref py py-obj docutils literal"><span class="pre">gaussian_kde</span></code></a>(dataset[,&nbsp;bw_method])</td>
+<td>Representation of a kernel-density estimate using Gaussian kernels.</td>
+</tr>
+</tbody>
+</table>
+<p>For many more stat related functions install the software R and the
+interface package rpy.</p>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

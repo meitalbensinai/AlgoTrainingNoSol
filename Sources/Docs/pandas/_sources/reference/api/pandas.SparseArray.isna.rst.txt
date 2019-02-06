@@ -1,0 +1,6 @@
+pandas.SparseArray.isna
+=======================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.isna

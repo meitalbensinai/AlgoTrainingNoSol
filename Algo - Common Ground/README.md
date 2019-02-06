@@ -11,3 +11,15 @@ This training relies on two books:
 (2) The Algorithm Design Manual.
 
 We refer to (1) as IA and (2) as ADM during all training.
+
+# Schedule
+
+Read introduction quickly.
+
+If needs some algorithmic reminder do part 2, otherwise skip it.
+
+Finish the rest of the chapters.
+
+Parts 4,6 take 1 day each.
+
+Parts 3,5,7,8,9 takes 2 days each.

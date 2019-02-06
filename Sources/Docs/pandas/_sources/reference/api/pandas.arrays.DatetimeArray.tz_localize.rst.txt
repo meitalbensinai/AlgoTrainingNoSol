@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.tz\_localize
+========================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.tz_localize

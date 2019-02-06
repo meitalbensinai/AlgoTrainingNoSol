@@ -1,0 +1,6 @@
+pandas.DatetimeTZDtype.isnative
+===============================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: DatetimeTZDtype.isnative

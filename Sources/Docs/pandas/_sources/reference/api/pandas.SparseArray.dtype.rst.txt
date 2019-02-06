@@ -1,0 +1,6 @@
+pandas.SparseArray.dtype
+========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: SparseArray.dtype

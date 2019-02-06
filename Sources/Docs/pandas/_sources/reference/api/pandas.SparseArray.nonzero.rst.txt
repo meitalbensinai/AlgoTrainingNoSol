@@ -1,0 +1,6 @@
+pandas.SparseArray.nonzero
+==========================
+
+.. currentmodule:: pandas
+
+.. automethod:: SparseArray.nonzero

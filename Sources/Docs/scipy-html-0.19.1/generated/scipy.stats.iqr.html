@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.stats.iqr &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="Statistical functions (scipy.stats)" href="../stats.html" >
+    <link rel="next" title="scipy.stats.sigmaclip" href="scipy.stats.sigmaclip.html" >
+    <link rel="prev" title="scipy.stats.zscore" href="scipy.stats.zscore.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../stats.html" accesskey="U">Statistical functions (<code class="docutils literal"><span class="pre">scipy.stats</span></code>)</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.sigmaclip.html" title="scipy.stats.sigmaclip"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.stats.zscore.html" title="scipy.stats.zscore"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.stats.zscore.html"
+                        title="previous chapter">scipy.stats.zscore</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.stats.sigmaclip.html"
+                        title="next chapter">scipy.stats.sigmaclip</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-stats-iqr">
+<h1>scipy.stats.iqr<a class="headerlink" href="#scipy-stats-iqr" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="scipy.stats.iqr">
+<code class="descclassname">scipy.stats.</code><code class="descname">iqr</code><span class="sig-paren">(</span><em>x</em>, <em>axis=None</em>, <em>rng=(25</em>, <em>75)</em>, <em>scale='raw'</em>, <em>nan_policy='propagate'</em>, <em>interpolation='linear'</em>, <em>keepdims=False</em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/scipy/scipy/blob/v0.19.1/scipy/stats/stats.py#L2308-L2461"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#scipy.stats.iqr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the interquartile range of the data along the specified
+axis.</p>
+<p>The interquartile range (IQR) is the difference between the 75th and
+25th percentile of the data. It is a measure of the dispersion
+similar to standard deviation or variance, but is much more robust
+against outliers <a class="reference internal" href="#r592" id="id1">[R592]</a>.</p>
+<p>The <code class="docutils literal"><span class="pre">rng</span></code> parameter allows this function to compute other
+percentile ranges than the actual IQR. For example, setting
+<code class="docutils literal"><span class="pre">rng=(0,</span> <span class="pre">100)</span></code> is equivalent to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ptp.html#numpy.ptp" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.ptp</span></code></a>.</p>
+<p>The IQR of an empty array is <em class="xref py py-obj">np.nan</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 0.18.0.</span></p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : array_like</p>
+<blockquote>
+<div><p>Input array or object that can be converted to an array.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int or sequence of int, optional</p>
+<blockquote>
+<div><p>Axis along which the range is computed. The default is to
+compute the IQR for the entire array.</p>
+</div></blockquote>
+<p><strong>rng</strong> : Two-element sequence containing floats in range of [0,100] optional</p>
+<blockquote>
+<div><p>Percentiles over which to compute the range. Each must be
+between 0 and 100, inclusive. The default is the true IQR:
+<em class="xref py py-obj">(25, 75)</em>. The order of the elements is not important.</p>
+</div></blockquote>
+<p><strong>scale</strong> : scalar or str, optional</p>
+<blockquote>
+<div><p>The numerical value of scale will be divided out of the final
+result. The following string values are recognized:</p>
+<blockquote>
+<div><p>&#8216;raw&#8217; : No scaling, just return the raw IQR.
+&#8216;normal&#8217; : Scale by <span class="math">\(2 \sqrt{2} erf^{-1}(\frac{1}{2}) \approx 1.349\)</span>.</p>
+</div></blockquote>
+<p>The default is &#8216;raw&#8217;. Array-like scale is also allowed, as long
+as it broadcasts correctly to the output such that
+<code class="docutils literal"><span class="pre">out</span> <span class="pre">/</span> <span class="pre">scale</span></code> is a valid operation. The output dimensions
+depend on the input array, <em class="xref py py-obj">x</em>, the <em class="xref py py-obj">axis</em> argument, and the
+<em class="xref py py-obj">keepdims</em> flag.</p>
+</div></blockquote>
+<p><strong>nan_policy</strong> : {&#8216;propagate&#8217;, &#8216;raise&#8217;, &#8216;omit&#8217;}, optional</p>
+<blockquote>
+<div><p>Defines how to handle when input contains nan. &#8216;propagate&#8217;
+returns nan, &#8216;raise&#8217; throws an error, &#8216;omit&#8217; performs the
+calculations ignoring nan values. Default is &#8216;propagate&#8217;.</p>
+</div></blockquote>
+<p><strong>interpolation</strong> : {&#8216;linear&#8217;, &#8216;lower&#8217;, &#8216;higher&#8217;, &#8216;midpoint&#8217;, &#8216;nearest&#8217;}, optional</p>
+<blockquote>
+<div><p>Specifies the interpolation method to use when the percentile
+boundaries lie between two data points <em class="xref py py-obj">i</em> and <em class="xref py py-obj">j</em>:</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>&#8216;linear&#8217; <span class="classifier-delimiter">:</span> <span class="classifier"><em class="xref py py-obj">i + (j - i) * fraction</em>, where <em class="xref py py-obj">fraction</em> is the</span></dt>
+<dd><p class="first last">fractional part of the index surrounded by <em class="xref py py-obj">i</em> and <em class="xref py py-obj">j</em>.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">&#8216;lower&#8217; : <em class="xref py py-obj">i</em>.</p>
+</li>
+<li><p class="first">&#8216;higher&#8217; : <em class="xref py py-obj">j</em>.</p>
+</li>
+<li><p class="first">&#8216;nearest&#8217; : <em class="xref py py-obj">i</em> or <em class="xref py py-obj">j</em> whichever is nearest.</p>
+</li>
+<li><p class="first">&#8216;midpoint&#8217; : <em class="xref py py-obj">(i + j) / 2</em>.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Default is &#8216;linear&#8217;.</p>
+</div></blockquote>
+<p><strong>keepdims</strong> : bool, optional</p>
+<blockquote>
+<div><p>If this is set to <em class="xref py py-obj">True</em>, the reduced axes are left in the
+result as dimensions with size one. With this option, the result
+will broadcast correctly against the original array <em class="xref py py-obj">x</em>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>iqr</strong> : scalar or ndarray</p>
+<blockquote class="last">
+<div><p>If <code class="docutils literal"><span class="pre">axis=None</span></code>, a scalar is returned. If the input contains
+integers or floats of smaller precision than <code class="docutils literal"><span class="pre">np.float64</span></code>, then the
+output data-type is <code class="docutils literal"><span class="pre">np.float64</span></code>. Otherwise, the output data-type is
+the same as that of the input.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.std.html#numpy.std" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.std</span></code></a>, <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.var.html#numpy.var" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.var</span></code></a></p>
+</div>
+<p class="rubric">Notes</p>
+<p>This function is heavily dependent on the version of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy</span></code></a> that is
+installed. Versions greater than 1.11.0b3 are highly recommended, as they
+include a number of enhancements and fixes to <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.percentile.html#numpy.percentile" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.percentile</span></code></a> and
+<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.nanpercentile.html#numpy.nanpercentile" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.nanpercentile</span></code></a> that affect the operation of this function. The
+following modifications apply:</p>
+<dl class="docutils">
+<dt>Below 1.10.0 <span class="classifier-delimiter">:</span> <span class="classifier"><em class="xref py py-obj">nan_policy</em> is poorly defined.</span></dt>
+<dd>The default behavior of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.percentile.html#numpy.percentile" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.percentile</span></code></a> is used for &#8216;propagate&#8217;. This
+is a hybrid of &#8216;omit&#8217; and &#8216;propagate&#8217; that mostly yields a skewed
+version of &#8216;omit&#8217; since NaNs are sorted to the end of the data. A
+warning is raised if there are NaNs in the data.</dd>
+<dt>Below 1.9.0: <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.nanpercentile.html#numpy.nanpercentile" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.nanpercentile</span></code></a> does not exist.</dt>
+<dd>This means that <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.percentile.html#numpy.percentile" title="(in NumPy v1.13)"><code class="xref py py-obj docutils literal"><span class="pre">numpy.percentile</span></code></a> is used regardless of <em class="xref py py-obj">nan_policy</em>
+and a warning is issued. See previous item for a description of the
+behavior.</dd>
+<dt>Below 1.9.0: <em class="xref py py-obj">keepdims</em> and <em class="xref py py-obj">interpolation</em> are not supported.</dt>
+<dd>The keywords get ignored with a warning if supplied with non-default
+values. However, multiple axes are still supported.</dd>
+</dl>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r591" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[R591]</a></td><td>&#8220;Interquartile range&#8221; <a class="reference external" href="https://en.wikipedia.org/wiki/Interquartile_range">https://en.wikipedia.org/wiki/Interquartile_range</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r592" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R592]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> &#8220;Robust measures of scale&#8221; <a class="reference external" href="https://en.wikipedia.org/wiki/Robust_measures_of_scale">https://en.wikipedia.org/wiki/Robust_measures_of_scale</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r593" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[R593]</a></td><td>&#8220;Quantile&#8221; <a class="reference external" href="https://en.wikipedia.org/wiki/Quantile">https://en.wikipedia.org/wiki/Quantile</a></td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">iqr</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[10,  7,  4],</span>
+<span class="go">       [ 3,  2,  1]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iqr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iqr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 3.5,  2.5,  1.5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iqr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([ 3.,  1.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iqr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">array([[ 3.],</span>
+<span class="go">       [ 1.]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

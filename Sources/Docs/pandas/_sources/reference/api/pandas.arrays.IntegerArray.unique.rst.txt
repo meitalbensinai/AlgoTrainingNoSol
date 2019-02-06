@@ -1,0 +1,6 @@
+pandas.arrays.IntegerArray.unique
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntegerArray.unique

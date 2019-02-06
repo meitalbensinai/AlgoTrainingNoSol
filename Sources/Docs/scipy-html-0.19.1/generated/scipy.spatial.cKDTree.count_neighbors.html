@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>scipy.spatial.cKDTree.count_neighbors &mdash; SciPy v0.19.1 Reference Guide</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.19.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  false
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy v0.19.1 Reference Guide" href="../index.html" >
+    <link rel="up" title="scipy.spatial.cKDTree" href="scipy.spatial.cKDTree.html" >
+    <link rel="next" title="scipy.spatial.cKDTree.query" href="scipy.spatial.cKDTree.query.html" >
+    <link rel="prev" title="scipy.spatial.cKDTree" href="scipy.spatial.cKDTree.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy v0.19.1 Reference Guide</a></li>
+	
+          <li class="active"><a href="../spatial.html" >Spatial algorithms and data structures (<code class="docutils literal"><span class="pre">scipy.spatial</span></code>)</a></li>
+          <li class="active"><a href="scipy.spatial.cKDTree.html" accesskey="U">scipy.spatial.cKDTree</a></li> 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="../genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="../py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.cKDTree.query.html" title="scipy.spatial.cKDTree.query"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="scipy.spatial.cKDTree.html" title="scipy.spatial.cKDTree"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/scipyshiny_small.png" alt="Logo">
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scipy.spatial.cKDTree.html"
+                        title="previous chapter">scipy.spatial.cKDTree</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scipy.spatial.cKDTree.query.html"
+                        title="next chapter">scipy.spatial.cKDTree.query</a></p>
+
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scipy-spatial-ckdtree-count-neighbors">
+<h1>scipy.spatial.cKDTree.count_neighbors<a class="headerlink" href="#scipy-spatial-ckdtree-count-neighbors" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="scipy.spatial.cKDTree.count_neighbors">
+<code class="descclassname">cKDTree.</code><code class="descname">count_neighbors</code><span class="sig-paren">(</span><em>self</em>, <em>other</em>, <em>r</em>, <em>p=2.</em>, <em>weights=None</em>, <em>cumulative=True</em><span class="sig-paren">)</span><a class="headerlink" href="#scipy.spatial.cKDTree.count_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count how many nearby pairs can be formed. (pair-counting)</p>
+<p>Count the number of pairs (x1,x2) can be formed, with x1 drawn
+from self and x2 drawn from <code class="docutils literal"><span class="pre">other</span></code>, and where
+<code class="docutils literal"><span class="pre">distance(x1,</span> <span class="pre">x2,</span> <span class="pre">p)</span> <span class="pre">&lt;=</span> <span class="pre">r</span></code>.</p>
+<p>Data points on self and other are optionally weighted by the <code class="docutils literal"><span class="pre">weights</span></code>
+argument. (See below)</p>
+<p>The algorithm we implement here is based on <a class="reference internal" href="#r356" id="id1">[R356]</a>. See notes for further discussion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>other</strong> : cKDTree instance</p>
+<blockquote>
+<div><p>The other tree to draw points from, can be the same tree as self.</p>
+</div></blockquote>
+<p><strong>r</strong> : float or one-dimensional array of floats</p>
+<blockquote>
+<div><p>The radius to produce a count for. Multiple radii are searched with
+a single tree traversal. 
+If the count is non-cumulative(<code class="docutils literal"><span class="pre">cumulative=False</span></code>), <code class="docutils literal"><span class="pre">r</span></code> defines 
+the edges of the bins, and must be non-decreasing.</p>
+</div></blockquote>
+<p><strong>p</strong> : float, optional</p>
+<blockquote>
+<div><p>1&lt;=p&lt;=infinity. 
+Which Minkowski p-norm to use.
+Default 2.0.</p>
+</div></blockquote>
+<p><strong>weights</strong> : tuple, array_like, or None, optional</p>
+<blockquote>
+<div><p>If None, the pair-counting is unweighted.
+If given as a tuple, weights[0] is the weights of points in <code class="docutils literal"><span class="pre">self</span></code>, and
+weights[1] is the weights of points in <code class="docutils literal"><span class="pre">other</span></code>; either can be None to 
+indicate the points are unweighted.
+If given as an array_like, weights is the weights of points in <code class="docutils literal"><span class="pre">self</span></code>
+and <code class="docutils literal"><span class="pre">other</span></code>. For this to make sense, <code class="docutils literal"><span class="pre">self</span></code> and <code class="docutils literal"><span class="pre">other</span></code> must be the
+same tree. If <code class="docutils literal"><span class="pre">self</span></code> and <code class="docutils literal"><span class="pre">other</span></code> are two different trees, a <code class="docutils literal"><span class="pre">ValueError</span></code>
+is raised.
+Default: None</p>
+</div></blockquote>
+<p><strong>cumulative</strong> : bool, optional</p>
+<blockquote>
+<div><p>Whether the returned counts are cumulative. When cumulative is set to <code class="docutils literal"><span class="pre">False</span></code>
+the algorithm is optimized to work with a large number of bins (&gt;10) specified
+by <code class="docutils literal"><span class="pre">r</span></code>. When <code class="docutils literal"><span class="pre">cumulative</span></code> is set to True, the algorithm is optimized to work
+with a small number of <code class="docutils literal"><span class="pre">r</span></code>. Default: True</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>result</strong> : scalar or 1-D array</p>
+<blockquote class="last">
+<div><p>The number of pairs. For unweighted counts, the result is integer.
+For weighted counts, the result is float.
+If cumulative is False, <code class="docutils literal"><span class="pre">result[i]</span></code> contains the counts with
+<code class="docutils literal"><span class="pre">(-inf</span> <span class="pre">if</span> <span class="pre">i</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">else</span> <span class="pre">r[i-1])</span> <span class="pre">&lt;</span> <span class="pre">R</span> <span class="pre">&lt;=</span> <span class="pre">r[i]</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Pair-counting is the basic operation used to calculate the two point
+correlation functions from a data set composed of position of objects.</p>
+<p>Two point correlation function measures the clustering of objects and
+is widely used in cosmology to quantify the large scale structure
+in our Universe, but it may be useful for data analysis in other fields
+where self-similar assembly of objects also occur.</p>
+<p>The Landy-Szalay estimator for the two point correlation function of
+<code class="docutils literal"><span class="pre">D</span></code> measures the clustering signal in <code class="docutils literal"><span class="pre">D</span></code>. <a class="reference internal" href="#r357" id="id2">[R357]</a></p>
+<p>For example, given the position of two sets of objects,</p>
+<ul class="simple">
+<li>objects <code class="docutils literal"><span class="pre">D</span></code> (data) contains the clustering signal, and</li>
+<li>objects <code class="docutils literal"><span class="pre">R</span></code> (random) that contains no signal,</li>
+</ul>
+<div class="math">
+\[\xi(r) = \frac{&lt;D, D&gt; - 2 f &lt;D, R&gt; + f^2&lt;R, R&gt;}{f^2&lt;R, R&gt;},\]</div>
+<p>where the brackets represents counting pairs between two data sets
+in a finite bin around <code class="docutils literal"><span class="pre">r</span></code> (distance), corresponding to setting
+<em class="xref py py-obj">cumulative=False</em>, and <code class="docutils literal"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">float(len(D))</span> <span class="pre">/</span> <span class="pre">float(len(R))</span></code> is the
+ratio between number of objects from data and random.</p>
+<p>The algorithm implemented here is loosely based on the dual-tree
+algorithm described in <a class="reference internal" href="#r356" id="id3">[R356]</a>. We switch between two different
+pair-cumulation scheme depending on the setting of <code class="docutils literal"><span class="pre">cumulative</span></code>.
+The computing time of the method we use when for
+<code class="docutils literal"><span class="pre">cumulative</span> <span class="pre">==</span> <span class="pre">False</span></code> does not scale with the total number of bins.
+The algorithm for <code class="docutils literal"><span class="pre">cumulative</span> <span class="pre">==</span> <span class="pre">True</span></code> scales linearly with the
+number of bins, though it is slightly faster when only
+1 or 2 bins are used. <a class="reference internal" href="#r360" id="id4">[R360]</a>.</p>
+<p>As an extension to the naive pair-counting,
+weighted pair-counting counts the product of weights instead
+of number of pairs.
+Weighted pair-counting is used to estimate marked correlation functions
+(<a class="reference internal" href="#r358" id="id5">[R358]</a>, section 2.2),
+or to properly calculate the average of data per distance bin
+(e.g. <a class="reference internal" href="#r359" id="id6">[R359]</a>, section 2.1 on redshift).</p>
+<table class="docutils citation" frame="void" id="r356" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R356]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> Gray and Moore,
+&#8220;N-body problems in statistical learning&#8221;,
+Mining the sky, 2000,
+<a class="reference external" href="https://arxiv.org/abs/astro-ph/0012333">https://arxiv.org/abs/astro-ph/0012333</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r357" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[R357]</a></td><td>Landy and Szalay,
+&#8220;Bias and variance of angular correlation functions&#8221;,
+The Astrophysical Journal, 1993,
+<a class="reference external" href="http://adsabs.harvard.edu/abs/1993ApJ...412...64L">http://adsabs.harvard.edu/abs/1993ApJ...412...64L</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r358" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[R358]</a></td><td>Sheth, Connolly and Skibba,
+&#8220;Marked correlations in galaxy formation models&#8221;,
+Arxiv e-print, 2005,
+<a class="reference external" href="https://arxiv.org/abs/astro-ph/0511773">https://arxiv.org/abs/astro-ph/0511773</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r359" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[R359]</a></td><td>Hawkins, et al.,
+&#8220;The 2dF Galaxy Redshift Survey: correlation functions,
+peculiar velocities and the matter density of the Universe&#8221;,
+Monthly Notices of the Royal Astronomical Society, 2002,
+<a class="reference external" href="http://adsabs.harvard.edu/abs/2003MNRAS.346...78H">http://adsabs.harvard.edu/abs/2003MNRAS.346...78H</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r360" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[R360]</a></td><td><a class="reference external" href="https://github.com/scipy/scipy/pull/5647#issuecomment-168474926">https://github.com/scipy/scipy/pull/5647#issuecomment-168474926</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2008-2016, The Scipy community.
+      </li>
+      <li>
+      Last updated on Jun 21, 2017.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.3.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

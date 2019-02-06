@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.copy
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: TimedeltaArray.copy

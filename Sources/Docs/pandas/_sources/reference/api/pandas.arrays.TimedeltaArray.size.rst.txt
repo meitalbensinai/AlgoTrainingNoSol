@@ -1,0 +1,6 @@
+pandas.arrays.TimedeltaArray.size
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. autoattribute:: TimedeltaArray.size

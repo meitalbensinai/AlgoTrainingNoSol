@@ -10,9 +10,9 @@ lecture 1 pdf
 
 ## Solve (4h):
 
-a1
+CS224 - a1
 
-## Read (3h): 
+## Read (4h): 
 
 glove
 
@@ -22,7 +22,7 @@ dependency parsing
 
 n-grams tutorial
 
-## Read (4h):
+## Read (5h):
 
 The Unreasonable Effectiveness of Recurrent Neural Networks
 
@@ -32,9 +32,9 @@ rnn (skim, up to chapter 10.7 including)
 
 seq2seq learning
 
-## Solve (3h):
+## Skim through exercise with solution (1h):
 
-a3 (a lot may seems familiar from Andrew course - you can skip it)
+CS224 - a3 (a lot may seems familiar from Andrew course, skip what you know well)
 
 Total time  - 17h approx.
 

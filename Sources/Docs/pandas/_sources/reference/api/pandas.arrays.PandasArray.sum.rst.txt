@@ -1,0 +1,6 @@
+pandas.arrays.PandasArray.sum
+=============================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: PandasArray.sum

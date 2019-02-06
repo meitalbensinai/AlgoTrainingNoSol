@@ -1,0 +1,38 @@
+.. pandas documentation master file, created by
+
+.. module:: pandas
+
+*********************************************
+pandas: powerful Python data analysis toolkit
+*********************************************
+
+**Date**: |today| **Version**: |version|
+
+**Download documentation**: `PDF Version <pandas.pdf>`__ | `Zipped HTML <pandas.zip>`__
+
+**Useful links**:
+`Binary Installers <https://pypi.org/project/pandas>`__ |
+`Source Repository <https://github.com/pandas-dev/pandas>`__ |
+`Issues & Ideas <https://github.com/pandas-dev/pandas/issues>`__ |
+`Q&A Support <https://stackoverflow.com/questions/tagged/pandas>`__ |
+`Mailing List <https://groups.google.com/forum/#!forum/pydata>`__
+
+:mod:`pandas` is an open source, BSD-licensed library providing high-performance,
+easy-to-use data structures and data analysis tools for the `Python <https://www.python.org/>`__
+programming language.
+
+See the :ref:`overview` for more detail about what's in the library.
+
+.. toctree::
+    :maxdepth: 2
+
+
+    What's New in 0.24.0 <whatsnew/v0.24.0>
+    install
+    getting_started/index
+    user_guide/index
+    ecosystem
+    reference/index
+    development/index
+    whatsnew/index
+    

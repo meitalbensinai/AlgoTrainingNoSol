@@ -1,0 +1,6 @@
+pandas.arrays.IntervalArray.shift
+=================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: IntervalArray.shift

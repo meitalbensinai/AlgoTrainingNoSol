@@ -1,0 +1,6 @@
+pandas.arrays.DatetimeArray.copy
+================================
+
+.. currentmodule:: pandas.arrays
+
+.. automethod:: DatetimeArray.copy

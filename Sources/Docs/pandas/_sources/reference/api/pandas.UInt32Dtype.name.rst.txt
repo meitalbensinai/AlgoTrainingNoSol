@@ -1,0 +1,6 @@
+pandas.UInt32Dtype.name
+=======================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: UInt32Dtype.name

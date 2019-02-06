@@ -1,0 +1,6 @@
+pandas.Int16Dtype.na\_value
+===========================
+
+.. currentmodule:: pandas
+
+.. autoattribute:: Int16Dtype.na_value
