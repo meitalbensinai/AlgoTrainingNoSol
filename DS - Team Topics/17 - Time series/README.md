@@ -12,14 +12,12 @@ In order to conduct an initial feasibility study, the CSV provided us with overa
 
 
 
-  Is it possible to predict total fuel consumption from 20.10.15 or later for the given series?
+  1.Is it possible to predict total fuel consumption from 20.10.15 or later for the given series?
 
-  If not - explain, use terms such as stationary, ACF PACF test Dicky Fuller, etc.
+  2.If not - explain, use terms such as stationary, ACF PACF test Dicky Fuller, etc.
 
-  If so - given one test group (from 20.10.15 onwards), how often do you think the model should be updated with new values if it is known that the RMSE has to be less than 1 liter?
+  3.If so - given one test group (from 20.10.15 onwards), how often do you think the model should be updated with new values if it is known that the RMSE has to be less than 1 liter?
 
-  Provide a graph describing the original series against your predicted value
+  Provide a graph describing the original series against your predicted value and RMSE (Root Mean Squared Error)
 
-  And RMSE (Root Mean Squared Error)
-
-  Bonus - Create a dynamic forecast for the series values, provide a graph describing the original series against your predicted value and RMSE
+  4.Bonus - Create a dynamic forecast for the series values, provide a graph describing the original series against your predicted value and RMSE
