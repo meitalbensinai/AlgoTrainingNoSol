@@ -1,5 +1,16 @@
 1. Given the next table
 
+| גשום | מעונן | קר |   |   |
+|------|-------|----|---|---|
+| כן   | כן    | כן |   |   |
+| לא   | כן    | לא |   |   |
+| לא   | לא    | לא |   |   |
+| לא   | לא    | כן |   |   |
+| כן   | כן    | לא |   |   |
+| לא   | לא    | כן |   |   |
+| לא   | כן    | לא |   |   |
+
+
 a . Calculate support and confidence for the laws: Cloudy Dragging Rainy, Cloudy and Cold Dragging Rain
 
 b. Manually run the a priori algorithm for min_support = 0.3 and min_confidence = 0.8. Specify the running of the algorithm.
