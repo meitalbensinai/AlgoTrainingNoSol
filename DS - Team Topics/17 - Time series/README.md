@@ -21,3 +21,6 @@ In order to conduct an initial feasibility study, the CSV provided us with overa
   Provide a graph describing the original series against your predicted value and RMSE (Root Mean Squared Error)
 
   4.Bonus - Create a dynamic forecast for the series values, provide a graph describing the original series against your predicted value and RMSE
+
+
+There is alot of material on the subject in this folder
