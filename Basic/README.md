@@ -61,4 +61,8 @@ Make sure you understand the subjects qualitatively. We will encounter them agai
 
 # Visualization Exercise (1d)
 
-Finish the visualization exercise.
+Finish the Visualization exercise.
+
+# Azrieli And Sons Exercise (3d)
+
+Finish the Azrieli And Sons exercise
