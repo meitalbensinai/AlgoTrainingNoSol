@@ -12,7 +12,7 @@ In the next exercises assume the data is 2 dimensional and distributes uniformly
 
 In this exercise we assume the hypothesis we want to learn is classification by y=1-x:
 
-Class = 1 if y>1-x, otherwise 0
+Class = 1 if y>1- x1 -x2, otherwise 0
 
 Create a train dataset by generating 1000 labeled points
 
@@ -28,7 +28,7 @@ Choose the appropriate kernel and use it in the next parts:
 
 # Part 2
 
-Extend the hypothesis for higher dimension while keeping the training and test sets balanced. Classify each point according to your chosen kernel. How are the training and test times depend upon the dimension? (what is the relation)
+Extend the hypothesis for higher dimensions keeping the training and test sets balanced. Think what "extension of the hypothesis" means. Classify each point according to your chosen kernel. How are the training and test times depend upon the dimension? (what is the relation)
 
 # Part 3
 
