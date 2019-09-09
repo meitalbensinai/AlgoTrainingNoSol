@@ -15,7 +15,3 @@ Read about the limitations of DP in ADM p.301-304.
 Answer questions:
 
 IA p.312 - 8-10.
-
-Solve the programming question:
-
-https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=52
