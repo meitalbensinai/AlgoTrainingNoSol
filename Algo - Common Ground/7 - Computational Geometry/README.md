@@ -10,7 +10,7 @@ Read in IA p.1022-1027
 
 Answer question:
 
-IA p.1028 - 33.2-5.
+IA p.1028 - 33.2-7.
 
 Read in IA p.1029-1038
 
