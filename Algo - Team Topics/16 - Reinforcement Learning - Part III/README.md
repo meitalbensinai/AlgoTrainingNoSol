@@ -1,15 +1,7 @@
-For Algo guy - Parallel to doing this, perform the three research reports.
+# Part III - TD Learning
 
-# Guide
+read chapters 6,7 in SB
 
-This training relies on two books:
+**and**
 
-(1) Introduction To Algorithms.
-
-(2) The Algorithm Design Manual.
-
-We refer to (1) as IA and (2) as ADM during all training.
-
-# Schedule
-
-Each part takes 1 day.
+watch lectures 4,5 in CS234
