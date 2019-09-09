@@ -1,15 +1,7 @@
-For Algo guy - Parallel to doing this, perform the three research reports.
+# Part I - RL Motivation
 
-# Guide
+read chapter 1,2 in SB
 
-This training relies on two books:
+**or**
 
-(1) Introduction To Algorithms.
-
-(2) The Algorithm Design Manual.
-
-We refer to (1) as IA and (2) as ADM during all training.
-
-# Schedule
-
-Each part takes 1 day.
+watch lecture 1 in CS234
