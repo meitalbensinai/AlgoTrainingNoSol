@@ -1,5 +1,3 @@
-## Before Continuing Any Further,
-
 ## Finish Rounds A & B in Kick Start 2019 of Google
 
 link:
