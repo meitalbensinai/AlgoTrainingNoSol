@@ -1,15 +1,9 @@
-For Algo guy - Parallel to doing this, perform the three research reports.
+# Part II - MDP, DP, Monte Carlo
 
-# Guide
+watch lecture 2,3 in CS234
 
-This training relies on two books:
+**and**
 
-(1) Introduction To Algorithms.
+read chapters 3,4,5 in SB
 
-(2) The Algorithm Design Manual.
-
-We refer to (1) as IA and (2) as ADM during all training.
-
-# Schedule
-
-Each part takes 1 day.
+answer assignment 1 in CS234
