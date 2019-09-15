@@ -14,9 +14,9 @@ For that problem, prepare a research report answering the next questions:
 
 * Research the topic and explain different solutions to the problem:
   
-  Compare memory, running time, accuracy...
-  
-  Compare different modelings.
+    Compare memory, running time, accuracy...
+
+    Compare different modelings.
 
 * Research different python libraries used to solve this problem 
 
