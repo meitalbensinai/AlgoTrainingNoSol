@@ -1,27 +1,38 @@
 # Research Questions
 
-Choose 3 types of problems from the following list:
+Choose one non-trivail problems from the next topics:
 
 1. Computational Geometry
 
-2. Graph Problems: Polynomial-Time
+2. Theoretical Graph Problems
 
-3. Combinatorial Problems
-
-4. Graph Problems: Hard Problems
-
-For each type - look for a problem of your choosing in ADM algorithms catalog.
+3. SNA (focus on graphical network analysis topics)
 
 For that problem, prepare a research report answering the next questions:
 
 * What is the input? what is the output? summarize the problem.
 
-* Research the topic and explain 3 different solutions to the problem:
+* Research the topic and explain different solutions to the problem:
   
   Compare memory, running time, accuracy...
   
   Compare different modelings.
 
-* Research different python libraries used in the civil world to solve those.
+* Research different python libraries used to solve this problem 
 
-* Include reference to articles and discuss your findings
+* Solve a toy example if time allows.
+
+* Include reference to articles / books
+
+* You may use the relevant books in the sources
+
+
+Now present your findings to the team - 
+
+* 30-minutes presentation
+
+* Present the topic / problem
+
+* Motivation for the chosen solution
+
+* Keep it clean and coherent
