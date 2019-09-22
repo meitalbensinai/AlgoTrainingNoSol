@@ -12,8 +12,6 @@ This training relies on three books:
 
 # Schedule
 
-Each part takes 0.5d-1d day.
-
 Parts 11, 12, 14 take 0.5d each
 
 Parts 13, 16 take 1d each
