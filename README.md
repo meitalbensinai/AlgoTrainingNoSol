@@ -40,8 +40,6 @@ Finish Reinforcement - 4 days
 
 # Pending Changes
 
-Reinforcement and optimization methods - extend
-
 Clustering exercise - consider non-vision alternatives
 
-Final exercises
+Sequential Data Exercise
