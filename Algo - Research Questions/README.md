@@ -1,10 +1,10 @@
 # Research Questions
 
-Choose one non-trivail problems from the next topics:
+Choose one non-trivןal problem from the next topics:
 
 1. Computational Geometry
 
-2. Theoretical Graph Problems
+2. Graph Problems (NP-hard or Probalistic Graphical Models)
 
 3. SNA (focus on graphical network analysis topics)
 
@@ -20,12 +20,11 @@ For that problem, prepare a research report answering the next questions:
 
 * Research different python libraries used to solve this problem 
 
-* Solve a toy example if time allows.
+* Solve a toy example if time permits.
 
 * Include reference to articles / books
 
 * You may use the relevant books in the sources
-
 
 Now present your findings to the team - 
 
