@@ -10,7 +10,7 @@ Common Grounds Algo + Research Reports - 12 days
 
 Common Grounds DS + Research Reports - 12 days
 
-Your team topics - 5 days Algo OR 9 days DS
+Your team topics - 7.5 days Algo OR 9 days DS
 
 Problem Formalization - 1 day
 
@@ -26,17 +26,9 @@ Thats it for basic training, congrats!!!
 
 Finish CV Introduction - 5 days
 
-Finish Reinforcement - 4 days
-
-### If in DS team: (8 days)
-
 Finish NLP Introduction - 2 days
 
 Finish SNA Introduction - 2 days
-
-Finish Reinforcement - 4 days
-
-
 
 # Pending Changes
 
