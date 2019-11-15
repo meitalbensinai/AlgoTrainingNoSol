@@ -1,4 +1,4 @@
-## Finish Rounds C & D in Kick Start 2019 by Google
+## Finish Rounds B in Kick Start 2019 by Google
 
 link:
 
