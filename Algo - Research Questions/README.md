@@ -1,6 +1,6 @@
 # Research Questions
 
-Choose one non-trivןal problem from the next topics:
+Choose one non-trivial problem from the next topics:
 
 1. Computational Geometry
 
