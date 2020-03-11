@@ -17,3 +17,7 @@ Read section 10.6.
 7. Suppose you perform binary classification on a dataset where some of the labels are wrong. Which of cross-entropy and exponential loss is more suitable? Why?
 
 Read about Gradient-Boosing Trees in 10.9-10.12, up to p.367.
+
+Solve exercise 10.4 in p.385.
+
+Hold your appetite for more practical exercises... the Kaggle is almost here :)
