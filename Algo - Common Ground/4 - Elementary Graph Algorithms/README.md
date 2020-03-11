@@ -6,6 +6,6 @@ Read about BFS and DFS in ADM p.161-170.
 
 Answer questions:
 
-ADM p.187 - 5.13.
+ADM p.188 - 5.17. Start easily :)
 
-ADM p.188 - 5.17.
+ADM p.187 - 5.13.
