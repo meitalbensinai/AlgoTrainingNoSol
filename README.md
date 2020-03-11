@@ -1,3 +1,6 @@
+“Out on the edge you see all kinds of things you can't see from the center. 
+Big, undreamed-of things -- the people on the edge see them first.”
+
 # Flow
 
 ## Basic Training (57.5-62 work days)
