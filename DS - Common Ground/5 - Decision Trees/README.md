@@ -24,4 +24,6 @@ https://jakevdp.github.io/PythonDataScienceHandbook/05.08-random-forests.html
 
 7. How well do you expect decision trees to learn the parity problem? Demonstrate this in code. Also argue that pre-pruning makes learning XOR difficult.
 
+*Disclaimer - The parity problem is defined by each feature vector x $\in$ {0,1}^n, and target y=(x1 + ... xn)%2.
+
 8. Predict the sales in the attached Car-seats data using the other variables in a decision tree. Use a validation set to tune the hyper parameters. What are the best hyper-parameters? What is the best test error? Which variables are actually used? Plot the tree and investigate the dependence of the hyper parameters on the result.
