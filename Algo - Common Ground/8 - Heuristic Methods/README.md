@@ -14,4 +14,12 @@ Use 100 circles for approximations, and solve using three methods:
 
 3. Genetic Algorithm
 
-Attach images of approximated images, and graphs you deem relevant, comparing the different solutions.
+You should submit a report covering your solution, having the structure:
+
+Problem description
+
+Methods description (no more than 3-4 sentences per method)
+
+Emprical results (approximated images, convergence graph per method, comparison graphs between different methods and same method using different hyperparameters)
+
+Explanation of the findings
