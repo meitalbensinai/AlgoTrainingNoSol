@@ -14,18 +14,6 @@ Explain to yourself the following, then discuss with your supervisor.
 
 Read section 10.6.
 
-6. Replicate figure 10.4
-
 7. Suppose you perform binary classification on a dataset where some of the labels are wrong. Which of cross-entropy and exponential loss is more suitable? Why?
 
-Read the “meta” 10.7. Pay attention to table 10.1.
-
-Gradient Boosting is considered to be one of the most powerful learning algorithms, but its details are tough. The team only knows little about it; Your mission is to make an end to this state!
-
-Read 10.9-10.13, up to page 370.
-
-8. Research the different flavors of gradient boosting libraries, such as xg-boost, catboost and the sklearn build in classifier. Run the algorithm on an interesting dataset of your choice with all frameworks and compare the results with other classifiers.
-
-9. Present the work to the whole team and explain the differences between the various frameworks. Emphasize the practical aspects: which library to use, and how to do it. How to tune the parameters accordingly. Make your presentation clear: communicating results effectively is just as important as obtaining them.
-
-Good luck!
+Read about Gradient-Boosing Trees in 10.9-10.12, up to p.367.
