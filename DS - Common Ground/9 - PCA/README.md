@@ -10,7 +10,7 @@ np.linalg – to calculate distances, eigenvalues and eigenvectors.
 
 1.	Present 5 most dominant eigenfaces spreading the data (“ghost images”)
 
-2.	Define metric between two images (use your own). It should have a defined rule for success or failure. What is the minimum number of eigenfaces needed to reach 60% precision on the given 10 images pair? Choose your metric wisely.
+2.	Build a classifier using the PCA decomposition. This classifier receives an image of 1 person and outputs the index of the most-probable person among n different persons. Present average classification accuracy over 2<=n<=10 different image pairs. In each pair, one image is for "training" and the other for validation.
 
 
 
