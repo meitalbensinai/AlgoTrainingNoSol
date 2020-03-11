@@ -13,3 +13,9 @@ Answer questions:
 IA - p.760 26-1 (Escape problem).
 
 In additional pdf answer exercise 8.
+
+Read in IA p.732-735.
+
+Answer question:
+
+IA - p.736 26.3-5.
