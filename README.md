@@ -32,6 +32,8 @@ Finish SNA Introduction - 2 days
 
 # Pending Changes
 
-Clustering exercise - consider non-vision alternatives
+RL problem - update.
+
+Logistic Regression - update.
 
 Sequential Data Exercise
