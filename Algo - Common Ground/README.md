@@ -24,6 +24,6 @@ Finish the rest of the chapters.
 
 Parts 2,3,4,6,7 take 1 day each.
 
-Parts 5,9 takes 2 days each.
+Parts 5 takes 2 days.
 
 Part 8 takes 3 days.
