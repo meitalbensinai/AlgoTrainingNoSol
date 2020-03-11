@@ -10,7 +10,9 @@ This training relies on two books:
 
 (2) The Algorithm Design Manual.
 
-We refer to (1) as IA and (2) as ADM during all training.
+(3) Artificial Intelligence: A Modern Approach. 
+
+We refer to (1) as IA, (2) as ADM and (3) as AIMA.
 
 # Schedule
 
