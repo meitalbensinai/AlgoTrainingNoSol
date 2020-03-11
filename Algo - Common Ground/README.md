@@ -4,7 +4,7 @@ For DS guy - Parallel to doing this, perform one research report.
 
 # Guide
 
-This training relies on two books:
+This part of training relies on three books:
 
 (1) Introduction To Algorithms.
 
