@@ -16,7 +16,7 @@ We refer to (1) as IA, (2) as ADM, (3) as AIMA and (4) as SB.
 
 # Schedule
 
-Parts 11, 12, 14 take 0.5d each
+Parts 10, 12, 14 take 0.5d each
 
 Parts 13, 16 take 1d each
 
