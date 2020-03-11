@@ -22,8 +22,8 @@ If needs some algorithmic reminder do part 2, otherwise skip it.
 
 Finish the rest of the chapters.
 
-Parts 2,3,4,6,7 take 1 day each.
+Parts 2,3,4,6,7,8 take 1 day each.
 
 Parts 5 takes 2 days.
 
-Part 8 takes 3 days.
+Part 9 takes 3 days.
