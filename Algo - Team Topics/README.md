@@ -2,13 +2,17 @@ For Algo guy - Parallel to doing this, perform the three research reports.
 
 # Guide
 
-This training relies on three books:
+This part of training relies on four books:
 
-(1) Introduction To Algorithms - IA
+(1) Introduction To Algorithms.
 
-(2) The Algorithm Design Manual - ADM
+(2) The Algorithm Design Manual.
 
-(3) Reinforcement Learning: An Introduction by Sutton & Barto - SB
+(3) Artificial Intelligence: A Modern Approach.
+
+(4) Reinforcement Learning: An Introduction by Sutton & Barto.
+
+We refer to (1) as IA, (2) as ADM, (3) as AIMA and (4) as SB.
 
 # Schedule
 
