@@ -16,4 +16,4 @@ IA p.664 - 24.3-8.
 
 ADM p. 227 - 6-18.
 
-Read about A* in modern AI p.95-99.
+Read about A* in AIMA p.95-99.
