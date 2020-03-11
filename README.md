@@ -41,4 +41,6 @@ RL problem - update.
 
 Logistic Regression - update.
 
-Sequential Data Exercise
+Dbscan data - more suitable dataset.
+
+Imbalanced data - uncategorical data is better suited.
