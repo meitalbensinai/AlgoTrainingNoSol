@@ -8,7 +8,7 @@ You will now implement the solution yourself with some additions :)
 
 Use 100 circles for approximations, and solve using three methods:
 
-1. Hill Climbing
+1. Hill Climbing (or one variation of it)
 
 2. Simulated Annealing
 
