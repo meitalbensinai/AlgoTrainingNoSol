@@ -4,15 +4,15 @@ You have 2 days allocated to solving a Kaggle!!!
 
 Follow common DS methodology:
 
-*Understand the domain
+*Understand the domain*
 
-*Explore and visualize your data
+*Explore and visualize your data*
 
-*Clean the data
+*Clean the data*
 
-*Practice feature engineering
+*Practice feature engineering*
 
-*Choose appropriate model
+*Choose appropriate model*
 
 Better off with a partner!
 
