@@ -1,5 +1,7 @@
-“Out on the edge you see all kinds of things you can't see from the center. 
-Big, undreamed-of things -- the people on the edge see them first.”
+*“Out on the edge you see all kinds of things you can't see from the center. 
+Big, undreamed-of things -- the people on the edge see them first.”*
+
+--Kurt Vonnegut
 
 # Flow
 
