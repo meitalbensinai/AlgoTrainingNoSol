@@ -14,6 +14,6 @@ A bootstrapped sample of a dataset of size n is obtained by drawing n samples in
 
 Now read about random forest in chapter 15 of ESL, pages 587-596. Skip 15.3.3 (Proximity Plots).
 
-5. Solve exercise 15.1. What is its implication on random forest?
+5. Solve exercise 15.1, ignore the second part of the question regarding negativity diagnosis. What is its implication on random forest?
 
 6. Demonstrate in code that when the number of variables is large, but the fraction of relevant variables is small, random forests are likely to perform poorly with small m.
