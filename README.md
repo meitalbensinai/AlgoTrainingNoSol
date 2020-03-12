@@ -5,7 +5,7 @@ Big, undreamed-of things -- the people on the edge see them first.”*
 
 # Flow
 
-## Basic Training (57.5-62 work days)
+## Basic Training (56-61 work days)
 
 Basic - 8 days
 
