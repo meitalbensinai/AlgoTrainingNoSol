@@ -12,6 +12,6 @@ We refer to (1) as ISLR and to (2) as ESLI during the training.
 
 # Schedule
 
-Parts 12,17 take 2 days.
+Parts 10,12,17 take 2 days.
 
 Other parts take 1 day.
