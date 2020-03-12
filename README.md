@@ -27,8 +27,6 @@ Thats it for basic training, congrats!!!
 
 ## Advanced 
 
-### If in Algo team: (9 days)
-
 Finish CV Introduction - 5 days
 
 Finish NLP Introduction - 2 days
