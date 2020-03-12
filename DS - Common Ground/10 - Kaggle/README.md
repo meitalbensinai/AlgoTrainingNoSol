@@ -1,23 +1,21 @@
-For DS guy - Parallel to doing this and team topics, perform the three research reports.
+# Kaggle
 
-For Algo guy - Parallel to doing this, perform one research report.
+You have 2 days allocated to solving a Kaggle!!!
 
-# Guide
+Follow common DS methodology:
 
-This training relies on several books:
+*Understand the domain*
 
-(1) An Introduction to Statistical Learning.
+*Explore and visualize your data*
 
-(2) The Elements of Statistical Learning.
+*Clean the data*
 
-We refer to (1) as ISLR and to (2) as ESLI during the training.
+*Practice feature engineering*
 
-# Schedule
+*Choose appropriate model*
 
-Read through introduction quickly.
+Better off with a partner!
 
-Parts 2,8,9 take 2 days each.
+Validated Kaggles for example:
 
-Parts 4,10 take 0.5 day each.
-
-Other parts take 1 day each.
+https://www.kaggle.com/c/ashrae-energy-prediction
