@@ -1,0 +1,124 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.idea/
+assignment1/utils/datasets/
+assignment1/q3_word_vectors.png
+assignment1/q4_dev_conf.png
+assignment1/q4_dev_pred.txt
+assignment1/q4_reg_v_acc.png
+assignment1/saved_params_10000.npy
+assignment1/saved_params_15000.npy
+assignment1/saved_params_20000.npy
+assignment1/saved_params_25000.npy
+assignment1/saved_params_30000.npy
+assignment1/saved_params_35000.npy
+assignment1/saved_params_40000.npy
+assignment1/saved_params_5000.npy
+assignment2/data/weights/
+assignment2/q2_test.predicted.pkl
+assignment3/q3-0-dynamics.png
+assignment3/q3-1-dynamics.png
+assignment3/q3-clip-gru.png
+assignment3/q3-clip-rnn.png
+assignment3/q3-noclip-gru.png
+assignment3/q3-noclip-rnn.png
+assignment3/results/
