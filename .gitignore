@@ -228,8 +228,6 @@ cmake-build-*/
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
-*.idea
-
 # File-based project format
 *.iws
 
@@ -254,3 +252,5 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
+# Don't keep .idea files anyway...
+*.idea
