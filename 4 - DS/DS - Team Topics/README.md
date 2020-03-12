@@ -15,3 +15,5 @@ We refer to (1) as ISLR and to (2) as ESLI during the training.
 Parts 10,12,17 take 2 days.
 
 Other parts take 1 day.
+
+Parts 14,15,16 are of lesser importance, skip if them if time is of the essence.
