@@ -15,7 +15,7 @@ Common Grounds Algo + Research Reports - 12 days
 
 Common Grounds DS + Research Reports - 12 days
 
-Your team topics - 7.5 days Algo OR 9 days DS
+Your team topics - 5.5 days Algo OR 9 days DS
 
 Problem Formalization - 1 day
 
