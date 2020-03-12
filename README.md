@@ -40,5 +40,3 @@ RL problem - update.
 Logistic Regression - update.
 
 Dbscan data - more suitable dataset.
-
-Imbalanced data - uncategorical data is better suited.
