@@ -20,4 +20,4 @@ Parts 10, 12, 14 take 0.5d each.
 
 Parts 11, 13 take 1d each.
 
-Parts 15 takes 2d.
+Parts 15 takes 2.5d.
