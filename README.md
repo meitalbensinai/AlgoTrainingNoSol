@@ -38,5 +38,3 @@ Finish SNA Introduction - 2 days
 RL problem - update.
 
 Logistic Regression - update.
-
-Dbscan data - more suitable dataset.
