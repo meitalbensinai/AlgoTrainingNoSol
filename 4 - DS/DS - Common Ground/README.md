@@ -16,8 +16,8 @@ We refer to (1) as ISLR and to (2) as ESLI during the training.
 
 Read through introduction quickly.
 
-Parts 2,8,9 take 2 days each.
+Parts 2,8,10 take 2 days each.
 
-Parts 4,10 take 0.5 day each.
+Parts 4,9 take 0.5 day each.
 
 Other parts take 1 day each.
