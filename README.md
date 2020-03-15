@@ -38,3 +38,7 @@ Finish SNA Introduction - 2 days
 RL problem - update.
 
 Logistic Regression - update.
+
+1 day for DS common grounds - spend on practical exercise.
+
+Algo team topics can be extended.
