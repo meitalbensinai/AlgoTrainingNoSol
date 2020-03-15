@@ -42,3 +42,5 @@ Logistic Regression - update.
 1 day for DS common grounds - spend on practical exercise.
 
 Algo team topics can be extended.
+
+CS231?
