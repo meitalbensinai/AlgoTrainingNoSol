@@ -43,4 +43,4 @@ Logistic Regression - update.
 
 Algo team topics can be extended.
 
-CS231?
+CS231 or any other DL course (fast.ai.. many new ones).
