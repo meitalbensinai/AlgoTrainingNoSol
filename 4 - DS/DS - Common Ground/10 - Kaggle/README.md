@@ -1,23 +1,9 @@
-For DS guy - Parallel to doing this and team topics, perform the three research reports.
+# Kaggle
 
-For Algo guy - Parallel to doing this, perform one research report.
+Work on a kaggle for 2 days. Time to practice some data-science methodology! (though much simpler than real world problems - here you have data...)
 
-# Guide
+You may choose any kaggle that intresests you. Some recommended ones we have practiced on:
 
-This training relies on several books:
+https://www.kaggle.com/c/ashrae-energy-prediction
 
-(1) An Introduction to Statistical Learning.
-
-(2) The Elements of Statistical Learning.
-
-We refer to (1) as ISLR and to (2) as ESLI during the training.
-
-# Schedule
-
-Read through introduction quickly.
-
-Parts 2,8,9 take 2 days each.
-
-Parts 4,10 take 0.5 day each.
-
-Other parts take 1 day each.
+...
