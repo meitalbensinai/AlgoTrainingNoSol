@@ -39,6 +39,4 @@ RL problem - update.
 
 Logistic Regression - update.
 
-1 day for DS common grounds - spend on practical exercise.
-
-Algo team topics can be extended.
+Algo - coding exercises (Bloch).
