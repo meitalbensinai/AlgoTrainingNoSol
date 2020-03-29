@@ -6,4 +6,4 @@ Answer questions:
 
 IA p.447 - 16-2. Start easily :) 
 
-IA p.446 - 16-1. (For those that succeed, Bloch has promised to honor you FOR LIFE)
+IA p.446 - 16-1. (For those that succeed, *** has promised to honor you FOR LIFE)
