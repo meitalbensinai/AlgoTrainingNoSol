@@ -5,11 +5,11 @@ Big, undreamed-of things -- the people on the edge see them first.”*
 
 # Flow
 
-## Basic Training (58-65 work days)
+## Basic Training (59-66 work days)
 
-Basic - 10-12 days
+Background - 7-9 days
 
-Statistics - 2 days
+Basic - 6 days
 
 Common Grounds Algo + Research Reports - 12 days
 
