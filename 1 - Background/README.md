@@ -8,7 +8,7 @@
 
 1. Numpy - 1d
 
-1.Pandas - 2d
+1. Pandas - 2d
 
 1. Linux - 0.5d
 
