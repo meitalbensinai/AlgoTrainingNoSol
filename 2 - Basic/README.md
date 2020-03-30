@@ -1,7 +1,7 @@
 # Schedule
 
-Visualization exercise - 1d
+⋅⋅* Visualization exercise - 1d
 
-Azrieli and sons exercise - 3d
+⋅⋅* Azrieli and sons exercise - 3d
 
-Statistics - 2d
+⋅⋅* Statistics - 2d
