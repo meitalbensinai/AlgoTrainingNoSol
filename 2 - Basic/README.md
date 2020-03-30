@@ -1,4 +1,4 @@
-# Schedul
+# Schedule
 
 Visualization exercise - 1d
 
