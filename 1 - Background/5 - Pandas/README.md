@@ -1,6 +1,6 @@
 # Pandas (2d)
 
-Complete exercises on two datasets from every chapter in:
+Complete two exercises in every chapter:
 
 https://github.com/guipsamora/pandas_exercises
 
