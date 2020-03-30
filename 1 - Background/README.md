@@ -2,7 +2,7 @@
 
 Git - 1d
 
-Clean Code - 0.5d-1d
+Clean Code - 1d
 
 Python - 0.5d-2.5d
 
