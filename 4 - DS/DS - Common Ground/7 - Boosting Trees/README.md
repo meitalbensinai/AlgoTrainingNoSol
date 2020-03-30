@@ -20,4 +20,4 @@ Read about Gradient-Boosing Trees in 10.9-10.12, up to p.367.
 
 Solve exercise 10.4 in p.385.
 
-Hold your appetite for more practical exercises... the Kaggle is almost here :)
+Hold your appetite for more practical exercises... it is almost time for kaggle :)

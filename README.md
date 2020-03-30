@@ -5,9 +5,9 @@ Big, undreamed-of things -- the people on the edge see them first.”*
 
 # Flow
 
-## Basic Training (56-61 work days)
+## Basic Training (58-65 work days)
 
-Basic - 8 days
+Basic - 10-12 days
 
 Statistics - 2 days
 
@@ -38,3 +38,5 @@ Finish SNA Introduction - 2 days
 RL problem - update.
 
 Logistic Regression - update.
+
+Algo - coding exercises (Bloch).
