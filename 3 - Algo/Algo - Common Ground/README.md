@@ -18,12 +18,8 @@ We refer to (1) as IA, (2) as ADM and (3) as AIMA.
 
 Read introduction quickly.
 
-If needs some algorithmic reminder do part 2, otherwise skip it.
-
 Finish the rest of the chapters.
 
-Parts 2,3,4,6,7,8 take 1 day each.
-
-Parts 5 takes 2 days.
+Parts 2 - 8 take 1 day each.
 
 Part 9 takes 3 days.
