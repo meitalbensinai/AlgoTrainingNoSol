@@ -1,6 +1,6 @@
 # Data Structures
 
-Part 1: Asymtotic notations, Arrays and Sorting (if you fell you already knoe the material, only skim through it)
+Part 1: Asymtotic notations, Arrays and Sorting (if you fell you already know the material, only skim through it)
 
 A. Read about asymptotic notations in IA p.43-49 (Only if your'e not familiar with the idea!)
 B. Read about arrays and insertion sorting in AI p.16-29
