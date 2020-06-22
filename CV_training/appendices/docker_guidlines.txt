@@ -1,0 +1,30 @@
+Docker:
+
+Read about:
+- container vs. image
+- dockeer image
+- docker vs nvidia-docker
+- docker run:
+	1. -it
+	2. --rm
+	3. -v
+	4. -e
+	5. -p
+	6. --shm
+	7. entrypoint
+- docker ps:
+	1. -a
+- docker rm vs. docker rmi
+- docker attach, how to detach
+- docker exec
+- docker rename
+
+Task:
+- create a docker
+
+
+Questions:
+
+- what is docker used for outside the closed army network?
+- what advantage does docker give us on the inside?
+- what advantage does docker give us with respect to a production POV? (Kubernetes)
