@@ -2,7 +2,7 @@
 
 ## Theoretical part:
 
-1.	Decision Trees:
+### Decision Trees:
 
 Read chapter 9 in ESL, pages 305-313.
 
@@ -20,7 +20,7 @@ Explain to yourself the following, then discuss it with your supervisor.
 
 6.	What might be a problem with classification decision trees when a categorical feature with many possible values? Suggest a solution to the problem.
 
-2.	Random Forest:
+### Random Forest:
 
 Read ISLR p.315-321.
 
@@ -38,7 +38,7 @@ Now read about random forest in chapter 15 of ESL, pages 587-596. Skip 15.3.3 (P
 
 6. Demonstrate in code that when the number of variables is large, but the fraction of relevant variables is small, random forests are likely to perform poorly with small m.
 
-3.	Isolation Forest:
+### Isolation Forest:
 
 ●	Read the intuitive explanation in the following blogpost:
 https://quantdare.com/isolation-forest-algorithm/
@@ -46,14 +46,14 @@ https://quantdare.com/isolation-forest-algorithm/
 ●	And then a more profound reading here: https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e
 
 
-4.	Boosting methods:
+### Boosting methods:
 Read the following two blog posts  :
 
 ●	The difference between bagging and boosting https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d
 
 ●	Deep explanation of adaboost and comparison to standard gradient boosting: https://towardsdatascience.com/boosting-algorithms-explained-d38f56ef3f30
 
-5.	Advanced Boosting methods:
+### Advanced Boosting methods:
 First pay attention to the order of publishment of the three articles:
  
 And now we go to the reading! (Look forward to hearing  from your post ...)
