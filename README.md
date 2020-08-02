@@ -15,11 +15,13 @@ Team Specializion - Elaborated below per team (40.5d to DS, 32.5d to Algo).
 
 Problem Formalization - 1 day.
 
-NN specialization - 12d.
-
-Deep Learning AI courses 1-3 and exercise take 3d each. Pytorch tutorial and course 5 of Andrew take 1d each. Last exercise take 4d.
+NN specialization - 12d. (Deep Learning AI courses 1-3 and exercise take 3d each. Pytorch tutorial and course 5 of Andrew take 1d each. Last exercise takes 4d.)
 
 Your team final project - 5-10 days
+
+Source and datasets in the following link:
+
+https://drive.google.com/drive/folders/1yeyzwaRuVTr1oJHCO3yVtx5QFK8yBYev?usp=sharing
 
 Thats it for basic training, congrats!!!
 
@@ -52,6 +54,10 @@ Finish CV Introduction - 5 days
 Finish NLP Introduction - 2 days
 
 Finish SNA Introduction - 2 days
+
+Finish Tracking Introduction - 2 days
+
+Finish Testing - 1 day
 
 # Pending Changes
 
