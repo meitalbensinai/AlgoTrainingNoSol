@@ -1,6 +1,8 @@
 מטרתכם בתרגיל זה היא להציג ויזואלית את המידע באופן שיקל על קביעת מסקנות אודותיו.
 
-מבנה הטבלה:
+Your goal in this exercise is to communicate and present findings in a visual and comprehensible way.
+
+Table columns:
 
 PassengerID
 
