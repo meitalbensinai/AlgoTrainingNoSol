@@ -24,14 +24,21 @@ https://kevinzakka.github.io/2016/07/13/k-nearest-neighbor/
 
 Practical part:
 In this exercise, we will useIris DataSet  attached to this folder.
+
 The data is split to 3 classes: SetosaSilky,  Versicolour,Virginica..
+
 Each record has four properties:
+
 ●	Sepal Length.
+
 ●	Sepal Width.
+
 ●	Petal Length.
+
 ●	Petal Width.
 
 You must build a classifier that has maximum precision for an engagement classification for the three categories above.
+
 In your troubleshooting you must include the following steps:
 -	Aksploratia of the information.
 -	Testing models.
