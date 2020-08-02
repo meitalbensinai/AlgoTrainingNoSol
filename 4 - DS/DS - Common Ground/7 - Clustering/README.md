@@ -1,81 +1,112 @@
-# Chapter 6: Additional Classic models
+# Chapter 7: Clustering
 
 ## Theoretical part:
 
-### SVM
+### K-means
+Read about K-means and Agglomerative clustering from 
+Data Mining (in books) pages 443-469 chapter 10-10.3 (not including 3.3)
 
-Read about SVM from ISLR pages 337-359
+Read about cluster evaluation chapter 10.6 pages 483-491
 
-Answer questions 3,6 in exercise section
+Apply semantic segmentation on the star image, try to separate it from background:
 
-Then proceed with the next question:
+1.	K - means (It is not hard to implement, if you struggle use sklearn)
 
-In the next exercises assume the data is 2 dimensional and distributes uniformly on [0,1] X [0,1]
-unless otherwise stated.
+2.	Agglomerative clustering (there are multiple ways to solve issues you might encounter)
 
-#### Part 1
-In this exercise we assume the hypothesis we want to learn is classification by y=1-x:
-Class = 1 if y>1-x, otherwise 0
+For each method use the next features:
+• Color only
+• Color and distance
 
-Create a train dataset by generating 1000 labeled points
+3.	Use 2 different cluster evaluation methods to evaluate your clusters
 
-Create a test dataset by generating 1000 unlabeled points
 
-Classify each point according to a different kernel
+### DB-scan
 
-Show them on the same plot (one for every kernel). Correctly classified points in blue, misclassified in red. Try at least 3 different kernels which you see fit. Also plot the separating line.
+Read about the DBSCAN algorithm:
 
-What is the difference in total train and test time between different kernels?
+Data Mining (in books) pages 471-479 (10.4)
 
-Choose the appropriate kernel and use it in the next parts:
+You will implement a variation of this algorithm to detect outliers.
 
-#### Part 2
+Data.csv contains x (first column), y (second column) and class (third column):
 
-Extend the hypothesis for higher dimension while keeping the training and test sets balanced. Classify each point according to your chosen kernel. How are the training and test times depend upon the dimension? (what is the relation)
+1.	Present the data with different colors for different classes
 
-#### Part 3
+2.	Apply dbscan algorithm on the data, present outliers in red and all other clusters in blue.
 
-Denote the number of train samples N, and the dimension P. Test samples number is fixed. For every region N<<P, N=P, N>>P show the test error. Plot all results one informative graph.
+Read the next paper:
 
-#### Part 4
+https://bib.dbvis.de/uploadedFiles/17.pdf
 
-Repeat the exercise 1 with hypothesis of circle locates at (0.5,0.5) with radius of size 0.25. No need to plot separating line.
+3.	Implement the two algorithms presented and apply p-dbscan to find outliers now. Choose your parameters to present meaningful differences from the regular dbscan results.
 
-Try this using linear and using polynomial kernel of deg 2.
+## Practical part
 
-### Bayesian: 
+In this exercise you will be required to  play football players in the game Fifa  according to their ranking, position, action, other general data on the player. Data is at the address  https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset#players_20.csv
 
-#### Theoretical
+Under the name players_20.csv.
 
-Read chapter 5.6 in Deep Learning book.
+In addition, the information itself is also found in the datasets drive.
 
-●	For illustrative purposes, read the 3.3-3.3.1 chapters in the book Bishop – Pattern  Recognition
+Unlike most of the cluster challenges, in this case the classes are clear: a defensive player, a Link player (center field), and an attack player (ignoring the robberies).
 
-Theoretical intermediate expansion (for those interested).
+Therefore, the exercise will have two parts:
 
-●	Expanding and more detailed on the differences in fundamental approaches can be read from MIT which explains in depth the pros and cons of the two different approaches of statistics for understanding distributions and prediction.
+-	In the first part, you will be required to remove the label and cluster the data. Note (!), you will still be measured by the some cluster criterion, or by the quality of the cluster  according to the customer's specific desire  in this case.
 
-●	You can also read about the entire method with an example from the original book accompanying the MIT course:
+-	In the second you get 15% of the labels, to check your cluster quality, and how it fits your customer's goals. (It will be permissible for you to run supervised methods, but if you do please consult with your instructor.)
 
-Read chapter 8 in introduction to probability
+General Comments:
 
-#### Practical
+First, extract the labels from data for filtering purposes!
 
-Bayesian methods are quite rare in most of the ML problems encountered, but it has a very big advantage when you do have a prior of your business knowledge, and only a little bit of data. This can be encountered in our day to day work.
+Filter the label from the 'player_positions' column:
 
-●	In the next blogpost the writer describes his use of the library that realizes BLR and makes a comparison of the success of various models: he tries to predict grades of students based on their raw data (relatively few students, with lots of data), and in addition it shows how you can  explain the model.
+The column contains all the positions where the player can play separated by a comma (if there are several). You only need to take the first one for each player (you can do this at a single line of code).
 
-He's a little digging, you can skim, but pay attention to the following ideas:
+Next, take out of the data every row with label: 'GK' או  NaN.
 
-●	How he builds the model
+In addition, the following columns should be ignored with information throughout the exercise:
 
-●	MCMC as sampling method
+']gk_diving', 'gk_handling', 'gk_kicking', 'gk_reflexes', 'gk_speed', 'gk_positioning',
+'goalkeeping_handling', 'goalkeeping_kicking', 'goalkeeping_positioning', 'goalkeeping_reflexes', 'goalkeeping_diving', 
+'team_position']
 
-●	How it uses a model for paradigm-giving and a security measure evaluation.
-https://towardsdatascience.com/bayesian-linear-regression-in-python-u
-sing-machine-learning-to-predict-student-grades-part-2-b72059a8ac7e
+Filter our the team position, as it may lead to leakage of the labels!!!
 
-For more and more intuitive explanation about MCMC  You can see the explanation from the next blog section, which is better specs on this point:
-https://towardsdatascience.com/an-introduction-to-bayesian-inference-e6186cfc87bc
+Before starting work on the exercise, it is better to talk to the instructor about the evaluation process of the cluster, which you intend to perform.
 
-Most of the examples you've seen here are about regression, of course you can turn any model into a Bayesian model, even the NN field – a research field that tries to complete the gap with the recent successes of non-Bayesian neurons networks (an ancient domain in itself) that were built out of an empirical trial in contrast to Bayesian networks.
+### Part 1
+In this section, you should not use the Label column so please put it aside.
+
+In addition, it is necessary to cluster only on relevant features (for example: A field sofifa_id  has no meaning in this context and should not be inserted)
+In this section, you need to cluster the data in the optimal way, according to the customer's order (types of players). There is no prevention to use more than 3  clusters  if you wish.
+
+Assess how well the customer's requirements are satisfied (from an understanding of the domain).
+
+For this part, two working days are given.
+
+When you're done working on this part, go over the results (not yet CR) with the tutor and explain the work you've done, and how you estimate the cluster you received (again as a cluster, and also for the specific requirement).
+
+### Part 2
+Now you can use 15% of the dataset’s labels, (set  Seed to 4, using this to distribute the information in  stratified form )
+
+Before you determine the labels you see, theLabel must be mapped from the original value to the customer's goal according to the following dictionary:
+position_map = {
+'RW':'ST', 'LW':'ST', 'CAM':'ST', 'ST':'ST', 
+'RM':'ST', 'LM':'ST', 'CF':'ST', 'LS':'ST',
+'RES':'ST', 'RAM':'ST', 'RS':'ST', 'RF':'ST',
+'LF':'ST', 'LAM':'ST',
+'RCM':'B', 'LCB':'B', 'RCB':'B', 'LCM':'B', 
+'CB':'B',
+'CDM':'MD', 'LDM':'MD', 'LB':'MD', 'RB':'MD',
+'RDM':'MD', 'CM':'MD', 'RWB':'MD', 'LWB':'MD',
+}
+(You can actually copy it into code like this)
+
+Now you need to cluster the data, given the new information added to you (for your consideration whether to use for model training/Just for testing/setting new metrics). You are welcome to consult your tutor about how to deal in such cases.
+
+Again, at the end of the exercise, present all work done, including analyzing the quality of the cluster in the eyes of the client (the quality of the cluster is required as a cluster in addition)
+
+Good luck 😊
