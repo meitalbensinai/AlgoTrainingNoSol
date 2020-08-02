@@ -1,4 +1,4 @@
-Chapter 4: Tree-based models
+# Chapter 4: Tree-based models
 
 Theoretical part:
 
