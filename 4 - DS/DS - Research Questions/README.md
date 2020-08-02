@@ -1,7 +1,13 @@
-Usually, two out of the three reports are to be completed ("Feature Selection" is an example), 
-but that decision is in the hands of the instructor.
+# Guide
 
-Work on the reports can start after the the "Metrics" chapter in DS - Common Ground. 
-They can be performed either serially (after the DS part) or in a parallel fashion.
+Complete all reports on all the given subjects:
 
-The resampling report requires knowledge of SVM!
+1. Feature extraction+selection
+
+1. Hyper param search
+
+1. Unbalanced dataset
+
+1. Semi supervised learning
+
+1. Ensemble method
