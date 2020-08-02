@@ -25,17 +25,26 @@ Use sklearn load the data into your notebook.
 Then follow the steps of the classical study (of course it's just a template, and you should be making frequent iterations  with the tutor at this time, and repeat the steps  after the new comments):
 
 1.	Perform Aksploratia: for example:
+
 a.	Test of distributions and correlations
+
 b.	Make sure you understand the meaning of the columns and the values that they contain
 
 2.	Clear the information: for example-
+
 a.	Complete missing values
+
 b.	Remove information which constitute anomalies (this step is not about running anomaly detection algorithms).
 
 3.	Run the model: for example-
+
 a.	Constructing a model for all the information.
+
 b.	Examination of the resulting model (weights, etc.)
+
 c.	Examining errors or variances that are greater than the desired value.
+
 d.	Training exam with and with existing features.
+
 e.	Extracting significant features and a renewed training to improve the score.
 
