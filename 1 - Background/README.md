@@ -11,5 +11,3 @@
 1. Pandas - 2d
 
 1. Linux - 0.5d
-
-1. Google Crash Course - 1d
