@@ -6,7 +6,7 @@ This exercise of running a model in reality inspires a lot of questions, how to 
 
 This chapter will deal with regression problems – which may be the more intuitive side to define loss and understanding the framework of the standard.
 
-Theoretical part:
+## Theoretical part:
 
 1.	Read chapter 3 in ISLR - Linear Regression.
 
@@ -14,7 +14,8 @@ Theoretical part:
 
 3.	Read chapter 6, parts 6.1 and 6.2 in ISLR - Linear Model Selection.
 
-Practical part:
+## Practical part:
+
 In the community of the data-scientist there are several known datasets which comprise a benchmark for the community. The data on the neighborhood prices in Boston is one of them.
 
 The reservoir contains not many records, on neighborhoods in Boston and the average housing prices. Each neighborhood has several information items that can help predict the average price in the neighborhood.
