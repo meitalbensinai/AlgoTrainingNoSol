@@ -19,6 +19,10 @@ NN specialization - 12d. (Deep Learning AI courses 1-3 and exercise take 3d each
 
 Your team final project - 5-10 days
 
+Source and datasets in the following link:
+
+https://drive.google.com/drive/folders/1yeyzwaRuVTr1oJHCO3yVtx5QFK8yBYev?usp=sharing
+
 Thats it for basic training, congrats!!!
 
 ## Team Specialization
