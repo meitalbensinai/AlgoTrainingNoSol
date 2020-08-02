@@ -1,6 +1,8 @@
 # Guide
 
-Following is a list of subjects in machine learning. Complete the research reports on all given subjects, within a timeframe of a single day per report:
+Following is a list of subjects in machine learning. 
+
+Complete the research reports on all given subjects:
 
 1. Feature extraction+selection
 
@@ -11,6 +13,8 @@ Following is a list of subjects in machine learning. Complete the research repor
 1. Semi supervised learning
 
 1. Ensemble method
+
+You have 1 day per report.
 
 Each report includes the next parts:
 
