@@ -21,7 +21,7 @@ Problem Formalization - 1 day
 
 Andrew NG's NN specialization - 10 days
 
-Your team final project - 5 days
+Your team final project - 5-10 days
 
 Thats it for basic training, congrats!!!
 
