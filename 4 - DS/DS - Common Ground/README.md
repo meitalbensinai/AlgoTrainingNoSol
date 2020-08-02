@@ -28,7 +28,7 @@ Logistic Regression,Naïve Bayes,LDA - 0.25d each. KNN - 0.5d. Exercise - 2d.
 
 Decision Tree, Random Forest, Isolation Forest each 0.5d. Boosting Trees 3d. Exercise 3d.
 
-## Chapter 5 - 6.5d. 
+## Chapter 5 - 7.5d. 
 
 PCA, Kernels and non-linear methods take 1d each. Random Proejction takes 0.5d. Exercise takes 3d.
 
