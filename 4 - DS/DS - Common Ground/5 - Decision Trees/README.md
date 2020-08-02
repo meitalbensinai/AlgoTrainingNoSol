@@ -1,6 +1,6 @@
 # Chapter 4: Tree-based models
 
-Theoretical part:
+## Theoretical part:
 
 1.	Decision Trees:
 
@@ -72,7 +72,7 @@ In the parts where you feel that they do not explain all the details (for exampl
 Here too we think that the main point of the article - ordered boosting, is relatively hard to understand it is better to understand from the pseudo code in the article itself.
 
 
-Practical part:
+## Practical part:
 
 In this exercise, we will dive into your first kaggle exercise . While you have read and seen the different tree models as a classification algorithm, they can also be activated as regression one, and they are even quite common.
 
