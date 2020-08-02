@@ -16,7 +16,7 @@ Complete the research reports on all given subjects:
 
 You have 1 day per report.
 
-Each report includes the next parts:
+Each report should include the next parts:
 
 KAHANA COMPLETE
 
