@@ -53,6 +53,10 @@ Finish NLP Introduction - 2 days
 
 Finish SNA Introduction - 2 days
 
+Finish Tracking Introduction - 2 days
+
+Finish Testing - 1 day
+
 # Pending Changes
 
 RL problem - update (Tomer).
