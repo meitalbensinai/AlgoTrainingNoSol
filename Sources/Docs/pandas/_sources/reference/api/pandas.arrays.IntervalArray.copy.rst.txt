@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.copy
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntervalArray.copy

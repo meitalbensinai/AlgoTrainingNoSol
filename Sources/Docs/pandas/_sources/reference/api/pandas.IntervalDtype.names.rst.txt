@@ -1,6 +1,0 @@
-pandas.IntervalDtype.names
-==========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: IntervalDtype.names

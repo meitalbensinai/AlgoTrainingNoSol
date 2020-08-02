@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.value\_counts
-=========================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.value_counts

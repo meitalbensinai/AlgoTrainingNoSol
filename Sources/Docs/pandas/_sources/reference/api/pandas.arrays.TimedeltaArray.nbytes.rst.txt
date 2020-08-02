@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.nbytes
-===================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: TimedeltaArray.nbytes

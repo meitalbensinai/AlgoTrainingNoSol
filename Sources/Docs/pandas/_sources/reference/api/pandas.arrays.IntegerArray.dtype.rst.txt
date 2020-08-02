@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.dtype
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: IntegerArray.dtype

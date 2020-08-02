@@ -1,6 +1,0 @@
-pandas.tseries.offsets.BMonthBegin.base
-=======================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: BMonthBegin.base

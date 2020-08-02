@@ -1,6 +1,0 @@
-pandas.Int16Dtype.construct\_array\_type
-========================================
-
-.. currentmodule:: pandas
-
-.. automethod:: Int16Dtype.construct_array_type

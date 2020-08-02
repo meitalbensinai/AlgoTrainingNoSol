@@ -1,6 +1,0 @@
-pandas.SparseArray.sum
-======================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.sum

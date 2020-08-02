@@ -1,6 +1,0 @@
-pandas.Int64Dtype.is\_signed\_integer
-=====================================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: Int64Dtype.is_signed_integer

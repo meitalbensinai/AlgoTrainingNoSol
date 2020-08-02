@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.is\_normalized
-==========================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: DatetimeArray.is_normalized

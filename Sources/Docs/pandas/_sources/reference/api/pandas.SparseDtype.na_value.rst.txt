@@ -1,6 +1,0 @@
-pandas.SparseDtype.na\_value
-============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: SparseDtype.na_value

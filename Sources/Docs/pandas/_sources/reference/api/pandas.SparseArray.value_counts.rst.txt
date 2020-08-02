@@ -1,6 +1,0 @@
-pandas.SparseArray.value\_counts
-================================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.value_counts

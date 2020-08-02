@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.resolution
-=======================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: TimedeltaArray.resolution

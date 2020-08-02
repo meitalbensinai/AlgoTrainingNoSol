@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.is\_dtype
-================================
-
-.. currentmodule:: pandas
-
-.. automethod:: DatetimeTZDtype.is_dtype

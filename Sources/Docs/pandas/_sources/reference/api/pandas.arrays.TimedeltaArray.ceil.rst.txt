@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.ceil
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.ceil

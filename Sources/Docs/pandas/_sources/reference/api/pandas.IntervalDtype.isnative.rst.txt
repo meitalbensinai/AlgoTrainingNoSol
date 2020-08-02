@@ -1,6 +1,0 @@
-pandas.IntervalDtype.isnative
-=============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: IntervalDtype.isnative

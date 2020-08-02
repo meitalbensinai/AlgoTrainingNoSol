@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.repeat
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntervalArray.repeat

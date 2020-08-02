@@ -1,6 +1,0 @@
-pandas.UInt16Dtype.names
-========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: UInt16Dtype.names

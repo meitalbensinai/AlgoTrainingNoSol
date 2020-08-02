@@ -1,6 +1,0 @@
-pandas.PeriodDtype.kind
-=======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: PeriodDtype.kind

@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.minute
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: DatetimeArray.minute

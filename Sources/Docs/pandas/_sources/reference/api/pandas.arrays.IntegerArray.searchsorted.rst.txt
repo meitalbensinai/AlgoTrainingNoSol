@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.searchsorted
-=======================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntegerArray.searchsorted

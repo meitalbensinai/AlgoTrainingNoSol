@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.construct\_array\_type
-=============================================
-
-.. currentmodule:: pandas
-
-.. automethod:: DatetimeTZDtype.construct_array_type

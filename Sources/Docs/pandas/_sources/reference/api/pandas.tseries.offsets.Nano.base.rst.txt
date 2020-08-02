@@ -1,6 +1,0 @@
-pandas.tseries.offsets.Nano.base
-================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: Nano.base

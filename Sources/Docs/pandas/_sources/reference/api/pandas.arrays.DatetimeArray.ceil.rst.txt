@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.ceil
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.ceil

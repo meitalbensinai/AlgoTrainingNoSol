@@ -1,6 +1,0 @@
-pandas.UInt32Dtype.is\_unsigned\_integer
-========================================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: UInt32Dtype.is_unsigned_integer

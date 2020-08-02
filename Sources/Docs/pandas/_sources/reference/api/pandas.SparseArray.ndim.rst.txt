@@ -1,6 +1,0 @@
-pandas.SparseArray.ndim
-=======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: SparseArray.ndim

@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.shape
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: TimedeltaArray.shape

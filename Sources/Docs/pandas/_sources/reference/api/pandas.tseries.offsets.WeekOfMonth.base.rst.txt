@@ -1,6 +1,0 @@
-pandas.tseries.offsets.WeekOfMonth.base
-=======================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: WeekOfMonth.base

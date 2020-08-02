@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.take
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.take

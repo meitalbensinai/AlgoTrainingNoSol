@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.construct\_from\_string
-==============================================
-
-.. currentmodule:: pandas
-
-.. automethod:: DatetimeTZDtype.construct_from_string

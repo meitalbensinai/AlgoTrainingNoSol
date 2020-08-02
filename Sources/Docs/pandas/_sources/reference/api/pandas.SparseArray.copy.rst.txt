@@ -1,6 +1,0 @@
-pandas.SparseArray.copy
-=======================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.copy

@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.total\_seconds
-===========================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.total_seconds

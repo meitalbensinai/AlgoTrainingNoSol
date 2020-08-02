@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.repeat
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntegerArray.repeat

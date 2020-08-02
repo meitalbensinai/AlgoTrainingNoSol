@@ -1,6 +1,0 @@
-pandas.Index.array
-==================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: Index.array

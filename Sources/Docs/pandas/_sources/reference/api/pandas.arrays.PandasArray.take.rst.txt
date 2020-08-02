@@ -1,6 +1,0 @@
-pandas.arrays.PandasArray.take
-==============================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: PandasArray.take

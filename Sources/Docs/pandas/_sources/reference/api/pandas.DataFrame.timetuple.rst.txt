@@ -1,6 +1,0 @@
-pandas.DataFrame.timetuple
-==========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: DataFrame.timetuple

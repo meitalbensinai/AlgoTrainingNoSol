@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.to\_period
-======================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.to_period

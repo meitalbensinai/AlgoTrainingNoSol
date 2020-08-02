@@ -1,6 +1,0 @@
-pandas.tseries.offsets.CDay.base
-================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: CDay.base

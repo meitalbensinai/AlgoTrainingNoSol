@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.resolution
-======================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: DatetimeArray.resolution

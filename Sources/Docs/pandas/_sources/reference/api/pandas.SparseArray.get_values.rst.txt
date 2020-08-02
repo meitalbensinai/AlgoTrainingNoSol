@@ -1,6 +1,0 @@
-pandas.SparseArray.get\_values
-==============================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.get_values

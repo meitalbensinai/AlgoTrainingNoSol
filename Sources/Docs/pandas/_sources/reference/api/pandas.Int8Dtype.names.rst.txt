@@ -1,6 +1,0 @@
-pandas.Int8Dtype.names
-======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: Int8Dtype.names

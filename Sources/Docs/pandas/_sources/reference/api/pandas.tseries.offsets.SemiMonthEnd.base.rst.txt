@@ -1,6 +1,0 @@
-pandas.tseries.offsets.SemiMonthEnd.base
-========================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: SemiMonthEnd.base

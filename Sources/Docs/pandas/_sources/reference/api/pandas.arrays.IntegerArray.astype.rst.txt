@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.astype
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntegerArray.astype

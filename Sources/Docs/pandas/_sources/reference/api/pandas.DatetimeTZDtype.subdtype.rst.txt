@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.subdtype
-===============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: DatetimeTZDtype.subdtype

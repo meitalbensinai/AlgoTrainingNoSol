@@ -1,6 +1,0 @@
-pandas.UInt32Dtype.is\_dtype
-============================
-
-.. currentmodule:: pandas
-
-.. automethod:: UInt32Dtype.is_dtype

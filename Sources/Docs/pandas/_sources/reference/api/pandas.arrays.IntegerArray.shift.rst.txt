@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.shift
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntegerArray.shift

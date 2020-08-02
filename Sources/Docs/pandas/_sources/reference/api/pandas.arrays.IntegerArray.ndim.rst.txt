@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.ndim
-===============================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: IntegerArray.ndim

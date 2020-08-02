@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.to\_pytimedelta
-============================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.to_pytimedelta

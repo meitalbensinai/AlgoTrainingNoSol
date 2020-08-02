@@ -1,6 +1,0 @@
-pandas.tseries.offsets.Milli.base
-=================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: Milli.base

@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.isna
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.isna

@@ -1,6 +1,0 @@
-pandas.arrays.PandasArray.astype
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: PandasArray.astype

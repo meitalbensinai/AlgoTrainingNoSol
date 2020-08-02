@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.na\_value
-================================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: DatetimeTZDtype.na_value

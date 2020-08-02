@@ -1,6 +1,0 @@
-pandas.UInt64Dtype.na\_value
-============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: UInt64Dtype.na_value

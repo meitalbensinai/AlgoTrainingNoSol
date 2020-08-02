@@ -1,6 +1,0 @@
-pandas.arrays.PandasArray.std
-=============================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: PandasArray.std

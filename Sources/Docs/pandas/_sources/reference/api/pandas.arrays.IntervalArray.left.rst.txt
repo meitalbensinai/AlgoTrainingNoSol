@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.left
-================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: IntervalArray.left

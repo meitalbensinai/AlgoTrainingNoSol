@@ -1,6 +1,0 @@
-pandas.SparseArray.T
-====================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: SparseArray.T

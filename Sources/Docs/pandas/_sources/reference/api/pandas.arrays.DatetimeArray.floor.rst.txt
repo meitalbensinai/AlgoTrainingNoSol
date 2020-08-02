@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.floor
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.floor

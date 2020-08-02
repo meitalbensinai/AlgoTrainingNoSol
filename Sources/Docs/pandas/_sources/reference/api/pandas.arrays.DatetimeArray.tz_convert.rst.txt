@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.tz\_convert
-=======================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.tz_convert

@@ -1,6 +1,0 @@
-pandas.SparseArray.fillna
-=========================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.fillna

@@ -1,6 +1,0 @@
-pandas.IntervalDtype.str
-========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: IntervalDtype.str

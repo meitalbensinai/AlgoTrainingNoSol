@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.shape
-============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: DatetimeTZDtype.shape

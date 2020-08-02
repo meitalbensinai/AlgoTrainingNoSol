@@ -1,6 +1,0 @@
-pandas.tseries.offsets.Micro.base
-=================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: Micro.base

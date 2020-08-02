@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.searchsorted
-========================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntervalArray.searchsorted

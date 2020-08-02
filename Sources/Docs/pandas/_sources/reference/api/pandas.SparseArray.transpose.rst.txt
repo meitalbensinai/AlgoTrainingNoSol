@@ -1,6 +1,0 @@
-pandas.SparseArray.transpose
-============================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.transpose

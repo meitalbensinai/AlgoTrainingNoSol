@@ -1,6 +1,0 @@
-pandas.SparseDtype.construct\_array\_type
-=========================================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseDtype.construct_array_type

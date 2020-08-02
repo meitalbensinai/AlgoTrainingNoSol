@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.to\_julian\_date
-============================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.to_julian_date

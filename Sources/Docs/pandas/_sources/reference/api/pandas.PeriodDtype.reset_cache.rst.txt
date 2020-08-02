@@ -1,6 +1,0 @@
-pandas.PeriodDtype.reset\_cache
-===============================
-
-.. currentmodule:: pandas
-
-.. automethod:: PeriodDtype.reset_cache

@@ -1,6 +1,0 @@
-pandas.IntervalDtype.na\_value
-==============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: IntervalDtype.na_value

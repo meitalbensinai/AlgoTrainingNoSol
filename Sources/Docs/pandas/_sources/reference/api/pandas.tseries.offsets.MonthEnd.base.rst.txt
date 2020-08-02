@@ -1,6 +1,0 @@
-pandas.tseries.offsets.MonthEnd.base
-====================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: MonthEnd.base

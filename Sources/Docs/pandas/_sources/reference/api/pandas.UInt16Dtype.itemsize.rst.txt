@@ -1,6 +1,0 @@
-pandas.UInt16Dtype.itemsize
-===========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: UInt16Dtype.itemsize

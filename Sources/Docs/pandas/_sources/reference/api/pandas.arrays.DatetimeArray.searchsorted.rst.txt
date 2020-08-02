@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.searchsorted
-========================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.searchsorted

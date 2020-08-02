@@ -1,6 +1,0 @@
-pandas.arrays.PandasArray.shape
-===============================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: PandasArray.shape

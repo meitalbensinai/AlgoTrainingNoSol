@@ -1,6 +1,0 @@
-pandas.tseries.offsets.QuarterEnd.base
-======================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: QuarterEnd.base

@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.is\_year\_end
-=========================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: DatetimeArray.is_year_end

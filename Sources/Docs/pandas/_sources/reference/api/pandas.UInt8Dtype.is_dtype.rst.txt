@@ -1,6 +1,0 @@
-pandas.UInt8Dtype.is\_dtype
-===========================
-
-.. currentmodule:: pandas
-
-.. automethod:: UInt8Dtype.is_dtype

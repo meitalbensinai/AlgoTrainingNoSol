@@ -1,6 +1,0 @@
-pandas.PeriodDtype.num
-======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: PeriodDtype.num

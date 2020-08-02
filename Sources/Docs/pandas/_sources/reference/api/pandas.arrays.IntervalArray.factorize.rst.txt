@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.factorize
-=====================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntervalArray.factorize

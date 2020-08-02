@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.shift
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.shift

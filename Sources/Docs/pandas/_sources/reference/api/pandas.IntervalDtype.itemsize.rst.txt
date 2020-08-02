@@ -1,6 +1,0 @@
-pandas.IntervalDtype.itemsize
-=============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: IntervalDtype.itemsize

@@ -1,6 +1,0 @@
-pandas.IntervalDtype.is\_dtype
-==============================
-
-.. currentmodule:: pandas
-
-.. automethod:: IntervalDtype.is_dtype

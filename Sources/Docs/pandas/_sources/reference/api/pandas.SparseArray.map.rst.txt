@@ -1,6 +1,0 @@
-pandas.SparseArray.map
-======================
-
-.. currentmodule:: pandas
-
-.. automethod:: SparseArray.map

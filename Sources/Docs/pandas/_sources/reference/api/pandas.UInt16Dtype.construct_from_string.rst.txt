@@ -1,6 +1,0 @@
-pandas.UInt16Dtype.construct\_from\_string
-==========================================
-
-.. currentmodule:: pandas
-
-.. automethod:: UInt16Dtype.construct_from_string

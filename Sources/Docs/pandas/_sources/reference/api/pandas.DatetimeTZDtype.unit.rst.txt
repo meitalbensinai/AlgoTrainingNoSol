@@ -1,6 +1,0 @@
-pandas.DatetimeTZDtype.unit
-===========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: DatetimeTZDtype.unit

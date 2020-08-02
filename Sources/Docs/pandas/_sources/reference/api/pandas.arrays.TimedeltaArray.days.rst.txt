@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.days
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: TimedeltaArray.days

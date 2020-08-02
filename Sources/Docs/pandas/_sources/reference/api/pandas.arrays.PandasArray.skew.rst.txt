@@ -1,6 +1,0 @@
-pandas.arrays.PandasArray.skew
-==============================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: PandasArray.skew

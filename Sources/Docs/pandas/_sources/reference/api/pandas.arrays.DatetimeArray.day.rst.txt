@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.day
-===============================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: DatetimeArray.day

@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.freqstr
-====================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: TimedeltaArray.freqstr

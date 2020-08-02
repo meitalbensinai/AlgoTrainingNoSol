@@ -1,6 +1,0 @@
-pandas.UInt8Dtype.kind
-======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: UInt8Dtype.kind

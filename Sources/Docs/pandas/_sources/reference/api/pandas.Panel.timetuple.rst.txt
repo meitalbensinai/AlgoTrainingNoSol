@@ -1,6 +1,0 @@
-pandas.Panel.timetuple
-======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: Panel.timetuple

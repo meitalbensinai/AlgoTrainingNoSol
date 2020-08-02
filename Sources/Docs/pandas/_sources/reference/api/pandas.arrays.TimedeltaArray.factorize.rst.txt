@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.factorize
-======================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.factorize

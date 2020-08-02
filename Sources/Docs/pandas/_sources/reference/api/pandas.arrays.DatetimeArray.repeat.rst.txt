@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.repeat
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.repeat

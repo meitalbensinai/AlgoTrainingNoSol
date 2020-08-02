@@ -1,6 +1,0 @@
-pandas.tseries.offsets.Day.base
-===============================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: Day.base

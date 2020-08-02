@@ -1,6 +1,0 @@
-pandas.arrays.IntegerArray.nbytes
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: IntegerArray.nbytes

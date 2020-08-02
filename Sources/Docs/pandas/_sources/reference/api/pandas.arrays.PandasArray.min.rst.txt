@@ -1,6 +1,0 @@
-pandas.arrays.PandasArray.min
-=============================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: PandasArray.min

@@ -1,6 +1,0 @@
-pandas.Int16Dtype.numpy\_dtype
-==============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: Int16Dtype.numpy_dtype

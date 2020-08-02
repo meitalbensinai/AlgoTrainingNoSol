@@ -1,6 +1,0 @@
-pandas.IntervalDtype.construct\_from\_string
-============================================
-
-.. currentmodule:: pandas
-
-.. automethod:: IntervalDtype.construct_from_string

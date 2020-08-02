@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.length
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: IntervalArray.length

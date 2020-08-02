@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.astype
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.astype

@@ -1,6 +1,0 @@
-pandas.Int8Dtype.itemsize
-=========================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: Int8Dtype.itemsize

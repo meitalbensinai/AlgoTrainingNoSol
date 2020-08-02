@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.isna
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.isna

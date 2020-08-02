@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.to\_pydatetime
-==========================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: DatetimeArray.to_pydatetime

@@ -1,6 +1,0 @@
-pandas.SparseDtype.kind
-=======================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: SparseDtype.kind

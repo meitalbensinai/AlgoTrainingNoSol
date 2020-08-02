@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.ndim
-=================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: TimedeltaArray.ndim

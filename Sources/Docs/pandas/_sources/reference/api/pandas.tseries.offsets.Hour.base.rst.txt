@@ -1,6 +1,0 @@
-pandas.tseries.offsets.Hour.base
-================================
-
-.. currentmodule:: pandas.tseries.offsets
-
-.. autoattribute:: Hour.base

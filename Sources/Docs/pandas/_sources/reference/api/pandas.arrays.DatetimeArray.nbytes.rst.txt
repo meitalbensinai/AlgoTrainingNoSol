@@ -1,6 +1,0 @@
-pandas.arrays.DatetimeArray.nbytes
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. autoattribute:: DatetimeArray.nbytes

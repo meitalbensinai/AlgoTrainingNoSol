@@ -1,6 +1,0 @@
-pandas.arrays.TimedeltaArray.unique
-===================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: TimedeltaArray.unique

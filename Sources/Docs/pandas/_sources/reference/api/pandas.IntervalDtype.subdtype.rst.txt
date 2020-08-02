@@ -1,6 +1,0 @@
-pandas.IntervalDtype.subdtype
-=============================
-
-.. currentmodule:: pandas
-
-.. autoattribute:: IntervalDtype.subdtype

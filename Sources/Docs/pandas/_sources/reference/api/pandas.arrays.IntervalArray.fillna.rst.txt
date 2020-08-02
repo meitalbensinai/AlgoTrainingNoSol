@@ -1,6 +1,0 @@
-pandas.arrays.IntervalArray.fillna
-==================================
-
-.. currentmodule:: pandas.arrays
-
-.. automethod:: IntervalArray.fillna
