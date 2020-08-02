@@ -27,6 +27,14 @@ Thats it for basic training, congrats!!!
 
 ### Algo
 
+DS common grounds - 12.5d. Up to Chapter 4 - Boosting Trees (including). 
+
+Algo common grounds - 10d.
+
+Algo team topics - 6d.
+
+Algo research reports - 4d. 
+
 ### DS (40.5d)
 
 Algo common grounds - 4.5d. 
@@ -35,7 +43,7 @@ Read through the sections, each one should take at most half a day. Finish exerc
 
 DS common grounds - 31d.
 
-DS research reports - 5d. 
+DS research reports - 5d.
 
 ## Advanced 
 
