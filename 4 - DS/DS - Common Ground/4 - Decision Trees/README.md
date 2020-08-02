@@ -1,27 +1,94 @@
-# Decision Trees
+# Chapter 4: Tree-based models
 
-Trees form a building block for gradient boosting and for random forest, both important algorithms. 
+## Theoretical part:
 
-Read chapter 9 for ESL, pages 305-313.
+### Decision Trees:
 
-Explain to yourself the following, then discuss with your supervisor.
+Read chapter 9 in ESL, pages 305-313.
 
-1. How might one use a classification tree to return class probabilities?
+Explain to yourself the following, then discuss it with your supervisor.
 
-2. What are the three measures used for building classification trees? What are their relative merits? What’s used for regression trees?
+1.	How might one use a classification tree to return class probabilities?
 
-3. How can the Gini index be interpreted?
+2.	What are the three measures used for building classification trees? What are their relative merits? What’s used for regression trees?
 
-4. What are the disadvantages of decision trees?
+3.	How can the Gini index be interpreted?
 
-5. What does pruning aim to solve? How is it done?
+4.	What are the disadvantages of decision trees?
 
-6. What might be a problem with classification decision trees when a categorical feature with many possible values? Suggest a solution to the problem.
+5.	What does pruning aim to solve? How is it done?
 
-Read the following link, which also gives a glance into random forests, discussed next.
+6.	What might be a problem with classification decision trees when a categorical feature with many possible values? Suggest a solution to the problem.
 
-https://jakevdp.github.io/PythonDataScienceHandbook/05.08-random-forests.html 
+### Random Forest:
 
-7. How well do you expect decision trees to learn the parity problem? Demonstrate this in code. Also argue that pre-pruning makes learning XOR difficult. The parity problem is defined by each feature vector x having binary values and length n. Then the target is y=(x1 + ... xn)%2.
+Read ISLR p.315-321.
 
-8. Predict the sales in the attached Car-seats data using the other variables in a decision tree. Use a validation set to tune the hyper parameters. What are the best hyper-parameters? What is the best test error? Which variables are actually used? Plot the tree and investigate the dependence of the hyper parameters on the result.
+1. What is the idea of bagging?
+
+2. What is the trade off in choosing the number m of features to sample in every node?
+
+3. What’s Out Of Bag Sampling? What is the size of the Out Of Bag set when the dataset is large?
+
+4. How can one measure feature importance in random forest?
+
+Now read about random forest in chapter 15 of ESL, pages 587-596. Skip 15.3.3 (Proximity Plots).
+
+5. Solve exercise 15.1. What is its implication on random forest?
+
+6. Demonstrate in code that when the number of variables is large, but the fraction of relevant variables is small, random forests are likely to perform poorly with small m.
+
+### Isolation Forest:
+
+●	Read the intuitive explanation in the following blogpost:
+https://quantdare.com/isolation-forest-algorithm/
+
+●	And then a more profound reading here: https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e
+
+
+### Boosting methods:
+Read the following two blog posts  :
+
+●	The difference between bagging and boosting https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d
+
+●	Deep explanation of adaboost and comparison to standard gradient boosting: https://towardsdatascience.com/boosting-algorithms-explained-d38f56ef3f30
+
+### Advanced Boosting methods:
+First pay attention to the order of publishment of the three articles:
+ 
+And now we go to the reading! (Look forward to hearing  from your post ...)
+
+●	Mathematical background to gradient boosting: https://towardsdatascience.com/the-good-old-gradient-boosting-f4614b0e62b0
+
+●	Read the next blogpost on xgboost  (in order to get  an overview  of the algorithm, later you will read the article itself)  
+HTTPS://TOWARDSDATASCIENCE.COM/XGBOOST-B736C2AB10CE
+
+●	Read the article of xgboost  (attached in the folder) – focus on the classification part rather than the calculations (no need to read about distributed computations) but understand the general concepts that were used and where it is possible to improve performance.
+
+●	LightGBM introduction  https://towardsdatascience.com/lightgbm-800340f21415
+In the parts where you feel that they do not explain all the details (for example in the EFB section) you have an article (attached in the folder) and try to understand from there. If still the subject is unclear try searching other posts on the Internet.
+
+●	Read the blogpost of Tal Peretz (who founded this team) on  catboost  https://towardsdatascience.com/https-medium-com-talperetz24-mastering-the-new-generation-of-gradient-boosting-db04062a7ea2
+Here too we think that the main point of the article - ordered boosting, is relatively hard to understand it is better to understand from the pseudo code in the article itself.
+
+
+## Practical part:
+
+In this exercise, we will dive into your first kaggle exercise . While you have read and seen the different tree models as a classification algorithm, they can also be activated as regression one, and they are even quite common.
+
+The next kaggle: https://www.kaggle.com/c/new-york-city-taxi-fare-prediction/overview
+Describes taxi prices in New York, containing columns describing the trip, and requesting that you produce a tariff contract.
+
+You must build a classifier with maximum accuracy to predict the aforementioned.
+
+In your troubleshooting you must include the following steps:
+
+-	Aksploratia of the information.
+
+-	Production of new features that can help with the model's work.
+
+-	Testing models (trees and other methods you have learned)
+
+-	Compare the models that were examined.
+
+-	Conclusions.

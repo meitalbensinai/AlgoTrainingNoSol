@@ -1,4 +1,4 @@
-Chapter 3: Classification.
+# Chapter 3: Classification
 
 Theoretical part:
 1.	Introduction
