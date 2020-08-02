@@ -16,6 +16,6 @@ Read introduction quickly.
 
 Finish the rest of the chapters.
 
-Parts 2 - 8 take 1 day each / 0.5d (DS).
+Parts 2 - 8 take 1 day each.
 
-Part 9 takes 3 days / 0.5d (DS).
+Part 9 takes 3 days.
