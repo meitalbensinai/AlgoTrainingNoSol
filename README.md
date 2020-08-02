@@ -11,9 +11,9 @@ Background - 7-9 days
 
 Basic - 6 days
 
-Team Specializion - Elaborated below per team (40.5d to DS)
+Team Specializion - Elaborated below per team (40.5d to DS, 32.5d to Algo).
 
-Problem Formalization - 1 day
+Problem Formalization - 1 day.
 
 NN specialization - 12d.
 
@@ -25,7 +25,7 @@ Thats it for basic training, congrats!!!
 
 ## Team Specialization
 
-### Algo
+### Algo (32.5d)
 
 DS common grounds - 12.5d. Up to Chapter 4 - Boosting Trees (including). 
 
