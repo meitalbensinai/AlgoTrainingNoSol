@@ -41,7 +41,3 @@ SVM and KSVM take 1d each.
 Clsutering methods and exercise take 2d each.
 
 ## Chapter 8 - 2d.
-
-## Chapter 9 - 12d.
-
-Deep Learning AI courses 1-3 and exercise take 3d each. Pytorch tutorial and course 5 of Andrew take 1d each. Last exercise take 4d.
