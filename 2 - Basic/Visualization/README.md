@@ -24,16 +24,16 @@ Cabin – מס' חדר
 
 Embarked -  port embarked from
 
-הציגו לפי שיקול דעתכם תרשימים המתארים:
+Please present graphs that depict:
 
-a.	איך התפלג הגיל בכל סיפון ובכל מין?
+a. How is age distributed in every pclass and in every age?
 
-b.	באילו משפחות יש הכי הרבה אבדות בנפש?
+b. Which family had lost the most members?
 
-c.	האם יש קשר בין גיל הנוסע לסיכוייו לשרוד? מה באשר לסיפון?
+c. Is there a connection between the age of a passenger and it's chance of survival? What about his pclass?
 
-d.	מה היחס בין ניצולים למתים בכל מחלקה?
+d. What is the relation between survivors to deceased in every pclass?
 
-e.	הציגו תחזיות נוספות לפי שיקול דעתכם.
+e. Present more findings with meaningful insights, as you see fit.
 
-Read about matplotlib visualization in the libraries doc.
+Read about matplotlib and seaborn prior to doing this exercise.
