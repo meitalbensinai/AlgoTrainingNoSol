@@ -1,6 +1,6 @@
 # Guide
 
-Complete all reports on all the given subjects:
+Complete the research reports on all given subjects:
 
 1. Feature extraction+selection
 
@@ -11,3 +11,9 @@ Complete all reports on all the given subjects:
 1. Semi supervised learning
 
 1. Ensemble method
+
+Each report includes the next part:
+
+KAHANA COMPLETE
+
+You may search online for material or use the books in the sources, as you see fit.
