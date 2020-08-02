@@ -9,7 +9,7 @@ Big, undreamed-of things -- the people on the edge see them first.”*
 
 Background - 7-9 days
 
-Basic - 6 days
+Basic - 7 days
 
 Team Specializion - Elaborated below per team (40.5d to DS, 32.5d to Algo).
 
