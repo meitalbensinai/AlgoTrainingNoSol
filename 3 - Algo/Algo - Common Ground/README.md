@@ -1,7 +1,3 @@
-For Algo guy - Parallel to doing this and team topics, perform the research reports.
-
-For DS guy - Only read through the sections, each one should take at most half a day. Finish exercises only by instructor guidelines.
-
 # Guide
 
 This part of training relies on three books:
@@ -20,6 +16,6 @@ Read introduction quickly.
 
 Finish the rest of the chapters.
 
-Parts 2 - 8 take 1 day each / 0.5d (DS).
+Parts 2 - 8 take 1 day each.
 
-Part 9 takes 3 days / 0.5d (DS).
+Part 9 takes 3 days.

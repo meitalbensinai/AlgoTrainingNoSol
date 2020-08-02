@@ -11,19 +11,31 @@ Background - 7-9 days
 
 Basic - 6 days
 
-Common Grounds Algo - 12 days (Algo) / 4.5 days (DS).
-
-Common Grounds DS - 12 days
-
-Your team topics - 6 days Algo OR 8-11 days DS
+Team Specializion - Elaborated below per team (40.5d to DS)
 
 Problem Formalization - 1 day
 
-Andrew NG's NN specialization - 10 days
+NN specialization - 12d.
 
-Your team final project - 5 days
+Deep Learning AI courses 1-3 and exercise take 3d each. Pytorch tutorial and course 5 of Andrew take 1d each. Last exercise take 4d.
+
+Your team final project - 5-10 days
 
 Thats it for basic training, congrats!!!
+
+## Team Specialization
+
+### Algo
+
+### DS (40.5d)
+
+Algo common grounds - 4.5d. 
+
+Read through the sections, each one should take at most half a day. Finish exercises only by instructor guidelines.
+
+DS common grounds - 31d.
+
+DS research reports - 5d. 
 
 ## Advanced 
 
