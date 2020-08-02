@@ -11,9 +11,9 @@ Background - 7-9 days
 
 Basic - 6 days
 
-Common Grounds Algo + Research Reports - 12 days
+Common Grounds Algo - 12 days (Algo) / 6 days (DS).
 
-Common Grounds DS + Research Reports - 12 days
+Common Grounds DS - 12 days
 
 Your team topics - 6 days Algo OR 8-11 days DS
 
