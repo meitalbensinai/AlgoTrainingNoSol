@@ -47,8 +47,8 @@ Finish SNA Introduction - 2 days
 
 # Pending Changes
 
-RL problem - update.
+RL problem - update (Tomer).
 
-Logistic Regression - update.
+Multi objective - new exercise (Bloch).
 
-Algo - coding exercises (Bloch).
+Genetic algorithms - new exercise (Bloch).
