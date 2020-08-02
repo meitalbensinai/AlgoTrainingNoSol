@@ -11,7 +11,7 @@ Background - 7-9 days
 
 Basic - 6 days
 
-Common Grounds Algo - 12 days (Algo) / 6 days (DS).
+Common Grounds Algo - 12 days (Algo) / 4.5 days (DS).
 
 Common Grounds DS - 12 days
 
