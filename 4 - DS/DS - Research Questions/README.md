@@ -1,6 +1,6 @@
 # Guide
 
-Complete the research reports on all given subjects:
+Following is a list of subjects in machine learning. Complete the research reports on all given subjects, within a timeframe of a single day per report:
 
 1. Feature extraction+selection
 
