@@ -1,8 +1,9 @@
-# Chapter 9: Deep Neural Network
+# Deep Neural Network
 
 ## Theoretical part of general networks:
 
 ### Introduction to Neurons
+
 Andrew's first three courses-videos only-attached to a folder (about two days)
 (The exercises are attached to each week.)
 
