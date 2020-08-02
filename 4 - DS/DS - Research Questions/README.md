@@ -12,7 +12,7 @@ Complete the research reports on all given subjects:
 
 1. Ensemble method
 
-Each report includes the next part:
+Each report includes the next parts:
 
 KAHANA COMPLETE
 
