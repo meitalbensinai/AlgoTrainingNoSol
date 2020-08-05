@@ -24,6 +24,8 @@ Provide a graph describing the original series against your predicted value and 
 
 There is alot of material on the subject in this folder, see example for the function used in https://github.com/amyple/TimeSeriesAnalysiswithPython.
 
+Data is in https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing.
+
 ## Fourier
 
 Recommend that you go through the following series of things: (including videos for 
