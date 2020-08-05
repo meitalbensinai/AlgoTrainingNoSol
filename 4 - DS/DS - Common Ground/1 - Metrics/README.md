@@ -41,3 +41,5 @@ After analyzing your model, "Marvel-Sabres" offered an upgrade to the model: ins
 
 13.	 Repeat section 7 when you use the scikit-Learn library functions while writing a minimum code on your part.
 
+Data is in the link:
+https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing
