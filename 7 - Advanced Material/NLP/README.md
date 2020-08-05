@@ -10,7 +10,7 @@ lecture 1 pdf
 
 ## Solve (4h):
 
-CS224 - a1
+CS224 - a1 (https://drive.google.com/drive/folders/1ABPtdDIEDMUy8ehEAiqhMryWBLPFxeHf?usp=sharing)
 
 ## Read (4h): 
 
@@ -35,6 +35,8 @@ seq2seq learning
 ## Skim through exercise with solution (1h):
 
 CS224 - a3 (a lot may seems familiar from Andrew course, skip what you know well)
+
+link: https://drive.google.com/drive/folders/1ABPtdDIEDMUy8ehEAiqhMryWBLPFxeHf?usp=sharing.
 
 Total time  - 17h approx.
 
