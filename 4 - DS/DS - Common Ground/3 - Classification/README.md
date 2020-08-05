@@ -26,7 +26,7 @@ Read 151-154 in ISLR.
 
 ## Practical part:
 
-In this exercise, we will useIris DataSet  attached to this folder.
+In this exercise, we will use Iris dataset: https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing.
 
 The data is split to 3 classes: SetosaSilky,  Versicolour,Virginica..
 
