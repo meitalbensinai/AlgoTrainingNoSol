@@ -16,25 +16,41 @@ https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sha
 The Azrieli and Sons trucks company pays its drivers every month based on the amount of kilometers they traveled in that month. Each kilometer has a different tariff according to the day it was carried out (day or night), the identity of the supplier who ordered the trip and many other factors.
 
 The following information is provided by the Company:
+
 1. Taarif.csv: This file contains a tariff table for kilometers traveled, when the rate varies according to many parameters relating to the nature of the trip.
+
 The table fields are as follows:
+
 • Customer - The name of the company that ordered the trip. Each company pays different rates according to the contract signed between it and Azrieli and Sons.
+
 • Basic_taarif - The payment paid by the ordering company for each kilometer within the first 200 kilometers of each trip.
+
 • Extra_milage - The payment per kilometer after the first 200 kilometers per trip.
+
 • Night_bonus - a percentage addition to the tariff for every kilometer that takes place at night.
+
 • Weekend_bonus - a percentage addition to the tariff for each kilometer that takes place on weekends.
 
 2. Drivers_with_kviut.csv, new_drivers.csv: These files contain information about drivers in the company. The fields in the table are listed below:
+
 • Id - ID number Of the driver
+
 • Birthdate - the driver's date of birth
+
 • Gender
+
 • Vetek - seniority in the company (time the employee works at the company)
 
 3. Trips: This folder contains a file for each month and a truck. The file name will be in format <date> _ <truck_id>. Each file contains a table describing information about the truck's journey that month. The table fields are listed below:
+  
 • Driver_id - ID Of the driver on the ride
+
 • Customer - The name of the customer who ordered the trip
+
 • Start_time - A date that indicates the start time of the trip
+
 • End_time - A date that indicates the end time of the trip
+
 • Km - The number of kilometers traveled
 
 ## Mission
