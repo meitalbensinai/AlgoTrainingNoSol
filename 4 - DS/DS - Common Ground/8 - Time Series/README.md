@@ -39,8 +39,11 @@ DFT  and the other artificats  that it adds to the theoretical idea.
 Please download the presentation and do not view it in the Google Viewer:
 
 https://medium.com/sho-jp/fourier-transform-101-part-1-b69ea3cb4837
+
 https://medium.com/sho-jp/fourier-transform-101-part-2-complex-fourier-series-934a885b3921
+
 https://medium.com/sho-jp/fourier-transform-101-part-3-fourier-transform-6def0bd2ca9b
+
 https://medium.com/sho-jp/fourier-transform-101-part-4-discrete-fourier-transform-8fc3fbb763f3
 
 
