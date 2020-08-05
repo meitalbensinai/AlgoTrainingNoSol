@@ -37,3 +37,6 @@ d. What is the relation between survivors to deceased in every pclass?
 e. Present more findings with meaningful insights, as you see fit.
 
 Read about matplotlib and seaborn prior to doing this exercise.
+
+Data is in the following link:
+https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing
