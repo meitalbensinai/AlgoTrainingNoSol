@@ -7,8 +7,6 @@
 Andrew's first three courses-videos only-attached to a folder (about two days)
 (The exercises are attached to each week.)
 
-Andrew’s fourth course is intended for CV users.
-
 ### Introduction to Pytorch
 
 Go through the following tutorials:
