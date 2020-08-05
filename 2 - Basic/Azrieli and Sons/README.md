@@ -8,10 +8,10 @@ It is not for nothing that you are asked to use these capabilities in this exerc
 
 It is advisable, of course, to try to anticipate possible flaws and problems in the information as soon as possible, as late detection of problems will be more expensive to handle and will require rerun of all products developed to the discovery stage. However, it is unreasonable to expect that we will be able to detect and address all the problems we have before we preliminary analysis.
 
+Data is in the following link:
+https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing
 
-
-
-Azrieli Trucks and Sons Company
+# Azrieli Trucks and Sons Company
 
 The Azrieli and Sons trucks company pays its drivers every month based on the amount of kilometers they traveled in that month. Each kilometer has a different tariff according to the day it was carried out (day or night), the identity of the supplier who ordered the trip and many other factors.
 
@@ -37,23 +37,27 @@ The table fields are as follows:
 • End_time - A date that indicates the end time of the trip
 • Km - The number of kilometers traveled
 
-Mission
+## Mission
 
 You must generate from the data you received a table named summary.csv. The table will contain for each driver and month information about the driver and performance of the driver that month. The fields that should appear in the table are:
 
 • Driver_id - ID Of the driver
+
 • Month - the month, for example 01/2015
+
 • Total_income - total driver's salary that month
+
 • Total_km - the total number of kilometers traveled by the driver that month
+
 • Gender - the gender of the driver
+
 • Age - the driver's age in years (exactly one digit after decimal point.)
+
 • Vetek - seniority of the driver in the company in years (exactly one digit after the dot.)
+
 The calculation of the total salary of the driver should be carried out according to the tariff table.
 
-
-
-
-Highlights and comments
+## Highlights and comments
 
 1. As in any project, the raw information received from the customer may be dirty and contain many problems. Since this is an exercise in data cleaning, we have put a lot of problems into the data. So you need to be sharp, feel the information, and systematically search for possible information problems.
 
