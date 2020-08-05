@@ -4,8 +4,7 @@
 
 ### Introduction to Neurons
 
-Andrew's first three courses-videos only-attached to a folder (about two days)
-(The exercises are attached to each week.)
+Andrew's first three courses-videos: https://drive.google.com/drive/folders/1ABPtdDIEDMUy8ehEAiqhMryWBLPFxeHf?usp=sharing.
 
 ### Introduction to Pytorch
 
@@ -26,6 +25,8 @@ http://karpathy.github.io/2019/04/25/recipe/
 ### Practical part - RNN
 
 The next kaggle challenge describes measurements of 8 motion sensors (acceleration meters) of a robot moving on campus on several surfaces:  https://www.kaggle.com/c/career-con-2019
+
+Data is in https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing.
 
 The idea is that the data from sensors can help to understand the nature of the surfaces for the classification mission.
 
