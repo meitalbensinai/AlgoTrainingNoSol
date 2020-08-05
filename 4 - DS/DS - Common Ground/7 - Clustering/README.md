@@ -43,7 +43,7 @@ https://bib.dbvis.de/uploadedFiles/17.pdf
 
 ## Practical part
 
-In this exercise you will be required to  play football players in the game Fifa  according to their ranking, position, action, other general data on the player. Data is at the address  https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset#players_20.csv
+In this exercise you will be required to  play football players in the game Fifa  according to their ranking, position, action, other general data on the player. Data is at the address https://www.kaggle.com/stefanoleone992/fifa-20-complete-player-dataset#players_20.csv or our drive https://drive.google.com/drive/folders/1oKUGk5J5ocg0g5PREJF6pEQwdO00Fxd5?usp=sharing
 
 Under the name players_20.csv.
 
