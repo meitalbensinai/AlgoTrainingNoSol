@@ -38,6 +38,6 @@ CS224 - a3 (a lot may seems familiar from Andrew course, skip what you know well
 
 link: https://drive.google.com/drive/folders/1ABPtdDIEDMUy8ehEAiqhMryWBLPFxeHf?usp=sharing.
 
-Total time  - 17h approx.
+# Total time  - 17h approx.
 
 Based on http://web.stanford.edu/class/cs224n/
