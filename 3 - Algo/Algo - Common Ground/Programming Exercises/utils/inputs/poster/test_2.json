@@ -1,0 +1,7 @@
+{
+  "visible": 1,
+  "arguments": {
+    "heights": [1, 2, 3, 4]
+  },
+  "desired_output": 6
+}

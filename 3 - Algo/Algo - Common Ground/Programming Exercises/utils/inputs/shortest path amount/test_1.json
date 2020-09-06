@@ -1,0 +1,8 @@
+{
+  "visible": 1,
+  "arguments": {
+    "path": "inputs\\shortest path amount\\graphs\\graph_1.gpickle",
+    "source": 0
+  },
+  "desired_output": [1, 1, 1]
+}

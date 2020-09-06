@@ -1,0 +1,7 @@
+{
+  "visible": 1,
+  "arguments": {
+    "path": "inputs\\rotations\\graphs\\graph_3.gpickle"
+  },
+  "desired_output": 2
+}

@@ -1,0 +1,18 @@
+{
+  "articulation points": 0.35,
+  "closest pairs": 0.2,
+  "contains": 0.1,
+  "currency exchange": 2,
+  "dijkstra": 0.1,
+  "discount": 3.5,
+  "disjoint paths": 3.5,
+  "double bit switch": 0.15,
+  "knapsack": 0.1,
+  "poster": 0.2,
+  "reverse edges": 10,
+  "road lamp": 0.2,
+  "rotations": 2,
+  "shortest path amount": 4.5,
+  "sport elimination": 3.5,
+  "string chain": 0.1
+}

@@ -10,6 +10,7 @@ This part of training relies on three books:
 
 We refer to (1) as IA, (2) as ADM and (3) as AIMA.
 
+
 # Schedule
 
 Read introduction quickly.
@@ -18,4 +19,6 @@ Finish the rest of the chapters.
 
 Parts 2 - 8 take 1 day each.
 
-Part 9 takes 3 days.
+Parts 9-10 takes 3 days each.
+
+Most chapter have programming exercises to perform - the exercises files are in 'Programming Exercises'.

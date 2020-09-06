@@ -1,0 +1,7 @@
+{
+  "visible": 1,
+  "arguments": {
+    "a": [1, 2, 7, 9, 13, 18]
+  },
+  "desired_output": 4
+}

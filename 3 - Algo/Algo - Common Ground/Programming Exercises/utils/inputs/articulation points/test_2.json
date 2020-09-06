@@ -1,0 +1,7 @@
+{
+  "visible": 1,
+  "arguments": {
+    "path": "inputs\\articulation points\\graphs\\graph_2.gpickle"
+  },
+  "desired_output": [0, 0, 1, 1, 0, 1, 0, 0, 0]
+}

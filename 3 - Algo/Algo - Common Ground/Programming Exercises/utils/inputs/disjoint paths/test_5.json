@@ -1,0 +1,9 @@
+{
+  "visible": 0,
+  "arguments": {
+    "path": "inputs\\disjoint paths\\graphs\\graph_5.gpickle",
+    "source": 0,
+    "target": 9999
+  },
+  "desired_output": 12
+}

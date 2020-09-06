@@ -1,0 +1,7 @@
+{
+  "visible": 1,
+  "arguments": {
+    "lst": ["abc", "cba", "kmn", "nmk"]
+  },
+  "desired_output": 0
+}

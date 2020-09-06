@@ -1,0 +1,8 @@
+{
+  "visible": 1,
+  "arguments": {
+    "loc": [0, 20, 100],
+    "k": 12
+  },
+  "desired_output": 8
+}

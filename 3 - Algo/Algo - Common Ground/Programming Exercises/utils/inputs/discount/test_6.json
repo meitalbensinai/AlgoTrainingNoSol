@@ -1,0 +1,10 @@
+{
+  "visible": 0,
+  "arguments": {
+    "path": "inputs\\discount\\graphs\\graph_6.gpickle",
+    "source": 0,
+    "target": 9999,
+    "k": 15000
+  },
+  "desired_output": 8462
+}

@@ -1,0 +1,9 @@
+{
+  "visible": 0,
+  "arguments": {
+    "path": "inputs\\reverse edges\\graphs\\graph_9.gpickle",
+    "source": 12587,
+    "target": 21564
+  },
+  "desired_output": 4
+}

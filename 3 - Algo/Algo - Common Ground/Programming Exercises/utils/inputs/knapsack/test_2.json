@@ -1,0 +1,9 @@
+{
+  "visible": 1,
+  "arguments": {
+    "values": [1, 2, 3, 4, 5],
+    "weights": [5, 4, 3, 2, 1],
+    "capacity": 10
+  },
+  "desired_output": 14
+}

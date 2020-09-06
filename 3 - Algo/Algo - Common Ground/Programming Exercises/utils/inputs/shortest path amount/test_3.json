@@ -1,0 +1,29 @@
+{
+  "visible": 1,
+  "arguments": {
+    "path": "inputs\\shortest path amount\\graphs\\graph_3.gpickle",
+    "source": 0
+  },
+  "desired_output": [
+    1.0,
+    1.0,
+    3.0,
+    5.0,
+    3.0,
+    1.0,
+    2.0,
+    1.0,
+    2.0,
+    1.0,
+    2.0,
+    1.0,
+    2.0,
+    4.0,
+    1.0,
+    1.0,
+    2.0,
+    1.0,
+    1.0,
+    2.0
+  ]
+}

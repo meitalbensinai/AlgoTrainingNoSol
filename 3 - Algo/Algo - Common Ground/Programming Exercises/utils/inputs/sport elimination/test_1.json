@@ -1,0 +1,9 @@
+{
+  "visible": 1,
+  "arguments": {
+    "wins": [3, 3, 0],
+    "losses": [1, 1, 4],
+    "remaining_games": [[0, 2, 2], [2, 0, 2], [2, 2, 0]]
+  },
+  "desired_output": [0, 1, 2]
+}
